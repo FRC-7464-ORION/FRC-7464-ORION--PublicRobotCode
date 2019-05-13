@@ -1,0 +1,56 @@
+var classfrc_1_1_generic_h_i_d =
+[
+    [ "HIDType", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6", [
+      [ "kUnknown", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a76e9fd772d74581f54b522e651fd8fb0", null ],
+      [ "kXInputUnknown", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6ad7375e171e8c198e8f51b76698baf803", null ],
+      [ "kXInputGamepad", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6acbaaee41b5077f4869f9e14ccc69fdc6", null ],
+      [ "kXInputWheel", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a483eb8366d9579185072b09a5ae31907", null ],
+      [ "kXInputArcadeStick", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a1c1d98d616fdc184f75c34750e0be9cb", null ],
+      [ "kXInputFlightStick", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a6428e81922f00317de08e7233ccfda18", null ],
+      [ "kXInputDancePad", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a9f52f14462e04efdeed412fd5f258f47", null ],
+      [ "kXInputGuitar", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a5cadbe89262c08643d3caf1a20cd65f4", null ],
+      [ "kXInputGuitar2", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a9cfc0f32cd6887a321f68384ad2c03fe", null ],
+      [ "kXInputDrumKit", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a23f2a6d17b2d5628756315b17bc83a81", null ],
+      [ "kXInputGuitar3", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a8d0a9d7b515612261556b6a30bd6b67e", null ],
+      [ "kXInputArcadePad", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a748da367ffe8ba75be635ded37ef5422", null ],
+      [ "kHIDJoystick", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a289d13b6a238fcf8ce2ee6b0d58c7a72", null ],
+      [ "kHIDGamepad", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a3740146269f4a8fa388c1bee735c2c29", null ],
+      [ "kHIDDriving", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6aa7a2b43b7d63a93fdb50bde90712710f", null ],
+      [ "kHIDFlight", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a8bfc6afc5ad17b95ed129bdd4a257e6f", null ],
+      [ "kHID1stPerson", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a4d67f828195939cb43ef1e7ba83ad716", null ]
+    ] ],
+    [ "JoystickHand", "classfrc_1_1_generic_h_i_d.html#a328438a24329d5577fbbc03f667981d0", [
+      [ "kLeftHand", "classfrc_1_1_generic_h_i_d.html#a328438a24329d5577fbbc03f667981d0a44b02c2577c6f80e5511a759f6cbd92c", null ],
+      [ "kRightHand", "classfrc_1_1_generic_h_i_d.html#a328438a24329d5577fbbc03f667981d0ae1f61fc9c03ebbee47d692b49f24289b", null ]
+    ] ],
+    [ "RumbleType", "classfrc_1_1_generic_h_i_d.html#a5517fc779168c17f938be2e875976c66", [
+      [ "kLeftRumble", "classfrc_1_1_generic_h_i_d.html#a5517fc779168c17f938be2e875976c66a9ec47ccba29b7f56ee3f37b1cfce7439", null ],
+      [ "kRightRumble", "classfrc_1_1_generic_h_i_d.html#a5517fc779168c17f938be2e875976c66ac65d4f8c303600df135e7b2075410069", null ]
+    ] ],
+    [ "GenericHID", "classfrc_1_1_generic_h_i_d.html#afa512ccb228aa251e77847461c2a6a64", null ],
+    [ "~GenericHID", "classfrc_1_1_generic_h_i_d.html#a198bc47fac8e662a5f7a9b018dc9154e", null ],
+    [ "GenericHID", "classfrc_1_1_generic_h_i_d.html#a8da5ec717899a25e7689d222a42a492d", null ],
+    [ "GetAxisCount", "classfrc_1_1_generic_h_i_d.html#a8de1c799a5d397445710b13d0acdaa9b", null ],
+    [ "GetAxisType", "classfrc_1_1_generic_h_i_d.html#ae26f74821cbf7ac036330f85c230c803", null ],
+    [ "GetButtonCount", "classfrc_1_1_generic_h_i_d.html#a5e929c9b0fe75b39355bf91a906188a7", null ],
+    [ "GetName", "classfrc_1_1_generic_h_i_d.html#a7a84e6d598c673a9fe42d2666a673a20", null ],
+    [ "GetPort", "classfrc_1_1_generic_h_i_d.html#a7d67115b222c9afe0df4a9aa526803cf", null ],
+    [ "GetPOV", "classfrc_1_1_generic_h_i_d.html#a56030e3dbd0ea13e96497dcef84fe387", null ],
+    [ "GetPOVCount", "classfrc_1_1_generic_h_i_d.html#a3c417ffbb78ee46f99763a06e013b287", null ],
+    [ "GetRawAxis", "classfrc_1_1_generic_h_i_d.html#a35a124dd74ac85578a33c2e6d700c578", null ],
+    [ "GetRawButton", "classfrc_1_1_generic_h_i_d.html#a3aabe89ac1a897b5136798aa4a1c3687", null ],
+    [ "GetRawButtonPressed", "classfrc_1_1_generic_h_i_d.html#a1d91cd430d94b1070eae76e56d514687", null ],
+    [ "GetRawButtonReleased", "classfrc_1_1_generic_h_i_d.html#a0bdb6f6c332e505b5dd3ec15e7d6a1f3", null ],
+    [ "GetType", "classfrc_1_1_generic_h_i_d.html#a1efdd8242c2b68fc894ddc9be31a8c60", null ],
+    [ "GetX", "classfrc_1_1_generic_h_i_d.html#a3cb034f1110d17c645fe2aa96710b953", null ],
+    [ "GetY", "classfrc_1_1_generic_h_i_d.html#a8d17a27c893edc536d90aa695d75826f", null ],
+    [ "operator=", "classfrc_1_1_generic_h_i_d.html#afab7c1fcd65064cb2680f02e61ac1e17", null ],
+    [ "SetOutput", "classfrc_1_1_generic_h_i_d.html#a156edfc1ad3b299efd7f5e9e938c79a2", null ],
+    [ "SetOutputs", "classfrc_1_1_generic_h_i_d.html#afa493541a773a9fe47f878ddb34c716a", null ],
+    [ "SetRumble", "classfrc_1_1_generic_h_i_d.html#a3fabfea46269fe1a9f7db838396f5b35", null ],
+    [ "m_ds", "classfrc_1_1_generic_h_i_d.html#a71da167eef000e45d790a6e73c8a3cd3", null ],
+    [ "m_leftRumble", "classfrc_1_1_generic_h_i_d.html#afbb748e82f85f17c304de47609c2416f", null ],
+    [ "m_outputs", "classfrc_1_1_generic_h_i_d.html#ac095ec7fb347030375aff90e541696e6", null ],
+    [ "m_port", "classfrc_1_1_generic_h_i_d.html#ab5c5d95b2e662f69bf79a90621cb963d", null ],
+    [ "m_rightRumble", "classfrc_1_1_generic_h_i_d.html#ac94ba8d9d50006010e4820155b6f5972", null ]
+];
