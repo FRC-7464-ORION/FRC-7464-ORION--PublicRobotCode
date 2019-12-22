@@ -42,7 +42,6 @@ var searchData=
   ['speedcontrollergrouptest',['SpeedControllerGroupTest',['../class_speed_controller_group_test.html',1,'']]],
   ['spi',['SPI',['../classfrc_1_1_s_p_i.html',1,'frc']]],
   ['startcommand',['StartCommand',['../classfrc_1_1_start_command.html',1,'frc']]],
-  ['subsyscapthook',['SubSysCaptHook',['../class_sub_sys_capt_hook.html',1,'']]],
   ['subsysdrivetrain',['SubSysDriveTrain',['../class_sub_sys_drive_train.html',1,'']]],
   ['subsystem',['Subsystem',['../classfrc_1_1_subsystem.html',1,'frc']]]
 ];

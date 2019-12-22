@@ -1,15 +1,8 @@
 var _robot_constants_8h =
 [
-    [ "CAPT_HOOK_DEBUG", "_robot_constants_8h.html#a5cbc21cf131325d37b730455072cc83d", null ],
     [ "ORION_DEBUG", "_robot_constants_8h.html#a5668a219e098b9b4994b265fdaa4875d", null ],
     [ "TELEMETRY_DEBUG", "_robot_constants_8h.html#a8b79d48b6cabc261f17b4933e379d5ad", null ],
-    [ "USE_PID_CAPT_HOOK", "_robot_constants_8h.html#a237d5c1b73e3d6f9cf88f82a7078ebfd", null ],
-    [ "USE_TIPPY_TOES", "_robot_constants_8h.html#a247080415f83ac0cd11e47069ff7c6af", null ],
     [ "k_Camera0Name", "_robot_constants_8h.html#aa0915a5c091f53425fecfffb00429b62", null ],
-    [ "k_CaptHookAbsNullZone", "_robot_constants_8h.html#aef4e3cf1f51889517c063c57c6bb0668", null ],
-    [ "k_CaptHookAbsValMaxSpeed", "_robot_constants_8h.html#a7173db67dd8348f28d48b78deadac725", null ],
-    [ "k_CaptHookExponent", "_robot_constants_8h.html#a71576335b153caf56b5eb8314534f90a", null ],
-    [ "k_CaptHookSafetyTimeout", "_robot_constants_8h.html#af69bb43e0ada4bc26a47f3890087961b", null ],
     [ "k_CodeVersionMessage", "_robot_constants_8h.html#a70116a1bb00faa798daca03587aa9e44", null ],
     [ "k_CodeVersionMessageEnd", "_robot_constants_8h.html#a213f3c675120162b193f6727bcec6543", null ],
     [ "k_DriveTrain_IIR_DLPF_d", "_robot_constants_8h.html#abde933d304f42c603aa922c98c158240", null ],

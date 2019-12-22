@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['cmdclimbbackward_2ecpp',['CmdClimbBackward.cpp',['../_cmd_climb_backward_8cpp.html',1,'']]],
-  ['cmdclimbbackward_2eh',['CmdClimbBackward.h',['../_cmd_climb_backward_8h.html',1,'']]],
-  ['cmdclimbforward_2ecpp',['CmdClimbForward.cpp',['../_cmd_climb_forward_8cpp.html',1,'']]],
-  ['cmdclimbforward_2eh',['CmdClimbForward.h',['../_cmd_climb_forward_8h.html',1,'']]],
   ['cmddisableturbomode_2ecpp',['CmdDisableTurboMode.cpp',['../_cmd_disable_turbo_mode_8cpp.html',1,'']]],
   ['cmddisableturbomode_2eh',['CmdDisableTurboMode.h',['../_cmd_disable_turbo_mode_8h.html',1,'']]],
   ['cmddrivearcadestyle_2ecpp',['CmdDriveArcadeStyle.cpp',['../_cmd_drive_arcade_style_8cpp.html',1,'']]],
@@ -12,10 +8,6 @@ var searchData=
   ['cmddrivetankstyle_2eh',['CmdDriveTankStyle.h',['../_cmd_drive_tank_style_8h.html',1,'']]],
   ['cmdenableturbomode_2ecpp',['CmdEnableTurboMode.cpp',['../_cmd_enable_turbo_mode_8cpp.html',1,'']]],
   ['cmdenableturbomode_2eh',['CmdEnableTurboMode.h',['../_cmd_enable_turbo_mode_8h.html',1,'']]],
-  ['cmdgrabhatchpanel_2ecpp',['CmdGrabHatchPanel.cpp',['../_cmd_grab_hatch_panel_8cpp.html',1,'']]],
-  ['cmdgrabhatchpanel_2eh',['CmdGrabHatchPanel.h',['../_cmd_grab_hatch_panel_8h.html',1,'']]],
-  ['cmdreleasehatchpanel_2ecpp',['CmdReleaseHatchPanel.cpp',['../_cmd_release_hatch_panel_8cpp.html',1,'']]],
-  ['cmdreleasehatchpanel_2eh',['CmdReleaseHatchPanel.h',['../_cmd_release_hatch_panel_8h.html',1,'']]],
   ['cmdtogglesmoothingmode_2ecpp',['CmdToggleSmoothingMode.cpp',['../_cmd_toggle_smoothing_mode_8cpp.html',1,'']]],
   ['cmdtogglesmoothingmode_2eh',['CmdToggleSmoothingMode.h',['../_cmd_toggle_smoothing_mode_8h.html',1,'']]]
 ];

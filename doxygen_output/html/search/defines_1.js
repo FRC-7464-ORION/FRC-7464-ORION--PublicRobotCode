@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orion_5fdebug',['ORION_DEBUG',['../_robot_constants_8h.html#a5668a219e098b9b4994b265fdaa4875d',1,'RobotConstants.h']]]
+  ['telemetry_5fdebug',['TELEMETRY_DEBUG',['../_robot_constants_8h.html#a8b79d48b6cabc261f17b4933e379d5ad',1,'RobotConstants.h']]]
 ];

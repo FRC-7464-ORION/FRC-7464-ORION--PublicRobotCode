@@ -7,7 +7,6 @@ var _smart_dashboard_keys_8h =
     [ "k_BatteryStatusSD_Key", "_smart_dashboard_keys_8h.html#a5412ca98f9a28a9129dc8ccef8e6cf45", null ],
     [ "k_BatteryVoltageSD_Key", "_smart_dashboard_keys_8h.html#ac4239e2e3a4ebd9fe7efe5851d3498e2", null ],
     [ "k_BatteryVoltageStatusSD_Key", "_smart_dashboard_keys_8h.html#acce7a12c6e191042f6669abe572803a5", null ],
-    [ "k_CaptHookMotorSD_Key", "_smart_dashboard_keys_8h.html#af2099d0234f74682465495aefc24c43f", null ],
     [ "k_DriveTrainMode_Key", "_smart_dashboard_keys_8h.html#a71e9b80580541673a662bfac7b1c94a2", null ],
     [ "k_DriveTrainMotorsSD_Key", "_smart_dashboard_keys_8h.html#a3975d7af799b8b5098c0a235f6fab287", null ],
     [ "k_DriveTrainSmoothingStatus_Key", "_smart_dashboard_keys_8h.html#afa1a31bb54a56dbec9e34a17db97cc06", null ],

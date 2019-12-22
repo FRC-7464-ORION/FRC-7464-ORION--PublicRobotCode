@@ -5,6 +5,5 @@ var searchData=
   ['mecanumdrive',['MecanumDrive',['../classfrc_1_1_mecanum_drive.html#a3dfcd498da8f7bd399bd348faeeaa07b',1,'frc::MecanumDrive']]],
   ['mecanumdrive_5fcartesian',['MecanumDrive_Cartesian',['../classfrc_1_1_robot_drive.html#a0cf4bd0769d9c69ba1cef88d6ffbc46e',1,'frc::RobotDrive']]],
   ['mecanumdrive_5fpolar',['MecanumDrive_Polar',['../classfrc_1_1_robot_drive.html#a9fd77e5d89a6de8f7c5076936cdfad0c',1,'frc::RobotDrive']]],
-  ['movehatchpanel',['MoveHatchPanel',['../class_sub_sys_capt_hook.html#a3704f08b6b7f6bf2df6b6aa19f364cbb',1,'SubSysCaptHook']]],
   ['movingaverage',['MovingAverage',['../classfrc_1_1_linear_digital_filter.html#a574686accac2bf07a7b82b7f1d789326',1,'frc::LinearDigitalFilter::MovingAverage(PIDSource &amp;source, int taps)'],['../classfrc_1_1_linear_digital_filter.html#ad3519e20eff5508389370cf457a66818',1,'frc::LinearDigitalFilter::MovingAverage(std::shared_ptr&lt; PIDSource &gt; source, int taps)']]]
 ];

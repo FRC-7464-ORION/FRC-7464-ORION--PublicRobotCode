@@ -51,8 +51,6 @@ var hierarchy =
         [ "CmdDriveArcadeStyle", "class_cmd_drive_arcade_style.html", null ],
         [ "CmdDriveTankStyle", "class_cmd_drive_tank_style.html", null ],
         [ "CmdEnableTurboMode", "class_cmd_enable_turbo_mode.html", null ],
-        [ "CmdGrabHatchPanel", "class_cmd_grab_hatch_panel.html", null ],
-        [ "CmdReleaseHatchPanel", "class_cmd_release_hatch_panel.html", null ],
         [ "CmdToggleSmoothingMode", "class_cmd_toggle_smoothing_mode.html", null ],
         [ "frc::CommandGroup", "classfrc_1_1_command_group.html", null ],
         [ "frc::ConditionalCommand", "classfrc_1_1_conditional_command.html", null ],
@@ -132,7 +130,6 @@ var hierarchy =
       [ "frc::SPI", "classfrc_1_1_s_p_i.html", null ],
       [ "frc::Subsystem", "classfrc_1_1_subsystem.html", [
         [ "frc::PIDSubsystem", "classfrc_1_1_p_i_d_subsystem.html", null ],
-        [ "SubSysCaptHook", "class_sub_sys_capt_hook.html", null ],
         [ "SubSysDriveTrain", "class_sub_sys_drive_train.html", null ]
       ] ],
       [ "frc::TimedRobot", "classfrc_1_1_timed_robot.html", [
@@ -143,9 +140,9 @@ var hierarchy =
     [ "frc::Gyro", "classfrc_1_1_gyro.html", [
       [ "frc::GyroBase", "classfrc_1_1_gyro_base.html", null ]
     ] ],
-    [ "frc::detail::ShuffleboardInstance::Impl", "struct_shuffleboard_instance_1_1_impl.html", null ],
     [ "frc::Scheduler::Impl", "struct_scheduler_1_1_impl.html", null ],
     [ "frc::LiveWindow::Impl", "struct_live_window_1_1_impl.html", null ],
+    [ "frc::detail::ShuffleboardInstance::Impl", "struct_shuffleboard_instance_1_1_impl.html", null ],
     [ "frc::LayoutType", "classfrc_1_1_layout_type.html", null ],
     [ "frc::LiveWindow", "classfrc_1_1_live_window.html", null ],
     [ "frc::MatchDataSender", "classfrc_1_1_match_data_sender.html", null ],

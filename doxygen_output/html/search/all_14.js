@@ -7,7 +7,5 @@ var searchData=
   ['updatedutycycle',['UpdateDutyCycle',['../classfrc_1_1_digital_output.html#a4d9b1487a992b49d708047c4fcf0c3f6',1,'frc::DigitalOutput']]],
   ['updatetable',['UpdateTable',['../classfrc_1_1_live_window_sendable.html#afea6a237e353d240adbd16fcef5f2a84',1,'frc::LiveWindowSendable::UpdateTable()'],['../classfrc_1_1_sendable_builder_impl.html#aa4c8f79f78c38449176fc4877c38c67c',1,'frc::SendableBuilderImpl::UpdateTable()']]],
   ['updatevalues',['UpdateValues',['../classfrc_1_1_live_window.html#aa81af484d8bef6275632b9cd8f599c0d',1,'frc::LiveWindow::UpdateValues()'],['../classfrc_1_1_smart_dashboard.html#abeff1edb83ea9bee750e5bdb071bd734',1,'frc::SmartDashboard::UpdateValues()']]],
-  ['updatevaluesunsafe',['UpdateValuesUnsafe',['../classfrc_1_1_live_window.html#a8ed99cd7c6e3a54c5f0e0cf99b6d2869',1,'frc::LiveWindow']]],
-  ['use_5fpid_5fcapt_5fhook',['USE_PID_CAPT_HOOK',['../_robot_constants_8h.html#a237d5c1b73e3d6f9cf88f82a7078ebfd',1,'RobotConstants.h']]],
-  ['use_5ftippy_5ftoes',['USE_TIPPY_TOES',['../_robot_constants_8h.html#a247080415f83ac0cd11e47069ff7c6af',1,'RobotConstants.h']]]
+  ['updatevaluesunsafe',['UpdateValuesUnsafe',['../classfrc_1_1_live_window.html#a8ed99cd7c6e3a54c5f0e0cf99b6d2869',1,'frc::LiveWindow']]]
 ];

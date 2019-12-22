@@ -167,7 +167,6 @@ var searchData=
   ['stopmotor',['StopMotor',['../classfrc_1_1_speed_controller.html#aa339a5be84fccf629148933676da9fff',1,'frc::SpeedController::StopMotor()'],['../classfrc_1_1_speed_controller_group.html#a8cc435f96966fb85d85ebb58daed6e68',1,'frc::SpeedControllerGroup::StopMotor()'],['../classfrc_1_1_mock_speed_controller.html#ab4eecbda7f68bf575bd3451439abf1b8',1,'frc::MockSpeedController::StopMotor()']]],
   ['stoppacketrepeating',['StopPacketRepeating',['../classfrc_1_1_c_a_n.html#a8799e67c17fa0429b3174b270edbcb60',1,'frc::CAN']]],
   ['stoprecording',['StopRecording',['../classfrc_1_1_shuffleboard.html#ad6adf406dab8782887305d9606495a68',1,'frc::Shuffleboard']]],
-  ['subsyscapthook',['SubSysCaptHook',['../class_sub_sys_capt_hook.html#a64ce507c45006f60eca9e6960f7f78c6',1,'SubSysCaptHook']]],
   ['subsysdrivetrain',['SubSysDriveTrain',['../class_sub_sys_drive_train.html#a4220222eb5ea05df8128f1941744413a',1,'SubSysDriveTrain']]],
   ['subsystem',['Subsystem',['../classfrc_1_1_subsystem.html#a321133aa094d3e2ae18ec1c32225d454',1,'frc::Subsystem']]],
   ['suppresstimeoutmessage',['SuppressTimeoutMessage',['../classfrc_1_1_watchdog.html#aa77273a5cc5d81c4efd24bafdd0fa0d7',1,'frc::Watchdog']]]

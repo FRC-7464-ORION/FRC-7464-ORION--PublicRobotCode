@@ -201,14 +201,9 @@ var searchData=
   ['stopmotor',['StopMotor',['../classfrc_1_1_speed_controller.html#aa339a5be84fccf629148933676da9fff',1,'frc::SpeedController::StopMotor()'],['../classfrc_1_1_speed_controller_group.html#a8cc435f96966fb85d85ebb58daed6e68',1,'frc::SpeedControllerGroup::StopMotor()'],['../classfrc_1_1_mock_speed_controller.html#ab4eecbda7f68bf575bd3451439abf1b8',1,'frc::MockSpeedController::StopMotor()']]],
   ['stoppacketrepeating',['StopPacketRepeating',['../classfrc_1_1_c_a_n.html#a8799e67c17fa0429b3174b270edbcb60',1,'frc::CAN']]],
   ['stoprecording',['StopRecording',['../classfrc_1_1_shuffleboard.html#ad6adf406dab8782887305d9606495a68',1,'frc::Shuffleboard']]],
-  ['subsyscapthook',['SubSysCaptHook',['../class_sub_sys_capt_hook.html',1,'SubSysCaptHook'],['../class_sub_sys_capt_hook.html#a64ce507c45006f60eca9e6960f7f78c6',1,'SubSysCaptHook::SubSysCaptHook()']]],
-  ['subsyscapthook_2ecpp',['SubSysCaptHook.cpp',['../_sub_sys_capt_hook_8cpp.html',1,'']]],
-  ['subsyscapthook_2eh',['SubSysCaptHook.h',['../_sub_sys_capt_hook_8h.html',1,'']]],
   ['subsysdrivetrain',['SubSysDriveTrain',['../class_sub_sys_drive_train.html',1,'SubSysDriveTrain'],['../class_sub_sys_drive_train.html#a4220222eb5ea05df8128f1941744413a',1,'SubSysDriveTrain::SubSysDriveTrain()']]],
   ['subsysdrivetrain_2ecpp',['SubSysDriveTrain.cpp',['../_sub_sys_drive_train_8cpp.html',1,'']]],
   ['subsysdrivetrain_2eh',['SubSysDriveTrain.h',['../_sub_sys_drive_train_8h.html',1,'']]],
   ['subsystem',['Subsystem',['../classfrc_1_1_subsystem.html',1,'frc::Subsystem'],['../classfrc_1_1_subsystem.html#a321133aa094d3e2ae18ec1c32225d454',1,'frc::Subsystem::Subsystem()']]],
-  ['subsystippytoes_2ecpp',['SubSysTippyToes.cpp',['../_sub_sys_tippy_toes_8cpp.html',1,'']]],
-  ['subsystippytoes_2eh',['SubSysTippyToes.h',['../_sub_sys_tippy_toes_8h.html',1,'']]],
   ['suppresstimeoutmessage',['SuppressTimeoutMessage',['../classfrc_1_1_watchdog.html#aa77273a5cc5d81c4efd24bafdd0fa0d7',1,'frc::Watchdog']]]
 ];

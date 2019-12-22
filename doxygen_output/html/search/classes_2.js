@@ -10,8 +10,6 @@ var searchData=
   ['cmddrivearcadestyle',['CmdDriveArcadeStyle',['../class_cmd_drive_arcade_style.html',1,'']]],
   ['cmddrivetankstyle',['CmdDriveTankStyle',['../class_cmd_drive_tank_style.html',1,'']]],
   ['cmdenableturbomode',['CmdEnableTurboMode',['../class_cmd_enable_turbo_mode.html',1,'']]],
-  ['cmdgrabhatchpanel',['CmdGrabHatchPanel',['../class_cmd_grab_hatch_panel.html',1,'']]],
-  ['cmdreleasehatchpanel',['CmdReleaseHatchPanel',['../class_cmd_release_hatch_panel.html',1,'']]],
   ['cmdtogglesmoothingmode',['CmdToggleSmoothingMode',['../class_cmd_toggle_smoothing_mode.html',1,'']]],
   ['command',['Command',['../classfrc_1_1_command.html',1,'frc']]],
   ['commandgroup',['CommandGroup',['../classfrc_1_1_command_group.html',1,'frc']]],
