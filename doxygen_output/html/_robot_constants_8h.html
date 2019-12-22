@@ -31,9 +31,9 @@
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RobotCode/WPILibC(v2019.4.1)
-   &#160;<span id="projectnumber">v2019.1.0.03B1</span>
+   &#160;<span id="projectnumber">v2019PostSeason.1.2.36</span>
    </div>
-   <div id="projectbrief">FRC 2019 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">Public FRC 2019 Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -106,6 +106,8 @@ $(document).ready(function(){initNavTree('_robot_constants_8h.html','');});
 Macros</h2></td></tr>
 <tr class="memitem:a237d5c1b73e3d6f9cf88f82a7078ebfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a237d5c1b73e3d6f9cf88f82a7078ebfd">USE_PID_CAPT_HOOK</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a237d5c1b73e3d6f9cf88f82a7078ebfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247080415f83ac0cd11e47069ff7c6af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a247080415f83ac0cd11e47069ff7c6af">USE_TIPPY_TOES</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a247080415f83ac0cd11e47069ff7c6af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5668a219e098b9b4994b265fdaa4875d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a5668a219e098b9b4994b265fdaa4875d">ORION_DEBUG</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a5668a219e098b9b4994b265fdaa4875d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b79d48b6cabc261f17b4933e379d5ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a8b79d48b6cabc261f17b4933e379d5ad">TELEMETRY_DEBUG</a>&#160;&#160;&#160;0</td></tr>
@@ -115,7 +117,7 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a99c90e01c8a52b33e11d6333252dfa85"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a99c90e01c8a52b33e11d6333252dfa85">k_SW_VersionNumber</a> = &quot;v2019.1.0.03B1&quot;</td></tr>
+<tr class="memitem:a99c90e01c8a52b33e11d6333252dfa85"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a99c90e01c8a52b33e11d6333252dfa85">k_SW_VersionNumber</a> = &quot;v2019OffSeason.1.2.36&quot;</td></tr>
 <tr class="separator:a99c90e01c8a52b33e11d6333252dfa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace5373ba7541286b299ac41542c709f4"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#ace5373ba7541286b299ac41542c709f4">k_RobotName</a> = &quot;Sirius&quot;</td></tr>
 <tr class="separator:ace5373ba7541286b299ac41542c709f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,12 +137,24 @@ Variables</h2></td></tr>
 <tr class="separator:a5ae1ea783532863429d046a32e71253e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae952a36dc435141f71256c0f629ed320"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#ae952a36dc435141f71256c0f629ed320">k_DriveTrainTankModeString</a> = &quot; TANK &quot;</td></tr>
 <tr class="separator:ae952a36dc435141f71256c0f629ed320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae4bb6f711174d022d2d7e2e243267b5"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#aae4bb6f711174d022d2d7e2e243267b5">k_DriveTrainTurboModeOnString</a> = &quot; ON &quot;</td></tr>
+<tr class="separator:aae4bb6f711174d022d2d7e2e243267b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0904bf2a5dc5d604d19fcb2d06a1104"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#ae0904bf2a5dc5d604d19fcb2d06a1104">k_DriveTrainTurboModeOffString</a> = &quot;OFF &quot;</td></tr>
+<tr class="separator:ae0904bf2a5dc5d604d19fcb2d06a1104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73630aab86eae0bddd68ea4fab669405"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a73630aab86eae0bddd68ea4fab669405">k_DriveTrainSmoothingModeOnString</a> = &quot; ON &quot;</td></tr>
+<tr class="separator:a73630aab86eae0bddd68ea4fab669405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ffcba1487051a84fdf9b6eb54575a4"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#ac0ffcba1487051a84fdf9b6eb54575a4">k_DriveTrainSmoothingModeOffString</a> = &quot;OFF &quot;</td></tr>
+<tr class="separator:ac0ffcba1487051a84fdf9b6eb54575a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a362cb98847179997b6a2ed11e874a5b8"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a362cb98847179997b6a2ed11e874a5b8">k_DriveTrainAbsNullZone</a> = 0.05</td></tr>
 <tr class="separator:a362cb98847179997b6a2ed11e874a5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7e4a142d30f69744aaa169af34b35ef"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#ac7e4a142d30f69744aaa169af34b35ef">k_DriveTrainAbsValMaxSpeed</a> = 0.70</td></tr>
-<tr class="separator:ac7e4a142d30f69744aaa169af34b35ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8304620af5207481c675b5db73e3d82e"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a8304620af5207481c675b5db73e3d82e">k_DriveTrainAbsValMaxSpeedNoTurbo</a> = 0.60</td></tr>
+<tr class="separator:a8304620af5207481c675b5db73e3d82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eb06255f0a631f7b30068c227ff0ce3"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a6eb06255f0a631f7b30068c227ff0ce3">k_DriveTrainAbsValMaxSpeedTurboOn</a> = 1.00</td></tr>
+<tr class="separator:a6eb06255f0a631f7b30068c227ff0ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2260e25df9bebfc87c499e01b6e85a32"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a2260e25df9bebfc87c499e01b6e85a32">k_DriveTrainExponent</a> = 2.25</td></tr>
 <tr class="separator:a2260e25df9bebfc87c499e01b6e85a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abde933d304f42c603aa922c98c158240"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#abde933d304f42c603aa922c98c158240">k_DriveTrain_IIR_DLPF_d</a> = 0.25</td></tr>
+<tr class="separator:abde933d304f42c603aa922c98c158240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef4e3cf1f51889517c063c57c6bb0668"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#aef4e3cf1f51889517c063c57c6bb0668">k_CaptHookAbsNullZone</a> = 0.05</td></tr>
 <tr class="separator:aef4e3cf1f51889517c063c57c6bb0668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7173db67dd8348f28d48b78deadac725"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_constants_8h.html#a7173db67dd8348f28d48b78deadac725">k_CaptHookAbsValMaxSpeed</a> = 0.40</td></tr>
@@ -170,7 +184,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Define CAPT_HOOK_DEBUG to 0 (debug off), or 1 (debug on) </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00111">111</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00152">152</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +201,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Define ORION_DEBUG to 0 (debug off), or 1 (debug on) </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00079">79</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00112">112</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -204,7 +218,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Define TELEMETRY_DEBUG to 0 (debug off), or 1 (debug on) </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00095">95</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00132">132</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +235,24 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Define USE_PID_CAPT_HOOK to 0 (manual control), or 1 (using a PID controller and hooked up potentiometer) </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00061">61</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00065">65</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+
+</div>
+</div>
+<a id="a247080415f83ac0cd11e47069ff7c6af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247080415f83ac0cd11e47069ff7c6af">&#9670;&nbsp;</a></span>USE_TIPPY_TOES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USE_TIPPY_TOES&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Define USE_TIPPY_TOES to 0 (Tippy Toes not installed or used), or 1 (we have an installed, working, Tippy Toes climber) </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00090">90</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -239,7 +270,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The name of the Microsoft Camera </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00041">41</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00042">42</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +287,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The null zone range on the controller for Capt. Hook </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00205">205</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00336">336</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -273,7 +304,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The absolute value of the maximum speed allowed to Capt. Hook </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00207">207</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00338">338</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +321,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The exponent used on the joystick to motor curve for Capt. Hook </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00209">209</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00340">340</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +338,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The Capt. Hook safety timout, in seconds </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00120">120</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00170">170</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -324,7 +355,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The code version message </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00034">34</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00035">35</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -341,7 +372,24 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The code version message ending </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00036">36</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00037">37</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+
+</div>
+</div>
+<a id="abde933d304f42c603aa922c98c158240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abde933d304f42c603aa922c98c158240">&#9670;&nbsp;</a></span>k_DriveTrain_IIR_DLPF_d</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double k_DriveTrain_IIR_DLPF_d = 0.25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The decay value d of the IIR DLPF </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00312">312</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -358,24 +406,41 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The null zone range on the controller for the drive train </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00194">194</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00302">302</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
-<a id="ac7e4a142d30f69744aaa169af34b35ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7e4a142d30f69744aaa169af34b35ef">&#9670;&nbsp;</a></span>k_DriveTrainAbsValMaxSpeed</h2>
+<a id="a8304620af5207481c675b5db73e3d82e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8304620af5207481c675b5db73e3d82e">&#9670;&nbsp;</a></span>k_DriveTrainAbsValMaxSpeedNoTurbo</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double k_DriveTrainAbsValMaxSpeed = 0.70</td>
+          <td class="memname">constexpr double k_DriveTrainAbsValMaxSpeedNoTurbo = 0.60</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The absolute value of the maximum speed allowed to the drive train </p>
+<p>The absolute value of the maximum speed allowed to the drive train, in non-turbo mode </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00196">196</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00305">305</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+
+</div>
+</div>
+<a id="a6eb06255f0a631f7b30068c227ff0ce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eb06255f0a631f7b30068c227ff0ce3">&#9670;&nbsp;</a></span>k_DriveTrainAbsValMaxSpeedTurboOn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double k_DriveTrainAbsValMaxSpeedTurboOn = 1.00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The absolute value of the maximum speed allowed to the drive train, in turbo mode </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00308">308</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -392,7 +457,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>A constant string to hold the text for arcade mode </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00143">143</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00193">193</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -409,7 +474,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The exponent used on the joystick to motor curve </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00198">198</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00310">310</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -426,7 +491,41 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The drive train safety timout, in seconds </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00118">118</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00159">159</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+
+</div>
+</div>
+<a id="ac0ffcba1487051a84fdf9b6eb54575a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ffcba1487051a84fdf9b6eb54575a4">&#9670;&nbsp;</a></span>k_DriveTrainSmoothingModeOffString</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string k_DriveTrainSmoothingModeOffString = &quot;OFF &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A constant string to hold the text for smoothing mode off </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00208">208</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+
+</div>
+</div>
+<a id="a73630aab86eae0bddd68ea4fab669405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73630aab86eae0bddd68ea4fab669405">&#9670;&nbsp;</a></span>k_DriveTrainSmoothingModeOnString</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string k_DriveTrainSmoothingModeOnString = &quot; ON &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A constant string to hold the text for smoothing mode on </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00205">205</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -443,7 +542,41 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>A constant string to hold the text for tank mode </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00146">146</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00196">196</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+
+</div>
+</div>
+<a id="ae0904bf2a5dc5d604d19fcb2d06a1104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0904bf2a5dc5d604d19fcb2d06a1104">&#9670;&nbsp;</a></span>k_DriveTrainTurboModeOffString</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string k_DriveTrainTurboModeOffString = &quot;OFF &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A constant string to hold the text for turbo mode off </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00202">202</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+
+</div>
+</div>
+<a id="aae4bb6f711174d022d2d7e2e243267b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae4bb6f711174d022d2d7e2e243267b5">&#9670;&nbsp;</a></span>k_DriveTrainTurboModeOnString</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string k_DriveTrainTurboModeOnString = &quot; ON &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A constant string to hold the text for turbo mode on </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00199">199</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -460,7 +593,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The speed to stop motors </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00138">138</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00188">188</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -477,7 +610,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The name of the robot </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00032">32</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00033">33</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>
@@ -488,13 +621,13 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string k_SW_VersionNumber = &quot;v2019.1.0.03B1&quot;</td>
+          <td class="memname">const std::string k_SW_VersionNumber = &quot;v2019OffSeason.1.2.36&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>The version of the software </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00030">30</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_constants_8h_source.html#l00031">31</a> of file <a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>.</p>
 
 </div>
 </div>

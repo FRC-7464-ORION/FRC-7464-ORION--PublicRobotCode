@@ -157,15 +157,6 @@ gradle-app.setting
 .classpath
 .project
 .settings/
-bin/
-
+#bin/
 
 # End of https://www.gitignore.io/api/c++,java,linux,macos,gradle,windows,visualstudiocode
-
-# Created by FRC-7464-ORION
-
-# # GitHub Settings
-.github
-.github/*
-
-# Endof FRC-7464-ORION

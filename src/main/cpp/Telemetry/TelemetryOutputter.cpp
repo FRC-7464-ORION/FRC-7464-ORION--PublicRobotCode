@@ -138,7 +138,7 @@ bool TelemetryOutputter::GetIfWithinRange(double MeasuredValue,
     // Indicate the status is bad
     status = false;
 
-  // Return the status of the battery voltage
+  // Return the status of if the measured value is within range or not
   return status;
 
 } // end TelemetryOutputter::GetIfWithinRange(double, double, double)

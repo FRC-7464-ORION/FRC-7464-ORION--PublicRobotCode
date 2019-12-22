@@ -59,6 +59,14 @@
 // Define the Robot's static member variable m_subSysDriveTrain
 std::shared_ptr<SubSysDriveTrain> Robot::m_subSysDriveTrain;
 
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+// Define the Robot's static member variable m_subSysTippyToes
+std::shared_ptr<SubSysTippyToes> Robot::m_subSysTippyToes;
+
+#endif // #if USE_TIPPY_TOES
+
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
 
@@ -107,6 +115,21 @@ void Robot::RobotInit() {
     wpi::outs().flush();
   }
 #endif // #if ORION_DEBUG
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+  // Reset the newly created SubSysTippyToes
+  m_subSysTippyToes.reset(new SubSysTippyToes());
+
+#if ORION_DEBUG
+  if(m_subSysTippyToes == nullptr) {
+    wpi::outs() << "m_subSysTippyToes not initialized!\n";
+    wpi::outs().flush();
+  }
+#endif // #if ORION_DEBUG
+
+#endif // #if USE_TIPPY_TOES
 
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK

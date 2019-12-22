@@ -23,10 +23,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined CMDGRABHATCHPANEL_H...
+#ifndef CMDGRABHATCHPANEL_H
+// Define CMDGRABHATCHPANEL_H
+#define CMDGRABHATCHPANEL_H
 
 /*************************** Local Header Files *******************************/
 
@@ -117,3 +118,5 @@ class CmdGrabHatchPanel : public frc::Command {
 }; // end class CmdGrabHatchPanel
 
 #endif // #if !USE_PID_CAPT_HOOK
+
+#endif // #ifndef CMDGRABHATCHPANEL_H

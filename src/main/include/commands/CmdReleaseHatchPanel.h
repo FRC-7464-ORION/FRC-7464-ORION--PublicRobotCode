@@ -23,10 +23,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined CMDRELEASEHATCHPANEL_H...
+#ifndef CMDRELEASEHATCHPANEL_H
+// Define CMDRELEASEHATCHPANEL_H
+#define CMDRELEASEHATCHPANEL_H
 
 /*************************** Local Header Files *******************************/
 
@@ -119,3 +120,5 @@ class CmdReleaseHatchPanel : public frc::Command {
 }; // end class CmdReleaseHatchPanel
 
 #endif // #if !USE_PID_CAPT_HOOK
+
+#endif // #ifndef CMDRELEASEHATCHPANEL_H

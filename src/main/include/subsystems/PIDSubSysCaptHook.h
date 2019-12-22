@@ -24,10 +24,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined PIDSUBSYSCAPTHOOK_H...
+#ifndef PIDSUBSYSCAPTHOOK_H
+// Define PIDSUBSYSCAPTHOOK_H
+#define PIDSUBSYSCAPTHOOK_H
 
 /*************************** Local Header Files *******************************/
 
@@ -53,8 +54,8 @@
 
 /** ****************************************************************************
  * @class   PIDSubSysCaptHook
- * @brief   This class declares the hatch panel grab/release subsystem, using
- *          a PID controller.
+ * @brief   This class declares the hatch panel moving (grab/release)
+ *          subsystem, using a PID controller.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
 class PIDSubSysCaptHook : public frc::PIDSubsystem {
@@ -125,3 +126,5 @@ class PIDSubSysCaptHook : public frc::PIDSubsystem {
 }; // end class PIDSubSysCaptHook
 
 #endif // #if USE_PID_CAPT_HOOK
+
+#endif // #ifndef PIDSUBSYSCAPTHOOK_H

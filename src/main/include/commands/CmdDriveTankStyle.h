@@ -23,10 +23,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the 
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined CMDDRIVETANKSTYLE_H...
+#ifndef CMDDRIVETANKSTYLE_H
+// Define CMDDRIVETANKSTYLE_H
+#define CMDDRIVETANKSTYLE_H
 
 /*************************** Local Header Files *******************************/
 
@@ -113,3 +114,5 @@ class CmdDriveTankStyle : public frc::Command {
   private:
 
 }; // end class CmdDriveArcadeStyle
+
+#endif // #ifndef CMDDRIVETANKSTYLE_H

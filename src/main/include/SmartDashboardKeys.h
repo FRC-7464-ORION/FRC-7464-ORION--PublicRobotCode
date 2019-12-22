@@ -12,10 +12,11 @@
  * 
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined SMARTDASHBOARDKEYS_H...
+#ifndef SMARTDASHBOARDKEYS_H
+// Define SMARTDASHBOARDKEYS_H
+#define SMARTDASHBOARDKEYS_H
 
 /*************************** Local Header Files *******************************/
 
@@ -132,6 +133,29 @@ const std::string k_RightDriveTrainMotorsSD_Key = "RDT C(A)";
  * Typical range is 0A-120A.
 */
 const std::string k_DriveTrainMotorsSD_Key = "DT C(A)";
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+/**
+ * The Smartdashboard key string for Tippy Toes motor #0.
+ * Typical range is 0A-40A.
+*/
+const std::string k_TippyToesMotor0SD_Key = "TTM0 C(A)";
+
+/**
+ * The Smartdashboard key string for Tippy Toes motor #1.
+ * Typical range is 0A-40A.
+*/
+const std::string k_TippyToesMotor1SD_Key = "TTM1 C(A)";
+
+/**
+ * The Smartdashboard key string for Tippy Toes, both motors.
+ * Typical range is 0A-80A.
+*/
+const std::string k_TippyToesMotorsSD_Key = "TT C(A)";
+
+#endif // #if USE_TIPPY_TOES
 
 /**
  * The Smartdashboard key string for Capt. Hook motor.
@@ -293,3 +317,15 @@ const std::string k_CaptHookPotValue_Key = "CH Pot.";
 const std::string k_CaptHookStatus_Key = "CH Status";
 
 #endif // #if USE_PID_CAPT_HOOK
+
+/**
+ * The SmartDashboard key string for drive train turbo status
+*/
+const std::string k_DriveTrainTurboStatus_Key = "Turbo Status";
+
+/**
+ * The SmartDashboard key string for drive train smoothing status
+*/
+const std::string k_DriveTrainSmoothingStatus_Key = "Smooth Status";
+
+#endif // #ifndef SMARTDASHBOARDKEYS_H

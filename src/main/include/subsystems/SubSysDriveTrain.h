@@ -23,10 +23,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined SUBSYSDRIVETRAIN_H...
+#ifndef SUBSYSDRIVETRAIN_H
+// Define SUBSYSDRIVETRAIN_H
+#define SUBSYSDRIVETRAIN_H
 
 /*************************** Local Header Files *******************************/
 
@@ -122,6 +123,46 @@ class SubSysDriveTrain : public frc::Subsystem {
     */
     double GetDriveTrainExponent();
 
+    /**
+     * Method to enable turbo mode
+    */
+    void SetTurboModeOn();
+
+    /**
+     * Method to disable turbo mode
+    */
+    void SetTurboModeOff();
+
+    /**
+     * Method to get turbo mode status
+    */
+    bool GetTurboModeStatus();
+
+    /**
+     * Method to get turbo mode status string
+    */
+    std::string GetTurboModeStatusString();
+
+    /**
+     * Method to enable smoothing mode
+    */
+    void SetSmoothingModeOn();
+
+    /**
+     * Method to disable smoothing mode
+    */
+    void SetSmoothingModeOff();
+
+    /**
+     * Method to get smoothing status
+    */
+    bool GetSmoothingStatus();
+
+    /**
+     * Method to get smoothing status string
+    */
+    std::string GetSmoothingStatusString();
+
   private:
 
     // It's desirable that everything possible under private except
@@ -141,6 +182,32 @@ class SubSysDriveTrain : public frc::Subsystem {
     /** A string to hold the drive train mode */
     std::string m_DriveTrainModeString;
 
+    /** A boolean to indicate if turbo mode is enabled */
+    bool m_TurboModeEnabled;
+
+    /** A string to hold the status of the turbo mode */
+    std::string m_DriveTrainTurboString;
+
+    /** A boolean to indicate if drive train smoothing is on/off */
+    bool m_DriveTrain_Smoothing_Enabled;
+
+    /** A string to indicate the status of the smoothing mode */
+    std::string m_DriveTrain_Smoothing_Status_String;
+
+    /**
+     * A double to hold the past filtered output speed of
+     * either y (arcade mode) or y1 (tank mode)
+    */
+    double m_speed1_past_filtered_output;
+
+    /**
+     * A double to hold the past filtered output speed of
+     * either x (arcade mode) or y2 (tank mode)
+    */
+    double m_speed2_past_filtered_output;
+
     // /***************************** Private Methods ****************************/
 
 }; // end class SubSysDriveTrain
+
+#endif // #ifndef SUBSYSDRIVETRAIN_H

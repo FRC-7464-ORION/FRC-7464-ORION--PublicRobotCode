@@ -73,10 +73,16 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined ROBOTMAP_H...
+#ifndef ROBOTMAP_H
+// Define ROBOTMAP_H
+#define ROBOTMAP_H
+
+/*************************** Local Header Files *******************************/
+
+// Include our constants header file
+#include "RobotConstants.h"
 
 // **************************** PWM PORTS *************************************
 
@@ -97,6 +103,20 @@ constexpr int k_LeftDriveTrainMotorsPWMPort  = 0;
 */
 constexpr int k_RightDriveTrainMotorsPWMPort = 1;
 
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+/**
+ * The PWM port on the roboRIO for the Tippy Toes motors controller.
+ *
+ * Note: There are two motors attached to Tippy Toes:
+ *       Motor #0 and Motor #1. Both these motors are driven by the port
+ *       specified by @c k_TippyToesMotorsPWMPort using a PWM Y-cable.
+*/
+constexpr int k_TippyToesMotorsPWMPort = 2;
+
+#endif // #if USE_TIPPY_TOES
+
 /**
  * The PWM port on the roboRIO for the Capt. Hook motor controller.
 */
@@ -113,6 +133,16 @@ constexpr int k_LeftDriveTrainMotor1PDPChannel = 3;
 constexpr int k_RightDriveTrainMotor0PDPChannel = 13;
 /** The PDP channel number of motor #1 of the right drive train */
 constexpr int k_RightDriveTrainMotor1PDPChannel = 12;
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+/** The PDP channel number of motor #0 of Tippy Toes */
+constexpr int k_TippyToesMotor0PDPChannel = 15;
+/** The PDP channel number of motor #1 of Tippy Toes */
+constexpr int k_TippyToesMotor1PDPChannel = 14;
+
+#endif // #if USE_TIPPY_TOES
 
 /** The PDP channel number of the motor for Capt. Hook */
 constexpr int k_CaptHookMotorPDPChannel = 11;
@@ -148,3 +178,5 @@ constexpr int k_Camera0NameDeviceNumber = 0;
 
 /** The device number of the Logitech controller */
 constexpr int k_Joystic0DeviceNumber = 0;
+
+#endif // #ifndef ROBOTMAP_H

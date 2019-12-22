@@ -17,10 +17,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined LOGITECHF310_H...
+#ifndef LOGITECHF310_H
+// Define LOGITECHF310_H
+#define LOGITECHF310_H
 
 /********************** F310 Button/Axis Channel IDs **************************/
 
@@ -63,9 +64,6 @@ constexpr int k_leftRearButton = 5;
 constexpr int k_rightRearButton = 6;
 
                      /**** NOT VERIFIED BY TESTING ****/
-
-/** The D-Pad (POV) axis channel, maybe 6 or 7 */
-constexpr int k_D_Pad_Y = 7;
 
 /** The "Back" button channel */
 constexpr int k_BackButton = 7;
@@ -149,3 +147,5 @@ double NullDesensLimit(double joyout,
                        double abs_nullzone,
                        double abs_limit,
                        double exponent);
+
+#endif // #ifndef LOGITECHF310_H

@@ -12,6 +12,12 @@
  *
 ============================================================================= */
 
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined MAINPAGE_H...
+#ifndef MAINPAGE_H
+// Define MAINPAGE_H
+#define MAINPAGE_H
+
 /**
  * @mainpage FRC Team 7464 - O.R.I.O.N.: Code for Sirius (2019 Season)
  *
@@ -168,3 +174,5 @@
  * Our robot consists of ... later..
  *
 */
+
+#endif // #ifndef MAINPAGE_H

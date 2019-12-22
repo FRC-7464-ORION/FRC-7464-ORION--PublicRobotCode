@@ -22,10 +22,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined ROBOT_H...
+#ifndef ROBOT_H
+// Define ROBOT_H
+#define ROBOT_H
 
 /*************************** Local Header Files *******************************/
 
@@ -34,6 +35,14 @@
 
 // Include the SubSysDriveTrain class header file, which is our drivetrain
 #include "subsystems/SubSysDriveTrain.h"
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+// Include the SubSysTippyToes class header file, which is our climber
+#include "subsystems/SubSysTippyToes.h"
+
+#endif // #if USE_TIPPY_TOES
 
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
@@ -121,6 +130,22 @@ class Robot : public frc::TimedRobot {
      * class.
     */
     static std::shared_ptr<SubSysDriveTrain> m_subSysDriveTrain;
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+    /**
+     * A public, static instance of a SubSysTippyToes class.
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_subSysTippyToes is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<SubSysTippyToes> m_subSysTippyToes;
+
+#endif // #if USE_TIPPY_TOES
 
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
@@ -345,3 +370,5 @@ class Robot : public frc::TimedRobot {
                              const int CameraDeviceNum);
 
 }; // end class Robot
+
+#endif // #ifndef ROBOT_H

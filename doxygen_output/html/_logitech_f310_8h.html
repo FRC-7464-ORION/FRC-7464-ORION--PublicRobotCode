@@ -31,9 +31,9 @@
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RobotCode/WPILibC(v2019.4.1)
-   &#160;<span id="projectnumber">v2019.1.0.03B1</span>
+   &#160;<span id="projectnumber">v2019PostSeason.1.2.36</span>
    </div>
-   <div id="projectbrief">FRC 2019 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">Public FRC 2019 Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -134,8 +134,6 @@ Variables</h2></td></tr>
 <tr class="separator:ab49c3d03f1c275e5a0dc69e4c80a8005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dcaa16a155b141041dc5c85a657fabe"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logitech_f310_8h.html#a8dcaa16a155b141041dc5c85a657fabe">k_rightRearButton</a> = 6</td></tr>
 <tr class="separator:a8dcaa16a155b141041dc5c85a657fabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787ee6015b68d88dd94b080b189952a9"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logitech_f310_8h.html#a787ee6015b68d88dd94b080b189952a9">k_D_Pad_Y</a> = 7</td></tr>
-<tr class="separator:a787ee6015b68d88dd94b080b189952a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae4755cc79d0ccdfb5e668e910c60ca2"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logitech_f310_8h.html#aae4755cc79d0ccdfb5e668e910c60ca2">k_BackButton</a> = 7</td></tr>
 <tr class="separator:aae4755cc79d0ccdfb5e668e910c60ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8157889d29d44c8d25f222fdd68f1a96"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logitech_f310_8h.html#a8157889d29d44c8d25f222fdd68f1a96">k_StartButton</a> = 8</td></tr>
@@ -250,7 +248,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The A button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00051">51</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00052">52</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +265,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The B button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00053">53</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00054">54</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +282,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The "Back" button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00071">71</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00069">69</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -303,24 +301,7 @@ Variables</h2></td></tr>
 <p>For a motor, the WPI Library expects input for a motor controller to be between -1.0 to +1.0, where +1.0 is the fastest forward speed, and -1.0 is the fastest reverse speed.</p>
 <p>With most joysticks, including the Logitech F310, and using the WPI library, when the joystick/thumbstick is pushed fully away from the user, the output is -1.0. Likewise, when pulled fully toward the user, the output is +1.0. Most users associate going forward with pushing the joystick/thumbstick away from the user. If we use this output from the joystick/thumbstick to directly drive the motors, the motor direction will be reversed. Therefore, we can multiply the Y-axis joystick/thumbstick output by -1.0 to get positive motor speed when the joystick/thumbstick is pushed away from the user. </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00100">100</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
-
-</div>
-</div>
-<a id="a787ee6015b68d88dd94b080b189952a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a787ee6015b68d88dd94b080b189952a9">&#9670;&nbsp;</a></span>k_D_Pad_Y</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int k_D_Pad_Y = 7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The D-Pad (POV) axis channel, maybe 6 or 7 </p>
-
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00068">68</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00098">98</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -337,7 +318,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Do NOT use the built in squaring of inputs </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00106">106</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00104">104</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -354,7 +335,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The left rear button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00061">61</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00062">62</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -371,7 +352,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The left thumbstick X axis channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00036">36</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00037">37</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -388,7 +369,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The left thumbstick Y axis channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00038">38</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00039">39</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +386,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The left thumbstick button </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00076">76</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00074">74</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -422,7 +403,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The left trigger Y axis channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00041">41</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00042">42</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -439,7 +420,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The right rear button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00063">63</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00064">64</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -456,7 +437,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The right thumbstick X axis channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00046">46</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00047">47</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -473,7 +454,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The right thumbstick Y axis channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00048">48</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00049">49</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -490,7 +471,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The left thumbstick button </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00078">78</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00076">76</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -507,7 +488,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The right trigger Y axis channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00043">43</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00044">44</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -524,7 +505,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The "Start" button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00073">73</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00071">71</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -541,7 +522,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Use the built in squaring of inputs </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00103">103</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00101">101</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +539,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The X button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00056">56</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00057">57</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>
@@ -575,7 +556,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The Y button channel </p>
 
-<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00058">58</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_logitech_f310_8h_source.html#l00059">59</a> of file <a class="el" href="_logitech_f310_8h_source.html">LogitechF310.h</a>.</p>
 
 </div>
 </div>

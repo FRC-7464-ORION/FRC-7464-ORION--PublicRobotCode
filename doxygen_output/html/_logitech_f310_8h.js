@@ -6,7 +6,6 @@ var _logitech_f310_8h =
     [ "k_B_Button", "_logitech_f310_8h.html#a167e54bd8b62f10dac343b0b20a35eb5", null ],
     [ "k_BackButton", "_logitech_f310_8h.html#aae4755cc79d0ccdfb5e668e910c60ca2", null ],
     [ "k_CorrectJoystickYAxisMotorSpeedInversion", "_logitech_f310_8h.html#a2a66b75560fff677be64dcb0f92446a1", null ],
-    [ "k_D_Pad_Y", "_logitech_f310_8h.html#a787ee6015b68d88dd94b080b189952a9", null ],
     [ "k_DoNOTUseBuiltInSquaring", "_logitech_f310_8h.html#adc1b13945346da44e67731d87d8650d0", null ],
     [ "k_leftRearButton", "_logitech_f310_8h.html#ab49c3d03f1c275e5a0dc69e4c80a8005", null ],
     [ "k_leftThumbstick_X", "_logitech_f310_8h.html#a415c722d9645e94fc39ed065e9cc44ed", null ],

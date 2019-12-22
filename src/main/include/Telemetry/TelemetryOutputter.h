@@ -23,10 +23,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined TELEMETRYOUTPUTTER_H...
+#ifndef TELEMETRYOUTPUTTER_H
+// Define TELEMETRYOUTPUTTER_H
+#define TELEMETRYOUTPUTTER_H
 
 /*************************** Local Header Files *******************************/
 
@@ -156,6 +157,20 @@ class TelemetryOutputter {
 
     /** The current used in the drive train, all motors, in Amps */
     double m_PDP_DriveTrainMotorsCurrent;
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+    /** The current used in Tippy Toes motor #0, in Amps */
+    double m_PDP_TippyToesMotor0Current;
+
+    /** The current used in Tippy Toes motor #1, in Amps */
+    double m_PDP_TippyToesMotor1Current;
+
+    /** The current used in Tippy Toes, both motors, in Amps */
+    double m_PDP_TippyToesMotorsCurrent;
+
+#endif // #if USE_TIPPY_TOES
 
     /** The current used in Capt. Hook motor, in Amps */
     double m_PDP_CaptHookMotorCurrent;
@@ -317,6 +332,12 @@ class TelemetryOutputter {
 
 #endif // #if USE_PID_CAPT_HOOK
 
+    /** The status of the drive train turbo mode */
+    std::string m_DriveTrainTurboState;
+
+    /** The status of the drive train smoothing mode */
+    std::string m_DriveTrainSmoothingState;
+
     ///////////// Member variables for choosing telemetry output /////////////
 
     /** Constant for choosing to output telemetry */
@@ -363,6 +384,18 @@ class TelemetryOutputter {
 
     /** Choose to output the current used in the drive train (all motors) */
     const bool m_Output_PDP_DriveTrainMotorsCurrent      = m_OutputTelemetry;
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+    /** Choose to output the current used in Tippy Toes motor #0 */
+    const bool m_Output_PDP_TippyToesMotor0Current       = m_OutputTelemetry;
+    /** Choose to output the current used in Tippy Toes motor #1 */
+    const bool m_Output_PDP_TippyToesMotor1Current       = m_OutputTelemetry;
+    /** Choose to output the current used in Tippy Toes (both motors) */
+    const bool m_Output_PDP_TippyToesMotorsCurrent       = m_OutputTelemetry;
+
+#endif // #if USE_TIPPY_TOES
 
     /** Choose to output the current used in Capt. Hook motor */
     const bool m_Output_PDP_CaptHookMotorCurrent         = m_OutputTelemetry;
@@ -480,20 +513,31 @@ class TelemetryOutputter {
 
 #endif // #if USE_PID_CAPT_HOOK
 
+    /** Choose to output the drive train turbo mode */
+    const bool m_Output_DriveTrainTurboState             = m_OutputTelemetry;
+
+    /** Choose to output the drive train smoothing mode */
+    const bool m_Output_DriveTrainSmoothingState         = m_OutputTelemetry;
+
     ////////////////////////// Some other constants //////////////////////////
 
     /** The minimum operating temperature, in C (0C = 32F)*/
     const double mk_PDP_OperatingTemperatureMin = 0.0;
     /** The maximum operating temperature, in C (40C = 104F) */
     const double mk_PDP_OperatingTemperatureMax = 40.0;
-    /** The battery voltage minimum acceptable voltage, in Volts */
-    const double mk_PDP_BatteryVoltageMin = 12.00;
-    /** The battery voltage maximum acceptable voltage, in Volts */
+    /** The battery voltage minimum acceptable voltage, in Volts
+        Note: This is no-load voltage */
+    const double mk_PDP_BatteryVoltageMin = 12.25;
+    /** The battery voltage maximum acceptable voltage, in Volts
+        Note: This is no-load voltage */
     const double mk_PDP_BatteryVoltageMax = 14.40;
     /** The battery current minimum acceptable current, in Amps */
     const double mk_PDP_BatteryCurrentMin = 0.00;
     /** The battery current maximum acceptable current, in Amps */
     const double mk_PDP_BatteryCurrentMax = 120.00;
+    /** The maximum battery current for testing acceptable battery
+        state of charge (SoC), in Amps */
+    const double mk_PDP_BatteryVoltageMaxForSoCTest = 0.250;
     /** The roboRIO input voltage minimum acceptable voltage, in Volts */
     const double mk_roboRIOVoltageInMin = 7.00;
     /** The roboRIO input voltage maximum acceptable voltage, in Volts */
@@ -616,3 +660,5 @@ class TelemetryOutputter {
     bool GetIfWithinRange(double MeasuredValue, double MinValue, double MaxValue);
 
 }; // end class TelemetryOutputter
+
+# endif // #ifndef TELEMETRYOUTPUTTER_H

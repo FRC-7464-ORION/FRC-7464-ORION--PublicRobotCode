@@ -23,10 +23,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the 
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined PIDCMDRELEASEHATCHPANEL_H...
+#ifndef PIDCMDRELEASEHATCHPANEL_H
+// Define PIDCMDRELEASEHATCHPANEL_H
+#define PIDCMDRELEASEHATCHPANEL_H
 
 /*************************** Local Header Files *******************************/
 
@@ -113,3 +114,5 @@ class PIDCmdReleaseHatchPanel : public frc::Command {
 }; // end class PIDCmdReleaseHatchPanel
 
 #endif // #if USE_PID_CAPT_HOOK
+
+#endif // #ifndef PIDCMDRELEASEHATCHPANEL_H

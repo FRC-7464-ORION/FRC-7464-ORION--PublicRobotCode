@@ -22,10 +22,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined OI_H...
+#ifndef OI_H
+// Define OI_H
+#define OI_H
 
 /*************************** Local Header Files *******************************/
 
@@ -78,6 +79,23 @@ class OI {
       /** A joystick button to select tank drive */
       frc::JoystickButton* m_buttonSelectTankDrive;
 
+      /** A joystick button to enable turbo mode for the drive train */
+      frc::JoystickButton* m_buttonTurboModeDriveTrain;
+
+      /** A joystick button to toggle between smoothing mode on or off */
+      frc::JoystickButton* m_buttonToggleDriveTrainSmoothingMode;
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+      /** A joystick button to climb forward */
+      frc::JoystickButton* m_buttonClimbForward;
+
+      /** A joystick button to climb backward */
+      frc::JoystickButton* m_buttonClimbBackward;
+
+#endif // #if USE_TIPPY_TOES
+
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
 
@@ -101,3 +119,5 @@ class OI {
 #endif // #if USE_PID_CAPT_HOOK
 
 }; // end class OI
+
+#endif // #ifndef OI_H

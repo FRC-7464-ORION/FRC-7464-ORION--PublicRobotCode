@@ -31,9 +31,9 @@
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RobotCode/WPILibC(v2019.4.1)
-   &#160;<span id="projectnumber">v2019.1.0.03B1</span>
+   &#160;<span id="projectnumber">v2019PostSeason.1.2.36</span>
    </div>
-   <div id="projectbrief">FRC 2019 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">Public FRC 2019 Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -257,6 +257,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af15fede18252e9ccc63f4b1ec297a155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51478eeeb7635941452f8bdbecba0277"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a51478eeeb7635941452f8bdbecba0277">m_roboRIO_FPGA_VersionNumber</a></td></tr>
 <tr class="separator:a51478eeeb7635941452f8bdbecba0277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5635cfeaf3dde33df9288f936adab8bc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a5635cfeaf3dde33df9288f936adab8bc">m_DriveTrainTurboState</a></td></tr>
+<tr class="separator:a5635cfeaf3dde33df9288f936adab8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a69a24a51fa6edada3c91e6b33fe234"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a3a69a24a51fa6edada3c91e6b33fe234">m_DriveTrainSmoothingState</a></td></tr>
+<tr class="separator:a3a69a24a51fa6edada3c91e6b33fe234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20e34f79295cd5e0f64c47130bd48364"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a20e34f79295cd5e0f64c47130bd48364">m_OutputTelemetry</a> = true</td></tr>
 <tr class="separator:a20e34f79295cd5e0f64c47130bd48364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5d140029bbb3352006eeb2f02a7bca6"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#aa5d140029bbb3352006eeb2f02a7bca6">m_DoNOT_OutputTelemetry</a> = false</td></tr>
@@ -373,11 +377,15 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a665bd4f1ffdc4afc3afc250a2690d970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a2467252362e5f5c8669945dbee192f"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a1a2467252362e5f5c8669945dbee192f">m_Output_roboRIO_FPGA_VerNumRev</a> = <a class="el" href="class_telemetry_outputter.html#a20e34f79295cd5e0f64c47130bd48364">m_OutputTelemetry</a></td></tr>
 <tr class="separator:a1a2467252362e5f5c8669945dbee192f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad0f593172b9e0d863da2a97cc9622c"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a7ad0f593172b9e0d863da2a97cc9622c">m_Output_DriveTrainTurboState</a> = <a class="el" href="class_telemetry_outputter.html#a20e34f79295cd5e0f64c47130bd48364">m_OutputTelemetry</a></td></tr>
+<tr class="separator:a7ad0f593172b9e0d863da2a97cc9622c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a366deacfddb442b169ffdad5c683f686"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a366deacfddb442b169ffdad5c683f686">m_Output_DriveTrainSmoothingState</a> = <a class="el" href="class_telemetry_outputter.html#a20e34f79295cd5e0f64c47130bd48364">m_OutputTelemetry</a></td></tr>
+<tr class="separator:a366deacfddb442b169ffdad5c683f686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fb6a69a12a22ed7ecc12d3e97f72f8f"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a7fb6a69a12a22ed7ecc12d3e97f72f8f">mk_PDP_OperatingTemperatureMin</a> = 0.0</td></tr>
 <tr class="separator:a7fb6a69a12a22ed7ecc12d3e97f72f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed21f20ca2d2789d5fc48367e61d7780"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#aed21f20ca2d2789d5fc48367e61d7780">mk_PDP_OperatingTemperatureMax</a> = 40.0</td></tr>
 <tr class="separator:aed21f20ca2d2789d5fc48367e61d7780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bdc410e37df6bbf5b96667f9d49a7f1"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a0bdc410e37df6bbf5b96667f9d49a7f1">mk_PDP_BatteryVoltageMin</a> = 12.00</td></tr>
+<tr class="memitem:a0bdc410e37df6bbf5b96667f9d49a7f1"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a0bdc410e37df6bbf5b96667f9d49a7f1">mk_PDP_BatteryVoltageMin</a> = 12.25</td></tr>
 <tr class="separator:a0bdc410e37df6bbf5b96667f9d49a7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a818635dffbfb74cadace8382ef0b1b3f"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a818635dffbfb74cadace8382ef0b1b3f">mk_PDP_BatteryVoltageMax</a> = 14.40</td></tr>
 <tr class="separator:a818635dffbfb74cadace8382ef0b1b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -385,6 +393,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a6d10296abcff97409b0201720a60d5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37638434cb6137326534dc7c03cf6328"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a37638434cb6137326534dc7c03cf6328">mk_PDP_BatteryCurrentMax</a> = 120.00</td></tr>
 <tr class="separator:a37638434cb6137326534dc7c03cf6328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa188822471987b97167ba183d0bf0aae"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#aa188822471987b97167ba183d0bf0aae">mk_PDP_BatteryVoltageMaxForSoCTest</a> = 0.250</td></tr>
+<tr class="separator:aa188822471987b97167ba183d0bf0aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a021ffab998c5b046fab668b46ba7eb36"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a021ffab998c5b046fab668b46ba7eb36">mk_roboRIOVoltageInMin</a> = 7.00</td></tr>
 <tr class="separator:a021ffab998c5b046fab668b46ba7eb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3211d3e5feed88ac2e3cc006b80d3d87"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telemetry_outputter.html#a3211d3e5feed88ac2e3cc006b80d3d87">mk_roboRIOVoltageInMax</a> = 16.00</td></tr>
@@ -433,7 +443,7 @@ Private Attributes</h2></td></tr>
 <hr/>
 <dl class="section author"><dt>Author</dt><dd>FRC Team #7464 - ORION </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00069">69</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00070">70</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad0bcc173b8983365fd6aaa8798334f39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad0bcc173b8983365fd6aaa8798334f39">&#9670;&nbsp;</a></span>TelemetryOutputter()</h2>
@@ -772,7 +782,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Constant for NOT choosing to output telemetry </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00325">325</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00346">346</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -797,7 +807,57 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A string to hold the drive train mode </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00097">97</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00098">98</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+
+</div>
+</div>
+<a id="a3a69a24a51fa6edada3c91e6b33fe234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a69a24a51fa6edada3c91e6b33fe234">&#9670;&nbsp;</a></span>m_DriveTrainSmoothingState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string TelemetryOutputter::m_DriveTrainSmoothingState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The status of the drive train smoothing mode </p>
+
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00339">339</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+
+</div>
+</div>
+<a id="a5635cfeaf3dde33df9288f936adab8bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5635cfeaf3dde33df9288f936adab8bc">&#9670;&nbsp;</a></span>m_DriveTrainTurboState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string TelemetryOutputter::m_DriveTrainTurboState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The status of the drive train turbo mode </p>
+
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00336">336</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -822,7 +882,57 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output drive train mode string or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00328">328</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00349">349</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+
+</div>
+</div>
+<a id="a366deacfddb442b169ffdad5c683f686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a366deacfddb442b169ffdad5c683f686">&#9670;&nbsp;</a></span>m_Output_DriveTrainSmoothingState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool TelemetryOutputter::m_Output_DriveTrainSmoothingState = <a class="el" href="class_telemetry_outputter.html#a20e34f79295cd5e0f64c47130bd48364">m_OutputTelemetry</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Choose to output the drive train smoothing mode </p>
+
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00520">520</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+
+</div>
+</div>
+<a id="a7ad0f593172b9e0d863da2a97cc9622c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ad0f593172b9e0d863da2a97cc9622c">&#9670;&nbsp;</a></span>m_Output_DriveTrainTurboState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool TelemetryOutputter::m_Output_DriveTrainTurboState = <a class="el" href="class_telemetry_outputter.html#a20e34f79295cd5e0f64c47130bd48364">m_OutputTelemetry</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Choose to output the drive train turbo mode </p>
+
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00517">517</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -847,7 +957,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output battery current or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00340">340</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00361">361</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -872,7 +982,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output battery current status or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00342">342</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00363">363</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -897,7 +1007,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output battery energy or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00346">346</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00367">367</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -922,7 +1032,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output battery power or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00344">344</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00365">365</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -947,7 +1057,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output battery status or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00348">348</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00369">369</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -972,7 +1082,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output battery voltage or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00336">336</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00357">357</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -997,7 +1107,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output battery voltage status or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00338">338</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00359">359</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1022,7 +1132,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in Capt. Hook motor </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00368">368</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00401">401</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1047,7 +1157,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in the drive train (all motors) </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00365">365</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00386">386</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1182,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in the left drive train motor #0 </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00351">351</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00372">372</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1207,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in the left drive train motor #1 </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00353">353</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00374">374</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1122,7 +1232,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in the left drive train (both motors) </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00355">355</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00376">376</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1147,7 +1257,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output operating temperature status or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00333">333</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00354">354</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1172,7 +1282,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in the right drive train motor #0 </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00358">358</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00379">379</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1307,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in the right drive train motor #1 </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00360">360</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00381">381</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1222,7 +1332,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the current used in the right drive train (both motors) </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00362">362</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00383">383</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1247,7 +1357,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output temperature or not </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00331">331</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00352">352</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1272,7 +1382,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 3.3V rail current </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00398">398</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00431">431</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1297,7 +1407,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 3.3V rail current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00400">400</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00433">433</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1322,7 +1432,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the number of roboRIO 3.3V rail current faults since boot </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00408">408</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00441">441</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1347,7 +1457,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO 3.3V rail current faults status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00410">410</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00443">443</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1372,7 +1482,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output if roboRIO 3.3V rail is enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00403">403</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00436">436</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1397,7 +1507,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to Output the roboRIO's 3.3V rail overall status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00412">412</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00445">445</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1422,7 +1532,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 3.3V rail voltage </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00394">394</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00427">427</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1447,7 +1557,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 3.3V rail voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00396">396</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00429">429</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1472,7 +1582,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 5V rail current </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00419">419</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00452">452</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1497,7 +1607,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to outpuhe roboRIO's 5V rail current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00421">421</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00454">454</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1522,7 +1632,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the number of roboRIO 5V rail current faults since boot </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00428">428</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00461">461</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1547,7 +1657,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO 5V rail current fault status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00430">430</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00463">463</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1572,7 +1682,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output if roboRIO 5V rail is enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00423">423</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00456">456</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1597,7 +1707,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO 5V rail overall status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00432">432</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00465">465</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1622,7 +1732,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 5V rail voltage </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00415">415</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00448">448</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1647,7 +1757,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 5V rail voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00417">417</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00450">450</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1672,7 +1782,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 6V rail current </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00440">440</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00473">473</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1697,7 +1807,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 6V rail current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00442">442</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00475">475</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1722,7 +1832,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the number of roboRIO 6V rail current faults since boot </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00449">449</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00482">482</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1747,7 +1857,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO 6V rail current fault status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00451">451</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00484">484</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1772,7 +1882,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output if roboRIO 6V rail is enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00444">444</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00477">477</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1797,7 +1907,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO 6V rail overall status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00454">454</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00487">487</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1822,7 +1932,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 6V rail voltage </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00436">436</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00469">469</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1847,7 +1957,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's 6V rail voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00438">438</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00471">471</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1872,7 +1982,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's accelerometer X-axis </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00371">371</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00404">404</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1897,7 +2007,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's accelerometer Y-axis </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00373">373</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00406">406</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1922,7 +2032,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's accelerometer Z-axis </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00375">375</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00408">408</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1947,7 +2057,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO FPGA time elapsed since boot, in microseconds (0.000001s = 1x10^(-6)s) </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00467">467</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00500">500</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1972,7 +2082,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO FPGA version number and revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00470">470</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00503">503</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -1997,7 +2107,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's input current </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00385">385</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00418">418</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2022,7 +2132,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's input current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00387">387</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00420">420</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2047,7 +2157,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's power consumption </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00389">389</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00422">422</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2072,7 +2182,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's overall input power status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00391">391</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00424">424</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2097,7 +2207,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's input voltage </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00381">381</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00414">414</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2122,7 +2232,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's input voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00383">383</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00416">416</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2147,7 +2257,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output if the roboRIO is browned out </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00458">458</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00491">491</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2172,7 +2282,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output if the roboRIO system is active </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00461">461</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00494">494</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2197,7 +2307,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Choose to output the roboRIO's status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00378">378</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00411">411</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2222,7 +2332,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Constant for choosing to output telemetry </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00323">323</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00344">344</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2247,7 +2357,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Declare a pointer to a power distribution panel (PDP) instance </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00089">89</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00090">90</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2272,7 +2382,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The battery total current, as measured by the PDP, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00119">119</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00120">120</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2297,7 +2407,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The battery current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00122">122</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00123">123</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2322,7 +2432,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The total energy supplied from the battery, as measured by the PDP, in Joules </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00134">134</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00135">135</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2347,7 +2457,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The total power sourced from the battery, as measured by the PDP, in Watts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00128">128</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00129">129</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2372,7 +2482,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The overall battery status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00137">137</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00138">138</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2397,7 +2507,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The battery voltage, as measured by the PDP, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00113">113</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00114">114</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2422,7 +2532,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The battery voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00116">116</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00117">117</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2447,7 +2557,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in Capt. Hook motor, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00161">161</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00176">176</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2472,7 +2582,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in the drive train, all motors, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00158">158</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00159">159</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2497,7 +2607,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in the left drive train motor #0, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00140">140</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00141">141</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2522,7 +2632,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in the left drive train motor #1, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00143">143</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00144">144</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2547,7 +2657,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in the left drive train, both motors, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00146">146</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00147">147</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2572,7 +2682,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The operating temperature status True = Within specified operating temperature range False = Outside of specified operating temperature range </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00110">110</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00111">111</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2597,7 +2707,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in the right drive train motor #0, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00149">149</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00150">150</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2622,7 +2732,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in the right drive train motor #1, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00152">152</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00153">153</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2647,7 +2757,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current used in the right drive train, both motors, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00155">155</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00156">156</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2672,7 +2782,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The PDP temperature, in Celsius </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00100">100</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00101">101</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2697,7 +2807,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The PDP temerature, in Farenheit </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00103">103</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00104">104</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2722,7 +2832,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 3.3V rail current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00200">200</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00215">215</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2747,7 +2857,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 3.3V rail current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00203">203</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00218">218</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2772,7 +2882,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of roboRIO 3.3V rail current faults since boot </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00209">209</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00224">224</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2797,7 +2907,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>roboRIO 3.3V rail current faults status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00212">212</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00227">227</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2822,7 +2932,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Boolean to determine if roboRIO 3.3V rail is enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00206">206</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00221">221</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2847,7 +2957,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>roboRIO 3.3V rail overall status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00215">215</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00230">230</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2872,7 +2982,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 3.3V rail voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00194">194</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00209">209</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2897,7 +3007,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 3.3V rail voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00197">197</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00212">212</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2922,7 +3032,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 5V rail current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00224">224</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00239">239</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2947,7 +3057,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 5V rail current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00227">227</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00242">242</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2972,7 +3082,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of roboRIO 5V rail current faults since boot </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00233">233</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00248">248</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -2997,7 +3107,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>roboRIO 5V rail current fault status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00236">236</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00251">251</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3022,7 +3132,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Boolean to determine if roboRIO 5V rail is enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00230">230</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00245">245</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3047,7 +3157,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>roboRIO 5V rail overall status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00239">239</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00254">254</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3072,7 +3182,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 5V rail voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00218">218</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00233">233</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3097,7 +3207,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 5V rail voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00221">221</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00236">236</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3122,7 +3232,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 6V rail current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00248">248</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00263">263</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3147,7 +3257,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 6V rail current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00251">251</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00266">266</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3172,7 +3282,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of roboRIO 6V rail current faults since boot </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00257">257</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00272">272</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3197,7 +3307,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>roboRIO 6V rail current fault status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00260">260</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00275">275</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3222,7 +3332,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Boolean to determine if roboRIO 6V rail is enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00254">254</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00269">269</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3247,7 +3357,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>roboRIO 6V rail overall status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00263">263</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00278">278</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3272,7 +3382,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 6V rail voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00242">242</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00257">257</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3297,7 +3407,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's 6V rail voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00245">245</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00260">260</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3322,7 +3432,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The acceleration along the roboRIOs X-Axis, in Gs </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00164">164</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00179">179</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3347,7 +3457,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The acceleration along the roboRIOs Y-Axis, in Gs </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00167">167</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00182">182</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3372,7 +3482,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The acceleration along the roboRIOs Z-Axis, in Gs </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00170">170</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00185">185</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3397,7 +3507,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Declare a pointer to roboRIO's internal accelerometers instance </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00092">92</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00093">93</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3422,7 +3532,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The build number of the FPGA revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00301">301</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00316">316</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3447,7 +3557,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The major revision # of the FPGA revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00295">295</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00310">310</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3472,7 +3582,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The minor revision # of the FPGA revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00298">298</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00313">313</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3497,7 +3607,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's Field Programmable Gate Array (FPGA) revision information.</p>
 <div class="fragment"><div class="line">Note: </div><div class="line"></div><div class="line">Major Revision: 12 Most significant bits (MSBs)</div><div class="line">Minor Revision:  8 bits following the major revision</div><div class="line">Build Number:   12 Least significant bits (LSBs)</div><div class="line"></div><div class="line">Example:</div><div class="line"></div><div class="line">M = Major revision, m = minor revision, build number = b,</div><div class="line">X = Don<span class="stringliteral">&#39;t care</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">   6         5         4         3         2         1   </span></div><div class="line"><span class="stringliteral">3210987654321098765432109876543210987654321098765432109876543210</span></div><div class="line"><span class="stringliteral">MMMMMMMMMMMMmmmmmmmmXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXbbbbbbbbbbbb</span></div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00292">292</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00307">307</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3522,7 +3632,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO FPGA time elapsed since boot, in microseconds (0.000001s) </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00304">304</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00319">319</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3547,7 +3657,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO FPGA version number </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00307">307</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00322">322</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3572,7 +3682,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's input current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00182">182</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00197">197</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3597,7 +3707,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's input current status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00185">185</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00200">200</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3622,7 +3732,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's power consumption, in Watts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00188">188</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00203">203</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3647,7 +3757,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's overall input power status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00191">191</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00206">206</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3672,7 +3782,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's input voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00176">176</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00191">191</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3697,7 +3807,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO's input voltage status </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00179">179</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00194">194</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3722,7 +3832,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Boolean to determine if the roboRIO is browned out </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00266">266</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00281">281</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3747,7 +3857,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Boolean to determine if the roboRIO system is active </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00269">269</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00284">284</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3772,7 +3882,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The status of the roboRIO; true = OK, false = FAULT </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00173">173</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00188">188</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3797,7 +3907,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The mask needed to get only the FPGA build number bits from the FPGA revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00554">554</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00598">598</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3822,7 +3932,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of bits to shift to the right to get the FPGA major revision from the FPGA revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00537">537</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00581">581</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3847,7 +3957,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The mask needed to get only the FPGA minor revision bits from the FPGA revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00543">543</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00587">587</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3872,7 +3982,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of bits to shift to the right to get the FPGA minor revision from the FPGA revision </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00548">548</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00592">592</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3897,7 +4007,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The battery current maximum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00496">496</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00537">537</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3922,7 +4032,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The battery current minimum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00494">494</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00535">535</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3945,9 +4055,34 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The battery voltage maximum acceptable voltage, in Volts </p>
+<p>The battery voltage maximum acceptable voltage, in Volts Note: This is no-load voltage </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00492">492</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00533">533</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+
+</div>
+</div>
+<a id="aa188822471987b97167ba183d0bf0aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa188822471987b97167ba183d0bf0aae">&#9670;&nbsp;</a></span>mk_PDP_BatteryVoltageMaxForSoCTest</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double TelemetryOutputter::mk_PDP_BatteryVoltageMaxForSoCTest = 0.250</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The maximum battery current for testing acceptable battery state of charge (SoC), in Amps </p>
+
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00540">540</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3961,7 +4096,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double TelemetryOutputter::mk_PDP_BatteryVoltageMin = 12.00</td>
+          <td class="memname">const double TelemetryOutputter::mk_PDP_BatteryVoltageMin = 12.25</td>
         </tr>
       </table>
   </td>
@@ -3970,9 +4105,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The battery voltage minimum acceptable voltage, in Volts </p>
+<p>The battery voltage minimum acceptable voltage, in Volts Note: This is no-load voltage </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00490">490</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00530">530</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -3997,7 +4132,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The maximum operating temperature, in C (40C = 104F) </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00488">488</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00527">527</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4022,7 +4157,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The minimum operating temperature, in C (0C = 32F) </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00486">486</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00525">525</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4047,7 +4182,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The percentage of current where we will flag </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00531">531</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00575">575</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4072,7 +4207,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 3.3V output maximum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00512">512</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00556">556</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4097,7 +4232,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 3.3V output minimum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00510">510</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00554">554</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4122,7 +4257,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 3.3V output maximum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00508">508</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00552">552</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4147,7 +4282,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 3.3V output minimum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00506">506</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00550">550</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4172,7 +4307,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 5V output maximum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00520">520</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00564">564</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4197,7 +4332,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 5V output minimum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00518">518</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00562">562</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4222,7 +4357,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 5V output maximum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00516">516</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00560">560</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4247,7 +4382,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 5V output minimum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00514">514</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00558">558</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4272,7 +4407,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 6V output maximum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00528">528</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00572">572</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4297,7 +4432,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 6V output minimum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00526">526</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00570">570</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4322,7 +4457,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 6V output maximum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00524">524</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00568">568</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4347,7 +4482,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO 6V output minimum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00522">522</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00566">566</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4372,7 +4507,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO input current maximum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00504">504</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00548">548</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4397,7 +4532,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO input current minimum acceptable current, in Amps </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00502">502</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00546">546</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4422,7 +4557,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO input voltage maximum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00500">500</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00544">544</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>
@@ -4447,7 +4582,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The roboRIO input voltage minimum acceptable voltage, in Volts </p>
 
-<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00498">498</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_telemetry_outputter_8h_source.html#l00542">542</a> of file <a class="el" href="_telemetry_outputter_8h_source.html">TelemetryOutputter.h</a>.</p>
 
 </div>
 </div>

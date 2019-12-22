@@ -64,19 +64,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"_resource_8h_source.html",
-"class_data_wrapper.html#afd2d86eee95c326d84df5bbcc73eb6fe",
-"class_telemetry_outputter.html#acdb3f6fc994a83abd1a85f4cc9729948",
-"classfrc_1_1_analog_trigger.html#a8b278cb20a0301c3c219fa630705edd4",
-"classfrc_1_1_counter.html#a7e31e2061cf3e1c038e5fb7976e0e424",
-"classfrc_1_1_encoder.html#ab514fcd231532b8b49949dc9799ac07b",
-"classfrc_1_1_joystick.html",
-"classfrc_1_1_notifier.html#acb1a245d3fbef36f2f96400150cef915",
-"classfrc_1_1_preferences.html#a24874df18707393ddda0ab5c6696dba1",
-"classfrc_1_1_sendable.html#a777c49a49e19de97ad535f78e2569254",
-"classfrc_1_1_shuffleboard_value.html#afdc5003feb12e91b64536cf42bb390e5",
-"classfrc_1_1_xbox_controller.html#a1034633d4be2db9277b3864efa55b99ba2128e444a5ea03bbc16a607139800b6e",
-"frc_2commands_2_print_command_8h_source.html"
+"_p_o_v_button_8cpp_source.html",
+"class_cmd_disable_turbo_mode.html#a112940a297fd45f623ca95442cdad600",
+"class_telemetry_outputter.html#a40d1f229c1c277c86f7f0c0bdf994be9",
+"classfrc_1_1_analog_gyro.html#a65d91fa1e42f36b9b35ef25407931cd6",
+"classfrc_1_1_command_group_entry.html#a771e746ba0736c9800a409ecb6863c24",
+"classfrc_1_1_driver_station.html#a2fad0163c68694dd8adcfff73c8f7b00",
+"classfrc_1_1_instant_command.html#a68ea7336a8e76f50c6e4b8ae17ab05d3",
+"classfrc_1_1_mecanum_drive.html#abb21ad172af879c9c81249d82969b60d",
+"classfrc_1_1_p_o_v_button.html#a458614c575a5da25be89d377f5bb5671",
+"classfrc_1_1_s_p_i.html#a0c669bde20f1e8e29e274356074bb90e",
+"classfrc_1_1_shuffleboard.html#aff8e5350f171592a88e4003718cc884e",
+"classfrc_1_1_ultrasonic.html#a6ee915168a9af9d1e43c75dfc6ca5f2aa22c7945bacba5fe46887df1e82183a47",
+"frc_2_driver_station_8h_source.html",
+"structfrc_1_1_sendable_builder_impl_1_1_property.html#a15286ae38721c9029595dac6e9a2e5d1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

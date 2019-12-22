@@ -1,10 +1,13 @@
 var annotated_dup =
 [
     [ "frc", "namespacefrc.html", "namespacefrc" ],
+    [ "CmdDisableTurboMode", "class_cmd_disable_turbo_mode.html", "class_cmd_disable_turbo_mode" ],
     [ "CmdDriveArcadeStyle", "class_cmd_drive_arcade_style.html", "class_cmd_drive_arcade_style" ],
     [ "CmdDriveTankStyle", "class_cmd_drive_tank_style.html", "class_cmd_drive_tank_style" ],
+    [ "CmdEnableTurboMode", "class_cmd_enable_turbo_mode.html", "class_cmd_enable_turbo_mode" ],
     [ "CmdGrabHatchPanel", "class_cmd_grab_hatch_panel.html", "class_cmd_grab_hatch_panel" ],
     [ "CmdReleaseHatchPanel", "class_cmd_release_hatch_panel.html", "class_cmd_release_hatch_panel" ],
+    [ "CmdToggleSmoothingMode", "class_cmd_toggle_smoothing_mode.html", "class_cmd_toggle_smoothing_mode" ],
     [ "DataWrapper", "class_data_wrapper.html", "class_data_wrapper" ],
     [ "FilterNoiseTest", "class_filter_noise_test.html", "class_filter_noise_test" ],
     [ "FilterOutputTest", "class_filter_output_test.html", "class_filter_output_test" ],

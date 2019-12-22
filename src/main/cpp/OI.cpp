@@ -36,6 +36,26 @@
 // Include the header file for the drive tank style command
 #include "commands/CmdDriveTankStyle.h"
 
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+// Include the header file for Tippy Toes climbing forward command
+#include "commands/CmdClimbForward.h"
+
+// Include the header file for Tippy Toes climbing backward command
+#include "commands/CmdClimbBackward.h"
+
+#endif // #if USE_TIPPY_TOES
+
+// Include the header file for the enable turbo mode command
+#include "commands/CmdEnableTurboMode.h"
+
+// Include the header file for the disable turbo mode command
+#include "commands/CmdDisableTurboMode.h"
+
+// Include the header file for the toggle smoothing mode command
+#include "commands/CmdToggleSmoothingMode.h"
+
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
 
@@ -87,6 +107,25 @@ OI::OI() {
   // Create a new button instance for selecting tank drive
   m_buttonSelectTankDrive = new frc::JoystickButton(m_joystick, k_Y_Button);
 
+  // Create a new button instance for enabling turbo mode
+  m_buttonTurboModeDriveTrain =
+    new frc::JoystickButton(m_joystick, k_A_Button);
+
+  // Create a new button instance for toggling smoothing mode
+  m_buttonToggleDriveTrainSmoothingMode =
+    new frc::JoystickButton(m_joystick, k_B_Button);
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+  // Create a new button instance for climbing forward
+  m_buttonClimbForward = new frc::JoystickButton(m_joystick, k_StartButton);
+
+  // Create a new button instance for climbing backward
+  m_buttonClimbBackward = new frc::JoystickButton(m_joystick, k_BackButton);
+
+#endif // #if USE_TIPPY_TOES
+
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
 
@@ -116,6 +155,28 @@ OI::OI() {
 
   // Associate driving tank style with pressing the tank drive button
   m_buttonSelectTankDrive->WhenPressed(new CmdDriveTankStyle());
+
+  // Associate enabling turbo mode with holding down the turbo speed button
+  m_buttonTurboModeDriveTrain->WhenPressed(new CmdEnableTurboMode());
+
+  // Associate disabling turbo mode with releasing the turbo speed button
+  m_buttonTurboModeDriveTrain->WhenReleased(new CmdDisableTurboMode());
+
+  // Associate enabling/disabling smoothing mode with pressing the
+  //   smoothing mode button
+  m_buttonToggleDriveTrainSmoothingMode->WhenPressed(
+    new CmdToggleSmoothingMode());
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+  // Associate climbing forward with holding the climb forward button
+  m_buttonClimbForward->WhileHeld(new CmdClimbForward());
+
+  // Associate climbing backward with holding the climb backward button
+  m_buttonClimbBackward->WhileHeld(new CmdClimbBackward());
+
+#endif // #if USE_TIPPY_TOES
 
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
@@ -148,6 +209,17 @@ OI::OI() {
 // The OI (operator interface) destructor
 OI::~OI() {
 
+// If we are using Capt. Hook with a PID controller...
+#if USE_PID_CAPT_HOOK
+
+  // Release the memory for the grab hatch panel button
+  delete m_buttonGrabHatchPanel;
+
+  // Release the memory for the release hatch panel button
+  delete m_buttonReleaseHatchPanel;
+
+#endif // #if USE_PID_CAPT_HOOK
+
 // If we are not using the PID controller for Capt. Hook
 #if !USE_PID_CAPT_HOOK
 
@@ -159,16 +231,22 @@ OI::~OI() {
 
 #endif // #if !USE_PID_CAPT_HOOK
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
 
-  // Release the memory for the release hatch panel button
-  delete m_buttonReleaseHatchPanel;
+  // Release the memory for the climb backward button
+  delete m_buttonClimbBackward;
 
-  // Release the memory for the grab hatch panel button
-  delete m_buttonGrabHatchPanel;
+  // Release the memory for the climb forward button
+  delete m_buttonClimbForward;
 
-#endif // #if USE_PID_CAPT_HOOK
+#endif // #if USE_TIPPY_TOES
+
+  // Release the memory for the toggle smoothing mode button
+  delete m_buttonToggleDriveTrainSmoothingMode;
+
+  // Release the memory for the enable turbo mode button
+  delete m_buttonTurboModeDriveTrain;
 
   // Release the memory for the select tank drive button
   delete m_buttonSelectTankDrive;

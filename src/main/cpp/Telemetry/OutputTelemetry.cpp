@@ -210,6 +210,42 @@ void TelemetryOutputter::OutputTelemetry() {
 
   } // end if(m_Output_PDP_DriveTrainMotorsCurrent)
 
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+  // If we want to output Tippy Toes motor 0 current...
+  if(m_Output_PDP_TippyToesMotor0Current) {
+
+    // Output Tippy Toes' motor #0 current, in Amps
+    frc::SmartDashboard::PutNumber(k_TippyToesMotor0SD_Key,
+                                     m_PDP_TippyToesMotor0Current);
+
+  } // if(m_Output_PDP_TippyToesMotor0Current)
+
+  // If we want to output Tippy Toes motor 1 current...
+  if(m_Output_PDP_TippyToesMotor1Current) {
+
+    // Output Tippy Toes' motor #1 current, in Amps
+    frc::SmartDashboard::PutNumber(k_TippyToesMotor1SD_Key,
+                                     m_PDP_TippyToesMotor1Current);
+
+  } // end if(m_Output_PDP_TippyToesMotor1Current)
+
+  // If we want to output Tippy Toes current (both motors)...
+  if(m_Output_PDP_TippyToesMotorsCurrent) {
+
+    // Sum the current from both Tippy Toes motors
+    m_PDP_TippyToesMotorsCurrent = m_PDP_TippyToesMotor0Current +
+                                   m_PDP_TippyToesMotor1Current;
+
+    // Output Tippy Toes' motors current, in Amps
+    frc::SmartDashboard::PutNumber(k_TippyToesMotorsSD_Key,
+                                     m_PDP_TippyToesMotorsCurrent);
+
+  } // end if(m_Output_PDP_TippyToesMotorsCurrent)
+
+#endif // #if USE_TIPPY_TOES
+
   // If we want to output Capt. Hook motor current...
   if(m_Output_PDP_CaptHookMotorCurrent) {
 
@@ -467,5 +503,23 @@ void TelemetryOutputter::OutputTelemetry() {
   } // end if(m_Output_CaptHookState)
 
 #endif // #if USE_PID_CAPT_HOOK
+
+  // If we want to output the drive train turbo mode string...
+  if(m_Output_DriveTrainTurboState) {
+
+    // Output the state of the drive train turbo mode
+    frc::SmartDashboard::PutString(k_DriveTrainTurboStatus_Key,
+                                   m_DriveTrainTurboState);
+
+  } // end if(m_Output_DriveTrainModeString)
+
+  // If we want to output the drive train smoothing mode string...
+  if(m_Output_DriveTrainSmoothingState) {
+
+    // Output the state of the drive train turbo mode
+    frc::SmartDashboard::PutString(k_DriveTrainSmoothingStatus_Key,
+                                   m_DriveTrainSmoothingState);
+
+  } // end if(m_Output_DriveTrainSmoothingState)
 
 } // end CmdOutputTelemetry::OutputTelemetry()

@@ -24,10 +24,11 @@
  *
 ============================================================================= */
 
-// Preprocessor directive to have this file only be included once in the
-//  compilation
-// See https://en.wikipedia.org/wiki/Pragma_once for details
-#pragma once
+// INCLUDE GUARD - see https://en.wikipedia.org/wiki/Include_guard
+// If we have not already defined SUBSYSCAPTHOOK_H...
+#ifndef SUBSYSCAPTHOOK_H
+// Define SUBSYSCAPTHOOK_H
+#define SUBSYSCAPTHOOK_H
 
 /*************************** Local Header Files *******************************/
 
@@ -47,7 +48,8 @@
 
 /** ****************************************************************************
  * @class   SubSysCaptHook
- * @brief   This class declares the hatch panel moving (grab/release) system.
+ * @brief   This class declares the hatch panel moving (grab/release)
+ *          subsystem.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
 class SubSysCaptHook : public frc::Subsystem {
@@ -116,3 +118,5 @@ class SubSysCaptHook : public frc::Subsystem {
 }; // end class SubSysCaptHook
 
 #endif // #if !USE_PID_CAPT_HOOK
+
+#endif // #ifndef SUBSYSCAPTHOOK_H

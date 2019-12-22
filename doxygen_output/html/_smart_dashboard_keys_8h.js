@@ -10,6 +10,8 @@ var _smart_dashboard_keys_8h =
     [ "k_CaptHookMotorSD_Key", "_smart_dashboard_keys_8h.html#af2099d0234f74682465495aefc24c43f", null ],
     [ "k_DriveTrainMode_Key", "_smart_dashboard_keys_8h.html#a71e9b80580541673a662bfac7b1c94a2", null ],
     [ "k_DriveTrainMotorsSD_Key", "_smart_dashboard_keys_8h.html#a3975d7af799b8b5098c0a235f6fab287", null ],
+    [ "k_DriveTrainSmoothingStatus_Key", "_smart_dashboard_keys_8h.html#afa1a31bb54a56dbec9e34a17db97cc06", null ],
+    [ "k_DriveTrainTurboStatus_Key", "_smart_dashboard_keys_8h.html#ab8abfdf9a47cc92babe66497a473d0b4", null ],
     [ "k_LeftDriveTrainMotor0SD_Key", "_smart_dashboard_keys_8h.html#a8637ce33ba9271a7c20960656e6647ab", null ],
     [ "k_LeftDriveTrainMotor1SD_Key", "_smart_dashboard_keys_8h.html#a3a8a32a1dff9d54864aa1c8214e1007c", null ],
     [ "k_LeftDriveTrainMotorsSD_Key", "_smart_dashboard_keys_8h.html#ad63fa7e144c09d2dc44f4635a30bc860", null ],

@@ -73,31 +73,6 @@ void TelemetryOutputter::GetTelemetry() {
 
   } // end if(m_Output_OperatingTemperatureStatus)
 
-  // If we want to output the battery voltage, or
-  //   the battery voltage status, or
-  //   the battery status
-  if(m_Output_PDP_BatteryVoltage ||
-     m_Output_PDP_BatteryVoltageStatus ||
-     m_Output_PDP_BatteryStatus) {
-
-    // Get the battery voltage, in Volts
-    m_PDP_BatteryVoltage = m_pdp->GetVoltage();
-
-  } // end if(m_Output_PDP_BatteryVoltage)
-
-  // If we want to output the battery voltage status, or
-  //   the battery status
-  if(m_Output_PDP_BatteryVoltageStatus ||
-     m_Output_PDP_BatteryStatus) {
-
-    // See if the battery voltage is within the acceptable range
-    m_PDP_BatteryVoltageStatus =
-      GetIfWithinRange(m_PDP_BatteryVoltage,
-                       mk_PDP_BatteryVoltageMin,
-                       mk_PDP_BatteryVoltageMax);
-
-  } // end if(m_Output_PDP_BatteryVoltageStatus)
-
   // If we want to output the battery current, or
   //   the battery current status, or
   //   the battery status
@@ -123,6 +98,37 @@ void TelemetryOutputter::GetTelemetry() {
                        mk_PercentageMaxCurrent);
 
   } // end if(m_Output_PDP_BatteryCurrentStatus)
+
+  // If we want to output the battery voltage, or
+  //   the battery voltage status, or
+  //   the battery status
+  if(m_Output_PDP_BatteryVoltage ||
+     m_Output_PDP_BatteryVoltageStatus ||
+     m_Output_PDP_BatteryStatus) {
+
+    // Get the battery voltage, in Volts
+    m_PDP_BatteryVoltage = m_pdp->GetVoltage();
+
+  } // end if(m_Output_PDP_BatteryVoltage)
+
+  // If we want to output the battery voltage status, or
+  //   the battery status
+  if(m_Output_PDP_BatteryVoltageStatus ||
+     m_Output_PDP_BatteryStatus) {
+
+    // If the battery current is sufficiently low enough to check SoC...
+    if(m_PDP_BatteryCurrent < mk_PDP_BatteryVoltageMaxForSoCTest)
+    {
+
+      // See if the battery voltage is within the acceptable range
+      m_PDP_BatteryVoltageStatus =
+        GetIfWithinRange(m_PDP_BatteryVoltage,
+                         mk_PDP_BatteryVoltageMin,
+                         mk_PDP_BatteryVoltageMax);
+
+    } // end if(m_PDP_BatteryCurrent < mk_PDP_BatteryVoltageMaxForSoCTest)
+
+  } // end if(m_Output_PDP_BatteryVoltageStatus)
 
   // If we want to output the battery power...
   if(m_Output_PDP_BatteryPower) {
@@ -203,6 +209,33 @@ void TelemetryOutputter::GetTelemetry() {
       m_pdp->GetCurrent(k_RightDriveTrainMotor1PDPChannel);
 
   } // end if(m_Output_PDP_RightDriveTrainMotor1Current || ...
+
+// If we are using Tippy Toes...
+#if USE_TIPPY_TOES
+
+  // If we want to output Tippy Toes motor 0 current or
+  //   Tippy Toes motors current (both motors)...
+  if(m_Output_PDP_TippyToesMotor0Current ||
+     m_Output_PDP_TippyToesMotorsCurrent) {
+
+    // Get Tippy Toes #0 motor current, in Amps
+    m_PDP_TippyToesMotor0Current =
+      m_pdp->GetCurrent(k_TippyToesMotor0PDPChannel);
+
+  } // end if(m_Output_PDP_TippyToesMotor0Current || ...
+
+  // If we want to output Tippy Toes motor 1 current or
+  //   Tippy Toes motors current (both motors)...
+  if(m_Output_PDP_TippyToesMotor1Current ||
+     m_Output_PDP_TippyToesMotorsCurrent) {
+
+    // Get Tippy Toes #1 motor current, in Amps
+    m_PDP_TippyToesMotor1Current =
+      m_pdp->GetCurrent(k_TippyToesMotor1PDPChannel);
+
+  } // end if(m_Output_PDP_TippyToesMotor1Current || ...
+
+#endif // #if USE_TIPPY_TOES
 
   // If we want to output Capt. Hook motor current...
   if(m_Output_PDP_CaptHookMotorCurrent) {
@@ -448,10 +481,29 @@ void TelemetryOutputter::GetTelemetry() {
   // If we want to output the state of Capt. Hook...
   if(m_Output_CaptHookState) {
 
+    // Get Capt. Hook's state
     m_CaptHookState = Robot::m_PIDsubSysCaptHook->GetCaptHookState();
 
   } // end if(m_Output_CaptHookState) 
 
 #endif // #if USE_PID_CAPT_HOOK
+
+  // If we want to output the drive train turbo mode string...
+  if(m_Output_DriveTrainTurboState) {
+
+    // Get the drive train turbo mode string
+    m_DriveTrainTurboState =
+      Robot::m_subSysDriveTrain->GetTurboModeStatusString();
+
+  } // end if(m_Output_DriveTrainTurboState)
+
+  // If we want to output the drive train smoothing mode string...
+  if(m_Output_DriveTrainSmoothingState) {
+
+    // Get the drive train smoothing mode string
+    m_DriveTrainSmoothingState =
+      Robot::m_subSysDriveTrain->GetSmoothingStatusString();
+
+  } // end if(m_Output_DriveTrainSmoothingState)
 
 } // end TelemetryOutputter::GetTelemetry()
