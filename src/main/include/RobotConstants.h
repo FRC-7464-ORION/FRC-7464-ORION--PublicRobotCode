@@ -5,7 +5,7 @@
  *
  * COPYRIGHT NOTICES:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -18,6 +18,8 @@
 // Define ROBOTCONSTANTS_H
 #define ROBOTCONSTANTS_H
 
+/*************************** Local Header Files *******************************/
+
 /************************** Library Header Files ******************************/
 
 // Include the header file for strings, so we can define strings
@@ -27,10 +29,12 @@
 
                   // ***** Software Version Messages *****
 
-/** The version of the software */
-const std::string k_SW_VersionNumber = "v2019OffSeason.1.2.36";
+/** The version of the software for the robot */
+const std::string k_SW_VersionNumber = "v2020.1.0.03";
+/** The version of the WPILibC software used */
+const std::string k_WPILibC_VersionNumber = "v2020.3.2";
 /** The name of the robot */
-const std::string k_RobotName = "Sirius";
+const std::string k_RobotName = "Oscar Myar";
 /** The code version message */
 const std::string k_CodeVersionMessage = " code version is ";
 /** The code version message ending */
@@ -38,58 +42,14 @@ const std::string k_CodeVersionMessageEnd = ".\n";
 
                   // ************** Camera ****************
 
-/** The name of the Microsoft Camera */
-const std::string k_Camera0Name = "USB Camera 0";
+/** The name of the front Microsoft Camera */
+const std::string k_FrontCamera = "Front Camera 0";
 
-                  // ********** Capt. Hook Mode ***********
+/** The name of the back Microsoft Camera */
+const std::string k_BackCamera = "Back Camera 1";
 
-// If we have not defined USE_PID_CAPT_HOOK already
-#ifndef USE_PID_CAPT_HOOK
-
-  // NOTE: To have our code use the PID controller for Capt. Hook,
-  //       along with a working potentiometer hooked up, have the below read 
-  //       (without the quotes) "#define USE_PID_CAPT_HOOK 1".
-  //
-  //       To have our code allow the driver to manually control Capt.
-  //       Hook, have the below read (without the quotes)
-  //       "#define USE_PID_CAPT_HOOK 0".
-  //
-  // NOTE: If the value of the macro below is changed, it will need to
-  //       changed in the Doxyfile doxygen configuration file, in
-  //       the preprocessor section "PREDEFINED".
-
-  /** 
-   * Define USE_PID_CAPT_HOOK to 0 (manual control), 
-   * or 1 (using a PID controller and hooked up potentiometer) 
-  */
-  #define USE_PID_CAPT_HOOK 0
-
-#endif // #ifndef USE_PID_CAPT_HOOK
-
-                  // ********** Tippy Toes Mode ***********
-
-// If we have not defined USE_TIPPY_TOES already
-#ifndef USE_TIPPY_TOES
-
-  // NOTE: To have our code use an installed, working, Tippy Toes climber,
-  //       have the below read (without the quotes)
-  //       "#define USE_TIPPY_TOES 1".
-  //
-  //       To have our code not compile Tippy Toes code, have the below
-  //       read (without the quotes)
-  //       "#define USE_TIPPY_TOES 0".
-  //
-  // NOTE: If the value of the macro below is changed, it will need to
-  //       changed in the Doxyfile doxygen configuration file, in
-  //       the preprocessor section "PREDEFINED".
-
-  /** 
-   * Define USE_TIPPY_TOES to 0 (Tippy Toes not installed or used), 
-   * or 1 (we have an installed, working, Tippy Toes climber) 
-  */
-  #define USE_TIPPY_TOES 0
-
-#endif // #ifndef USE_TIPPY_TOES
+/** The name of the camera server */
+const std::string k_CameraServer = "Switched Camera Server";
 
                   // ************* Debugging ***************
 
@@ -133,14 +93,14 @@ const std::string k_Camera0Name = "USB Camera 0";
 
 #endif // #ifndef TELEMETRY_DEBUG
 
-// If we have not defined CAPT_HOOK_DEBUG already
-#ifndef CAPT_HOOK_DEBUG
+// If we have not defined PSSH_DEBUG already
+#ifndef PSSH_DEBUG
 
-  // NOTE: To turn on debug for CAPT_HOOK code, have the the line
-  //       below read (without the quotes) "#define CAPT_HOOK_DEBUG 1".
+  // NOTE: To turn on debug for PSSH code, have the the line
+  //       below read (without the quotes) "#define PSSH_DEBUG 1".
   //
-  //       To turn off debug for CAPT_HOOK code, have the the line
-  //       below read (without the quotes) "#define CAPT_HOOK_DEBUG 0".
+  //       To turn off debug for TELEMETRY code, have the the line
+  //       below read (without the quotes) "#define PSSH_DEBUG 0".
   //
   //       Generally, for production code, leave debug off.
   //
@@ -148,44 +108,97 @@ const std::string k_Camera0Name = "USB Camera 0";
   //       changed in the Doxyfile doxygen configuration file, in
   //       the preprocessor section "PREDEFINED".
 
-  /** Define CAPT_HOOK_DEBUG to 0 (debug off), or 1 (debug on) */
-  #define CAPT_HOOK_DEBUG 0
+  /** Define PSSH_DEBUG to 0 (debug off), or 1 (debug on) */
+  #define PSSH_DEBUG 0
 
-#endif // #ifndef CAPT_HOOK_DEBUG
+#endif // #ifndef PSSH_DEBUG
+
+// If we have not defined USE_PID_PSSH already
+#ifndef USE_PID_PSSH
+
+  // NOTE: To have our code use the PID controller for Pssh,
+  //       along with a working potentiometer hooked up, have the below read 
+  //       (without the quotes) "#define USE_PID_PSSH 1".
+  //
+  //       To have our code allow the driver to manually control Pssh
+  //       have the below read (without the quotes)
+  //       "#define USE_PID_PSSH 0".
+  //
+  // NOTE: If the value of the macro below is changed, it will need to
+  //       changed in the Doxyfile doxygen configuration file, in
+  //       the preprocessor section "PREDEFINED".
+
+  /** 
+   * Define USE_PID_PSSH to 0 (manual control), 
+   * or 1 (using a PID controller and hooked up potentiometer) 
+  */
+  #define USE_PID_PSSH 1
+
+#endif // #ifndef USE_PID_PSSH
+
+                  // *********** Time Constants ************
+
+/** The number of microseconds per millisecond */
+constexpr double k_MicrosecondsPerMillisecond = 1000.0;
+
+/** The expected times the RobotPeriodic function should run per second */
+constexpr uint64_t k_ExpectedRobotTicksPerSecond = 50;
+
+/** The approximate time for a single robot tick, in seconds */
+constexpr double k_ApproximateRobotTickTime = 0.02;
+
 
                   // ********** Safety Timeouts ************
 
 /** The drive train safety timout, in seconds */
 constexpr double k_DriveTrainSafetyTimeout = 0.1;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+/** The PAT turner safety timeout, in seconds */
+constexpr double k_PATTurnerSafetyTimeout = 0.1;
 
-/** The Tippy Toes safety timout, in seconds */
-constexpr double k_TippyToesSafetyTimeout = 0.1;
+/** The Pssh safety timeout, in seconds */
+constexpr double k_PsshSafetyTimeout = 0.1;
 
-#endif // #if USE_TIPPY_TOES
-
-/** The Capt. Hook safety timout, in seconds */
-constexpr double k_CaptHookSafetyTimeout = 0.1;
+/** The Hans and Franz safety timeout, in seconds */
+constexpr double k_HansFranzSafetyTimeout = 0.1;
 
                   // ********* Command Timeouts ************
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
+/** The command timeout for the drive train command
+ *  CmdAutoTurnAngle, in seconds */
+constexpr double k_DriveTrain_CmdAutoTurnAngle_Timeout = 5.0;
 
-/** 
- * The time that we will timeout the grab or release hatch panel 
- * command, in seconds
-*/
-constexpr double k_CaptHookGrabOrReleaseHatchPanelTimeout = 2.0;
+/** The command timeout for the Pssh command
+ * CmdDumpPowerCells, in seconds */
+constexpr double k_Pssh_CmdDumpPowerCells_Timeout = 5.0;
 
-#endif // #if USE_PID_CAPT_HOOK
+/** The command timeout for the Pssh command
+ * CmdCollectPowerCells, in seconds */
+constexpr double k_Pssh_CmdCollectPowerCells_Timeout = 5.0;
+
+                  // ***** Command Interruptability ********
+
+/** The command can be interrupted */
+constexpr double k_CmdIsInterruptable = true;
+
+/** The command can NOT be interrupted */
+constexpr double k_CmdIsNOTInterruptable = false;
 
                   // *********** Motor Speeds **************
 
 /** The speed to stop motors */
 constexpr double k_MotorStopSpeed = 0.0;
+
+/** The multiplier for going in reverse */
+constexpr double k_ReverseSpeedMultiplier = -1.0;
+
+                  // *********** Axis Values ***************
+
+/** The X-axis value for going straight */
+constexpr double k_X_Axis_Value_For_Straight = 0.0;
+
+/** The Y-axis value for turning */
+constexpr double k_Y_Axis_Value_For_Turn = 0.0;
 
                   // ********** Drive Train Modes **********
 
@@ -206,6 +219,14 @@ const std::string k_DriveTrainSmoothingModeOnString  = " ON ";
 
 /** A constant string to hold the text for smoothing mode off */
 const std::string k_DriveTrainSmoothingModeOffString = "OFF ";
+
+/** A constant string to hold the text for driving with Pssh
+    up front  */
+const std::string k_DriveTrainPsshFrontString = "Pssh";
+
+/** A constant string to hold the text for driving with PAT
+    up front  */
+const std::string k_DriveTrainPATFrontString = "PAT";
 
                   // ******** Joystick/Motor Curves ********
 
@@ -302,98 +323,150 @@ const std::string k_DriveTrainSmoothingModeOffString = "OFF ";
 constexpr double k_DriveTrainAbsNullZone = 0.05;
 /** The absolute value of the maximum speed allowed to the drive train,
  *  in non-turbo mode */
-constexpr double k_DriveTrainAbsValMaxSpeedNoTurbo = 0.60;
+constexpr double k_DriveTrainAbsValMaxSpeedNoTurbo = 0.40;
 /** The absolute value of the maximum speed allowed to the drive train,
  *  in turbo mode */
-constexpr double k_DriveTrainAbsValMaxSpeedTurboOn = 1.00;
+constexpr double k_DriveTrainAbsValMaxSpeedTurboOn = 0.60;
 /** The exponent used on the joystick to motor curve */
 constexpr double k_DriveTrainExponent = 2.25;
 /** The decay value d of the IIR DLPF */
 constexpr double k_DriveTrain_IIR_DLPF_d = 0.25;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+// The PAT turner joystick/motor curve parameters
+/** The null zone range on the controller for the PAT turner */
+constexpr double k_PATTurnerAbsNullZone = 0.05;
+/** The absolute value of the maximum speed allowed to the PAT turner,
+ *  in no-turbo mode */
+constexpr double k_PATTurnerAbsValMaxSpeedNoTurbo = 0.15;
+/** The absolute value of the maximum speed allowed to the PAT turner,
+ *  in turbo mode */
+constexpr double k_PATTurnerAbsValMaxSpeedTurbo = 0.30;
+/** The exponent used on the joystick to motor curve */
+constexpr double k_PATTurnerExponent = 2.25;
+/** The cutoff point (absolute value) where we switch speeds */
+constexpr double k_PATTurnerAbsCutoffPoint = 0.5;
+/** The maximum input (absolute value) for PAT */
+constexpr double k_PATTurnerAbsMaxInput = 1.0;
 
-                  // ************* Tippy Toes ***************
+// The Pssh joystick/motor curve parameters
+/** The null zone range on the controller for the Pssh */
+constexpr double k_PsshAbsNullZone = 0.05;
+/** The absolute value of the maximum speed allowed to the Pssh,
+ *  in non-turbo mode - LEAVE AT 0.22! RML 2020-03-10 */
+constexpr double k_PsshAbsValMaxSpeedNoTurbo = 0.22;
+/** The exponent used on the joystick to motor curve */
+constexpr double k_PsshExponent = 2.25;
 
-// Tippy Toes joystick/motor curve parameters
-/** The null zone range on the controller for Tippy Toes */
-constexpr double k_TippyToesAbsNullZone = 0.00;
-/** The absolute value of the maximum speed allowed to Tippy Toes */
-constexpr double k_TippyToesAbsValMaxSpeed = 0.25;
-/** The exponent used on the joystick to motor curve for Tippy Toes */
-constexpr double k_TippyToesExponent = 1.00;
+// The Hans/Franz arms joystick/motor curve parameters
+/** The null zone range on the controller for Hans/Franz arms */
+constexpr double k_HansFranzArmsAbsNullZone = 0.05;
+/** The absolute value of the maximum speed allowed for Hans/Franz arms,
+ *  in non-turbo mode */
+constexpr double k_HansFranzArmsAbsValMaxSpeedNoTurbo = 0.10;
+/** The exponent used on the joystick to motor curve */
+constexpr double k_HansFranzArmsExponent = 2.25;
 
-#endif // #if USE_TIPPY_TOES
+                  // ****** DIO Constants ******
 
-// If we are not using the PID controller for Capt. Hook
-#if !USE_PID_CAPT_HOOK
+/** The value returned when using an open switch on digital input with 
+ *  a pullup resistor (DIO 0..9 on DIO, DIO 0..15 on MXP)  */
+constexpr bool k_DigitalInputPullUpSwitchOpen = true;
 
-                  // ************* Capt. Hook ***************
+/** The value returned when using an close switch on digital input with 
+ *  a pullup resistor (DIO 0..9 on DIO, DIO 0..15 on MXP)  */
+constexpr bool k_DigitalInputPullUpSwitchClosed = false;
 
-// Capt. Hook joystick/motor curve parameters
-/** The null zone range on the controller for Capt. Hook */
-constexpr double k_CaptHookAbsNullZone = 0.05;
-/** The absolute value of the maximum speed allowed to Capt. Hook */
-constexpr double k_CaptHookAbsValMaxSpeed = 0.40;
-/** The exponent used on the joystick to motor curve for Capt. Hook */
-constexpr double k_CaptHookExponent = 2.25;
+                  // ****** Counter Constants ******
 
-#endif // #if !USE_PID_CAPT_HOOK
+/** The value of a counter when it is reset */
+constexpr int k_CounterResetValue = 0;
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
+                  // ****** IMU PID Variables ******
 
-                  // ********** Capt. Hook (PID) ************
+// Autonomous Turn using NavX IMU PIDS Variables
+
+/** The Autonomous Turn Proportional coefficient */
+constexpr double k_AutoTurn_Proportional     = 0.03;
+
+/** The Autonomous Turn Integral coefficient */
+constexpr double k_AutoTurn_Integral         = 0.00;
+
+/** The Autonomous Turn Derivative coefficient */
+constexpr double k_AutoTurn_Derivative       = 0.00;
+
+/** The Autonomous Turn Feed-forward coefficient */
+constexpr double k_AutoTurn_FeedForward      = 0.00;
+
+/** The Autonomous Turn tolerance (how close we have to get
+ *  to the target before we consider us close enough),
+ *  in degrees */
+constexpr double k_AutoTurn_ToleranceDegrees = 2.0;
+
+                  // ***** Compressor Variables *****
+/** 
+ * Used to set the closed loop control for the compressor to be
+ * automatically controlled.
+*/
+constexpr bool k_CompressorAutomaticallyControlled=true;
 
 /** 
- * The scaling factor for the Capt. Hook potentiometer.
+ * Used to set the closed loop control for the compressor to be
+ * manually controlled.
+*/
+constexpr bool k_CompressorManuallyControlled=false;
+
+                  // ********** Pssh (PID) ************
+
+/** 
+ * The scaling factor for the Pssh potentiometer.
  * The potentiometer we are using is a VEX Robotics potentiometer.
- * Its full range is 270 degrees. So that is the scale factor.
+ * Its full range is 250 degrees. So that is the scale factor.
  */
-constexpr double k_CaptHookPotScaleFactor = 270.0;
+constexpr double k_PsshPotScaleFactor = 250.0;
 
 /**
- * The offset for the Capt. Hook potentiometer. The offset allows
+ * The offset for the Pssh potentiometer. The offset allows
  * a potentiomenter to start at 0 other than the start of the pot turns.
  * 
 */
-constexpr double k_CaptHookPotOffset = -40.0;
+constexpr double k_PsshPotOffset = -113.0;
 
-/** The name of the Capt. Hook PID */
-const std::string k_CaptHookPIDName = "PIDSubSysCaptHook";
+/** The name of the Pssh PID */
+const std::string k_PsshPIDName = "PIDSubSysPssh";
 
-/** The value for the PID proportional "P" term for Capt. Hook */
-constexpr double k_CaptHookProportionalTerm = 0.2;
-/** The value for the PID integral "I" term for Capt. Hook */
-constexpr double k_CaptHookIntegralTerm = 0.0;
-/** The value for the PID derivative "D" term for Capt. Hook */
-constexpr double k_CaptHookDerivativeTerm = 0.0;
+/** The value for the PID proportional "P" term for Pssh */
+constexpr double k_PsshProportionalTerm = 0.005;
+/** The value for the PID integral "I" term for Pssh */
+constexpr double k_PsshIntegralTerm = 0.0;
+/** The value for the PID derivative "D" term for Pssh */
+constexpr double k_PsshDerivativeTerm = 0.0;
 /** The value for the feedforward term */
-constexpr double k_CaptHookFeedforwardTerm = 0.0;
+constexpr double k_PsshFeedforwardTerm = 0.0;
 /** The period (time) between PID calculations, in seconds */
-constexpr double k_CaptHookPID_Period = 0.05;
+constexpr double k_PsshPID_Period = 0.02;
+
+/** The minimum motor output allowed */
+constexpr double k_PsshMinimumOutput = -0.23;
+/** The maximum motor output allowed */
+constexpr double k_PsshMaximumOutput =  0.23;
 
 /**
  * The minimum expected input to the PID controller, which is the
  * potentimeter output.
  */
-constexpr double k_CaptHookMinimumInput = 70.0;
+constexpr double k_PsshMinimumInput = -5.0;
 /**
  * The maximum expected input to the PID controller, which is the
  * potentimeter output.
  */
-constexpr double k_CaptHookMaximumInput = 210.0;
+constexpr double k_PsshMaximumInput = 63.0;
 
-/** The minimum output allowed on the output */
-constexpr double k_CaptHookMinimumOutput = -0.5;
-/** The maximum output allowed on the output */
-constexpr double k_CaptHookMaximumOutput =  0.5;
-
-/** The set point for grabbing a hatch panel */
-constexpr double k_CaptHookGrabHatchpanelSetpoint = 80.0;
-/** The set point for releasing a hatch panel */
-constexpr double k_CaptHookReleaseHatchpanelSetpoint = 200.0;
+/** The set point for travel mode */
+constexpr double k_PsshTravelSetpoint = 0.0;
+/** The set point for load mode */
+constexpr double k_PsshLoadSetpoint = 32.0;
+/** The set point for dump mode */
+constexpr double k_PsshDumpSetpoint = 58.0;
 
 /** 
  * The absolute tolerance of our set points, +/-.
@@ -402,44 +475,61 @@ constexpr double k_CaptHookReleaseHatchpanelSetpoint = 200.0;
  * tolerance is 5, anywhere from 95 (90+5) to 85 (90-5) should be 
  * recognized as meeting the set point.
 */ 
-constexpr double k_CaptHookAbsoluteTolerance = 2.5;
+constexpr double k_PsshAbsoluteTolerance = 1.0;
+
+                  // ********** Pssh Modes **********
 
 /**
- * A constant string to hold the text for Capt. Hook released
- * state.
+ * A constant string to hold the text for Pssh travel mode
 */
-const std::string k_CaptHookReleasedString  = "RELEASED";
+const std::string k_PsshTravelString  = "TRAVEL";
 
 /**
- * A constant string to hold the text for Capt. Hook releasing
- * state.
+ * A constant string to hold the text for Pssh load mode
 */
-const std::string k_CaptHookReleasingString = "RELEASING";
+const std::string k_PsshLoadString  = "LOAD";
 
 /**
- * A constant string to hold the text for Capt. Hook grabbed
- * state.
+ * A constant string to hold the text for Pssh travel mode
 */
-const std::string k_CaptHookGrabbedString   = " GRABBED ";
+const std::string k_PsshDumpString  = "DUMP";
 
 /**
- * A constant string to hold the text for Capt. Hook grabbing
+ * A constant string to hold the text for Pssh timed out
  * state.
 */
-const std::string k_CaptHookGrabbingString  = "GRABBING";
+const std::string k_PsshTimedOutString   = "TIMED OUT";
 
-/**
- * A constant string to hold the text for Capt. Hook unknown
- * state.
-*/
-const std::string k_CaptHookUnknownString   = "UNKNOWN";
+                  // ********** Hans/Franz Modes **********
 
-/**
- * A constant string to hold the text for Capt. Hook timed out
- * state.
-*/
-const std::string k_CaptHookTimedOutString   = "TIMED OUT";
+/** A constant string to indicate muscles retracted */
+const std::string k_HansFranzMusclesStateRetracted = "RETRACTED";
 
-#endif // #if USE_PID_CAPT_HOOK
+/** A constant string to indicate muscles extended */
+const std::string k_HansFranzMusclesStateExtended = "EXTENDED";
+
+/** A constant string to indicate muscles disabled */
+const std::string k_HansFranzMusclesStateDisabled = "DISABLED";
+
+/** A constant string to indicate arms retracted */
+const std::string k_HansFranzArmsStateRetracted = "RETRACTED";
+
+/** A constant string to indicate arms extended */
+const std::string k_HansFranzArmsStateExtended = "EXTENDED";
+
+/** A constant string to indicate arms retracting */
+const std::string k_HansFranzArmsStateRetracting = "RETRACTING";
+
+/** A constant string to indicate arms extending */
+const std::string k_HansFranzArmsStateExtending = "EXTENDING";
+
+/** A constant string to indicate arms are idle */
+const std::string k_HansFranzArmsStateIdle = "IDLE";
+
+/** A constant string to indicate arms are in an unknown state */
+const std::string k_HansFranzArmsStateUnknown = "UNKNOWN";
+
+/** A constant string to indicate arms are in an fault state */
+const std::string k_HansFranzArmsStateFault = "FAULT";
 
 #endif // #ifndef ROBOTCONSTANTS_H

@@ -15,7 +15,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -30,37 +30,41 @@
 
 /*************************** Local Header Files *******************************/
 
-// Include our constants header file
+// Include our Robot constants
 #include "RobotConstants.h"
 
 // Include the SubSysDriveTrain class header file, which is our drivetrain
 #include "subsystems/SubSysDriveTrain.h"
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+// Include the SubSysPATTurner class header file, which is our Wheel of
+// Fortune Turner
+#include "subsystems/SubSysPATTurner.h"
 
-// Include the SubSysTippyToes class header file, which is our climber
-#include "subsystems/SubSysTippyToes.h"
+// Include the SubSysHansFranzMuscles class header file, which is our lifter
+// pneumatics
+#include "subsystems/SubSysHansFranzMuscles.h"
 
-#endif // #if USE_TIPPY_TOES
+// Include the SubSysHansFranzArms class header file, which is for our
+// lifter arms
+#include "subsystems/SubSysHansFranzArms.h"
 
-// If we are not using the PID controller for Capt. Hook
-#if !USE_PID_CAPT_HOOK
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
 
-// Include the SubSysCaptHook class header file, which is our hatch panel
-//   mover
-#include "subsystems/SubSysCaptHook.h"
+// Include the PIDSubSysPssh class header file, which is our power cell
+// transporter
+#include "subsystems/PIDSubSysPssh.h"
 
-#endif // #if !USE_PID_CAPT_HOOK
+#endif // #if USE_PID_PSSH
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
+// If we are NOT using the PID controller for Pssh
+#if !USE_PID_PSSH
 
-// Include the PIDSubSysCaptHook class header file, which is our hatch panel
-//   mover
-#include "subsystems/PIDSubSysCaptHook.h"
+// Include the SubSysPssh class header file, which is our power cell
+// transporter
+#include "subsystems/SubSysPssh.h"
 
-#endif // #if USE_PID_CAPT_HOOK
+#endif // #if !USE_PID_PSSH
 
 // Include the operator interface (OI) class header file, which allows us
 //  to define our interface to the operator (driver)
@@ -68,14 +72,57 @@
 
 // Include the CmdDriveArcadeStyle class header file, which declares the
 //   command to drive the robot arcade style
-#include "commands/CmdDriveArcadeStyle.h"
+#include "commands/DriveTrain/CmdDriveArcadeStyle.h"
 
 // Include the CmdDriveTankStyle class header file, which declares the
 //   command to drive the robot tank style
-#include "commands/CmdDriveTankStyle.h"
+#include "commands/DriveTrain/CmdDriveTankStyle.h"
+
+// If we are NOT using the PID controller for Pssh
+#if !USE_PID_PSSH
+
+// Include the CmdControlPssh class header file, which declares the
+//   command to control the power cell transporter manually
+#include "commands/Pssh/CmdControlPssh.h"
+
+#endif // #if !USE_PID_PSSH
+
+// Include the CmdZeroAHRSYaw class
+#include "commands/DriveTrain/CmdZeroAHRSYaw.h"
+
+// Include the CmdResetAHRSYaw class
+#include "commands/DriveTrain/CmdResetAHRSYaw.h"
+
+// Include the CmdMoveHansFranzArms class header file, which declares the
+//   command to move Hans' and Franz's arms
+#include "commands/HansAndFranzArms/CmdMoveHansFranzArms.h"
+
+// Include the CmdGrpAutoDefault class, which has some commands to execute
+#include "commandGroups/Autonomous/CmdGrpAutoDefault.h"
+
+// Include the CmdGrpAutoDefLeft class, which has some commands to execute
+#include "commandGroups/Autonomous/CmdGrpAutoDefLeft.h"
+
+// Include the CmdGrpAutoDefCenter class, which has some commands to execute
+#include "commandGroups/Autonomous/CmdGrpAutoDefCenter.h"
+
+// Include the CmdGrpAutoDefRight class, which has some commands to execute
+#include "commandGroups/Autonomous/CmdGrpAutoDefRight.h"
+
+// Include the CmdGrpAutoOffLeft class, which has some commands to execute
+#include "commandGroups/Autonomous/CmdGrpAutoOffLeft.h"
+
+// Include the CmdGrpAutoOffCenter class, which has some commands to execute
+#include "commandGroups/Autonomous/CmdGrpAutoOffCenter.h"
+
+// Include the CmdGrpAutoOffRight class, which has some commands to execute
+#include "commandGroups/Autonomous/CmdGrpAutoOffRight.h"
 
 // Include the TelemetryOutputter class header file
 #include "Telemetry/TelemetryOutputter.h"
+
+// Include the Video class header file
+#include "Vision/Video.h"
 
 /************************** Library Header Files ******************************/
 
@@ -105,7 +152,13 @@
 // See:
 // file:///C:/Users/Public/frc2019/documentation/cpp/classfrc_1_1LiveWindow.html
 // (From RobotBuilder) 
-#include "frc/livewindow/LiveWindow.h"
+#include <frc/livewindow/LiveWindow.h>
+
+// Include the DriverStation, for errors and warnings
+#include <frc/DriverStation.h>
+
+// Include the NavX MXP AHRS class header
+#include "AHRS.h"
 
 /** ****************************************************************************
  * @class   Robot
@@ -121,66 +174,102 @@ class Robot : public frc::TimedRobot {
     const std::string m_version = k_SW_VersionNumber;
 
     /**
+     * A public, static instance of a AHRS class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this pointer
+     * m_AHRS is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static AHRS* m_AHRS;
+
+    /**
      * A public, static instance of a SubSysDriveTrain class.
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
-     *   m_subSysDriveTrain is shared between all Robot instances.
+     * m_subSysDriveTrain is shared between all Robot instances.
      * Since this is static, this is only the declaration.
      * The definition for the member variable must be done outside the
      * class.
     */
     static std::shared_ptr<SubSysDriveTrain> m_subSysDriveTrain;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
-
     /**
-     * A public, static instance of a SubSysTippyToes class.
+     * A public, static instance of a SubSysPATTurner class.
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
-     * m_subSysTippyToes is shared between all Robot instances.
+     * m_subSysPATTurner is shared between all Robot instances.
      * Since this is static, this is only the declaration.
      * The definition for the member variable must be done outside the
      * class.
     */
-    static std::shared_ptr<SubSysTippyToes> m_subSysTippyToes;
-
-#endif // #if USE_TIPPY_TOES
-
-// If we are not using the PID controller for Capt. Hook
-#if !USE_PID_CAPT_HOOK
+    static std::shared_ptr<SubSysPATTurner> m_subSysPATTurner;
 
     /**
-     * A public, static instance of a SubSysCaptHook class.
+     * A public, static instance of a SubSysHansFranz class.
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
-     * m_subSysCaptHook is shared between all Robot instances.
+     * m_subSysHansFranz is shared between all Robot instances.
      * Since this is static, this is only the declaration.
      * The definition for the member variable must be done outside the
      * class.
     */
-    static std::shared_ptr<SubSysCaptHook> m_subSysCaptHook;
-
-#endif // #if !USE_PID_CAPT_HOOK
-
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
+    static std::shared_ptr<SubSysHansFranzMuscles> m_subSysHansFranzMuscles;
 
     /**
-     * A public, static instance of a PIDSubSysCaptHook class.
+     * A public, static instance of a SubSysHansFranzArms class.
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
-     * m_PIDsubSysCaptHook is shared between all Robot instances.
+     * m_subSysHansFranzArms is shared between all Robot instances.
      * Since this is static, this is only the declaration.
      * The definition for the member variable must be done outside the
      * class.
     */
-    static std::shared_ptr<PIDSubSysCaptHook> m_PIDsubSysCaptHook;
+    static std::shared_ptr<SubSysHansFranzArms> m_subSysHansFranzArms;
 
-#endif // #if USE_PID_CAPT_HOOK
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+    /**
+     * A public, static instance of a PIDSubSysPssh class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_PIDsubSysPssh is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<PIDSubSysPssh> m_PIDsubSysPssh;
+
+#endif // #if USE_PID_PSSH
+
+// If we are NOT using the PID controller for Pssh
+#if !USE_PID_PSSH
+
+    /**
+     * A public, static instance of a SubSysPssh class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_subSysPssh is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<SubSysPssh> m_subSysPssh;
+
+#endif // #if !USE_PID_PSSH
 
     /**
      * A public, static instance of an OI (operator interface).
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
      * m_oi is shared between all Robot instances.
@@ -192,6 +281,7 @@ class Robot : public frc::TimedRobot {
 
     /**
      * A public, static instance of a CmdDriveArcadeStyle class.
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
      * m_cmdDriveArcadeStyle is shared between all Robot instances.
@@ -203,6 +293,7 @@ class Robot : public frc::TimedRobot {
 
     /**
      * A public, static instance of a CmdDriveTankStyle class.
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
      * m_cmdDriveArcadeStyle is shared between all Robot instances.
@@ -212,16 +303,142 @@ class Robot : public frc::TimedRobot {
     */
     static std::shared_ptr<CmdDriveTankStyle> m_cmdDriveTankStyle;
 
+// If we are NOT using the PID controller for Pssh...
+#if !USE_PID_PSSH
+
     /**
-     * A public, static instance of a TelemetryOutputter class.
+     * A public, static instance of a CmdControlPssh class.
+     * 
      * This is a member variable, hence the m_ in front of the name.
      * The static modifier means that this example operator interface instance
+     * m_cmdControlPssh is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdControlPssh> m_cmdControlPssh;
+
+#endif // #if !USE_PID_PSSH
+
+    /**
+     * A public, static instance of a CmdDriveArcadeStyle class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdMoveHansFranzArms> m_cmdMoveHansFranzArms;
+
+    /**
+     * A public, static instance of a CmdGrpAutoDefault class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdGrpAutoDefault> m_CmdGrpAutoDefault;
+
+    /**
+     * A public, static instance of a CmdGrpAutoDefLeft class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdGrpAutoDefLeft> m_CmdGrpAutoDefLeft;
+
+    /**
+     * A public, static instance of a CmdGrpAutoDefCenter class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdGrpAutoDefCenter> m_CmdGrpAutoDefCenter;
+
+    /**
+     * A public, static instance of a CmdGrpAutoDefRight class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdGrpAutoDefRight> m_CmdGrpAutoDefRight;
+
+    /**
+     * A public, static instance of a CmdGrpAutoOffLeft class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdGrpAutoOffLeft> m_CmdGrpAutoOffLeft;
+
+    /**
+     * A public, static instance of a CmdGrpAutoOffCenter class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdGrpAutoOffCenter> m_CmdGrpAutoOffCenter;
+
+    /**
+     * A public, static instance of a CmdGrpAutoOffRight class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this example operator interface instance
+     * m_cmdDriveArcadeStyle is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static std::shared_ptr<CmdGrpAutoOffRight> m_CmdGrpAutoOffRight;
+
+    /**
+     * A public, static instance of a TelemetryOutputter class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this pointer 
      * m_TelemetryOutputter is shared between all Robot instances.
      * Since this is static, this is only the declaration.
      * The definition for the member variable must be done outside the
      * class.
     */
     static TelemetryOutputter* m_TelemetryOutputter;
+
+    /**
+     * A public, static instance of a Video class.
+     * 
+     * This is a member variable, hence the m_ in front of the name.
+     * The static modifier means that this pointer
+     * m_Video is shared between all Robot instances.
+     * Since this is static, this is only the declaration.
+     * The definition for the member variable must be done outside the
+     * class.
+    */
+    static Video* m_Video;
 
     /**
      * A public, static instance of a robot tick counter. A robot tick counter
@@ -354,20 +571,22 @@ class Robot : public frc::TimedRobot {
  
     /*********************** Private member variables *************************/
 
+    /** Define a sendable chooser for autonomous mode */
+    frc::SendableChooser<frc::Command*> autonomous_chooser;
+
+    /** Define a pointer to THE autonomous command that we will be using */
+    std::unique_ptr<frc::Command> autonomousCommand;
+
+    /** Define a string for the robot code version message */
+    std::string m_RobotCode_version_msg;
+
+    /** Define a string for telemetry debug */
+    std::string m_telemetry_debug_msg;
+
     /*********************** Private Method Prototypes ************************/
 
     /** Outputs the version information to the console */
     void outputVersionInfoToConsole();
-
-    /**
-     * Initializes a USB Camera for streaming.
-     *
-     * @param CameraName      The name of the camera to be shown on the
-     *                          SmartDashboard.
-     * @param CameraDeviceNum The device number of the camera.
-    */
-    void InitializeUSBCamera(const std::string CameraName,
-                             const int CameraDeviceNum);
 
 }; // end class Robot
 

@@ -16,7 +16,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -35,7 +35,7 @@
 #include "RobotConstants.h"
 
 // Include the SmartDashboard Keys header file
-#include "SmartDashboardKeys.h"
+#include "Telemetry/SmartDashboardKeys.h"
 
 /************************** Library Header Files ******************************/
 
@@ -158,22 +158,27 @@ class TelemetryOutputter {
     /** The current used in the drive train, all motors, in Amps */
     double m_PDP_DriveTrainMotorsCurrent;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+    /** The current used in the PAT Turner motor, in Amps */
+    double m_PDP_PATTurnerMotorCurrent;
 
-    /** The current used in Tippy Toes motor #0, in Amps */
-    double m_PDP_TippyToesMotor0Current;
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
 
-    /** The current used in Tippy Toes motor #1, in Amps */
-    double m_PDP_TippyToesMotor1Current;
+    /** The current used in the Pssh motor, in Amps */
+    double m_PDP_PsshMotorCurrent;
 
-    /** The current used in Tippy Toes, both motors, in Amps */
-    double m_PDP_TippyToesMotorsCurrent;
+#endif // #if USE_PID_PSSH
 
-#endif // #if USE_TIPPY_TOES
+    /** The current used in the H/F Arms motor, in Amps */
+    double m_PDP_H_F_ArmsMotorCurrent;
 
-    /** The current used in Capt. Hook motor, in Amps */
-    double m_PDP_CaptHookMotorCurrent;
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+    /** The angle of Pssh, as read from the potentiometer */
+    double m_PsshPotAngle;
+
+#endif // #if USE_PID_PSSH
 
     /** The acceleration along the roboRIOs X-Axis, in Gs */
     double m_roboRIO_Accel_X_Axis;
@@ -321,22 +326,109 @@ class TelemetryOutputter {
     /** The roboRIO FPGA version number */
     int m_roboRIO_FPGA_VersionNumber;
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
-
-    /** The potentiometer from Capt. Hook */
-    double m_CaptHook_PotValue;
-
-    /** The Capt. Hook state */
-    std::string m_CaptHookState;
-
-#endif // #if USE_PID_CAPT_HOOK
-
     /** The status of the drive train turbo mode */
     std::string m_DriveTrainTurboState;
 
     /** The status of the drive train smoothing mode */
     std::string m_DriveTrainSmoothingState;
+
+    /** The status of the AHRS connection */
+    bool m_AHRS_ConnectionStatus;
+
+    /** The status of the AHRS calibration */
+    bool m_AHRS_CalibrationStatus;
+
+    /** The pitch of the AHRS */
+    double m_AHRS_Pitch;
+
+    /** The roll of the AHRS */
+    double m_AHRS_Roll;
+
+    /** The yaw of the AHRS */
+    double m_AHRS_Yaw;
+
+    /** The compass heading of the AHRS */
+    double m_AHRS_CompassHdg;
+
+    /** The linear acceleration on the x axis */
+    double m_AHRS_LinearAccelX;
+
+    /** The linear acceleration on the y axis */
+    double m_AHRS_LinearAccelY;
+
+    /** The linear acceleration on the z axis */
+    double m_AHRS_LinearAccelZ;
+
+    /** The status of the movemement of the AHRS */
+    bool m_AHRS_Moving;
+
+    /** The status of the rotation of the AHRS */
+    bool m_AHRS_Rotating;
+
+    /** The fused heading of the AHRS */
+    double m_AHRS_FusedHdg;
+
+    /** The status of magnetic disturbance on the AHRS */
+    bool m_AHRS_MagDisturb;
+
+    /** The status of the AHRS magnetometer calibration */
+    bool m_AHRS_MgntmtrCalStatus;
+
+    /** The Quaternion W of the AHRS */
+    double m_AHRS_QuatW;
+
+    /** The Quaternion X of the AHRS */
+    double m_AHRS_QuatX;
+
+    /** The Quaternion Y of the AHRS */
+    double m_AHRS_QuatY;
+
+    /** The Quaternion Z of the AHRS */
+    double m_AHRS_QuatZ;
+
+    /** The yaw angle of the AHRS */
+    double m_AHRS_YawAngle;
+
+    /** The yaw angle adjustment of the AHRS */
+    double m_AHRS_YawAngleAdj;
+
+    /** The rotation rate of the AHRS */
+    double m_AHRS_RotRate;
+
+    /** The temperature of the AHRS */
+    double m_AHRS_Temp_F;
+
+    /** The firmware version of the AHRS */
+    std::string m_AHRS_FWVer;
+
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+    /** The state of Pssh */
+    std::string m_Pssh_State;
+
+#endif // #if USE_PID_PSSH
+
+    /** The drive direction */
+    std::string m_drive_dir;
+
+    /** Are the arms enabled */
+    bool m_HansFranzArmsEnabled;
+
+    /** Are the muscles enabled */
+    bool m_HansFranzMusclesEnabled;
+
+    /** The state of the arms */
+    std::string m_HansFranzArmsState;
+
+    /** The state of the muscles */
+    std::string m_HansFranzMusclesState;
+
+    /** Boolean to indicate if arms are fully retracted */
+    bool m_HansFranzArmsRetracted;
+
+    /** Boolean to indicate if arms are fully extended */
+    bool m_HansFranzArmsExtended;
 
     ///////////// Member variables for choosing telemetry output /////////////
 
@@ -385,20 +477,27 @@ class TelemetryOutputter {
     /** Choose to output the current used in the drive train (all motors) */
     const bool m_Output_PDP_DriveTrainMotorsCurrent      = m_OutputTelemetry;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+    /** Choose to output the current used in the PAT Turner motor */
+    const bool m_Output_PDP_PATTurnerMotorCurrent        = m_OutputTelemetry;
 
-    /** Choose to output the current used in Tippy Toes motor #0 */
-    const bool m_Output_PDP_TippyToesMotor0Current       = m_OutputTelemetry;
-    /** Choose to output the current used in Tippy Toes motor #1 */
-    const bool m_Output_PDP_TippyToesMotor1Current       = m_OutputTelemetry;
-    /** Choose to output the current used in Tippy Toes (both motors) */
-    const bool m_Output_PDP_TippyToesMotorsCurrent       = m_OutputTelemetry;
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
 
-#endif // #if USE_TIPPY_TOES
+    /** Choose to output the current used in the Pshh motor */
+    const bool m_Output_PDP_PsshMotorCurrent             = m_OutputTelemetry;
 
-    /** Choose to output the current used in Capt. Hook motor */
-    const bool m_Output_PDP_CaptHookMotorCurrent         = m_OutputTelemetry;
+#endif // #if USE_PID_PSSH
+
+    /** Choose to output the current used in the H/F Arms motor */
+    const bool m_Output_PDP_H_F_ArmsMotorCurrent         = m_OutputTelemetry;
+
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+    /** Choose to output the angle of Pssh */
+    const bool m_Output_PsshPotAngle                     = m_OutputTelemetry;
+
+#endif // #if USE_PID_PSSH
 
     /** Choose to output the roboRIO's accelerometer X-axis */
     const bool m_Output_roboRIO_Accel_X_Axis             = m_OutputTelemetry;
@@ -502,22 +601,109 @@ class TelemetryOutputter {
     /** Choose to output the roboRIO FPGA version number and revision */
     const bool m_Output_roboRIO_FPGA_VerNumRev           = m_OutputTelemetry;
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
-
-    /** Choose to output the potentiometer value from Capt. Hook */
-    const bool m_Output_CaptHook_PotValue                = m_OutputTelemetry;
-  
-    /** Choose to output the state of Capt. Hook */
-    const bool m_Output_CaptHookState                    = m_OutputTelemetry;
-
-#endif // #if USE_PID_CAPT_HOOK
-
     /** Choose to output the drive train turbo mode */
     const bool m_Output_DriveTrainTurboState             = m_OutputTelemetry;
 
     /** Choose to output the drive train smoothing mode */
     const bool m_Output_DriveTrainSmoothingState         = m_OutputTelemetry;
+
+    /** Choose to output the status of the AHRS connection */
+    const bool m_Output_AHRS_ConnectionStatus            = m_OutputTelemetry;
+
+    /** Choose to output the status of the AHRS calibration */
+    const bool m_Output_AHRS_CalibrationStatus           = m_OutputTelemetry;
+
+    /** Choose to output the pitch of the AHRS */
+    const bool m_Output_AHRS_Pitch                       = m_OutputTelemetry;
+
+    /** Choose to output the roll of the AHRS */
+    const bool m_Output_AHRS_Roll                        = m_OutputTelemetry;
+
+    /** Choose to output the yaw of the AHRS */
+    const bool m_Output_AHRS_Yaw                         = m_OutputTelemetry;
+
+    /** Choose to output the compass heading of the AHRS */
+    const bool m_Output_AHRS_CompassHdg                  = m_OutputTelemetry;
+
+    /** Choose to output the linear acceleration on the x axis */
+    const bool m_Output_AHRS_LinearAccelX                = m_OutputTelemetry;
+
+    /** Choose to output the linear acceleration on the y axis */
+    const bool m_Output_AHRS_LinearAccelY                = m_OutputTelemetry;
+
+    /** Choose to output the linear acceleration on the z axis */
+    const bool m_Output_AHRS_LinearAccelZ                = m_OutputTelemetry;
+
+    /** Choose to output the status of the movemement of the AHRS */
+    const bool m_Output_AHRS_Moving                      = m_OutputTelemetry;
+
+    /** Choose to output the status of the rotation of the AHRS */
+    const bool m_Output_AHRS_Rotating                    = m_OutputTelemetry;
+
+    /** Choose to output the fused heading of the AHRS */
+    const bool m_Output_AHRS_FusedHdg                    = m_OutputTelemetry;
+
+    /** Choose to output the status of magnetic disturbance on the AHRS */
+    const bool m_Output_AHRS_MagDisturb                  = m_OutputTelemetry;
+
+    /** Choose to output the status of the AHRS magnetometer calibration */
+    const bool m_Output_AHRS_MgntmtrCalStatus            = m_OutputTelemetry;
+
+    /** Choose to output the Quaternion W of the AHRS */
+    const bool m_Output_AHRS_QuatW                       = m_OutputTelemetry;
+
+    /** Choose to output the Quaternion X of the AHRS */
+    const bool m_Output_AHRS_QuatX                       = m_OutputTelemetry;
+
+    /** Choose to output the Quaternion Y of the AHRS */
+    const bool m_Output_AHRS_QuatY                       = m_OutputTelemetry;
+
+    /** Choose to output the Quaternion Z of the AHRS */
+    const bool m_Output_AHRS_QuatZ                       = m_OutputTelemetry;
+
+    /** Choose to output the yaw angle of the AHRS */
+    const bool m_Output_AHRS_YawAngle                    = m_OutputTelemetry;
+
+    /** Choose to output the yaw angle adjustment of the AHRS */
+    const bool m_Output_AHRS_YawAngleAdj                 = m_OutputTelemetry;
+
+    /** Choose to output the rotation rate of the AHRS */
+    const bool m_Output_AHRS_RotRate                     = m_OutputTelemetry;
+
+    /** Choose to output the temperature of the AHRS */
+    const bool m_Output_AHRS_Temp_F                      = m_OutputTelemetry;
+
+    /** Choose to output the firmware version of the AHRS */
+    const bool m_Output_AHRS_FWVer                       = m_OutputTelemetry;
+
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+    /** Choose to output the state of Pssh */
+    const bool m_Output_Pssh_State                       = m_OutputTelemetry;
+
+#endif // #if USE_PID_PSSH
+
+    /** Choose to output the drive direction */
+    const bool m_Output_drive_dir                        = m_OutputTelemetry;
+
+    /** Choose to output if the arms are enabled */
+    const bool m_Output_HansFranzArmsEnabled             = m_OutputTelemetry;
+
+    /** Choose to output if the muscles enabled */
+    const bool m_Output_HansFranzMusclesEnabled          = m_OutputTelemetry;
+
+    /** Choose to output the state of the arms */
+    const bool m_Output_HansFranzArmsState               = m_OutputTelemetry;
+
+    /** Choose to output the state of the muscles */
+    const bool m_Output_HansFranzMusclesState            = m_OutputTelemetry;
+
+    /** Choose to output the boolean to indicate if arms are fully retracted */
+    bool m_Output_HansFranzArmsRetracted                 = m_OutputTelemetry;
+
+    /** Choose to output the boolean to indicate if arms are fully extended */
+    bool m_Output_HansFranzArmsExtended                  = m_OutputTelemetry;
 
     ////////////////////////// Some other constants //////////////////////////
 

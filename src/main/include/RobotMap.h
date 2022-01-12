@@ -66,7 +66,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -81,8 +81,10 @@
 
 /*************************** Local Header Files *******************************/
 
-// Include our constants header file
-#include "RobotConstants.h"
+/************************** Library Header Files ******************************/
+
+// Include the SPI header file
+#include <frc/SPI.h>
 
 // **************************** PWM PORTS *************************************
 
@@ -103,26 +105,31 @@ constexpr int k_LeftDriveTrainMotorsPWMPort  = 0;
 */
 constexpr int k_RightDriveTrainMotorsPWMPort = 1;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+/** The PWM port for PAT's turner */
+constexpr int k_PATTurnerMotorPWMPort = 2;
 
-/**
- * The PWM port on the roboRIO for the Tippy Toes motors controller.
- *
- * Note: There are two motors attached to Tippy Toes:
- *       Motor #0 and Motor #1. Both these motors are driven by the port
- *       specified by @c k_TippyToesMotorsPWMPort using a PWM Y-cable.
-*/
-constexpr int k_TippyToesMotorsPWMPort = 2;
+/** The PWM port for Pssh's motor */
+constexpr int k_PsshMotorPWMPort = 3;
 
-#endif // #if USE_TIPPY_TOES
+/** The PWM port for Hans' and Franz's arms motor */
+constexpr int k_HansFranzArmsPWMPort = 4;
 
-/**
- * The PWM port on the roboRIO for the Capt. Hook motor controller.
-*/
-constexpr int k_CaptHookMotorPWMPort = 3;
+// **************************** MXP PORTS **************************************
 
-// *************************** PDP CHANNELS ************************************
+/** The NavX MXP is using the SPI on the MXP */
+const frc::SPI::Port k_navx_mxp_imu_port = frc::SPI::Port::kMXP;
+
+// *********************** CAN Bus Device IDs **********************************
+
+// Verify CAN bus device IDs with the Phoenix Tuner from CTRE.
+
+/** The PDP CAN bus device ID */
+constexpr int k_PDP_CAN_Bus_DeviceID = 0;
+
+/** The Primary PCM CAN bus device ID */
+constexpr int k_PrimaryPCM_CAN_Bus_DeviceID = 1;
+
+// *************************** PDP CHANNELS ***********************************
 
 /** The PDP channel number of motor #0 of the left drive train */
 constexpr int k_LeftDriveTrainMotor0PDPChannel = 2;
@@ -134,49 +141,56 @@ constexpr int k_RightDriveTrainMotor0PDPChannel = 13;
 /** The PDP channel number of motor #1 of the right drive train */
 constexpr int k_RightDriveTrainMotor1PDPChannel = 12;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+/** The PDP channel number of the motor for PAT Turner */
+constexpr int k_PATTurnerMotorPDPChannel = 1;
 
-/** The PDP channel number of motor #0 of Tippy Toes */
-constexpr int k_TippyToesMotor0PDPChannel = 15;
-/** The PDP channel number of motor #1 of Tippy Toes */
-constexpr int k_TippyToesMotor1PDPChannel = 14;
+/** The PDP channel number of the motor for Pssh */
+constexpr int k_PsshMotorPDPChannel = 14;
 
-#endif // #if USE_TIPPY_TOES
+/** The PDP channel number for the Hans/Franz arms motor */
+constexpr int k_HansFranzArmsMotorChannel = 15;
 
-/** The PDP channel number of the motor for Capt. Hook */
-constexpr int k_CaptHookMotorPDPChannel = 11;
+// *********************** PRIMARY PCM CHANNELS *******************************
 
-// *********************** CAN Bus Device IDs **********************************
+/** The primary PCM channel for Hans muscle extend */
+constexpr int k_HansExtendMuscleChannel=0;
 
-// Verify CAN bus device IDs with the Phoenix Tuner from CTRE.
+/** The primary PCM channel for Hans muscle retract */
+constexpr int k_HansRetractMuscleChannel=1;
 
-/** The PDP CAN bus device ID */
-constexpr int k_PDP_CAN_Bus_DeviceID = 0;
+/** The primary PCM channel for Franz muscle extend */
+constexpr int k_FranzExtendMuscleChannel=2;
 
-/** The PCM CAN bus device ID */
-constexpr int k_PCM_CAN_Bus_DeviceID = 1;
+/** The primary PCM channel for Franz muscle retract */
+constexpr int k_FranzRetractMuscleChannel=3;
 
 // ******************* roboRIO Analog Input Channels **************************
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
-
-/** The analog input channel for Captain Hook's potentiometer */
-constexpr int k_CaptHook_Pot_roboRIO_AnalogInChannel = 0;
-
-#endif // #if USE_PID_CAPT_HOOK
+/** The analog input channel for Pssh's potentiometer */
+constexpr int k_Pssh_Pot_roboRIO_AnalogInChannel = 0;
 
 // ****************** roboRIO Digital Input Channels **************************
 
+/** The DIO channel for the Hans/Franz arms fully retracted limit switch */
+constexpr int k_HansFranzArms_FullyRetracted_LimitSwitch_Channel = 0;
+
+/** The DIO channel for the Hans/Franz arms fully extended limit switch */
+constexpr int k_HansFranzArms_FullyExtended_LimitSwitch_Channel = 1;
+
 // ********************* roboRIO USB DEVICE NUMBERS ***************************
 
-/** The camera interface device number for the above camera */
-constexpr int k_Camera0NameDeviceNumber = 0;
+/** The camera interface device number for the front camera */
+constexpr int k_FrontCameraDeviceNumber = 0;
+
+/** The camera interface device number for the front camera */
+constexpr int k_BackCameraDeviceNumber = 1;
 
 // ***************** DRIVER STATION USB DEVICE NUMBERS ************************
 
-/** The device number of the Logitech controller */
-constexpr int k_Joystic0DeviceNumber = 0;
+/** The device number of the primary controller */
+constexpr int k_Joystick0DeviceNumber = 0;
+
+/** The device number of the secondary Logitech controller */
+constexpr int k_Joystick1DeviceNumber = 1;
 
 #endif // #ifndef ROBOTMAP_H

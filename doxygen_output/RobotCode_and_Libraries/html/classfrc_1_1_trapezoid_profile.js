@@ -1,0 +1,27 @@
+var classfrc_1_1_trapezoid_profile =
+[
+    [ "Constraints", "classfrc_1_1_trapezoid_profile_1_1_constraints.html", "classfrc_1_1_trapezoid_profile_1_1_constraints" ],
+    [ "State", "classfrc_1_1_trapezoid_profile_1_1_state.html", "classfrc_1_1_trapezoid_profile_1_1_state" ],
+    [ "Acceleration", "classfrc_1_1_trapezoid_profile.html#a20e3b74c40279a2b40205c7f9813a82a", null ],
+    [ "Acceleration_t", "classfrc_1_1_trapezoid_profile.html#ad667ca20276ab58522d07115785335be", null ],
+    [ "Distance_t", "classfrc_1_1_trapezoid_profile.html#a87056359e1f4ed9bf3136338861f3e49", null ],
+    [ "Velocity", "classfrc_1_1_trapezoid_profile.html#a2e377ae87db0b7b214e5d6495504d54d", null ],
+    [ "Velocity_t", "classfrc_1_1_trapezoid_profile.html#af1572945aaa361827eacd389925eff0b", null ],
+    [ "TrapezoidProfile", "classfrc_1_1_trapezoid_profile.html#a961d1d386882d1d99c9407147d47146d", null ],
+    [ "TrapezoidProfile", "classfrc_1_1_trapezoid_profile.html#a46219e2ac843cc76b4149a76ffeb8d00", null ],
+    [ "TrapezoidProfile", "classfrc_1_1_trapezoid_profile.html#afe5f8d6f70b3bbe9d2d871fbe1e85495", null ],
+    [ "Calculate", "classfrc_1_1_trapezoid_profile.html#a6444cbb61b80591536df89e45651b19f", null ],
+    [ "Direct", "classfrc_1_1_trapezoid_profile.html#aca4fa4ba7a987510f2e1fbb5bc57ba6d", null ],
+    [ "IsFinished", "classfrc_1_1_trapezoid_profile.html#abd64d636feb6ec1c843d367bfce8f69f", null ],
+    [ "operator=", "classfrc_1_1_trapezoid_profile.html#ad5b60582c9579e940187236fbdfd4949", null ],
+    [ "operator=", "classfrc_1_1_trapezoid_profile.html#a29cd78db84b3d1e13fb77d3d239603aa", null ],
+    [ "TimeLeftUntil", "classfrc_1_1_trapezoid_profile.html#a61e00f74ff2a34dcd978f20764981603", null ],
+    [ "TotalTime", "classfrc_1_1_trapezoid_profile.html#aac5484dabe7f311ac580e034755dbaa8", null ],
+    [ "m_constraints", "classfrc_1_1_trapezoid_profile.html#ab964438b84f90a53bc7bb830b3dd3d3b", null ],
+    [ "m_direction", "classfrc_1_1_trapezoid_profile.html#aa5c5bf6e981a965cce7078ada2613656", null ],
+    [ "m_endAccel", "classfrc_1_1_trapezoid_profile.html#abfd8ef7430ed133970befad739ca6fc5", null ],
+    [ "m_endDeccel", "classfrc_1_1_trapezoid_profile.html#a4b3a426bce3b6588b21f66887ea5d43e", null ],
+    [ "m_endFullSpeed", "classfrc_1_1_trapezoid_profile.html#aca06e672a83e86e146d1217874780036", null ],
+    [ "m_goal", "classfrc_1_1_trapezoid_profile.html#a917ab9c0d2f21988be0bc4b69069a590", null ],
+    [ "m_initial", "classfrc_1_1_trapezoid_profile.html#a7151375d9db27c2389aebfc3d274f6aa", null ]
+];

@@ -5,7 +5,7 @@
  *
  * COPYRIGHT NOTICES:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -19,7 +19,7 @@
 #define MAINPAGE_H
 
 /**
- * @mainpage FRC Team 7464 - O.R.I.O.N.: Code for Sirius (2019 Season)
+ * @mainpage FRC Team 7464 - O.R.I.O.N.: Code for Sirius (2020 Season)
  *
  * @section intro_sec Introduction
  *
@@ -27,7 +27,7 @@
  * <a href="https://orionfrc.wixsite.com/robotics">Oklahoma Robotic Institute
  * of Norman</a>'s (O.R.I.O.N.'s) entry for competition in the 
  * <a href="https://www.firstinspires.org/">FIRST</a> Robotic
- * Competition (FRC) 2019 season.
+ * Competition (FRC) 2020 season.
  *
  * This documentation was created by adding special 
  * <a href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">
@@ -42,7 +42,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the 
  * <a href="../BSD_License_for_FRC_7464_ORION_code.txt">

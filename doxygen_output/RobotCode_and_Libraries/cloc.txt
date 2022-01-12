@@ -1,0 +1,33 @@
+RobotCode v2020.1.0.03:
+
+     100 files     101 text files.
+classified 101 filesDuplicate file check 101 files (95 known unique)     101 unique files.                              
+Counting:  100      38 files ignored.
+
+github.com/AlDanial/cloc v 1.80  T=1.00 s (100.0 files/s, 17044.0 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+C++                             48           2313           3412           3145
+C/C++ Header                    52           1479           5194           1501
+-------------------------------------------------------------------------------
+SUM:                           100           3792           8606           4646
+-------------------------------------------------------------------------------
+
+
+WPILIBC v2020.3.2:
+
+     100 files     200 files     300 files     360 text files.
+classified 360 filesDuplicate file check 360 files (341 known unique)Unique:      100 files                                          Unique:      200 files                                          Unique:      300 files                                               360 unique files.                              
+Counting:  100Counting:  200Counting:  300      62 files ignored.
+
+github.com/AlDanial/cloc v 1.80  T=0.50 s (704.0 files/s, 80494.0 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+C++                            171           3201           1558          12813
+C/C++ Header                   180           3168          12823           6674
+C                                1              1              6              3
+-------------------------------------------------------------------------------
+SUM:                           352           6370          14387          19490
+-------------------------------------------------------------------------------

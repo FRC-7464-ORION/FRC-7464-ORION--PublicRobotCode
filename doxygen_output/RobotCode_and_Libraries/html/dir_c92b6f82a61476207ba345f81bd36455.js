@@ -1,0 +1,27 @@
+var dir_c92b6f82a61476207ba345f81bd36455 =
+[
+    [ "AHRS.cpp", "_a_h_r_s_8cpp_source.html", null ],
+    [ "ContinuousAngleTracker.cpp", "_continuous_angle_tracker_8cpp_source.html", null ],
+    [ "ContinuousAngleTracker.h", "_continuous_angle_tracker_8h_source.html", null ],
+    [ "delay.h", "delay_8h_source.html", null ],
+    [ "IBoardCapabilities.h", "_i_board_capabilities_8h_source.html", null ],
+    [ "IIOCompleteNotification.h", "_i_i_o_complete_notification_8h_source.html", null ],
+    [ "IIOProvider.h", "_i_i_o_provider_8h_source.html", null ],
+    [ "InertialDataIntegrator.cpp", "_inertial_data_integrator_8cpp_source.html", null ],
+    [ "InertialDataIntegrator.h", "_inertial_data_integrator_8h_source.html", null ],
+    [ "IRegisterIO.h", "_i_register_i_o_8h_source.html", null ],
+    [ "OffsetTracker.cpp", "_offset_tracker_8cpp_source.html", null ],
+    [ "OffsetTracker.h", "_offset_tracker_8h_source.html", null ],
+    [ "RegisterIO.cpp", "_register_i_o_8cpp_source.html", null ],
+    [ "RegisterIO.h", "_register_i_o_8h_source.html", null ],
+    [ "RegisterIOI2C.cpp", "_register_i_o_i2_c_8cpp_source.html", null ],
+    [ "RegisterIOI2C.h", "_register_i_o_i2_c_8h_source.html", null ],
+    [ "RegisterIOMau.cpp", "_register_i_o_mau_8cpp_source.html", null ],
+    [ "RegisterIOMau.h", "_register_i_o_mau_8h_source.html", null ],
+    [ "RegisterIOSPI.cpp", "_register_i_o_s_p_i_8cpp_source.html", null ],
+    [ "RegisterIOSPI.h", "_register_i_o_s_p_i_8h_source.html", null ],
+    [ "SerialIO.cpp", "_serial_i_o_8cpp_source.html", null ],
+    [ "SerialIO.h", "_serial_i_o_8h_source.html", null ],
+    [ "SimIO.cpp", "_sim_i_o_8cpp_source.html", null ],
+    [ "SimIO.h", "_sim_i_o_8h_source.html", null ]
+];

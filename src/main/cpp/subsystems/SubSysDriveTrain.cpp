@@ -15,7 +15,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -28,13 +28,16 @@
 #include "subsystems/SubSysDriveTrain.h"
 
 // Include the header file for the drive arcade style command class
-#include "commands/CmdDriveArcadeStyle.h"
+#include "commands/DriveTrain/CmdDriveArcadeStyle.h"
 
 // Include the header file for the drive tank style command class
-#include "commands/CmdDriveTankStyle.h"
+#include "commands/DriveTrain/CmdDriveTankStyle.h"
 
 // Include out robot map header file
 #include "RobotMap.h"
+
+// Include the header file for HID Constants
+#include "HIDs/HID_Constants.h"
 
 // Include the Logitech F310 header
 #include "HIDs/LogitechF310.h"
@@ -50,8 +53,10 @@ SubSysDriveTrain::SubSysDriveTrain() : Subsystem("SubSysDriveTrain") {
 
 #if ORION_DEBUG
   if(m_leftDriveTrainController == nullptr) {
-    wpi::outs() << "m_leftDriveTrainController not initialized!\n";
-    wpi::outs().flush();
+    frc::DriverStation::ReportError("m_leftDriveTrainController NOT initialized!\n");
+  }
+  else {
+    frc::DriverStation::ReportWarning("m_leftDriveTrainController initialized!\n");
   }
 #endif
 
@@ -61,8 +66,10 @@ SubSysDriveTrain::SubSysDriveTrain() : Subsystem("SubSysDriveTrain") {
 
 #if ORION_DEBUG
   if(m_rightDriveTrainController == nullptr) {
-    wpi::outs() << "m_rightDriveTrainController not initialized!\n";
-    wpi::outs().flush();
+    frc::DriverStation::ReportError("m_rightDriveTrainController NOT initialized!");
+  }
+  else {
+    frc::DriverStation::ReportWarning("m_rightDriveTrainController initialized!");
   }
 #endif
 
@@ -73,8 +80,10 @@ SubSysDriveTrain::SubSysDriveTrain() : Subsystem("SubSysDriveTrain") {
 
 #if ORION_DEBUG
   if(m_differentialDrive == nullptr) {
-    wpi::outs() << "m_differentialDrive not initialized!\n";
-    wpi::outs().flush();
+    frc::DriverStation::ReportError("m_differentialDrive NOT initialized!");
+  }
+  else {
+    frc::DriverStation::ReportWarning("m_differentialDrive initialized!");
   }
 #endif
 
@@ -98,6 +107,9 @@ SubSysDriveTrain::SubSysDriveTrain() : Subsystem("SubSysDriveTrain") {
 
   // Set speed 2 past filtered output to 0
   m_speed2_past_filtered_output = 0.0;
+
+  // Indicate that the drive direction is initially normal
+  m_drive_direction_switched = false;
 
 } // end SubSysDriveTrain::SubSysDriveTrain()
 
@@ -130,6 +142,9 @@ void SubSysDriveTrain::Periodic() {
 
   // Put code here to be run every loop
 
+  // Feed the differential drive safety system
+  m_differentialDrive->Feed();
+
 } // end SubSysDriveTrain::Periodic()
 
 // Put methods for controlling this subsystem
@@ -158,6 +173,13 @@ void SubSysDriveTrain::DriveArcadeStyle(double y, double x) {
   // The x axis value after being nulled, desensitized, speed limited,
   //   turboed (on or off), and smoothed (on or off)
   double x_Smoothed;
+
+  // If the drive direction is switched...
+  if(m_drive_direction_switched)
+  {
+    // Invert the y axis
+    y = k_ReverseSpeedMultiplier * y;
+  }
 
   // We were passed in a nulled/desensed/limited value for y,
   //   so we'll use that
@@ -254,6 +276,14 @@ void SubSysDriveTrain::DriveTankStyle(double yL, double yR) {
   //   turboed (on or off), and smoothed (on or off)
   double yR_Smoothed;
 
+  // If the drive direction is switched...
+  if(m_drive_direction_switched)
+  {
+    // Invert the yL and yR axis
+    yL = k_ReverseSpeedMultiplier * yL;
+    yR = k_ReverseSpeedMultiplier * yR;
+  }
+
   // We were passed in a nulled/desensed/limited value for yL,
   //   so we'll use that
   yL_Nulled_Desensed_Limited = yL;
@@ -324,6 +354,15 @@ void SubSysDriveTrain::DriveTankStyle(double yL, double yR) {
     yL_Smoothed, yR_Smoothed, k_DoNOTUseBuiltInSquaring);
 
 } // end SubSysDriveTrain::DriveTankStyle()
+
+// The method for driving autonomously style
+void SubSysDriveTrain::DriveAutonomousStyle(double yL, double yR) {
+
+  // Use tank drive given the left and right speeds
+  m_differentialDrive->TankDrive(yL, yR,
+                                 k_DoNOTUseBuiltInSquaring);
+
+} // end SubSysDriveTrain::DriveAutonomousStyle(double yL, double yR)
 
 // Method to set the drive train mode string to arcade
 void SubSysDriveTrain::SetDriveTrainModeStringToArcade() {
@@ -449,3 +488,41 @@ std::string SubSysDriveTrain::GetSmoothingStatusString() {
   return m_DriveTrain_Smoothing_Status_String;
 
 } // end SubSysDriveTrain::GetSmoothingStatusString()
+
+// Method to get the driving direction string 
+std::string SubSysDriveTrain::GetDriveDirectionString()
+{
+
+  // If the drive direction is not switched
+  if(!m_drive_direction_switched)
+    // Pssh is up front
+    return k_DriveTrainPsshFrontString;
+  else
+    // PAT is the front
+    return k_DriveTrainPATFrontString;
+
+} // end SubSysDriveTrain::GetDriveDirectionString()
+
+// Method to set the driving direction to normal
+void SubSysDriveTrain::SetDriveDirectionSwitchingNormal()
+{
+
+  // Indicate that the drive direction is not switched
+  m_drive_direction_switched = false;
+
+  // TODO: Might want to put something here that makes the
+  //       drivetrain stop for 250-500ms.
+
+} // end SubSysDriveTrain::SetDriveDirectionSwitchingNormal()
+
+// Method to set the driving direction to reverse 
+void SubSysDriveTrain::SetDriveDirectionSwitchingReverse()
+{
+
+  // Indicate that the drive direction is switched
+  m_drive_direction_switched = true;
+
+  // TODO: Might want to put something here that makes the
+  //       drivetrain stop for 250-500ms.
+
+} // end SubSysDriveTrain::SetDriveDirectionSwitchingReverse()

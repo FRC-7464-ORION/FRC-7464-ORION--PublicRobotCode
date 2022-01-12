@@ -17,7 +17,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -210,50 +210,51 @@ void TelemetryOutputter::OutputTelemetry() {
 
   } // end if(m_Output_PDP_DriveTrainMotorsCurrent)
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+  // If we want to output PAT Turner's motor current...
+  if(m_Output_PDP_PATTurnerMotorCurrent) {
 
-  // If we want to output Tippy Toes motor 0 current...
-  if(m_Output_PDP_TippyToesMotor0Current) {
+    // Output PAT Turner's motor current
+    frc::SmartDashboard::PutNumber(k_PATTurnerMotorSD_Key,
+                                     m_PDP_PATTurnerMotorCurrent);
 
-    // Output Tippy Toes' motor #0 current, in Amps
-    frc::SmartDashboard::PutNumber(k_TippyToesMotor0SD_Key,
-                                     m_PDP_TippyToesMotor0Current);
+  } //  end if(m_Output_PDP_PATTurnerMotorCurrent)
 
-  } // if(m_Output_PDP_TippyToesMotor0Current)
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
 
-  // If we want to output Tippy Toes motor 1 current...
-  if(m_Output_PDP_TippyToesMotor1Current) {
+  // If we want to output Pssh's motor current...
+  if(m_Output_PDP_PsshMotorCurrent) {
 
-    // Output Tippy Toes' motor #1 current, in Amps
-    frc::SmartDashboard::PutNumber(k_TippyToesMotor1SD_Key,
-                                     m_PDP_TippyToesMotor1Current);
+    // Output Pssh's motor current
+    frc::SmartDashboard::PutNumber(k_PsshMotorSD_Key,
+                                     m_PDP_PsshMotorCurrent);
 
-  } // end if(m_Output_PDP_TippyToesMotor1Current)
+  } //  end if(m_Output_PDP_PsshMotorCurrent)
 
-  // If we want to output Tippy Toes current (both motors)...
-  if(m_Output_PDP_TippyToesMotorsCurrent) {
+#endif // #if USE_PID_PSSH
 
-    // Sum the current from both Tippy Toes motors
-    m_PDP_TippyToesMotorsCurrent = m_PDP_TippyToesMotor0Current +
-                                   m_PDP_TippyToesMotor1Current;
+  // If we want to output H/F Arms's motor current...
+  if(m_Output_PDP_H_F_ArmsMotorCurrent) {
 
-    // Output Tippy Toes' motors current, in Amps
-    frc::SmartDashboard::PutNumber(k_TippyToesMotorsSD_Key,
-                                     m_PDP_TippyToesMotorsCurrent);
+    // Output H/F Arms's motor current
+    frc::SmartDashboard::PutNumber(k_H_F_ArmsMotorSD_Key,
+                                     m_PDP_H_F_ArmsMotorCurrent);
 
-  } // end if(m_Output_PDP_TippyToesMotorsCurrent)
+  } //  end if(m_Output_PDP_PATTurnerMotorCurrent)
 
-#endif // #if USE_TIPPY_TOES
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
 
-  // If we want to output Capt. Hook motor current...
-  if(m_Output_PDP_CaptHookMotorCurrent) {
+  // If we want to output the angle of Pssh...
+  if(m_Output_PsshPotAngle) {
 
-    // Output Capt. Hook's motor current, in Amps
-    frc::SmartDashboard::PutNumber(k_CaptHookMotorSD_Key,
-                                     m_PDP_CaptHookMotorCurrent);
+    // Output Pssh's angle
+    frc::SmartDashboard::PutNumber(k_PsshPotAngleSD_Key,
+                                   m_PsshPotAngle);
 
-  } // if(m_Output_PDP_CaptHookMotorCurrent)
+  } // end if(m_Output_PsshPotAngle)
+
+#endif // #if USE_PID_PSSH
 
   // If we want to output the roboRIO's X-axis acceleration...
   if(m_Output_roboRIO_Accel_X_Axis) {
@@ -481,29 +482,6 @@ void TelemetryOutputter::OutputTelemetry() {
 
   } // end if(m_Output_roboRIO_FPGA_Time)
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
-
-  // If we want to output Capt. Hook's potentimeter value...
-  if(m_Output_CaptHook_PotValue) {
-
-    // Output Capt. Hook's potentiometer value
-    frc::SmartDashboard::PutNumber(k_CaptHookPotValue_Key,
-                                   m_CaptHook_PotValue);
-
-  } // end if(m_Output_CaptHook_PotValue)
-
-  // If we want to output the state of Capt. Hook...
-  if(m_Output_CaptHookState) {
-
-    // Output the state of Capt. Hook
-    frc::SmartDashboard::PutString(k_CaptHookStatus_Key,
-                                   m_CaptHookState);
-
-  } // end if(m_Output_CaptHookState)
-
-#endif // #if USE_PID_CAPT_HOOK
-
   // If we want to output the drive train turbo mode string...
   if(m_Output_DriveTrainTurboState) {
 
@@ -521,5 +499,330 @@ void TelemetryOutputter::OutputTelemetry() {
                                    m_DriveTrainSmoothingState);
 
   } // end if(m_Output_DriveTrainSmoothingState)
+
+  // If we want to output the AHRS connection status
+  if(m_Output_AHRS_ConnectionStatus)
+  {
+
+    // Output the AHRS connection status 
+    frc::SmartDashboard::PutBoolean(k_AHRS_ConnectionStatus_Key,
+                                    m_AHRS_ConnectionStatus);
+
+  } // end if(m_Output_AHRS_ConnectionStatus)
+
+  // If we want to output the calibration status of the AHRS
+  if(m_Output_AHRS_CalibrationStatus)
+  {
+
+    // Output the AHRS calibration status 
+    // Status is reversed because Calibrating is true, and
+    // Calibrated is false. We want Calibrated to be green (true),
+    // and calibrating to be red (false).
+    frc::SmartDashboard::PutBoolean(k_AHRS_CalibrationStatus_Key,
+                                    !m_AHRS_CalibrationStatus);
+
+  } // end if(m_Output_AHRS_CalibrationStatus)
+
+  // If we want to output the pitch of the AHRS
+  if(m_Output_AHRS_Pitch)
+  {
+
+    // Output the AHRS pitch 
+    frc::SmartDashboard::PutNumber(k_AHRS_Pitch_Key,
+                                   m_AHRS_Pitch);
+
+  } // end if(m_Output_AHRS_Pitch)
+
+  // If we want to output the roll of the AHRS
+  if(m_Output_AHRS_Roll)
+  {
+
+    // Output the AHRS roll
+    frc::SmartDashboard::PutNumber(k_AHRS_Roll_Key,
+                                   m_AHRS_Roll);
+
+  } // end if(m_Output_AHRS_Roll)
+
+  // If we want to output the yaw of the AHRS
+  if(m_Output_AHRS_Yaw)
+  {
+
+    // Output the AHRS yaw 
+    frc::SmartDashboard::PutNumber(k_AHRS_Yaw_Key,
+                                   m_AHRS_Yaw);
+
+  } // end if(m_Output_AHRS_Yaw)
+
+  // If we want to output the compass heading of the AHRS
+  if(m_Output_AHRS_CompassHdg)
+  {
+
+    // Output the AHRS compass heading 
+    frc::SmartDashboard::PutNumber(k_AHRS_CompassHeading_Key,
+                                   m_AHRS_CompassHdg);
+
+  } // end if(m_Output_AHRS_CompassHdg)
+
+  // If we want to output the X-axis linear acceleration of the AHRS
+  if(m_Output_AHRS_LinearAccelX)
+  {
+
+    // Output the AHRS X-axis linear acceleration
+    frc::SmartDashboard::PutNumber(k_AHRS_LinearAccelX_Key,
+                                   m_AHRS_LinearAccelX);
+
+  } // end if(m_Output_AHRS_LinearAccelX)
+
+  // If we want to output the Y-axis linear acceleration of the AHRS
+  if(m_Output_AHRS_LinearAccelY)
+  {
+
+    // Output the AHRS Y-axis linear acceleration
+    frc::SmartDashboard::PutNumber(k_AHRS_LinearAccelY_Key,
+                                   m_AHRS_LinearAccelY);
+
+  } // end if(m_Output_AHRS_LinearAccelY)
+
+  // If we want to output the Z-axis linear acceleration of the AHRS
+  if(m_Output_AHRS_LinearAccelZ)
+  {
+
+    // Output the AHRS Z-axis linear acceleration
+    frc::SmartDashboard::PutNumber(k_AHRS_LinearAccelZ_Key,
+                                   m_AHRS_LinearAccelZ);
+
+  } // end if(m_Output_AHRS_LinearAccelZ)
+
+  // If we want to output the status of the AHRS moving
+  if(m_Output_AHRS_Moving)
+  {
+
+    // Output the AHRS moving status
+    frc::SmartDashboard::PutBoolean(k_AHRS_Moving_Key,
+                                    m_AHRS_Moving);
+
+  } // end if(m_Output_AHRS_Moving)
+
+  // If we want to output the status of the AHRS rotating
+  if(m_Output_AHRS_Rotating)
+  {
+
+    // Output the AHRS rotating status
+    frc::SmartDashboard::PutBoolean(k_AHRS_Rotating_Key,
+                                    m_AHRS_Rotating);
+
+  } // end if(m_Output_AHRS_Rotating)
+
+  // If we want to output the fused heading of the AHRS
+  if(m_Output_AHRS_FusedHdg)
+  {
+
+    // Output the AHRS fused heading
+    frc::SmartDashboard::PutNumber(k_AHRS_FusedHdg_Key,
+                                   m_AHRS_FusedHdg);
+
+  } // end if(m_Output_AHRS_FusedHdg)
+
+  // If we want to see if the AHRS is experiencing magnetic disturbance
+  if(m_Output_AHRS_MagDisturb)
+  {
+
+    // Output the AHRS magnetic disturbance status
+    // Note: m_AHRS_MagDisturb is true if in magnetic disturbance,
+    //       false if not. But we want green(true) when we are not
+    //       in a disturbance, and red when we are. Hence, the
+    //       negation. 
+    frc::SmartDashboard::PutBoolean(k_AHRS_MagDisturb_Key,
+                                   !m_AHRS_MagDisturb);
+
+  } // end if(m_Output_AHRS_MagDisturb)
+
+  // If we want to output the magnetometer calibration status of the AHRS
+  if(m_Output_AHRS_MgntmtrCalStatus)
+  {
+
+    // Output the AHRS magnetometer calibration status 
+    // Note: m_AHRS_MgntmtrCalStatus is true when the magnetometer,
+    //       is calibrating, false if not. But we want green(true) 
+    //       when we are not calibrating, but calibrated, and
+    //       red when we are calibrating. Hence, the negation. 
+    frc::SmartDashboard::PutBoolean(k_AHRS_IsMgntmtrCal_Key,
+                                    !m_AHRS_MgntmtrCalStatus);
+
+  } // end if(m_Output_AHRS_MgntmtrCalStatus)
+  
+  // If we want to output the Quaternion W of the AHRS
+  if(m_Output_AHRS_QuatW)
+  {
+
+    // Output the AHRS quaternion of W
+    frc::SmartDashboard::PutNumber(k_AHRS_QuatW_Key,
+                                   m_AHRS_QuatW);
+
+  } // end if(m_Output_AHRS_QuatW)
+
+  // If we want to output the Quaternion X of the AHRS
+  if(m_Output_AHRS_QuatX)
+  {
+
+    // Output the AHRS quaternion of X
+    frc::SmartDashboard::PutNumber(k_AHRS_QuatX_Key,
+                                   m_AHRS_QuatX);
+
+  } // end if(m_Output_AHRS_QuatX)
+
+  // If we want to output the Quaternion Y of the AHRS
+  if(m_Output_AHRS_QuatY)
+  {
+
+    // Output the AHRS quaternion of Y
+    frc::SmartDashboard::PutNumber(k_AHRS_QuatY_Key,
+                                   m_AHRS_QuatY);
+
+  } // end if(m_Output_AHRS_QuatY)
+
+  // If we want to output the Quaternion Z of the AHRS
+  if(m_Output_AHRS_QuatZ)
+  {
+
+    // Output the AHRS quaternion of Z
+    frc::SmartDashboard::PutNumber(k_AHRS_QuatZ_Key,
+                                   m_AHRS_QuatZ);
+
+  } // end if(m_Output_AHRS_QuatZ)
+
+  // If we want to output the AHRS yaw angle
+  if(m_Output_AHRS_YawAngle)
+  {
+
+    // Output the AHRS yaw angle
+    frc::SmartDashboard::PutNumber(k_AHRS_YawAngle_Key,
+                                  m_AHRS_YawAngle);
+
+  } // end if(m_Output_AHRS_YawAngle)
+
+  // If we want to output the AHRS yaw angle adjustment
+  if(m_Output_AHRS_YawAngleAdj)
+  {
+
+    // Output the AHRS yaw angle adjustment
+    frc::SmartDashboard::PutNumber(k_AHRS_YawAngleAdj_Key,
+                                   m_AHRS_YawAngleAdj);
+
+  } // end if(m_Output_AHRS_YawAngleAdj)
+
+  // If we want to output the AHRS rotation rate
+  if(m_Output_AHRS_RotRate)
+  {
+
+    // Output the AHRS rotation rate
+    frc::SmartDashboard::PutNumber(k_AHRS_RotRate_Key,
+                                   m_AHRS_RotRate);
+
+  } // end if(m_Output_AHRS_RotRate)
+
+  // If we want to output the AHRS temperature
+  if(m_Output_AHRS_Temp_F)
+  {
+
+    // Output the AHRS temperature in F
+    frc::SmartDashboard::PutNumber(k_AHRS_Temp_Key,
+                                   m_AHRS_Temp_F);
+
+  } // end if(m_Output_AHRS_Temp_F)
+
+  // If we want to output the AHRS firmware version
+  if(m_Output_AHRS_FWVer)
+  {
+
+    // Output the AHRS firmware version
+    frc::SmartDashboard::PutString(k_AHRS_FWVer_Key,
+                                  m_AHRS_FWVer);
+
+  } // end if(m_Output_AHRS_FWVer)
+
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+  // If we want to output the state of Pssh
+  if(m_Output_Pssh_State)
+  {
+
+    // Output the state of Pssh
+    frc::SmartDashboard::PutString(k_Pssh_State_Key,
+                                   m_Pssh_State);
+
+  } // end if(m_Output_Pssh_State)
+
+#endif // #if USE_PID_PSSH
+
+  // If we want to output the drive direction
+  if(m_Output_drive_dir)
+  {
+
+    // Output the drive direction
+    frc::SmartDashboard::PutString(k_drive_dir_Key,m_drive_dir);
+
+  } // end if(m_Output_drive_dir)
+
+  // If we want to output if the arms are enabled...
+  if(m_Output_HansFranzArmsEnabled)
+  {
+
+    // Output if Arms are enabled 
+    frc::SmartDashboard::PutBoolean(k_HansFranzArmsEnabled_Key,
+                                    m_HansFranzArmsEnabled);
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+
+  // If we want to output if the muscles are enabled...
+  if(m_Output_HansFranzMusclesEnabled)
+  {
+
+    // Output if muscles are enabled 
+    frc::SmartDashboard::PutBoolean(k_HansFranzMusclesEnabled_Key,
+                                    m_HansFranzMusclesEnabled);
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+
+  // If we want to output the state of the arms
+  if(m_Output_HansFranzArmsState)
+  {
+
+    // Output the state of the arms 
+    frc::SmartDashboard::PutString(k_HansFranzArmsState_Key,
+                                   m_HansFranzArmsState);
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+  
+  // If we want to output the state of the muscles
+  if(m_Output_HansFranzMusclesState)
+  {
+
+    // Output the state of the muscles
+    frc::SmartDashboard::PutString(k_HansFranzMusclesState_Key,
+                                   m_HansFranzMusclesState);
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+
+  // If we want to output the boolean to indicate if arms are fully retracted
+  if(m_Output_HansFranzArmsRetracted)
+  {
+
+    // Output the boolean to indicate if arms are fully retracted
+    frc::SmartDashboard::PutBoolean(k_HansFranzArmsRetractedLSState_Key,
+                                    m_HansFranzArmsRetracted);
+
+  } // end if(m_Output_HansFranzArmsRetracted)
+
+  // If we want to output the boolean to indicate if arms are fully extended
+  if(m_Output_HansFranzArmsExtended)
+  {
+
+    // Output the boolean to indicate if arms are fully extended
+    frc::SmartDashboard::PutBoolean(k_HansFranzArmsExtendedLSState_Key,
+                                    m_HansFranzArmsExtended);
+
+  } // end if(m_Output_HansFranzArmsExtended)
 
 } // end CmdOutputTelemetry::OutputTelemetry()

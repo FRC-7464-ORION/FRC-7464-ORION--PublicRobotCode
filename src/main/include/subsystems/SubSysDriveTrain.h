@@ -16,7 +16,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -39,8 +39,14 @@
 // Include the subsystem class header file
 #include <frc/commands/Subsystem.h>
 
-// Include the WPI library header file, for the speed controllers
-#include "frc/WPILib.h"
+// For the PWM Victor SPX Motor Controllers 
+#include <frc/PWMVictorSPX.h>
+
+// For the differential drive
+#include <frc/drive/DifferentialDrive.h>
+
+// Include the DriverStation, for errors and warnings
+#include <frc/DriverStation.h>
 
 /** ****************************************************************************
  * @class   SubSysDriveTrain
@@ -88,6 +94,16 @@ class SubSysDriveTrain : public frc::Subsystem {
      * file:///C:/Users/Public/frc2019/documentation/cpp/classfrc_1_1RobotDrive.html#af6b8803c260126190b2aba14d4367dbd
     */
     void DriveTankStyle(double yL, double yR);
+
+    /**
+     * The method for driving autonomous style.
+     * When driving autonomously, tank style is used.
+     *
+     * @param yL Output to the left side as directed autonomously
+     * @param yR Output to the right side as directed autonomously
+     * 
+    */
+    void DriveAutonomousStyle(double yL, double yR);
 
     /** Method to set the drive train mode string to arcade */
     void SetDriveTrainModeStringToArcade();
@@ -163,6 +179,21 @@ class SubSysDriveTrain : public frc::Subsystem {
     */
     std::string GetSmoothingStatusString();
 
+    /** 
+     * Method to set the driving direction to normal
+    */  
+    void SetDriveDirectionSwitchingNormal();
+
+    /** 
+     * Method to set the driving direction to reverse 
+    */
+    void SetDriveDirectionSwitchingReverse();
+
+    /** 
+     * Method to get the driving direction string 
+    */
+    std::string GetDriveDirectionString();
+
   private:
 
     // It's desirable that everything possible under private except
@@ -205,6 +236,9 @@ class SubSysDriveTrain : public frc::Subsystem {
      * either x (arcade mode) or y2 (tank mode)
     */
     double m_speed2_past_filtered_output;
+
+    /** Boolean to indicate that the drive direction is switched */
+    bool m_drive_direction_switched;
 
     // /***************************** Private Methods ****************************/
 

@@ -17,7 +17,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -210,41 +210,50 @@ void TelemetryOutputter::GetTelemetry() {
 
   } // end if(m_Output_PDP_RightDriveTrainMotor1Current || ...
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+  // If we want to output the PAT Turner's motor current...
+  if(m_Output_PDP_PATTurnerMotorCurrent) {
 
-  // If we want to output Tippy Toes motor 0 current or
-  //   Tippy Toes motors current (both motors)...
-  if(m_Output_PDP_TippyToesMotor0Current ||
-     m_Output_PDP_TippyToesMotorsCurrent) {
+    // Get the PAT Turner's motor current, in Amps
+    m_PDP_PATTurnerMotorCurrent =
+      m_pdp->GetCurrent(k_PATTurnerMotorPDPChannel);
 
-    // Get Tippy Toes #0 motor current, in Amps
-    m_PDP_TippyToesMotor0Current =
-      m_pdp->GetCurrent(k_TippyToesMotor0PDPChannel);
+  } // end if(m_Output_PDP_PATTurnerMotorCurrent)
+  
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
 
-  } // end if(m_Output_PDP_TippyToesMotor0Current || ...
+  // If we want to output the Pssh's motor current...
+  if(m_Output_PDP_PsshMotorCurrent) {
 
-  // If we want to output Tippy Toes motor 1 current or
-  //   Tippy Toes motors current (both motors)...
-  if(m_Output_PDP_TippyToesMotor1Current ||
-     m_Output_PDP_TippyToesMotorsCurrent) {
+    // Get the Pssh's motor current, in Amps
+    m_PDP_PsshMotorCurrent =
+      m_pdp->GetCurrent(k_PsshMotorPDPChannel);
 
-    // Get Tippy Toes #1 motor current, in Amps
-    m_PDP_TippyToesMotor1Current =
-      m_pdp->GetCurrent(k_TippyToesMotor1PDPChannel);
+  } // end if(m_Output_PDP_PsshMotorCurrent)
 
-  } // end if(m_Output_PDP_TippyToesMotor1Current || ...
+#endif // #if USE_PID_PSSH
 
-#endif // #if USE_TIPPY_TOES
+  // If we want to output the H/F Arms's motor current...
+  if(m_Output_PDP_H_F_ArmsMotorCurrent) {
 
-  // If we want to output Capt. Hook motor current...
-  if(m_Output_PDP_CaptHookMotorCurrent) {
+    // Get the H/F Arms's motor current, in Amps
+    m_PDP_H_F_ArmsMotorCurrent =
+      m_pdp->GetCurrent(k_HansFranzArmsMotorChannel);
 
-    // Get Capt. Hook motor current, in Amps
-    m_PDP_CaptHookMotorCurrent =
-      m_pdp->GetCurrent(k_CaptHookMotorPDPChannel);
+  } // end if(m_Output_PDP_H_F_ArmsMotorCurrent)
 
-  } // end if(m_Output_PDP_CaptHookMotorCurrent)...
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+  // If we want to output the angle of Pssh...
+  if(m_Output_PsshPotAngle) {
+
+    // Get Pssh's potentiometer angle, in degrees (0 degrees up, 180 down)
+    m_PsshPotAngle = Robot::m_PIDsubSysPssh->ReturnPIDInput();
+
+  } // end if(m_Output_PsshPotAngle)
+
+#endif // #if USE_PID_PSSH
 
   // If we want to output the roboRIO's X-axis acceleration...
   if(m_Output_roboRIO_Accel_X_Axis) {
@@ -467,27 +476,6 @@ void TelemetryOutputter::GetTelemetry() {
 
   } // end if(m_Output_roboRIO_FPGA_Time)
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
-
-  // If we want to output Capt. Hook's potentimeter value...
-  if(m_Output_CaptHook_PotValue) {
-
-    // Get Capt. Hook's potentiometer value
-    m_CaptHook_PotValue = Robot::m_PIDsubSysCaptHook->ReturnPIDInput();
-
-  } // end if(m_Output_CaptHook_PotValue)
-
-  // If we want to output the state of Capt. Hook...
-  if(m_Output_CaptHookState) {
-
-    // Get Capt. Hook's state
-    m_CaptHookState = Robot::m_PIDsubSysCaptHook->GetCaptHookState();
-
-  } // end if(m_Output_CaptHookState) 
-
-#endif // #if USE_PID_CAPT_HOOK
-
   // If we want to output the drive train turbo mode string...
   if(m_Output_DriveTrainTurboState) {
 
@@ -505,5 +493,295 @@ void TelemetryOutputter::GetTelemetry() {
       Robot::m_subSysDriveTrain->GetSmoothingStatusString();
 
   } // end if(m_Output_DriveTrainSmoothingState)
+
+  // If we want to output the AHRS connection status
+  if(m_Output_AHRS_ConnectionStatus)
+  {
+
+    // Get the AHRS connection status 
+    m_AHRS_ConnectionStatus = Robot::m_AHRS->IsConnected();
+
+  } // end if(m_Output_AHRS_ConnectionStatus)
+
+  // If we want to output the calibration status of the AHRS
+  if(m_Output_AHRS_CalibrationStatus)
+  {
+
+    // Get the AHRS calibration status 
+    m_AHRS_CalibrationStatus = Robot::m_AHRS->IsCalibrating();
+
+  } // end if(m_Output_AHRS_CalibrationStatus)
+
+  // If we want to output the pitch of the AHRS
+  if(m_Output_AHRS_Pitch)
+  {
+
+    // Get the AHRS pitch 
+    m_AHRS_Pitch = Robot::m_AHRS->GetPitch();
+
+  } // end if(m_Output_AHRS_Pitch)
+
+  // If we want to output the roll of the AHRS
+  if(m_Output_AHRS_Roll)
+  {
+
+    // Get the AHRS roll 
+    m_AHRS_Roll = Robot::m_AHRS->GetRoll();
+
+  } // end if(m_Output_AHRS_Roll)
+
+  // If we want to output the yaw of the AHRS
+  if(m_Output_AHRS_Yaw)
+  {
+
+    // Get the AHRS yaw 
+    m_AHRS_Yaw = Robot::m_AHRS->GetYaw();
+
+  } // end if(m_Output_AHRS_Yaw)
+
+  // If we want to output the compass heading of the AHRS
+  if(m_Output_AHRS_CompassHdg)
+  {
+
+    // Get the AHRS compass heading 
+    m_AHRS_CompassHdg = Robot::m_AHRS->GetCompassHeading();
+
+  } // end if(m_Output_AHRS_CompassHdg)
+
+  // If we want to output the X-axis linear acceleration of the AHRS
+  if(m_Output_AHRS_LinearAccelX)
+  {
+
+    // Get the AHRS X-axis linear acceleration
+    m_AHRS_LinearAccelX = Robot::m_AHRS->GetWorldLinearAccelX();
+
+  } // end if(m_Output_AHRS_LinearAccelX)
+
+  // If we want to output the Y-axis linear acceleration of the AHRS
+  if(m_Output_AHRS_LinearAccelY)
+  {
+
+    // Get the AHRS Y-axis linear acceleration
+    m_AHRS_LinearAccelY = Robot::m_AHRS->GetWorldLinearAccelY();
+
+  } // end if(m_Output_AHRS_LinearAccelY)
+
+  // If we want to output the Z-axis linear acceleration of the AHRS
+  if(m_Output_AHRS_LinearAccelZ)
+  {
+
+    // Get the AHRS Z-axis linear acceleration
+    m_AHRS_LinearAccelZ = Robot::m_AHRS->GetWorldLinearAccelZ();
+
+  } // end if(m_Output_AHRS_LinearAccelZ)
+
+  // If we want to output the status of the AHRS moving
+  if(m_Output_AHRS_Moving)
+  {
+
+    // Get the AHRS moving status
+    m_AHRS_Moving = Robot::m_AHRS->IsMoving();
+
+  } // end if(m_Output_AHRS_Moving)
+
+  // If we want to output the status of the AHRS rotating
+  if(m_Output_AHRS_Rotating)
+  {
+
+    // Get the AHRS rotating status
+    m_AHRS_Rotating = Robot::m_AHRS->IsRotating();
+
+  } // end if(m_Output_AHRS_Rotating)
+
+  // If we want to output the fused heading of the AHRS
+  if(m_Output_AHRS_FusedHdg)
+  {
+
+    // Get the AHRS fused heading
+    m_AHRS_FusedHdg = Robot::m_AHRS->GetFusedHeading();
+
+  } // end if(m_Output_AHRS_FusedHdg)
+
+  // If we want to see if the AHRS is experiencing magnetic disturbance
+  if(m_Output_AHRS_MagDisturb)
+  {
+
+    // Get the AHRS magnetic disturbance status
+    m_AHRS_MagDisturb = Robot::m_AHRS->IsMagneticDisturbance();
+
+  } // end if(m_Output_AHRS_MagDisturb)
+
+  // If we want to output the magnetometer calibration status of the AHRS
+  if(m_Output_AHRS_MgntmtrCalStatus)
+  {
+
+    // Get the AHRS magnetometer calibration status 
+    m_AHRS_MgntmtrCalStatus = Robot::m_AHRS->IsMagnetometerCalibrated();
+
+  } // end if(m_Output_AHRS_MgntmtrCalStatus)
+  
+  // If we want to output the Quaternion W of the AHRS
+  if(m_Output_AHRS_QuatW)
+  {
+
+    // Get the AHRS quaternion of W
+    m_AHRS_QuatW = Robot::m_AHRS->GetQuaternionW();
+
+  } // end if(m_Output_AHRS_QuatW)
+
+  // If we want to output the Quaternion X of the AHRS
+  if(m_Output_AHRS_QuatX)
+  {
+
+    // Get the AHRS quaternion of X
+    m_AHRS_QuatX = Robot::m_AHRS->GetQuaternionX();
+
+  } // end if(m_Output_AHRS_QuatX)
+
+  // If we want to output the Quaternion Y of the AHRS
+  if(m_Output_AHRS_QuatY)
+  {
+
+    // Get the AHRS quaternion of Y
+    m_AHRS_QuatY = Robot::m_AHRS->GetQuaternionY();
+
+  } // end if(m_Output_AHRS_QuatY)
+
+  // If we want to output the Quaternion Z of the AHRS
+  if(m_Output_AHRS_QuatZ)
+  {
+
+    // Get the AHRS quaternion of Z
+    m_AHRS_QuatZ = Robot::m_AHRS->GetQuaternionZ();
+
+  } // end if(m_Output_AHRS_QuatZ)
+
+  // If we want to output the AHRS yaw angle
+  if(m_Output_AHRS_YawAngle)
+  {
+
+    // Get the AHRS yaw angle
+    m_AHRS_YawAngle = Robot::m_AHRS->GetAngle();
+
+  } // end if(m_Output_AHRS_YawAngle)
+
+  // If we want to output the AHRS yaw angle adjustment
+  if(m_Output_AHRS_YawAngleAdj)
+  {
+
+    // Get the AHRS yaw angle adjustment
+    m_AHRS_YawAngleAdj = Robot::m_AHRS->GetAngleAdjustment();
+
+  } // end if(m_Output_AHRS_YawAngleAdj)
+
+  // If we want to output the AHRS rotation rate
+  if(m_Output_AHRS_RotRate)
+  {
+
+    // Get the AHRS rotation rate
+    m_AHRS_RotRate = Robot::m_AHRS->GetRate();
+
+  } // end if(m_Output_AHRS_RotRate)
+
+  // If we want to output the AHRS temperature
+  if(m_Output_AHRS_Temp_F)
+  {
+
+    // Get the AHRS temperature in C, and convert to F
+    m_AHRS_Temp_F = CelsiusToFarenheit(Robot::m_AHRS->GetTempC());
+
+  } // end if(m_Output_AHRS_Temp_F)
+
+  // If we want to output the AHRS firmware version
+  if(m_Output_AHRS_FWVer)
+  {
+
+    // Get the AHRS firmware version
+    m_AHRS_FWVer = Robot::m_AHRS->GetFirmwareVersion();
+
+  } // end if(m_Output_AHRS_FWVer)
+
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
+
+  // If we want to output the state of Pssh
+  if(m_Output_Pssh_State)
+  {
+
+    // Get the state of Pssh
+    m_Pssh_State = Robot::m_PIDsubSysPssh->GetPsshState();
+
+  } // end if(m_Output_Pssh_State)
+
+#endif // #if USE_PID_PSSH
+
+  // If we want to output the drive direction
+  if(m_Output_drive_dir)
+  {
+
+    // Get the drive direction
+    m_drive_dir = Robot::m_subSysDriveTrain->GetDriveDirectionString();
+
+  } // end if(m_Output_drive_dir)
+
+  // If we want to output if the arms are enabled...
+  if(m_Output_HansFranzArmsEnabled)
+  {
+
+    // Get if Arms are enabled 
+    m_HansFranzArmsEnabled = 
+      Robot::m_subSysHansFranzArms->AreHansFranzArmsEnabled();
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+
+  // If we want to output if the muscles are enabled...
+  if(m_Output_HansFranzMusclesEnabled)
+  {
+
+    // Get if muscles are enabled 
+    m_HansFranzMusclesEnabled = 
+      Robot::m_subSysHansFranzMuscles->AreHansFranzMusclesEnabled();
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+
+  // If we want to output the state of the arms
+  if(m_Output_HansFranzArmsState)
+  {
+
+    // Get the state of the arms 
+    m_HansFranzArmsState = 
+      Robot::m_subSysHansFranzArms->GetHansFranzArmsSmartDashboardState();
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+  
+  // If we want to output the state of the muscles
+  if(m_Output_HansFranzMusclesState)
+  {
+
+    // Get the state of the muscles 
+    m_HansFranzMusclesState = 
+      Robot::m_subSysHansFranzMuscles->GetHansFranzMusclesState();
+
+  } // end if(m_Output_HansFranzArmsEnabled)
+
+  // If we want to output the boolean to indicate if arms are fully retracted
+  if(m_Output_HansFranzArmsRetracted)
+  {
+
+    // Get the boolean to indicate if arms are fully retracted
+    m_HansFranzArmsRetracted = 
+      Robot::m_subSysHansFranzArms->IsHansFranzArmsFullyRetracted();
+
+  } // end if(m_Output_HansFranzArmsRetracted)
+
+  // If we want to output the boolean to indicate if arms are fully extended
+  if(m_Output_HansFranzArmsExtended)
+  {
+
+    // Get the boolean to indicate if arms are fully extended
+    m_HansFranzArmsExtended = 
+      Robot::m_subSysHansFranzArms->IsHansFranzArmsFullyExtended();
+
+  } // end if(m_Output_HansFranzArmsExtended)
 
 } // end TelemetryOutputter::GetTelemetry()

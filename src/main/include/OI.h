@@ -15,7 +15,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -30,7 +30,7 @@
 
 /*************************** Local Header Files *******************************/
 
-// Include the robot constants header file
+// Include the Robot constants
 #include "RobotConstants.h"
 
 // Include the Logitech F310 HID header file
@@ -38,8 +38,14 @@
 
 /************************** Library Header Files ******************************/
 
-// Include the WPI library header file
-#include "frc/WPILib.h"
+// For the joystick
+#include <frc/Joystick.h>
+
+// For the joystick buttons
+#include <frc/buttons/JoystickButton.h>
+
+// For the joystick POV buttons
+#include <frc/buttons/POVButton.h>
 
 /** ****************************************************************************
  * @class   OI
@@ -60,24 +66,34 @@ class OI {
     ~OI();
 
     /**
-     * Gets a pointer to the joystick.
+     * Gets a pointer to the primary joystick.
      *
-     * @return A pointer to the Joystick 
+     * @return A pointer to the primary joystick 
     */
     frc::Joystick* getJoystick();
+
+    /**
+     * Gets a pointer to the secondary joystick.
+     *
+     * @return A pointer to the secondary joystick 
+    */
+    frc::Joystick* getSecondaryJoystick();
 
     private:
 
       /******************* Private member variables *********************/
 
-      /** A pointer to a joystick */
-      frc::Joystick* m_joystick;
+      /** A pointer to a Logitech F310 joystick */
+      frc::Joystick* m_PrimaryJoystick;
+
+      /** A pointer to another Logitech F310 joystick */
+      frc::Joystick* m_SecondaryJoystick;
 
       /** A joystick button to select arcade drive */
-      frc::JoystickButton* m_buttonSelectArcadeDrive;
+//      frc::JoystickButton* m_buttonSelectArcadeDrive;
 
       /** A joystick button to select tank drive */
-      frc::JoystickButton* m_buttonSelectTankDrive;
+//      frc::JoystickButton* m_buttonSelectTankDrive;
 
       /** A joystick button to enable turbo mode for the drive train */
       frc::JoystickButton* m_buttonTurboModeDriveTrain;
@@ -85,38 +101,37 @@ class OI {
       /** A joystick button to toggle between smoothing mode on or off */
       frc::JoystickButton* m_buttonToggleDriveTrainSmoothingMode;
 
-// If we are using Tippy Toes...
-#if USE_TIPPY_TOES
+      /** A joystick button to toggle the drive direction (front/back) */
+      frc::JoystickButton* m_buttonToggleDriveDirection;
 
-      /** A joystick button to climb forward */
-      frc::JoystickButton* m_buttonClimbForward;
+// If we are using the PID controller for Pssh
+#if USE_PID_PSSH
 
-      /** A joystick button to climb backward */
-      frc::JoystickButton* m_buttonClimbBackward;
+      /** A joystick button to dump power cells and then return to travel */
+      frc::JoystickButton* m_buttonPsshDump;
 
-#endif // #if USE_TIPPY_TOES
+      /** A joystick button to load power cells and then return to travel */
+      frc::JoystickButton* m_buttonPsshLoad;
 
-// If we are not using the PID controller for Capt. Hook
-#if !USE_PID_CAPT_HOOK
+#endif // #if USE_PID_PSSH
 
-      /** A joystick button to safely select grabbing a hatch panel */
-      frc::JoystickButton* m_buttonGrabHatchPanelSafety;
+      /** A joystick button to safely select turning WoF CW */
+      frc::JoystickButton* m_buttonTurnWoFCWSafety;
 
-      /** A joystick button to safely select releasing a hatch panel */
-      frc::JoystickButton* m_buttonReleaseHatchPanelSafety;
+      /** A joystick button to safely select turning WoF CCW */
+      frc::JoystickButton* m_buttonTurnWoFCCWSafety;
 
-#endif // #if !USE_PID_CAPT_HOOK
+      /** A joystick button to disable Hans and Franz muscles */
+      frc::JoystickButton* m_buttonDisableHansFranzMuscles;
 
-// If we are using Capt. Hook with a PID controller...
-#if USE_PID_CAPT_HOOK
+      /** A joystick button to enable Hans and Franz */
+      frc::JoystickButton* m_buttonEnableHansFranz;
 
-      /** A joystick button to grab a hatch panel */
-      frc::JoystickButton* m_buttonGrabHatchPanel;
+      /** A POV button to extend Hans and Franz muscles */
+      frc::POVButton* m_buttonExtendHansFranzMuscles;
 
-      /** A joystick button to release a hatch panel */
-      frc::JoystickButton* m_buttonReleaseHatchPanel;
-
-#endif // #if USE_PID_CAPT_HOOK
+      /** A POV button to retract Hans and Franz muscles */
+      frc::POVButton* m_buttonRetractHansFranzMuscles;
 
 }; // end class OI
 
