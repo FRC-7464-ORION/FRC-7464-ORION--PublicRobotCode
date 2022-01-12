@@ -23,10 +23,13 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "RobotCode/WPILIBC(v2020.3.2)", "index.html", [
-    [ "FRC Team 7464 - O.R.I.O.N.: Code for Sirius (2020 Season)", "index.html", [
+  [ "NewRobotCode/WPILIBC(v2020.3.2)", "index.html", [
+    [ "FRC Team #7464-ORION 2020 Season Code", "index.html", [
       [ "Introduction", "index.html#intro_sec", null ],
       [ "Copyright Notices", "index.html#copyright_sec", null ]
+    ] ],
+    [ "Versions", "version_1.html", [
+      [ "Versions used in this build:", "version_1.html#version_1_intro_sec", null ]
     ] ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -54,9 +57,9 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
+        [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", "globals_vars" ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -66,28 +69,29 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"_duty_cycle_encoder_8h_source.html",
-"_robot_constants_8h.html#a00618998d02b949ff63aaba0c02ad898",
-"_smart_dashboard_keys_8h.html#ad53fa2798efa7ba6652df958132a6348",
-"class_a_h_r_s.html#ab69a30899d10860a23933fe0b4081dbc",
-"class_cmd_toggle_drive_direction.html#a0a5dc14f3958e14d2d1c4398790f63e7",
-"class_register_i_o___i2_c.html#a2855862db3e45cf90b76fd08de26fc60",
-"class_sub_sys_hans_franz_arms.html#a9f5c91776366b1f75df9bbdb53af0312",
-"class_telemetry_outputter.html#ada8830486723c97413eb482b3bb65465",
-"classfrc_1_1_addressable_l_e_d_1_1_l_e_d_data.html",
-"classfrc_1_1_camera_server_shared.html",
-"classfrc_1_1_counter_base.html#a58b73f4320589d9592319ccdc8e91b44",
-"classfrc_1_1_driver_station.html#abfcb649827a34dab9f95c3b420a09539",
-"classfrc_1_1_gyro.html#a1567c8744fd0a71bb67901e90bb6f9fc",
-"classfrc_1_1_match_data_sender.html#a6ae60d943bb55caddc92667423f37fe3",
-"classfrc_1_1_p_i_d_controller.html#aaada881e045376a078c16921e3fef943",
-"classfrc_1_1_ramsete_controller.html#a8fd214791ce59200d695ea4688c3e9d9",
-"classfrc_1_1_sendable_builder.html#ad18ae56ce04560dd9030ea5ca1ead8c1",
-"classfrc_1_1_shuffleboard_layout.html",
-"classfrc_1_1_trajectory.html#ae78fb718f6eabd1477c901275a409a4d",
-"classfrc_1_1_xbox_controller.html#a1034633d4be2db9277b3864efa55b99ba7a5854def4bae2b036ead0ec71aa487c",
-"functions_vars_f.html",
-"structfrc_1_1_null_deleter.html#a8e1b15180c4ed799be88d03780b644cd"
+"_error_base_8h_source.html",
+"_register_i_o_s_p_i_8h_source.html",
+"_sub_sys_hans_franz_arms_8h.html",
+"class_a_h_r_s_internal.html",
+"class_cmd_turn_wo_f_c_c_w.html#a1b9f0fdd3dfb621efe36308125b1154e",
+"class_register_i_o_mau.html#a72685d7d6a5161b9daab57edfa11ff99",
+"class_sub_sys_hans_franz_arms.html#a0ecb3a91b56e67dc717661f23833e5a3",
+"class_telemetry_outputter.html#a8e8afca6f1cdb471542528d137d0a59f",
+"classfrc2_1_1_command.html#a3ce8d17ff7bfb410eb1995c24bb6b9a9",
+"classfrc2_1_1_parallel_command_group.html#a1bb1bb076694ce3b20a0482c2c55ace2",
+"classfrc2_1_1_trapezoid_profile_command.html#a179e30f028f1dfdcbb2020a95583dcd9",
+"classfrc_1_1_analog_encoder.html#ae7811486a83e63bcb1d92c59ca7c625b",
+"classfrc_1_1_controller.html#a7562d7174db177c257a25be5b25beda5",
+"classfrc_1_1_double_solenoid.html#ad164197bf8f7bfee93fdd5e9c19fa901aa75dce2bf685a525490c2df4b9a05c38",
+"classfrc_1_1_filter.html#aed672b1b24c434c3fd990850bad44bef",
+"classfrc_1_1_linear_filter.html#ac197e7d5cea0a24d9729cc63bc0f122f",
+"classfrc_1_1_p_i_d_source.html#a7d4903cf7f4341fe44f0783e3728f04d",
+"classfrc_1_1_robot_drive.html#a4ecd8f7b4f6278a501a75222a824dcafa44c1b8dafaa678250ce3fd2bd27816b8",
+"classfrc_1_1_sendable_registry.html#a131b1f74edccb36177f249d356a1be10",
+"classfrc_1_1_spark.html#abe97cb9fe898e656530a2a478cc4f838",
+"classfrc_1_1_victor.html#ac58a5fa27f4e2811c9a5293d20c3e1c0",
+"dir_defa57fcdbee3ff5427492d941d8d2bd.html",
+"struct_sendable_registry_1_1_impl_1_1_component.html#a75340e71c5e50ec4c672e7f113a8d2d0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

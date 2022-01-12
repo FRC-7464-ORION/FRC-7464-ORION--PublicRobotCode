@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -38,17 +38,16 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdRetractHansFranzMuscles class
-CmdRetractHansFranzMuscles::CmdRetractHansFranzMuscles() {
+// The constructor for the CmdRetractHansFranzMuscles class
+CmdRetractHansFranzMuscles::CmdRetractHansFranzMuscles(
+    SubSysHansFranzMuscles* subsystem) 
+  : m_subSysHansFranzMuscles(subsystem) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdRetractHansFranzMuscles");
 
-  // Require the use of the Hans/Franz subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysHansFranzMuscles.get());
+  // Require the use of the Hans and Franz muscles subsystem
+  AddRequirements({subsystem});
 
 } // end CmdRetractHansFranzMuscles::CmdRetractHansFranzMuscles()
 
@@ -69,7 +68,7 @@ void CmdRetractHansFranzMuscles::Initialize() {
 void CmdRetractHansFranzMuscles::Execute() {
 
   // Retract Hans and Franz muscles
-  Robot::m_subSysHansFranzMuscles->RetractHansFranzMuscles();
+  m_subSysHansFranzMuscles->RetractHansFranzMuscles();
 
   // Now indicate we are finished
   m_this_command_is_finished = true;
@@ -84,15 +83,9 @@ bool CmdRetractHansFranzMuscles::IsFinished() {
 
 } // end CmdRetractHansFranzMuscles::IsFinished()
 
-// Called once after isFinished returns true
-void CmdRetractHansFranzMuscles::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdRetractHansFranzMuscles::End(bool interrupted) {
 
 
 } // end CmdRetractHansFranzMuscles::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdRetractHansFranzMuscles::Interrupted() {
-
-
-} // end CmdRetractHansFranzMuscles::Interrupted()

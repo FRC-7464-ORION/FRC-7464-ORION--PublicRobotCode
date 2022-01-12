@@ -23,10 +23,13 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "RobotCode", "index.html", [
-    [ "FRC Team 7464 - O.R.I.O.N.: Code for Sirius (2020 Season)", "index.html", [
+  [ "NewRobotCode", "index.html", [
+    [ "FRC Team #7464-ORION 2020 Season Code", "index.html", [
       [ "Introduction", "index.html#intro_sec", null ],
       [ "Copyright Notices", "index.html#copyright_sec", null ]
+    ] ],
+    [ "Versions", "version_1.html", [
+      [ "Versions used in this build:", "version_1.html#version_1_intro_sec", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -43,9 +46,9 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
+        [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", "globals_vars" ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -55,10 +58,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_cmd_auto_drive_straight_8cpp.html",
-"_robot_constants_8h.html#a46ff0888a55c4f3e166297f88e6b69fe",
-"class_cmd_auto_turn_angle.html#aff0f53299f56e91d327a179a7a99ba6e",
-"class_sub_sys_drive_train.html#a4220222eb5ea05df8128f1941744413a",
-"class_telemetry_outputter.html#a9a08913a4e4599d92bb6147b9ac9f8fa"
+"_robot_constants_8h.html#a3e4acfd8d7dbfcdb9a0586d6ea60da65",
+"class_cmd_enable_hans_franz_arms.html#ad7e48c7cafc54c39c6f3d6f1d284ec40",
+"class_robot_tick.html#a5a898f818f0d9604d834b8eba0882736",
+"class_telemetry_outputter.html#a7b4b4418f71456f6e9cc70363d814427",
+"dir_298561ef34ee491d64c486459ed7a41c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

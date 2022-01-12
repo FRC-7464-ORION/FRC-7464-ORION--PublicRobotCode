@@ -28,35 +28,23 @@
 // Include the header file for the CmdLoad class
 #include "commands/PIDPssh/CmdLoad.h"
 
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-// Include the header file that defines the F310 axes/buttons
-#include "HIDs/LogitechF310.h"
-
-// Include the Robot class header file
-#include "Robot.h"
-
 /************************** Library Header Files ******************************/
-
-// Include the I/O stream class, so we can write to the console
-#include <iostream>
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdLoad class
-CmdLoad::CmdLoad() {
+// The constructor for the CmdLoad class
+CmdLoad::CmdLoad(PIDSubSysPssh* subsystem) 
+  : m_PIDsubSysPssh(subsystem) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the name of the command
+  SetName("CmdLoad");
+
+  // Use AddRequirements() here to declare subsystem dependencies
 
   // Require the use of the PID Pssh subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_PIDsubSysPssh.get());
+  AddRequirements({subsystem});
 
-} // end CmdLoad::CmdLoad()
+} // end CmdLoad::CmdLoad(PIDSubSysPssh* subsystem)
 
 // The destructor for the CmdLoad class
 CmdLoad::~CmdLoad() {
@@ -66,16 +54,29 @@ CmdLoad::~CmdLoad() {
 // Called just before this Command runs the first time
 void CmdLoad::Initialize() {
 
+  // Reset the PID controller for Pssh
+  m_PIDsubSysPssh->ResetPIDController();
+
+  // Indicate we are in load mode
+  m_PIDsubSysPssh->SetPsshState(k_PsshLoadString);
+
+  // Set the set point for load mode
+  m_PIDsubSysPssh->SetSetpoint(k_PsshLoadSetpoint);
+
   // Indicate that this command is interruptable
-  SetInterruptible(k_CmdIsInterruptable);
+//  SetInterruptible(k_CmdIsInterruptable);
+
+#if PSSH_DEBUG
+    frc::DriverStation::ReportWarning("Pssh in load mode!");
+#endif // #if PSSH_DEBUG
 
 } // end CmdLoad::Initialize()
 
 // Called repeatedly when this Command is scheduled to run
 void CmdLoad::Execute() {
 
-  // Tell Pssh to go to load mode
-  Robot::m_PIDsubSysPssh->Load();
+  // Tell Pssh to go to dump mode
+  m_PIDsubSysPssh->Dump();
 
 }  // end CmdLoad::Execute()
 
@@ -88,24 +89,11 @@ bool CmdLoad::IsFinished() {
 
 } // end CmdLoad::IsFinished()
 
-// Called once after isFinished returns true
-void CmdLoad::End() {
-
-  // NOTE: This method should never be executed, as IsFinished() 
-  //       should never return true
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdLoad::End(bool interrupted) {
 
   // Stop Pssh
-  Robot::m_PIDsubSysPssh->Stop();
+  m_PIDsubSysPssh->Stop();
 
 } // end CmdLoad::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdLoad::Interrupted() {
-
-  // Stop Pssh
-  Robot::m_PIDsubSysPssh->Stop();
-
-} // end CmdLoad::Interrupted()
-
-#endif // #if USE_PID_PSSH

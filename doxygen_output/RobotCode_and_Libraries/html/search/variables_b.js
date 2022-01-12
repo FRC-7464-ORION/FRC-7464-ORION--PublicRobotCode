@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wait_5ftime_5fexceeded',['wait_time_exceeded',['../class_cmd_wait_seconds.html#a4b5467e09044d454eeb27a38b26ea81d',1,'CmdWaitSeconds']]],
-  ['wait_5ftime_5fseconds',['wait_time_seconds',['../class_cmd_wait_seconds.html#ab09201c37582f3668f04b20aa20f7743',1,'CmdWaitSeconds']]]
+  ['tick_5finterval',['tick_interval',['../struct_telemetry_outputter_1_1telemetry__output__type.html#aef40d3cb1b642e34794c439b8d0c7cb7',1,'TelemetryOutputter::telemetry_output_type']]],
+  ['tick_5foffset',['tick_offset',['../struct_telemetry_outputter_1_1telemetry__output__type.html#a20c32444755a8989a56240b1f3781fd1',1,'TelemetryOutputter::telemetry_output_type']]]
 ];

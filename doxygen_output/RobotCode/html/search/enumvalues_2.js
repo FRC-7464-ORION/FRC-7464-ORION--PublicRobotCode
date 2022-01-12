@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['encoder_5fticks',['ENCODER_TICKS',['../class_cmd_auto_drive_straight.html#a1790a58237059c05c28319358fba1ce5a69a2eb0de2efb345381ba3d47cab9979',1,'CmdAutoDriveStraight']]],
-  ['extended',['EXTENDED',['../class_sub_sys_hans_franz_arms.html#a8d8a3c3a4b71f915c4ca676ee40dc560a78e61904f1bc37701b479ed5e99cb7ab',1,'SubSysHansFranzArms']]],
-  ['extending',['EXTENDING',['../class_sub_sys_hans_franz_arms.html#a8d8a3c3a4b71f915c4ca676ee40dc560ab80827a821f2b7e5379455f4796b22db',1,'SubSysHansFranzArms']]]
+  ['can_5fbus_5foff_5fcount',['CAN_BUS_OFF_COUNT',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a8f4936b4b3622baae8804f2044b8944d',1,'TelemetryOutputter']]],
+  ['can_5fmax_5futilization',['CAN_MAX_UTILIZATION',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a32da098a1b7faba246dce246ac14bd52',1,'TelemetryOutputter']]],
+  ['can_5fmin_5futilization',['CAN_MIN_UTILIZATION',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ade2f4ff36ac120cd0c76e22bb7b1b76e',1,'TelemetryOutputter']]],
+  ['can_5frx_5ferr_5fcount',['CAN_RX_ERR_COUNT',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a152cfe217a926150c30953a070cb37ac',1,'TelemetryOutputter']]],
+  ['can_5ftx_5ferr_5fcount',['CAN_TX_ERR_COUNT',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12af1929d2ff495b9f01a1a2023805112a4',1,'TelemetryOutputter']]],
+  ['can_5ftx_5ffull_5fcount',['CAN_TX_FULL_COUNT',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a11a599e0fc0898a9e8703d119a78744d',1,'TelemetryOutputter']]],
+  ['can_5futilization',['CAN_UTILIZATION',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a37080416dd4ea1e18ee1892dc5f31cc2',1,'TelemetryOutputter']]],
+  ['cm',['CM',['../class_cmd_auto_drive_straight.html#a1790a58237059c05c28319358fba1ce5addaef50f4927cdc7efb39c5179cfaa77',1,'CmdAutoDriveStraight']]]
 ];

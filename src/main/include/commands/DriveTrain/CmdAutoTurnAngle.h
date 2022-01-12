@@ -40,22 +40,19 @@
 // Include the Robot Constants header file
 #include "RobotConstants.h"
 
-// Include the robot header file
-#include "Robot.h"
+// The header for the NavX MXP AHRS
+#include "AHRS.h"
 
 /************************** Library Header Files ******************************/
 
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
+// Include the header file for the NEW(2020) Command base class
+#include <frc2/command/CommandBase.h>
 
-// Include the header file for the PIDController
-#include <frc/PIDController.h>
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
 
-// Include the header file for the PIDOutput
-#include <frc/PIDOutput.h>
-
-// Include the header file for the PIDCommand
-#include <frc/commands/PIDCommand.h>
+// Include the header file for the NEW(2020) PID controller
+#include <frc/controller/PIDController.h>
 
 // Include the header file for the SPI bus
 #include <frc/SPI.h>
@@ -71,33 +68,28 @@
  * @brief   This is a class that defines a command used in turning the
  *            robot autonomously using tank drive.
  * 
- *          NOTE: THIS CLASS USES DEPRECATED CODE (PIDController) AS OF 2020. 
- *                WPILIB HAS MARKED THIS CODE AS BEING DEPRECATED, AND WILL
- *                GENERATE A BUILD WARNING WHEN RobotCode IS BUILT. 
- *                SO THAT OTHER WARNINGS WILL NOT BE IGNORED, THE PIDController
- *                INSTANTIATION HAS BEEN MARKED WITH PRAGMAS SO THE WARNING 
- *                FOR THIS INSTANCE IS IGNORED. THIS MODIFICATION SHOULD BE
- *                REMOVED BY THE 2021 SEASON.
- * 
- *                FOR MORE INFORMATION, SEE THE POST AT CHIEF DELPHI:
- *                https://www.chiefdelphi.com/t/pragma-or-gradle-flag-for-ignoring-deprecated-warnings/375815
- * 
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdAutoTurnAngle : public frc::Command, public frc::PIDOutput {
+class CmdAutoTurnAngle
+  : public frc2::CommandHelper<frc2::CommandBase, CmdAutoTurnAngle> {
 
   public:
 
-    /** The CmdAutoTurnAngle class default constructor. */
-    CmdAutoTurnAngle();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
 
-    /** The CmdAutoTurnAngle class constructor for setting target angle.
-     *  This constructor should always be used
+    /** 
+     * The CmdAutoTurnAngle class constructor.
      * 
+     * @param subsystem The subsystem used by this command
+     * @param ahrs      The NavX MXP IMU
      * @param max_speed The maximum speed allowed by the PID controller
-     * @param angle     The target angle
+     * @param angle     The target angle, in degrees
      */
-    CmdAutoTurnAngle(double max_speed, double angle);
+    explicit CmdAutoTurnAngle(
+        SubSysDriveTrain* subsystem,
+        AHRS* ahrs,
+        double max_speed,
+        double angle);
 
     /** The CmdAutoTurnAngle class destructor. */
     ~CmdAutoTurnAngle();
@@ -132,36 +124,21 @@ class CmdAutoTurnAngle : public frc::Command, public frc::PIDOutput {
     bool IsFinished() override;
 
     /**
-     * Called when the command ended peacefully.
+     * Called when either the command finishes normally, or when it is
+     * interrupted/canceled.
      *
      * This is where you may want to wrap up loose ends, like shutting off
      * a motor that was being used in the command.
      *
-     * Reimplemented in frc::CommandGroup.
+     * @param interrupted false = not interrupted, true = interrupted
     */
-    void End() override;
+    void End(bool interrupted) override;
 
-    /**
-     * Called when the command ends because somebody called Cancel() or another
-     * command shared the same requirements as this one, and booted it out.
-     *
-     * This is where you may want to wrap up loose ends, like shutting off a
-     * motor that was being used in the command.
-     *
-     * Generally, it is useful to simply call the End() method within this
-     * method, as done here.
-     *
-     * Reimplemented in frc::CommandGroup.
-    */
-    void Interrupted() override;
+private:
 
-    /** Invoked periodically by the PID Controller, based upon navX MXP yaw 
-        angle input and PID Coefficients. */
-    virtual void PIDWrite(double output);
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
 
-  private:
-
-    /*********************** Private member variables ***********************/
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
 
     /** The "P" of our PID loop */
     const double m_P_val   = k_AutoTurn_Proportional;
@@ -178,7 +155,7 @@ class CmdAutoTurnAngle : public frc::Command, public frc::PIDOutput {
     frc::LiveWindow *m_LiveWindow;
 
     /** A pointer to a PID controller */
-    PIDController *m_turnController;
+    frc2::PIDController* m_turnController;
 
     /** The port will be using for the NavX MXP */
     const frc::SPI::Port m_navx_SPI_port = k_navx_mxp_imu_port;
@@ -195,19 +172,17 @@ class CmdAutoTurnAngle : public frc::Command, public frc::PIDOutput {
     /** The angle we are shooting for */
     double m_target_angle;
 
-    /** Indicate if we used the default constructor (DON'T) */
-    bool m_default_constructor_called;
-
     /** The left motors' speed */
     double m_left_motor_speed;
 
     /** The right motors' speed */
     double m_right_motor_speed;
 
-    /*********************** Private member methods *************************/
+    /** A pointer to the drive train subsystem */
+    SubSysDriveTrain* m_subSysDriveTrain;
 
-    /** An initialization function for the IMU in the various constructors */
-    void navx_initialization();
+    /** A pointer to an AHRS instance */
+    AHRS* m_AHRS;
 
 }; // end class CmdAutoTurnAngle
 

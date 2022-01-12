@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -34,13 +34,16 @@
 // Include the header file for the drive train, which this command is for
 #include "subsystems/SubSysDriveTrain.h"
 
+/************************** Library Header Files ******************************/
+
 // Include the header file for the timer class
 #include <frc/Timer.h>
 
-/************************** Library Header Files ******************************/
+// Include the header file for the NEW(2020) Command base class
+#include <frc2/command/CommandBase.h>
 
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
 
 /** ****************************************************************************
  * @class   CmdAutoDriveStraight
@@ -48,9 +51,12 @@
  *            robot autonomously using arcade drive.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdAutoDriveStraight : public frc::Command {
+class CmdAutoDriveStraight
+  : public frc2::CommandHelper<frc2::CommandBase, CmdAutoDriveStraight> {
 
   public:
+
+    /************************ PUBLIC ENUMERATIONS *****************************/
 
     /** An enumeration of distance modes */
     enum DRIVE_STRAIGHT_AUTO_DX_MODE 
@@ -76,23 +82,24 @@ class CmdAutoDriveStraight : public frc::Command {
       
     };
 
-    /** The CmdAutoDriveStraight class default constructor. */
-    CmdAutoDriveStraight();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
 
     /** 
-     * The constructor telling which mode is used 
-     *  
-     * @param spd  - The motor speed (0.0 to 1.0) at which to move
-     * @param mode - The mode to use (SECONDS, ENCODER_TICKS, or CM)
-     * @param dir  - The direction to move (FORWARD or REVERSE)
-     * @param val  - The seconds, encoder ticks, or cm to move,
-     *               based on the mode. 
-    */
-    CmdAutoDriveStraight(
-      double spd,
-      DRIVE_STRAIGHT_AUTO_DX_MODE mode,
-      DRIVE_STRAIGHT_DIRECTION dir,
-      double val);
+     * The CmdAutoDriveStraight class constructor.
+     * 
+     * @param subsystem The subsystem used by this command
+     * @param spd       The motor speed (0.0 to 1.0) at which to move
+     * @param mode      The mode to use (SECONDS, ENCODER_TICKS, or CM)
+     * @param dir       The direction to move (FORWARD or REVERSE)
+     * @param val       The value of seconds, encoder ticks, or cm to move,
+     *                    based on the mode. 
+     */
+    explicit CmdAutoDriveStraight(
+        SubSysDriveTrain* subsystem,
+        double spd,
+        DRIVE_STRAIGHT_AUTO_DX_MODE mode,
+        DRIVE_STRAIGHT_DIRECTION dir,
+        double val);
 
     /** The CmdAutoDriveStraight class destructor. */
     ~CmdAutoDriveStraight();
@@ -127,41 +134,36 @@ class CmdAutoDriveStraight : public frc::Command {
     bool IsFinished() override;
 
     /**
-     * Called when the command ended peacefully.
+     * Called when either the command finishes normally, or when it is
+     * interrupted/canceled.
      *
      * This is where you may want to wrap up loose ends, like shutting off
      * a motor that was being used in the command.
      *
-     * Reimplemented in frc::CommandGroup.
+     * @param interrupted false = not interrupted, true = interrupted
     */
-    void End() override;
-
-    /**
-     * Called when the command ends because somebody called Cancel() or another
-     * command shared the same requirements as this one, and booted it out.
-     *
-     * This is where you may want to wrap up loose ends, like shutting off a
-     * motor that was being used in the command.
-     *
-     * Generally, it is useful to simply call the End() method within this
-     * method, as done here.
-     *
-     * Reimplemented in frc::CommandGroup.
-    */
-    void Interrupted() override;
+    void End(bool interrupted) override;
 
   private:
 
-    /*********************** Private member variables *************************/
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
+
+    /** A common function shared between all constructors */
+    void common_constructor_function();
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
+
+    /** A pointer to the drive train subsystem */
+    SubSysDriveTrain* m_subSysDriveTrain;
 
     /** The speed at which to be driven (0.0 = Stop, 1.0 = Full Speed) */
     double speed;
 
-    /** The direction which to be driven */
-    DRIVE_STRAIGHT_DIRECTION direction;
-
     /** The mode in which distance is used */
     DRIVE_STRAIGHT_AUTO_DX_MODE dx_mode;
+
+    /** The direction which to be driven */
+    DRIVE_STRAIGHT_DIRECTION direction;
 
     /** The time to be driven, in seconds (if this mode is used) */
     double driven_time_seconds;
@@ -172,16 +174,11 @@ class CmdAutoDriveStraight : public frc::Command {
     /** The distance to be driven, in centimeters (if this mode is used) */
     double driven_distance_in_cm;
 
-    /** A pointer to a timer class */
-    frc::Timer* m_timer;
+    /** A timer class */
+    frc::Timer m_timer{};
 
     /** A boolean to indicate we have exceeded our distance */
     bool driven_distance_exceeded;
-
-    /************************** Private methods *****************************/
-
-    /** A common function shared between all constructors */
-    void common_constructor_function();
 
 }; // end class CmdAutoDriveStraight
 

@@ -1,15 +1,18 @@
 var searchData=
 [
-  ['ultrasonic',['Ultrasonic',['../classfrc_1_1_ultrasonic.html',1,'frc::Ultrasonic'],['../classfrc_1_1_ultrasonic.html#ababd73ac9f7ea1f4110bac8dbca0a5eb',1,'frc::Ultrasonic::Ultrasonic(int pingChannel, int echoChannel, DistanceUnit units=kInches)'],['../classfrc_1_1_ultrasonic.html#aefd7583faa56df3a6c1a4fc38d3752e2',1,'frc::Ultrasonic::Ultrasonic(DigitalOutput *pingChannel, DigitalInput *echoChannel, DistanceUnit units=kInches)'],['../classfrc_1_1_ultrasonic.html#a5089d8a662c2b13f9bb15d6d36f11e36',1,'frc::Ultrasonic::Ultrasonic(DigitalOutput &amp;pingChannel, DigitalInput &amp;echoChannel, DistanceUnit units=kInches)'],['../classfrc_1_1_ultrasonic.html#aa50f995c938632dc680a55e158bb4c18',1,'frc::Ultrasonic::Ultrasonic(std::shared_ptr&lt; DigitalOutput &gt; pingChannel, std::shared_ptr&lt; DigitalInput &gt; echoChannel, DistanceUnit units=kInches)']]],
-  ['ultrasonicchecker',['UltrasonicChecker',['../classfrc_1_1_ultrasonic.html#af9b71113f951d2f60dd598754900a4f6',1,'frc::Ultrasonic']]],
-  ['unknown',['UNKNOWN',['../class_sub_sys_hans_franz_arms.html#a8d8a3c3a4b71f915c4ca676ee40dc560ab1148a3f266a8b3526e80427ec89bff3',1,'SubSysHansFranzArms']]],
-  ['update',['Update',['../classfrc_1_1_differential_drive_odometry.html#a7d2a46db1f1f43588732d41d4b912011',1,'frc::DifferentialDriveOdometry::Update()'],['../classfrc_1_1_mecanum_drive_odometry.html#a31e997d60d38b8dbe8c634c7300a7147',1,'frc::MecanumDriveOdometry::Update()'],['../classfrc_1_1_swerve_drive_odometry.html#a4099104d6e919eb750ae6a0e801731a2',1,'frc::SwerveDriveOdometry::Update()'],['../classfrc_1_1_shuffleboard.html#a2d3120749725de45c4559fcad44bc63c',1,'frc::Shuffleboard::Update()'],['../classfrc_1_1detail_1_1_shuffleboard_instance.html#a0cd88e2c84952d6c269b42cdc566c913',1,'frc::detail::ShuffleboardInstance::Update()'],['../classfrc_1_1_shuffleboard_root.html#a59c9b95f0dcb7f008a87f074e4650117',1,'frc::ShuffleboardRoot::Update()'],['../classfrc_1_1_sendable_registry.html#a8314440f9b86da4410be98db08bb67e8',1,'frc::SendableRegistry::Update()']]],
-  ['updatealarm',['UpdateAlarm',['../classfrc_1_1_notifier.html#a78f34baa2185aaa38d8dccb4286f009c',1,'frc::Notifier::UpdateAlarm(uint64_t triggerTime)'],['../classfrc_1_1_notifier.html#ad837c96b01df3956807c5f41b3e76254',1,'frc::Notifier::UpdateAlarm()'],['../classfrc_1_1_timed_robot.html#aaaca07907d2e540fd5e5b32400b18249',1,'frc::TimedRobot::UpdateAlarm()']]],
-  ['updatedisplacement',['UpdateDisplacement',['../class_a_h_r_s.html#a15c0a0052fc8bbc2377190f083f7c226',1,'AHRS']]],
-  ['updatedutycycle',['UpdateDutyCycle',['../classfrc_1_1_digital_output.html#a4d9b1487a992b49d708047c4fcf0c3f6',1,'frc::DigitalOutput']]],
-  ['updatetable',['UpdateTable',['../classfrc_1_1_sendable_builder_impl.html#aa4c8f79f78c38449176fc4877c38c67c',1,'frc::SendableBuilderImpl']]],
-  ['updatevalues',['UpdateValues',['../classfrc_1_1_live_window.html#aa81af484d8bef6275632b9cd8f599c0d',1,'frc::LiveWindow::UpdateValues()'],['../classfrc_1_1_smart_dashboard.html#abeff1edb83ea9bee750e5bdb071bd734',1,'frc::SmartDashboard::UpdateValues()']]],
-  ['updatevaluesunsafe',['UpdateValuesUnsafe',['../classfrc_1_1_live_window.html#a8ed99cd7c6e3a54c5f0e0cf99b6d2869',1,'frc::LiveWindow']]],
-  ['updatewithtime',['UpdateWithTime',['../classfrc_1_1_mecanum_drive_odometry.html#af850abdd379b98bf32569e8d04c93e81',1,'frc::MecanumDriveOdometry::UpdateWithTime()'],['../classfrc_1_1_swerve_drive_odometry.html#aa21b66fc778555d4ccc29e357bfea54d',1,'frc::SwerveDriveOdometry::UpdateWithTime()']]],
-  ['usepidoutput',['UsePIDOutput',['../class_p_i_d_sub_sys_pssh.html#a33c209e8b48d2e6579fc0505762e8c67',1,'PIDSubSysPssh']]]
+  ['value',['value',['../struct_telemetry_outputter_1_1telemetry__output__type.html#a6729f18d938659082938fba86d713ed8',1,'TelemetryOutputter::telemetry_output_type']]],
+  ['vector2d',['Vector2d',['../structfrc_1_1_vector2d.html',1,'frc']]],
+  ['verifysensor',['VerifySensor',['../classfrc_1_1_i2_c.html#ad33508ec47626897b4b044fdfa2e907f',1,'frc::I2C']]],
+  ['versions',['Versions',['../version_1.html',1,'']]],
+  ['versions_2eh',['versions.h',['../versions_8h.html',1,'']]],
+  ['victor',['Victor',['../classfrc_1_1_victor.html',1,'frc::Victor'],['../classfrc_1_1_victor.html#acb0c7a21c49cd78017caddfe9977e9fa',1,'frc::Victor::Victor()']]],
+  ['victorsp',['VictorSP',['../classfrc_1_1_victor_s_p.html',1,'frc::VictorSP'],['../classfrc_1_1_victor_s_p.html#a30811245c0057e42fc24223e2bd6bc92',1,'frc::VictorSP::VictorSP()']]],
+  ['video',['Video',['../class_video.html',1,'Video'],['../class_video.html#ab67336c2c5b6227a9635bc7dcd6af543',1,'Video::Video()']]],
+  ['video_2ecpp',['Video.cpp',['../_video_8cpp.html',1,'']]],
+  ['video_2eh',['Video.h',['../_video_8h.html',1,'']]],
+  ['visionpipeline',['VisionPipeline',['../classfrc_1_1_vision_pipeline.html',1,'frc']]],
+  ['visionrunner',['VisionRunner',['../classfrc_1_1_vision_runner.html',1,'frc']]],
+  ['visionrunnerbase',['VisionRunnerBase',['../classfrc_1_1_vision_runner_base.html',1,'frc::VisionRunnerBase'],['../classfrc_1_1_vision_runner_base.html#a5525a8cf0cde304cf45c52800ea7c977',1,'frc::VisionRunnerBase::VisionRunnerBase()']]],
+  ['vx',['vx',['../structfrc_1_1_chassis_speeds.html#a01659f3eea6569ee27d4db843d6f5be5',1,'frc::ChassisSpeeds']]],
+  ['vy',['vy',['../structfrc_1_1_chassis_speeds.html#a1b2ecdc4d2884220274eed58c67fd9dc',1,'frc::ChassisSpeeds']]]
 ];

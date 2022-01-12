@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: CmdToggleDriveDirection Class Reference</title>
+<title>NewRobotCode: CmdToggleDriveDirection Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -110,8 +110,8 @@ Inheritance diagram for CmdToggleDriveDirection:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aea51fa591f9cbe03d263488401a9d2ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#aea51fa591f9cbe03d263488401a9d2ac">CmdToggleDriveDirection</a> ()</td></tr>
-<tr class="separator:aea51fa591f9cbe03d263488401a9d2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6901cd0a2e8b0c29b0f4fee6438eeb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#ad6901cd0a2e8b0c29b0f4fee6438eeb3">CmdToggleDriveDirection</a> (<a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *subsystem)</td></tr>
+<tr class="separator:ad6901cd0a2e8b0c29b0f4fee6438eeb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae767ea791dad2162445e4b70da79bbc2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#ae767ea791dad2162445e4b70da79bbc2">~CmdToggleDriveDirection</a> ()</td></tr>
 <tr class="separator:ae767ea791dad2162445e4b70da79bbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3dc7e4eb6850bef70f08585771c58b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#ad3dc7e4eb6850bef70f08585771c58b2">Initialize</a> () override</td></tr>
@@ -120,10 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0fbb19fb2545882535e006a7c99b0666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67fa0b0e85ea3499e5b6c1106578b22a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#a67fa0b0e85ea3499e5b6c1106578b22a">IsFinished</a> () override</td></tr>
 <tr class="separator:a67fa0b0e85ea3499e5b6c1106578b22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1305a5a5cfc14534bd7b9642964b92cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#a1305a5a5cfc14534bd7b9642964b92cf">End</a> () override</td></tr>
-<tr class="separator:a1305a5a5cfc14534bd7b9642964b92cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60e7edda9e237b742b2c8d696e5b9427"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#a60e7edda9e237b742b2c8d696e5b9427">Interrupted</a> () override</td></tr>
-<tr class="separator:a60e7edda9e237b742b2c8d696e5b9427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ecae9b5dfc7710297f72fe404e01b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#a8ecae9b5dfc7710297f72fe404e01b2a">End</a> (bool interrupted) override</td></tr>
+<tr class="separator:a8ecae9b5dfc7710297f72fe404e01b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -131,29 +129,46 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a9c861f4623a554ca8725f2ccd8bca292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a5dc14f3958e14d2d1c4398790f63e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#a0a5dc14f3958e14d2d1c4398790f63e7">m_this_command_is_finished</a></td></tr>
 <tr class="separator:a0a5dc14f3958e14d2d1c4398790f63e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94797a19250d2b7edba80eb3e0c32c3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_drive_direction.html#a94797a19250d2b7edba80eb3e0c32c3c">m_subSysDriveTrain</a></td></tr>
+<tr class="separator:a94797a19250d2b7edba80eb3e0c32c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is a class that defines a command used in toggling the drive direction of the drive train, as well as switching the camera view on the Shuffleboard. </p>
 <hr/>
 <dl class="section author"><dt>Author</dt><dd>FRC Team #7464 - ORION </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8h_source.html#l00055">55</a> of file <a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8h_source.html#l00058">58</a> of file <a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aea51fa591f9cbe03d263488401a9d2ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea51fa591f9cbe03d263488401a9d2ac">&#9670;&nbsp;</a></span>CmdToggleDriveDirection()</h2>
+<a id="ad6901cd0a2e8b0c29b0f4fee6438eeb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6901cd0a2e8b0c29b0f4fee6438eeb3">&#9670;&nbsp;</a></span>CmdToggleDriveDirection()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">CmdToggleDriveDirection::CmdToggleDriveDirection </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td>
+          <td class="paramname"><em>subsystem</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_toggle_drive_direction.html" title="This is a class that defines a command used in toggling the drive direction of the drive train,...">CmdToggleDriveDirection</a> class default constructor. </p>
+<p>The <a class="el" href="class_cmd_toggle_drive_direction.html" title="This is a class that defines a command used in toggling the drive direction of the drive train,...">CmdToggleDriveDirection</a> class constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subsystem</td><td>The subsystem used by this command </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00045">45</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
 
@@ -175,13 +190,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The <a class="el" href="class_cmd_toggle_drive_direction.html" title="This is a class that defines a command used in toggling the drive direction of the drive train,...">CmdToggleDriveDirection</a> class destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00065">65</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00064">64</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1305a5a5cfc14534bd7b9642964b92cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1305a5a5cfc14534bd7b9642964b92cf">&#9670;&nbsp;</a></span>End()</h2>
+<a id="a8ecae9b5dfc7710297f72fe404e01b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ecae9b5dfc7710297f72fe404e01b2a">&#9670;&nbsp;</a></span>End()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +207,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void CmdToggleDriveDirection::End </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>interrupted</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -202,11 +218,16 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Called when the command ended peacefully.</p>
+<p>Called when either the command finishes normally, or when it is interrupted/canceled.</p>
 <p>This is where you may want to wrap up loose ends, like shutting off a motor that was being used in the command.</p>
-<p>Reimplemented in frc::CommandGroup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupted</td><td>false = not interrupted, true = interrupted </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00117">117</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00113">113</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
 
 </div>
 </div>
@@ -234,7 +255,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The execute method is called repeatedly until this Command either finishes or is canceled. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00101">101</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00096">96</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
 
 </div>
 </div>
@@ -262,38 +283,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The initialize method is called the first time this Command is run after being started. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00070">70</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a60e7edda9e237b742b2c8d696e5b9427"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60e7edda9e237b742b2c8d696e5b9427">&#9670;&nbsp;</a></span>Interrupted()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CmdToggleDriveDirection::Interrupted </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Called when the command ends because somebody called Cancel() or another command shared the same requirements as this one, and booted it out.</p>
-<p>This is where you may want to wrap up loose ends, like shutting off a motor that was being used in the command.</p>
-<p>Generally, it is useful to simply call the <a class="el" href="class_cmd_toggle_drive_direction.html#a1305a5a5cfc14534bd7b9642964b92cf">End()</a> method within this method, as done here.</p>
-<p>Reimplemented in frc::CommandGroup. </p>
-
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00126">126</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00069">69</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,13 +309,13 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns whether this command is finished. If it is, then the command will be removed and <a class="el" href="class_cmd_toggle_drive_direction.html#a1305a5a5cfc14534bd7b9642964b92cf">End()</a> will be called.</p>
+<p>Returns whether this command is finished. If it is, then the command will be removed and <a class="el" href="class_cmd_toggle_drive_direction.html#a8ecae9b5dfc7710297f72fe404e01b2a">End()</a> will be called.</p>
 <p>It may be useful for a team to reference the IsTimedOut() method for time-sensitive commands.</p>
 <p>Returning false will result in the command never ending automatically. It may still be cancelled manually or interrupted by another command.</p>
 <p>Returning true will result in the command executing once and finishing immediately. We recommend using InstantCommand for this.</p>
 <dl class="section return"><dt>Returns</dt><dd>True = Command finished, False = Command not finished </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00109">109</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html#l00104">104</a> of file <a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +341,32 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A local drive direction variable false = normal direction true = reversed direction </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8h_source.html#l00124">124</a> of file <a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8h_source.html#l00125">125</a> of file <a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a>.</p>
+
+</div>
+</div>
+<a id="a94797a19250d2b7edba80eb3e0c32c3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94797a19250d2b7edba80eb3e0c32c3c">&#9670;&nbsp;</a></span>m_subSysDriveTrain</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a>* CmdToggleDriveDirection::m_subSysDriveTrain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A pointer to the drive train subsystem </p>
+
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8h_source.html#l00134">134</a> of file <a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a>.</p>
 
 </div>
 </div>
@@ -376,13 +391,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A local boolean to tell when this command is finished false = command not finished true = command is finished </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8h_source.html#l00130">130</a> of file <a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_drive_direction_8h_source.html#l00131">131</a> of file <a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/ORION22/RobotCode/src/main/include/commands/DriveTrain/<a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a></li>
-<li>C:/ORION22/RobotCode/src/main/cpp/commands/DriveTrain/<a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/include/commands/DriveTrain/<a class="el" href="_cmd_toggle_drive_direction_8h_source.html">CmdToggleDriveDirection.h</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/cpp/commands/DriveTrain/<a class="el" href="_cmd_toggle_drive_direction_8cpp_source.html">CmdToggleDriveDirection.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

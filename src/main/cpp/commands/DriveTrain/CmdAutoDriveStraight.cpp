@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -28,9 +28,6 @@
 // Include the header file for the CmdAutoDriveStraight class
 #include "commands/DriveTrain/CmdAutoDriveStraight.h"
 
-// Include the Robot class header file
-#include "Robot.h"
-
 /************************** Library Header Files ******************************/
 
 // Include the I/O stream class, so we can write to the console
@@ -38,23 +35,20 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdAutoDriveStraight class
-CmdAutoDriveStraight::CmdAutoDriveStraight() {
-
-  // Run the common constructor function
-  common_constructor_function();
-
-} // end CmdAutoDriveStraight::CmdAutoDriveStraight()
-
+// The constructor for the CmdAutoDriveStraight class
 CmdAutoDriveStraight::CmdAutoDriveStraight(
+  SubSysDriveTrain* subsystem,
   double spd,
   CmdAutoDriveStraight::DRIVE_STRAIGHT_AUTO_DX_MODE mode,
   CmdAutoDriveStraight::DRIVE_STRAIGHT_DIRECTION dir,
   double val)
-{
+  : m_subSysDriveTrain(subsystem) {
 
-  // Run the common constructor function
-  common_constructor_function();
+  // Set the command's name
+  SetName("CmdAutoDriveStraight");
+
+  // Require the use of the drive train subsystem
+  AddRequirements({subsystem});
 
   // Set the speed to the passed in speed
   speed = spd;
@@ -66,7 +60,7 @@ CmdAutoDriveStraight::CmdAutoDriveStraight(
   direction = dir;
 
   // Depending on what mode we are using is what we will do with val
-  switch(dx_mode)
+  switch(mode)
   {
     // The mode is seconds
     case SECONDS:
@@ -87,14 +81,10 @@ CmdAutoDriveStraight::CmdAutoDriveStraight(
       // TODO: NEED TO THROW AN EXCEPTION HERE!!!
   }
 
-} // end CmdAutoDriveStraight::CmdAutoDriveStraight(double, enum, enum, double)
+} // end CmdAutoDriveStraight::CmdAutoDriveStraight(...)
 
 // The destructor for the CmdAutoDriveStraight class
 CmdAutoDriveStraight::~CmdAutoDriveStraight() {
-
-  // Delete the timer, if instantiated
-  if(m_timer != nullptr)
-    delete m_timer;
 
 } // end CmdAutoDriveStraight::~CmdAutoDriveStraight()
 
@@ -102,19 +92,16 @@ CmdAutoDriveStraight::~CmdAutoDriveStraight() {
 void CmdAutoDriveStraight::Initialize() {
 
   // Set the drive train mode string to arcade
-  Robot::m_subSysDriveTrain->SetDriveTrainModeStringToArcade();
+  m_subSysDriveTrain->SetDriveTrainModeStringToArcade();
 
   // Indicate we have not exceeded our distance
   driven_distance_exceeded = false;
 
-  // Create a new timer
-  m_timer = new frc::Timer();
-
   // Reset the timer
-  m_timer->Reset();
+  m_timer.Reset();
 
   // Start the timer
-  m_timer->Start();
+  m_timer.Start();
 
 } // end CmdAutoDriveStraight::Initialize()
 
@@ -138,7 +125,8 @@ void CmdAutoDriveStraight::Execute() {
       break;
     // default:
       // TODO: NEED TO THROW EXCEPTION
-  }
+
+  } // end switch(direction)
 
   // Switch on the distance mode selected
   switch(dx_mode)
@@ -146,7 +134,7 @@ void CmdAutoDriveStraight::Execute() {
     // If we are using time...
     case SECONDS:
       // If the timer has exceeded our drive time...
-      if(m_timer->Get() >= driven_time_seconds)
+      if(m_timer.Get() >= driven_time_seconds)
       {
         // We have exceeded our driven distance
         driven_distance_exceeded = true;
@@ -164,13 +152,15 @@ void CmdAutoDriveStraight::Execute() {
       break;
     // default:
       // TODO: NEED TO THROW EXCEPTION
-  }
+
+  } // end switch(dx_mode)
 
   // If we have NOT exceeded our driven distance...
   if(!driven_distance_exceeded)
   {
+
     // Drive arcade style using the passed in speed and direction
-    Robot::m_subSysDriveTrain->DriveArcadeStyle(
+    m_subSysDriveTrain->DriveArcadeStyle(
       corrected_Y_axis_motor_speed,
       k_X_Axis_Value_For_Straight
     );
@@ -178,9 +168,11 @@ void CmdAutoDriveStraight::Execute() {
   }
   else
   {
+
     // Stop the robot
-    Robot::m_subSysDriveTrain->DriveArcadeStyle(k_MotorStopSpeed,
-                                                k_MotorStopSpeed);
+    m_subSysDriveTrain->DriveArcadeStyle(k_MotorStopSpeed,
+                                         k_MotorStopSpeed);
+
   }
 
 }  // end CmdAutoDriveStraight::Execute()
@@ -193,36 +185,15 @@ bool CmdAutoDriveStraight::IsFinished() {
 
 } // end CmdAutoDriveStraight::IsFinished()
 
-// Called once after isFinished returns true
-void CmdAutoDriveStraight::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdAutoDriveStraight::End(bool interrupted) {
 
   // Stop the robot
-  Robot::m_subSysDriveTrain->DriveArcadeStyle(k_MotorStopSpeed,
-                                              k_MotorStopSpeed);
+  m_subSysDriveTrain->DriveArcadeStyle(k_MotorStopSpeed,
+                                       k_MotorStopSpeed);
 
   // Stop the timer
-  m_timer->Stop();
+  m_timer.Stop();
 
 } // end CmdAutoDriveStraight::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdAutoDriveStraight::Interrupted() {
-
-  // Call the End method
-  End();
-
-} // end CmdAutoDriveStraight::Interrupted()
-
-void CmdAutoDriveStraight::common_constructor_function()
-{
-  // Use Requires() here to declare subsystem dependencies
-
-  // Require the use of the drive train subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysDriveTrain.get());
-
-} // end void CmdAutoDriveStraight::common_constructor_function()

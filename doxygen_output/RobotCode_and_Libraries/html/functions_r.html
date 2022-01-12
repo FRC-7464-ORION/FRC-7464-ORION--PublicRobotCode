@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode/WPILIBC(v2020.3.2): Class Members</title>
+<title>NewRobotCode/WPILIBC(v2020.3.2): Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode/WPILIBC(v2020.3.2)
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode/WPILIBC(v2020.3.2)
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 <li>Radians()
 : <a class="el" href="classfrc_1_1_rotation2d.html#aa5da7ddda62c41e262328bd41bb45389">frc::Rotation2d</a>
 </li>
+<li>RamseteCommand()
+: <a class="el" href="classfrc2_1_1_ramsete_command.html#a57682fbc0814cc1381454266f4bc81fb">frc2::RamseteCommand</a>
+</li>
 <li>RamseteController()
 : <a class="el" href="classfrc_1_1_ramsete_controller.html#a745b2da87d71a3545e497be61b79ae64">frc::RamseteController</a>
 </li>
@@ -103,7 +106,7 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 , <a class="el" href="classfrc_1_1_s_p_i.html#a81d2a9d0af6a1761bd32c02ac9900619">frc::SPI</a>
 </li>
 <li>ReadAutoReceivedData()
-: <a class="el" href="classfrc_1_1_s_p_i.html#a259ac9dc35f6f82e57ab69020aff0236">frc::SPI</a>
+: <a class="el" href="classfrc_1_1_s_p_i.html#abe67af9a0d28f18b5ddc4cc8f8ac9f7a">frc::SPI</a>
 </li>
 <li>ReadFallingTimestamp()
 : <a class="el" href="classfrc_1_1_interruptable_sensor_base.html#a5812f60b8225d23c6b57353a18a8e890">frc::InterruptableSensorBase</a>
@@ -129,11 +132,14 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 <li>rearRight
 : <a class="el" href="structfrc_1_1_mecanum_drive_wheel_speeds.html#ab8214c04b8a3dad8bfdedbd1ab245c7b">frc::MecanumDriveWheelSpeeds</a>
 </li>
+<li>Register()
+: <a class="el" href="classfrc2_1_1_subsystem.html#a4a2730c840501afce79d94a95bd42cbe">frc2::Subsystem</a>
+</li>
 <li>RegisterCallback()
 : <a class="el" href="class_a_h_r_s.html#aeff728f7cebf397f83d543b01f7c7fbf">AHRS</a>
 </li>
 <li>RegisterSubsystem()
-: <a class="el" href="classfrc_1_1_scheduler.html#a639c534a0655c5ab230046669e5aa081">frc::Scheduler</a>
+: <a class="el" href="classfrc2_1_1_command_scheduler.html#a5b4ac3d7afb8e87abae3aa3480daedbe">frc2::CommandScheduler</a>
 </li>
 <li>RelativeTo()
 : <a class="el" href="classfrc_1_1_pose2d.html#a9d1d523396b90e6ed49bf623da1040d1">frc::Pose2d</a>
@@ -145,7 +151,6 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 <li>Remove()
 : <a class="el" href="classfrc_1_1_digital_glitch_filter.html#a2bde7a9e91bd923550dd5b4051554756">frc::DigitalGlitchFilter</a>
 , <a class="el" href="classfrc_1_1_preferences.html#a97b689e1da9fb1add79219ca672a93b7">frc::Preferences</a>
-, <a class="el" href="classfrc_1_1_scheduler.html#a5fd987a5f7a9ba180207a1289a7bd477">frc::Scheduler</a>
 , <a class="el" href="classfrc_1_1_sendable_registry.html#a85bb8137d618332f1792ea60045cb067">frc::SendableRegistry</a>
 </li>
 <li>RemoveAll()
@@ -153,9 +158,6 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 </li>
 <li>RemoveCamera()
 : <a class="el" href="classfrc_1_1_camera_server.html#a32bd53dd3719a2b32c56c01a090bec01">frc::CameraServer</a>
-</li>
-<li>Removed()
-: <a class="el" href="classfrc_1_1_command.html#a91fe691675881d99b6ac23f8b21487d8">frc::Command</a>
 </li>
 <li>RemoveServer()
 : <a class="el" href="classfrc_1_1_camera_server.html#a2e06c1326037622a24de1612d9577ebb">frc::CameraServer</a>
@@ -175,8 +177,11 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 <li>RequestInterrupts()
 : <a class="el" href="classfrc_1_1_interruptable_sensor_base.html#a5da44eb3685d07e202c778733ea91010">frc::InterruptableSensorBase</a>
 </li>
-<li>Requires()
-: <a class="el" href="classfrc_1_1_command.html#abd1739c4b238ca209d98552276247969">frc::Command</a>
+<li>RequireUngrouped()
+: <a class="el" href="classfrc2_1_1_command_group_base.html#a2a00a1f4610c37e7d5c1c46f61ec0ad5">frc2::CommandGroupBase</a>
+</li>
+<li>Requiring()
+: <a class="el" href="classfrc2_1_1_command_scheduler.html#a6f1ebf12a811384a81dc0750e852b0ab">frc2::CommandScheduler</a>
 </li>
 <li>Reset()
 : <a class="el" href="class_a_h_r_s.html#abb6c26349edf6f3956eb3435b185cd54">AHRS</a>
@@ -205,9 +210,6 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 : <a class="el" href="classfrc_1_1_analog_input.html#a0c6b4387695c1522860a2fb1e5fbee82">frc::AnalogInput</a>
 , <a class="el" href="classfrc_1_1_s_p_i.html#a63681b2ace362877ecde01cefa637e8a">frc::SPI</a>
 </li>
-<li>ResetAll()
-: <a class="el" href="classfrc_1_1_scheduler.html#ac98eb691c75dc06f37ee9aa4b155267d">frc::Scheduler</a>
-</li>
 <li>ResetDisplacement()
 : <a class="el" href="class_a_h_r_s.html#ac397220951759ce2ece03e01c6daa14a">AHRS</a>
 </li>
@@ -216,6 +218,9 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 </li>
 <li>ResetHansFranzArmsFullyRetractedCounter()
 : <a class="el" href="class_sub_sys_hans_franz_arms.html#aab7b1b331b201bef8e05811e21038a7c">SubSysHansFranzArms</a>
+</li>
+<li>ResetPIDController()
+: <a class="el" href="class_p_i_d_sub_sys_pssh.html#a53f83adaaf7d1239c94575c2d91fa8f6">PIDSubSysPssh</a>
 </li>
 <li>ResetPosition()
 : <a class="el" href="classfrc_1_1_differential_drive_odometry.html#a918d2c1c2411bb25d2ebeed372646930">frc::DifferentialDriveOdometry</a>
@@ -237,20 +242,86 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 <li>RETRACTING
 : <a class="el" href="class_sub_sys_hans_franz_arms.html#a8d8a3c3a4b71f915c4ca676ee40dc560a7eb1d14ee2b765bd8fb6f007342f1789">SubSysHansFranzArms</a>
 </li>
-<li>ReturnPIDInput()
-: <a class="el" href="class_p_i_d_sub_sys_pssh.html#a1d765dc0b5cf179cb8de958ee59fcaa0">PIDSubSysPssh</a>
-</li>
 <li>REVERSE
 : <a class="el" href="class_cmd_auto_drive_straight.html#abf8f58d1d8cb23ab12231df79d002877ae7fe138ca21d506c474c51479cbdaad1">CmdAutoDriveStraight</a>
 </li>
 <li>right
 : <a class="el" href="structfrc_1_1_differential_drive_wheel_speeds.html#ae705f1cdac4e5bca951472a1a28ff671">frc::DifferentialDriveWheelSpeeds</a>
 </li>
+<li>ROBORIO_3_3V_RAIL_CURRENT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ac8f6b3d66f47e4bd552477447a69307c">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_3_3V_RAIL_ENABLED
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ae1c52a4b344f8a8ed4097394f657006a">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_3_3V_RAIL_FLT_CNT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a5161a28f1429cb7a2ff8544fd4f63917">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_3_3V_RAIL_VOLTAGE
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ae454506517eda01ff8bc586decf19396">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_5V_RAIL_CURRENT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a28b7a73046b223de504f11edfc26da9b">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_5V_RAIL_ENABLED
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a897b0952f7a12e88b99755d8987fb280">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_5V_RAIL_FLT_CNT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a2e7d75b850b9edfc288f162c3b8d3406">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_5V_RAIL_VOLTAGE
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ac17f42cc15b942a0e4bacd0e64305fb5">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_6V_RAIL_CURRENT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a362cddd13ac07e090d6c4aaa8b71b161">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_6V_RAIL_ENABLED
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12aceeafdde8ce7944e75fc09f0c242d04a">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_6V_RAIL_FLT_CNT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ae5f6019247df9488373002c6b002b592">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_6V_RAIL_VOLTAGE
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a14a349c1c1f8b121a003533e58a23958">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_ACCEL_X_AXIS
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ad38ef117fd2a0c0425e5a3c7523c607c">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_ACCEL_Y_AXIS
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a222ebcf56f8ceb2946dfb97f893ad97f">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_ACCEL_Z_AXIS
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ac74cd357ff396a2c4b51fcb59e38bceb">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_FPGA_TIME
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a1037fcf0c65ba9b14dcaeaf578cf3f47">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_FPGA_VER_REV_BLD
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ad8d7e59e17d8db862eb691e9f0b670dc">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_INPUT_CURRENT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ac310d04cff427c7e80e05dac91c7067b">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_INPUT_POWER
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a86d21bc44d9ffca8c6ace638c492c2be">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_INPUT_VOLTAGE
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a69f70153869da503d46f61332013262f">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_IS_SYS_ACTIVE
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ae307f4a86a10dfccffdf3d36ef7da46e">TelemetryOutputter</a>
+</li>
+<li>ROBORIO_ISNT_BROWNED_OUT
+: <a class="el" href="class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ad393eec7eff706499dca425f4464085d">TelemetryOutputter</a>
+</li>
 <li>RobotBase()
 : <a class="el" href="classfrc_1_1_robot_base.html#a3043a0a78f4ec0e1e449eeed0a5db6e5">frc::RobotBase</a>
 </li>
+<li>RobotContainer()
+: <a class="el" href="class_robot_container.html#ac508e6c51edfa97eb18e3412fe83ad8f">RobotContainer</a>
+</li>
 <li>RobotDrive()
-: <a class="el" href="classfrc_1_1_robot_drive.html#a7eff8012f7527de3463df15238e3d6fa">frc::RobotDrive</a>
+: <a class="el" href="classfrc_1_1_robot_drive.html#a83d6680d6e45c02db73234536d541f0d">frc::RobotDrive</a>
 </li>
 <li>RobotInit()
 : <a class="el" href="classfrc_1_1_iterative_robot_base.html#a4cf11d19287b8bd681013df0c12ac9bb">frc::IterativeRobotBase</a>
@@ -259,6 +330,9 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 <li>RobotPeriodic()
 : <a class="el" href="classfrc_1_1_iterative_robot_base.html#a7e4d9bff58ea418c8713cdd5e80516c8">frc::IterativeRobotBase</a>
 , <a class="el" href="class_robot.html#a8fad82c2250bcfb83b743b5c0dd6ed27">Robot</a>
+</li>
+<li>RobotTick()
+: <a class="el" href="class_robot_tick.html#ac19e0068bd09a18e2b4eb447afcd82aa">RobotTick</a>
 </li>
 <li>Rotate()
 : <a class="el" href="structfrc_1_1_vector2d.html#a6ace94f7b939d121594c128fa1304ba0">frc::Vector2d</a>
@@ -278,8 +352,10 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 : <a class="el" href="classfrc_1_1_rotation2d.html#acc37918fbfe1b47c37473666c1bc5c9b">frc::Rotation2d</a>
 </li>
 <li>Run()
-: <a class="el" href="classfrc_1_1_command.html#ae10d99a6cec39f82aa9cb3dc289a45eb">frc::Command</a>
-, <a class="el" href="classfrc_1_1_scheduler.html#a6e17233143754873d7f29860047de2c1">frc::Scheduler</a>
+: <a class="el" href="classfrc2_1_1_command_scheduler.html#af686a58898548d7c8285a34aa8bddea9">frc2::CommandScheduler</a>
+</li>
+<li>RunCommand()
+: <a class="el" href="classfrc2_1_1_run_command.html#a4d90914fa9bccf8bc3b5de4e40aa4071">frc2::RunCommand</a>
 </li>
 <li>RunForever()
 : <a class="el" href="classfrc_1_1_vision_runner_base.html#aee8c4965650a86ca93154d80a4f7a2d6">frc::VisionRunnerBase</a>
@@ -289,6 +365,19 @@ $(document).ready(function(){initNavTree('functions_r.html','');});
 </li>
 <li>RunOnce()
 : <a class="el" href="classfrc_1_1_vision_runner_base.html#af2b4037b3ac379464605267203fd1b26">frc::VisionRunnerBase</a>
+</li>
+<li>RunsWhenDisabled()
+: <a class="el" href="classfrc2_1_1_command.html#a5113cbf3655ce8679dd48bf22700b2f4">frc2::Command</a>
+, <a class="el" href="classfrc2_1_1_conditional_command.html#a7f14444079277e2ca039912ec29c8a24">frc2::ConditionalCommand</a>
+, <a class="el" href="classfrc2_1_1_parallel_command_group.html#a526655224f673cc3f153dfecb88a69d2">frc2::ParallelCommandGroup</a>
+, <a class="el" href="classfrc2_1_1_parallel_deadline_group.html#a2af624cb92d3ccaf8d02f5a6b220ee2d">frc2::ParallelDeadlineGroup</a>
+, <a class="el" href="classfrc2_1_1_parallel_race_group.html#a8748b3e51132a834acd05c82098f184a">frc2::ParallelRaceGroup</a>
+, <a class="el" href="classfrc2_1_1_print_command.html#a068ffb7c766205b3761c9a30b6977392">frc2::PrintCommand</a>
+, <a class="el" href="classfrc2_1_1_schedule_command.html#a6f6a8c74ea4441fa39ce5962b84f3961">frc2::ScheduleCommand</a>
+, <a class="el" href="classfrc2_1_1_select_command.html#a701c6844825d8b6073244c53daf07aa2">frc2::SelectCommand&lt; Key &gt;</a>
+, <a class="el" href="classfrc2_1_1_sequential_command_group.html#af3669d1816e1c1189b33a82ff0bfe638">frc2::SequentialCommandGroup</a>
+, <a class="el" href="classfrc2_1_1_wait_command.html#a3a8c6bc685540de0b620ec475d310ffb">frc2::WaitCommand</a>
+, <a class="el" href="classfrc2_1_1_wait_until_command.html#a448a35fc71ea354fc6a9ed493529df37">frc2::WaitUntilCommand</a>
 </li>
 </ul>
 </div><!-- contents -->

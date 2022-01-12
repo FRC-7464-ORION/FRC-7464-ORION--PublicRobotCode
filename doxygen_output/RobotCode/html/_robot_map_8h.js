@@ -7,7 +7,7 @@ var _robot_map_8h =
     [ "k_HansExtendMuscleChannel", "_robot_map_8h.html#a6e02c6e4d05eebd74007bee78d0044ab", null ],
     [ "k_HansFranzArms_FullyExtended_LimitSwitch_Channel", "_robot_map_8h.html#a83d93b25e516ceeb12904bdef43579e2", null ],
     [ "k_HansFranzArms_FullyRetracted_LimitSwitch_Channel", "_robot_map_8h.html#ad00c4331ef41792d21a170ff2b2bafd0", null ],
-    [ "k_HansFranzArmsMotorChannel", "_robot_map_8h.html#a5df82e001209cc567d8d7ff3f06cfe5c", null ],
+    [ "k_HansFranzArmsMotorPDPChannel", "_robot_map_8h.html#aea2f6a57e9c5e2cc9adfdd74242958fa", null ],
     [ "k_HansFranzArmsPWMPort", "_robot_map_8h.html#a9cb7ed645dbebc5b16780f6b257db3bb", null ],
     [ "k_HansRetractMuscleChannel", "_robot_map_8h.html#afe1774e4d984c6a3fd02200d1b8da3dd", null ],
     [ "k_Joystick0DeviceNumber", "_robot_map_8h.html#ac0f78789d6ac51b7a29b8800ab72f943", null ],

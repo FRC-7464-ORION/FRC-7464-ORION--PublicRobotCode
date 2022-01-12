@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode/WPILIBC(v2020.3.2): C:/ORION22/RobotCode/src/main/include/Robot.h File Reference</title>
+<title>NewRobotCode/WPILIBC(v2020.3.2): C:/ORION22/NewRobotCode/src/main/include/Robot.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode/WPILIBC(v2020.3.2)
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode/WPILIBC(v2020.3.2)
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -97,35 +97,10 @@ $(document).ready(function(){initNavTree('_robot_8h.html','');});
 
 <p>This file declares the <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_robot_constants_8h_source.html">RobotConstants.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_sub_sys_drive_train_8h_source.html">subsystems/SubSysDriveTrain.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_sub_sys_p_a_t_turner_8h_source.html">subsystems/SubSysPATTurner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_sub_sys_hans_franz_muscles_8h_source.html">subsystems/SubSysHansFranzMuscles.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_sub_sys_hans_franz_arms_8h_source.html">subsystems/SubSysHansFranzArms.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_p_i_d_sub_sys_pssh_8h_source.html">subsystems/PIDSubSysPssh.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_o_i_8h_source.html">OI.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_drive_arcade_style_8h_source.html">commands/DriveTrain/CmdDriveArcadeStyle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_drive_tank_style_8h_source.html">commands/DriveTrain/CmdDriveTankStyle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_zero_a_h_r_s_yaw_8h_source.html">commands/DriveTrain/CmdZeroAHRSYaw.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_reset_a_h_r_s_yaw_8h_source.html">commands/DriveTrain/CmdResetAHRSYaw.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_move_hans_franz_arms_8h_source.html">commands/HansAndFranzArms/CmdMoveHansFranzArms.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_grp_auto_default_8h_source.html">commandGroups/Autonomous/CmdGrpAutoDefault.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_grp_auto_def_left_8h_source.html">commandGroups/Autonomous/CmdGrpAutoDefLeft.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_grp_auto_def_center_8h_source.html">commandGroups/Autonomous/CmdGrpAutoDefCenter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_grp_auto_def_right_8h_source.html">commandGroups/Autonomous/CmdGrpAutoDefRight.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_grp_auto_off_left_8h_source.html">commandGroups/Autonomous/CmdGrpAutoOffLeft.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_grp_auto_off_center_8h_source.html">commandGroups/Autonomous/CmdGrpAutoOffCenter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_cmd_grp_auto_off_right_8h_source.html">commandGroups/Autonomous/CmdGrpAutoOffRight.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_telemetry_outputter_8h_source.html">Telemetry/TelemetryOutputter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_video_8h_source.html">Vision/Video.h</a>&quot;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_robot_container_8h_source.html">RobotContainer.h</a>&quot;</code><br />
 <code>#include &lt;frc/TimedRobot.h&gt;</code><br />
-<code>#include &lt;frc/commands/Command.h&gt;</code><br />
-<code>#include &lt;frc/smartdashboard/SendableChooser.h&gt;</code><br />
-<code>#include &lt;cameraserver/CameraServer.h&gt;</code><br />
-<code>#include &lt;frc/livewindow/LiveWindow.h&gt;</code><br />
-<code>#include &lt;frc/DriverStation.h&gt;</code><br />
-<code>#include &quot;AHRS.h&quot;</code><br />
+<code>#include &lt;frc2/command/Command.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div>
 <p><a href="_robot_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -138,10 +113,10 @@ Classes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file declares the <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class. </p>
 <p>===========================================================================</p>
-<p>The <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class defines the entire robot, its subsystems, commands, etc.</p>
+<p>The <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class is responsible for the main control flow of the robot.</p>
 <p>COPYRIGHT NOTICES:</p>
 <p>Some portions:</p>
-<p>Copyright (c) 2017-2018 FIRST. All Rights Reserved. Open Source Software - may be modified and shared by FRC teams. The code must be accompanied by the FIRST BSD license file in the root directory of the project.</p>
+<p>Copyright (c) 2017-2019 FIRST. All Rights Reserved. Open Source Software - may be modified and shared by FRC teams. The code must be accompanied by the FIRST BSD license file in the root directory of the project.</p>
 <p>Some portions:</p>
 <p>Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved. Open Source Software - may be modified and shared by FRC teams. The code must be accompanied by the FRC Team #7464 - ORION BSD license file in the root directory of the project.</p>
 <hr/>
@@ -152,7 +127,7 @@ Classes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_202956eadc55f1484a97578b726f47b1.html">RobotCode</a></li><li class="navelem"><a class="el" href="dir_c8c38d932f484c5008dd84d8e00dc74a.html">src</a></li><li class="navelem"><a class="el" href="dir_89e122a8591f7544b463b1bb59570e4b.html">main</a></li><li class="navelem"><a class="el" href="dir_eb173dd03f1b0640fbd24487c4ba699d.html">include</a></li><li class="navelem"><a class="el" href="_robot_8h.html">Robot.h</a></li>
+    <li class="navelem"><a class="el" href="dir_fabbfd9052253108fb9f2edc2cd66ded.html">NewRobotCode</a></li><li class="navelem"><a class="el" href="dir_df7589acdc1a7efc8a01c9d5ecd08591.html">src</a></li><li class="navelem"><a class="el" href="dir_d09c0e2f42769a6c6f17ff9363d22225.html">main</a></li><li class="navelem"><a class="el" href="dir_b41c826c0dda0f955eaf778be188772f.html">include</a></li><li class="navelem"><a class="el" href="_robot_8h.html">Robot.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>

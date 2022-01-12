@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: CmdGrpEnableHansAndFranz Class Reference</title>
+<title>NewRobotCode: CmdGrpEnableHansAndFranz Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -109,20 +109,18 @@ Inheritance diagram for CmdGrpEnableHansAndFranz:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af14757af1a78a68c6af2e36368a40938"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_enable_hans_and_franz.html#af14757af1a78a68c6af2e36368a40938">CmdGrpEnableHansAndFranz</a> ()</td></tr>
-<tr class="separator:af14757af1a78a68c6af2e36368a40938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03310e286d6f20c9cc104989248c20b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_enable_hans_and_franz.html#a03310e286d6f20c9cc104989248c20b9">~CmdGrpEnableHansAndFranz</a> ()</td></tr>
-<tr class="separator:a03310e286d6f20c9cc104989248c20b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a074897708103558dff21b047adf12d67"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_enable_hans_and_franz.html#a074897708103558dff21b047adf12d67">CmdGrpEnableHansAndFranz</a> (<a class="el" href="class_sub_sys_hans_franz_arms.html">SubSysHansFranzArms</a> *arms, <a class="el" href="class_cmd_move_hans_franz_arms.html">CmdMoveHansFranzArms</a> *command, <a class="el" href="class_sub_sys_hans_franz_muscles.html">SubSysHansFranzMuscles</a> *muscles)</td></tr>
+<tr class="separator:a074897708103558dff21b047adf12d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is a class that defines a group of commands that is used to enable Hans and Franz arms and muscles. </p>
 <hr/>
 <dl class="section author"><dt>Author</dt><dd>FRC Team #7464 - ORION </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_enable_hans_and_franz_8h_source.html#l00053">53</a> of file <a class="el" href="_cmd_grp_enable_hans_and_franz_8h_source.html">CmdGrpEnableHansAndFranz.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_grp_enable_hans_and_franz_8h_source.html#l00065">65</a> of file <a class="el" href="_cmd_grp_enable_hans_and_franz_8h_source.html">CmdGrpEnableHansAndFranz.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af14757af1a78a68c6af2e36368a40938"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af14757af1a78a68c6af2e36368a40938">&#9670;&nbsp;</a></span>CmdGrpEnableHansAndFranz()</h2>
+<a id="a074897708103558dff21b047adf12d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a074897708103558dff21b047adf12d67">&#9670;&nbsp;</a></span>CmdGrpEnableHansAndFranz()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,40 +128,45 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">CmdGrpEnableHansAndFranz::CmdGrpEnableHansAndFranz </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_sub_sys_hans_franz_arms.html">SubSysHansFranzArms</a> *&#160;</td>
+          <td class="paramname"><em>arms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_cmd_move_hans_franz_arms.html">CmdMoveHansFranzArms</a> *&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sub_sys_hans_franz_muscles.html">SubSysHansFranzMuscles</a> *&#160;</td>
+          <td class="paramname"><em>muscles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_grp_enable_hans_and_franz.html" title="This is a class that defines a group of commands that is used to enable Hans and Franz arms and muscl...">CmdGrpEnableHansAndFranz</a> class default constructor. </p>
+<p>The <a class="el" href="class_cmd_grp_enable_hans_and_franz.html" title="This is a class that defines a group of commands that is used to enable Hans and Franz arms and muscl...">CmdGrpEnableHansAndFranz</a> class constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arms</td><td>The Hans/Franz arms subsystem </td></tr>
+    <tr><td class="paramname">command</td><td>The Hans/Frans command to move the arms </td></tr>
+    <tr><td class="paramname">muscles</td><td>The Hans/Franz muscles subsystem </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="_cmd_grp_enable_hans_and_franz_8cpp_source.html#l00038">38</a> of file <a class="el" href="_cmd_grp_enable_hans_and_franz_8cpp_source.html">CmdGrpEnableHansAndFranz.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a03310e286d6f20c9cc104989248c20b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03310e286d6f20c9cc104989248c20b9">&#9670;&nbsp;</a></span>~CmdGrpEnableHansAndFranz()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CmdGrpEnableHansAndFranz::~CmdGrpEnableHansAndFranz </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_grp_enable_hans_and_franz.html" title="This is a class that defines a group of commands that is used to enable Hans and Franz arms and muscl...">CmdGrpEnableHansAndFranz</a> class destructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_enable_hans_and_franz_8cpp_source.html#l00052">52</a> of file <a class="el" href="_cmd_grp_enable_hans_and_franz_8cpp_source.html">CmdGrpEnableHansAndFranz.cpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/ORION22/RobotCode/src/main/include/commandGroups/HansAndFranz/<a class="el" href="_cmd_grp_enable_hans_and_franz_8h_source.html">CmdGrpEnableHansAndFranz.h</a></li>
-<li>C:/ORION22/RobotCode/src/main/cpp/commandGroups/HansAndFranz/<a class="el" href="_cmd_grp_enable_hans_and_franz_8cpp_source.html">CmdGrpEnableHansAndFranz.cpp</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/include/commandGroups/HansAndFranz/<a class="el" href="_cmd_grp_enable_hans_and_franz_8h_source.html">CmdGrpEnableHansAndFranz.h</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/cpp/commandGroups/HansAndFranz/<a class="el" href="_cmd_grp_enable_hans_and_franz_8cpp_source.html">CmdGrpEnableHansAndFranz.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

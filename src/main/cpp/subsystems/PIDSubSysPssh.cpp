@@ -28,12 +28,6 @@
 // Include the header file for our PIDSubSysPssh class
 #include "subsystems/PIDSubSysPssh.h"
 
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-// Include out robot map header file
-#include "RobotMap.h"
-
 /************************** Library Header Files ******************************/
 
 // Include the motor safety header file
@@ -43,78 +37,68 @@
 
 // The SubSysPssh default constructor
 PIDSubSysPssh::PIDSubSysPssh() 
-  : PIDSubsystem (k_PsshPIDName,
-                  k_PsshProportionalTerm,
-                  k_PsshIntegralTerm,
-                  k_PsshDerivativeTerm,
-                  k_PsshFeedforwardTerm,
-                  k_PsshPID_Period) {
+  : frc2::PIDSubsystem (
+      frc2::PIDController(
+        k_PsshProportionalTerm,
+        k_PsshIntegralTerm,
+        k_PsshDerivativeTerm)) {
 
-  // Create a new motor controller for the Pssh motor and reset
-  m_PsshController.reset(new frc::PWMVictorSPX(k_PsshMotorPWMPort));
-
-#if ORION_DEBUG
-  if (m_PsshController == nullptr) {
-    // Inform them
-    frc::DriverStation::ReportError("m_PsshController NOT initialized!");
-  }
-  else {
-    frc::DriverStation::ReportWarning("m_PsshController initialized!");
-  }
-#endif
-
-  // Create a new analog potentiometer Pssh and reset
-  m_PsshPot.reset(
-    new frc::AnalogPotentiometer(k_Pssh_Pot_roboRIO_AnalogInChannel,
-                                 k_PsshPotScaleFactor,
-                                 k_PsshPotOffset));
-
-#if ORION_DEBUG
-  // If the potentiometer for Pssh has not been initialized...
-  if(m_PsshPot == nullptr) {
-    // Inform them
-    frc::DriverStation::ReportError("m_PsshPot NOT initialized!");
-  } // if(m_PsshPot == nullptr)
-  else {
-    frc::DriverStation::ReportWarning("m_PsshPot initialized!");
-  }
-#endif
-
-  // Set the expected min/max input range (from the potentiometer output)
-  SetInputRange(k_PsshMinimumInput, k_PsshMaximumInput);
+  // Set the subsystem's name
+  SetName("PIDSubSysPssh");
 
   // Set the absolute tolerance acceptable for the set point
-  SetAbsoluteTolerance(k_PsshAbsoluteTolerance);
+  m_controller.SetTolerance(k_PsshAbsoluteTolerance);
 
-  // Set the minimum/maximum output range for the motor
-  SetOutputRange(k_PsshMinimumOutput, k_PsshMaximumOutput);
+  // Set the name
+  SetName(k_PsshPIDName);
 
   // Indicate what state Pssh is at
   m_PsshState = k_PsshTravelString;
 
   // Set the motor safety timeout for Pssh
-  m_PsshController->SetExpiration(k_PsshSafetyTimeout);
+  m_PsshMotorController.SetExpiration(k_PsshSafetyTimeout);
 
 } // end SubSysPssh::SubSysPSSH()
 
 // The SubSysPssh default destructor
 PIDSubSysPssh::~PIDSubSysPssh() {
 
-    // Delete the Pssh controller
-    std::default_delete<frc::PWMVictorSPX> m_PsshController;
-
 } // end PIDSubSysPssh::~PIDSubSysPssh()
+
+// Method to reset the PID controller
+void PIDSubSysPssh::ResetPIDController() {
+
+  // Reset the PID controller
+  m_controller.Reset();
+
+} // end PIDSubSysPssh::ResetPIDController()
+
+// Method to disable the PID controller
+void PIDSubSysPssh::DisablePIDController() {
+
+  // Disable the PID controller
+  Disable();
+
+} // end PIDSubSysPssh::DisablePIDController()
+
+// Method to enable PID controller
+void PIDSubSysPssh::EnablePIDController() {
+
+  // Enable the PID controller
+  Enable();
+
+} // PIDSubSysPssh::EnablePIDController()
 
 // Return your input value for the PID loop, 
 // e.g. a sensor, like a potentiometer
-double PIDSubSysPssh::ReturnPIDInput() {
+double PIDSubSysPssh::GetMeasurement() {
 
   // The value output from the potentiometer
   double Pot_Value;
 
   // Get the value of the potentiometer
   // Remember, in the units used for fullRange and offset
-  Pot_Value = m_PsshPot->Get();
+  Pot_Value = m_PsshPot.Get();
 
 #if PSSH_DEBUG
     wpi::outs() << "Pssh Pot Value = " << Pot_Value <<"\n";
@@ -124,87 +108,70 @@ double PIDSubSysPssh::ReturnPIDInput() {
   // Return the value of the potentiometer
   return Pot_Value;
 
-} // end double PIDSubSysPssh::ReturnPIDInput()
+} // end double PIDSubSysPssh::GetMeasurement()
 
 // Use output to drive your system, like a motor
-void PIDSubSysPssh::UsePIDOutput(double output) {
+void PIDSubSysPssh::UseOutput(double output, double setpoint) {
   
 #if PSSH_DEBUG
     wpi::outs() << "Pssh motor output = " << output <<"\n";
     wpi::outs().flush();
 #endif // #if PSSH_DEBUG
 
-  // Set the speed of the Pssh motor controller
-  m_PsshController->Set(output);
+  // Set the speed of the Pssh motor controller, clamped to the
+  //   minimum/maximum desired output of the motor
+  m_PsshMotorController.Set(
+    std::clamp(output,k_PsshMinimumOutput,k_PsshMaximumOutput));
 
-} // end PIDSubSysPssh::UsePIDOutput(double)
-
-// The initial default command
-void PIDSubSysPssh::InitDefaultCommand() {
-
-    // Set the default command for a subsystem here.
-    // SetDefaultCommand(new MySpecialCommand());
-
-} // end PIDSubSysPssh::InitDefaultCommand()
+} // end PIDSubSysPssh::UseOutput(double)
 
 // The periodic method for the SubSysPssh subsystem
 void PIDSubSysPssh::Periodic() {
 
     // Put code here to be run every loop
 
+    // If the PID controller subsystem is enabled...
+    if(IsEnabled()) {
+
+      // Call UseOutput by calculating our next output by getting 
+      //   our measurement and setpoint, and let the PID controller
+      //   do its magic
+      UseOutput(
+        m_controller.Calculate(
+          GetMeasurement(), m_controller.GetSetpoint()), 
+          m_controller.GetSetpoint());
+
+    } // end if(IsEnabled())
+
 } //end SubSysPssh::Periodic()
 
 // Method to put Pssh in the travel position
 void PIDSubSysPssh::Travel() {
 
-#if PSSH_DEBUG
-    frc::DriverStation::ReportWarning("Pssh in travel mode!");
-#endif // #if PSSH_DEBUG
-
-  // Indicate we are in travel mode
-  m_PsshState = k_PsshTravelString;
-
-  // Set the set point for travel mode
-  SetSetpoint(k_PsshTravelSetpoint);
-
-  // and enable the PID controller
-  Enable();
+  // If the PID controller is not enabled...
+  if(!IsEnabled())
+    // Enable it
+    Enable();
 
 } // end PIDSubSysPssh::Travel()
 
 // Method to put Pssh in the load position
 void PIDSubSysPssh::Load() {
 
-#if PSSH_DEBUG
-    frc::DriverStation::ReportWarning("Pssh in load mode!");
-#endif // #if PSSH_DEBUG
-
-  // Indicate we are in load mode
-  m_PsshState = k_PsshLoadString;
-
-  // Set the set point for load mode
-  SetSetpoint(k_PsshLoadSetpoint);
-  
-  // and enable the PID controller
-  Enable();
+  // If the PID controller is not enabled...
+  if(!IsEnabled())
+    // Enable it
+    Enable();
 
 } // end PIDSubSysPssh::Load()
 
 // Method to put Pssh in the dump position
 void PIDSubSysPssh::Dump() {
 
-#if PSSH_DEBUG
-    frc::DriverStation::ReportWarning("Pssh in dump mode!");
-#endif // #if PSSH_DEBUG
-
-  // Indicate we are in dump mode
-  m_PsshState = k_PsshDumpString;
-
-  // Set the set point for dump mode
-  SetSetpoint(k_PsshDumpSetpoint);
-  
-  // and enable the PID controller
-  Enable();
+  // If the PID controller subsystem is not enabled...
+  if(!IsEnabled())
+    // Enable it
+    Enable();
 
 } // end PIDSubSysPssh::Dump()
 
@@ -218,7 +185,10 @@ void PIDSubSysPssh::Stop() {
   // Disable the PID controller
   Disable();
 
-} // PIDSubSysCaptHook::StopCaptHook()
+  // Reset the PID controller
+  m_controller.Reset();
+
+} // PIDSubSysPssh::Stop()
 
 // Method to get Pssh state
 std::string PIDSubSysPssh::GetPsshState() {
@@ -235,5 +205,3 @@ void PIDSubSysPssh::SetPsshState(std::string state) {
   m_PsshState = state;
 
 } // end PIDSubSysPssh::SetPsshState(std::string state)
-
-#endif // #if USE_PID_PSSH

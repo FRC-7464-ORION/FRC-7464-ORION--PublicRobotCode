@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: C:/ORION22/RobotCode/src/main/cpp/Robot.cpp File Reference</title>
+<title>NewRobotCode: C:/ORION22/NewRobotCode/src/main/cpp/Robot.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -98,35 +98,30 @@ $(document).ready(function(){initNavTree('_robot_8cpp.html','');});
 <p>This file defines the <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_robot_8h_source.html">Robot.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_robot_map_8h_source.html">RobotMap.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;frc/commands/Scheduler.h&gt;</code><br />
-<code>#include &lt;frc/smartdashboard/SmartDashboard.h&gt;</code><br />
+<code>#include &lt;frc2/command/CommandScheduler.h&gt;</code><br />
 </div>
 <p><a href="_robot_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
-<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_robot_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file defines the <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class. </p>
 <p>===========================================================================</p>
-<p>The <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class defines the entire robot, its subsystems, commands, etc.</p>
-<p>This robot is based on the "CommandBasedRobot" base class. See the documentation at <a href="https://wpilib.screenstepslive.com/s/currentCS/m/cpp">https://wpilib.screenstepslive.com/s/currentCS/m/cpp</a>.</p>
-<p>Specifically, look at the section near the end entitled "Command Based Programming", at <a href="https://wpilib.screenstepslive.com/s/currentCS/m/cpp/c/88685">https://wpilib.screenstepslive.com/s/currentCS/m/cpp/c/88685</a>.</p>
+<p>The <a class="el" href="class_robot.html" title="This is the main class that defines our robot.">Robot</a> class is responsible for the main control flow of the robot.</p>
 <p>COPYRIGHT NOTICES:</p>
 <p>Some portions:</p>
-<p>Copyright (c) 2017-2018 FIRST. All Rights Reserved. Open Source Software - may be modified and shared by FRC teams. The code must be accompanied by the FIRST BSD license file in the root directory of the project.</p>
+<p>Copyright (c) 2017-2019 FIRST. All Rights Reserved. Open Source Software - may be modified and shared by FRC teams. The code must be accompanied by the FIRST BSD license file in the root directory of the project.</p>
 <p>Some portions:</p>
 <p>Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved. Open Source Software - may be modified and shared by FRC teams. The code must be accompanied by the FRC Team #7464 - ORION BSD license file in the root directory of the project.</p>
 <hr/>
  
 <p class="definition">Definition in file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,25 +129,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>This is the starting point for the entire robot code. </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00738">738</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00153">153</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 
 </div>
 </div>
@@ -161,7 +145,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_202956eadc55f1484a97578b726f47b1.html">RobotCode</a></li><li class="navelem"><a class="el" href="dir_c8c38d932f484c5008dd84d8e00dc74a.html">src</a></li><li class="navelem"><a class="el" href="dir_89e122a8591f7544b463b1bb59570e4b.html">main</a></li><li class="navelem"><a class="el" href="dir_f4c3e9bc82563205a7dcc543a2cc1e02.html">cpp</a></li><li class="navelem"><a class="el" href="_robot_8cpp.html">Robot.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_fabbfd9052253108fb9f2edc2cd66ded.html">NewRobotCode</a></li><li class="navelem"><a class="el" href="dir_df7589acdc1a7efc8a01c9d5ecd08591.html">src</a></li><li class="navelem"><a class="el" href="dir_d09c0e2f42769a6c6f17ff9363d22225.html">main</a></li><li class="navelem"><a class="el" href="dir_06181bb18bbd4ffb80fae9add4262369.html">cpp</a></li><li class="navelem"><a class="el" href="_robot_8cpp.html">Robot.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>

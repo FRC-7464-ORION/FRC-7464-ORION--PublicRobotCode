@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -37,13 +37,19 @@
 // Include the Robot Constants header file
 #include "RobotConstants.h"
 
-// Include the robot header file
-#include "Robot.h"
+// The header for the NavX MXP AHRS class
+#include "AHRS.h"
+
+// Include the header file for the drive train, which this command is for
+#include "subsystems/SubSysDriveTrain.h"
 
 /************************** Library Header Files ******************************/
 
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
+// Include the header file for the NEW(2020) Command base class
+#include <frc2/command/CommandBase.h>
+
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
 
 /** ****************************************************************************
  * @class   CmdZeroAHRSYaw
@@ -52,12 +58,21 @@
  * 
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdZeroAHRSYaw : public frc::Command {
+class CmdZeroAHRSYaw
+  : public frc2::CommandHelper<frc2::CommandBase, CmdZeroAHRSYaw> {
 
   public:
 
-    /** The CmdZeroAHRSYaw class default constructor. */
-    CmdZeroAHRSYaw();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
+
+    /** 
+     * The CmdZeroAHRSYaw class constructor.
+     * 
+     * @param subsystem            The subsystem used by this command
+     * @param ahrs                 A NavX MXP AHRS
+     */
+    explicit CmdZeroAHRSYaw(SubSysDriveTrain* subsystem,
+                            AHRS* ahrs);
 
     /** The CmdZeroAHRSYaw class destructor. */
     ~CmdZeroAHRSYaw();
@@ -92,37 +107,30 @@ class CmdZeroAHRSYaw : public frc::Command {
     bool IsFinished() override;
 
     /**
-     * Called when the command ended peacefully.
+     * Called when either the command finishes normally, or when it is
+     * interrupted/canceled.
      *
      * This is where you may want to wrap up loose ends, like shutting off
      * a motor that was being used in the command.
      *
-     * Reimplemented in frc::CommandGroup.
+     * @param interrupted false = not interrupted, true = interrupted
     */
-    void End() override;
-
-    /**
-     * Called when the command ends because somebody called Cancel() or another
-     * command shared the same requirements as this one, and booted it out.
-     *
-     * This is where you may want to wrap up loose ends, like shutting off a
-     * motor that was being used in the command.
-     *
-     * Generally, it is useful to simply call the End() method within this
-     * method, as done here.
-     *
-     * Reimplemented in frc::CommandGroup.
-    */
-    void Interrupted() override;
+    void End(bool interrupted) override;
 
   private:
 
-    /*********************** Private member variables ***********************/
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
+
+    /** A pointer to the drive train subsystem */
+    SubSysDriveTrain* m_subSysDriveTrain;
+
+    /** A pointer to an AHRS instance */
+    AHRS* m_AHRS;
 
     /** A boolean to indicate that the command has completed */
     bool m_command_completed;
-
-    /*********************** Private member methods *************************/
 
 }; // end class CmdZeroAHRSYaw
 

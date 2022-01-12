@@ -31,8 +31,15 @@
 // Include the header file for the CmdGrpAutoDefRight class
 #include "commandGroups/Autonomous/CmdGrpAutoDefRight.h"
 
-// Include the header file for the CmdAutoDriveStraight class
+// Include the header file for driving straight autonomously
 #include "commands/DriveTrain/CmdAutoDriveStraight.h"
+
+// Include the header file for turning autonomously
+#include "commands/DriveTrain/CmdAutoTurnAngle.h"
+
+// Include the header files for disabling/enabling smoothing mode
+#include "commands/DriveTrain/CmdDisableSmoothingMode.h"
+#include "commands/DriveTrain/CmdEnableSmoothingMode.h"
 
 // Include the header file for the CmdWaitSeconds class
 #include "commands/Generic/CmdWaitSeconds.h"
@@ -41,31 +48,42 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdAutoDriveStraight class
-CmdGrpAutoDefRight::CmdGrpAutoDefRight() {
+// The constructor for the CmdGrpAutoDefRight class
+CmdGrpAutoDefRight::CmdGrpAutoDefRight(
+    SubSysDriveTrain* drivetrain,
+    AHRS* ahrs) {
 
-  AddSequential(new CmdAutoDriveStraight(
-    0.1,
-    CmdAutoDriveStraight::SECONDS,
-    CmdAutoDriveStraight::FORWARD,
-    2.0    
-  ));
+  // Set the name
+  SetName("CmdGrpAutoDefRight");
 
-  AddSequential(new CmdWaitSeconds(2.0));
+  // Add commands to be sequentially ran...
+  AddCommands(
 
-  AddSequential(new CmdAutoDriveStraight(
-    0.5,
-    CmdAutoDriveStraight::SECONDS,
-    CmdAutoDriveStraight::REVERSE,
-    2.0    
-  ));
+    // Disable smoothing mode
+    CmdDisableSmoothingMode(drivetrain),
 
-  AddSequential(new CmdWaitSeconds(2.0));
+    // Drive straight forward 5.0 seconds at 40%
+    CmdAutoDriveStraight(
+      drivetrain,
+      0.40,
+      CmdAutoDriveStraight::SECONDS,
+      CmdAutoDriveStraight::FORWARD,
+      5.0),
 
-} // end CmdGrpAutoDefRight::CmdGrpAutoDefRight()
+    // Wait 5.0 seconds
+    CmdWaitSeconds(5.0),
 
-// The destructor for the CmdGrpAutoDefRight class
-CmdGrpAutoDefRight::~CmdGrpAutoDefRight() {
+    // Drive straight reverse 5.0 seconds at 40%
+    CmdAutoDriveStraight(
+      drivetrain,
+      0.40,
+      CmdAutoDriveStraight::SECONDS,
+      CmdAutoDriveStraight::REVERSE,
+      5.0),
 
+    // Enable smoothing mode
+    CmdEnableSmoothingMode(drivetrain)
 
-} // end CmdGrpAutoDefRight::~CmdGrpAutoDefRight()
+  );
+
+} // end CmdGrpAutoDefRight::CmdGrpAutoDefRight(...)

@@ -98,23 +98,11 @@ cs::UsbCamera
                              const int CameraDeviceNum) 
 {
 
-  // If we are running on a Linux platform (The roboRIO runs Linux)
-  #if defined(__linux__)
-
-    // Start Automatic Capture of the specified camera
-    // returning a reference to the camera
-    return(
-      frc::CameraServer::GetInstance()->StartAutomaticCapture(CameraName,
-                                                              CameraDeviceNum));
-
-  #else // We are not running on a Linux platform
-
-    // Write to the WPI error stream the problem
-    wpi::errs() << "Vision only available on Linux.\n";
-    // Flush the error stream, so it will be displayed immediately
-    wpi::errs().flush();
-
-  #endif // #if defined(__linux__)
+  // Start Automatic Capture of the specified camera
+  // returning a reference to the camera
+  return(
+    frc::CameraServer::GetInstance()->StartAutomaticCapture(CameraName,
+                                                            CameraDeviceNum));
 
 } // end Video::InitializeUSBCamera(const std::string, const int)
 
@@ -122,21 +110,10 @@ cs::UsbCamera
 cs::VideoSink
   Video::InitializeSwitchedCameraServer(const std::string ServerName)
 {
-  // If we are running on a Linux platform (The roboRIO runs Linux)
-  #if defined(__linux__)
 
-    // Start the Switched camera server, returning a reference
-    // of the server (a VideoSink)
-    return(
-      frc::CameraServer::GetInstance()->AddSwitchedCamera(ServerName));
-
-  #else // We are not running on a Linux platform
-
-    // Write to the WPI error stream the problem
-    wpi::errs() << "Vision only available on Linux.\n";
-    // Flush the error stream, so it will be displayed immediately
-    wpi::errs().flush();
-
-  #endif // #if defined(__linux__)
+  // Start the Switched camera server, returning a reference
+  // of the server (a VideoSink)
+  return(
+    frc::CameraServer::GetInstance()->AddSwitchedCamera(ServerName));
 
 } // end cs::VideoSink Video::InitializeSwitchedCameraServer(...)

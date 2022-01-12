@@ -4,6 +4,8 @@ var _robot_constants_8h =
     [ "k_AutoTurn_Derivative", "_robot_constants_8h.html#aa5475eb91ff016dce70d7cb3d60baa6f", null ],
     [ "k_AutoTurn_FeedForward", "_robot_constants_8h.html#a493950f4c2bc799d412a57266289c0af", null ],
     [ "k_AutoTurn_Integral", "_robot_constants_8h.html#a668bb0a3d6bb830811e8b77e4ccd403d", null ],
+    [ "k_AutoTurn_Max_Val_Expected", "_robot_constants_8h.html#a868a72b0e89a52be9ba8bc0b64eb4347", null ],
+    [ "k_AutoTurn_Min_Val_Expected", "_robot_constants_8h.html#a12b892f95914a17385b70ccb5256361b", null ],
     [ "k_AutoTurn_Proportional", "_robot_constants_8h.html#a2f55172f4659118361f7721eca91dcc3", null ],
     [ "k_AutoTurn_ToleranceDegrees", "_robot_constants_8h.html#a9c61a2eac2a8d98c80db73ef8b114aa5", null ],
     [ "k_BackCamera", "_robot_constants_8h.html#a8ef9a4d52763d3e701baa11c96523385", null ],
@@ -86,6 +88,7 @@ var _robot_constants_8h =
     [ "k_ReverseSpeedMultiplier", "_robot_constants_8h.html#a686752e0d3815a01c67aa9f78b52d3da", null ],
     [ "k_RobotName", "_robot_constants_8h.html#ace5373ba7541286b299ac41542c709f4", null ],
     [ "k_SW_VersionNumber", "_robot_constants_8h.html#a99c90e01c8a52b33e11d6333252dfa85", null ],
+    [ "k_TelemetryOutputDelaySec", "_robot_constants_8h.html#a75d3e0f66ec6f05eff9726ab5c69099b", null ],
     [ "k_WPILibC_VersionNumber", "_robot_constants_8h.html#a1968177059785e392a0ba2e82b7c339c", null ],
     [ "k_X_Axis_Value_For_Straight", "_robot_constants_8h.html#a412df36ca218f60da6b865210daf51af", null ],
     [ "k_Y_Axis_Value_For_Turn", "_robot_constants_8h.html#a1c3cd90bfe66ba79b6a5deff9dea9a1d", null ]

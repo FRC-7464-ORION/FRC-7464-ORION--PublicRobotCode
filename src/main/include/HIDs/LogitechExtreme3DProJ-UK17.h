@@ -26,60 +26,60 @@
 // Axis
 
 /** The joystick X axis channel */
-constexpr int k_J_UK17_Joystick_X_axis = 0;        // AVAILABLE
+constexpr int k_J_UK17_Joystick_X_axis = 0;
 /** The joystick Y axis channel */
-constexpr int k_J_UK17_Joystick_Y_axis = 1;        // AVAILABLE
+constexpr int k_J_UK17_Joystick_Y_axis = 1;
 /** The joystick Z (rotate) axis channel */
-constexpr int k_J_UK17_Joystick_Z_Rotate_axis = 2; // AVAILABLE
+constexpr int k_J_UK17_Joystick_Z_Rotate_axis = 2;
 /** The slider (throttle) axis channel */
-constexpr int k_J_UK17_slider_axis = 3;            // AVAILABLE
+constexpr int k_J_UK17_slider_axis = 3;
 
 // Buttons
 
 /** The trigger button (button 1) */
-constexpr int k_J_UK17_trigger_button_1 = 1;       // AVAILABLE
+constexpr int k_J_UK17_trigger_button_1 = 1;
 /** The thumb button (button) 2 */
-constexpr int k_J_UK17_thumb_button_2 = 2;         // AVAILABLE
+constexpr int k_J_UK17_thumb_button_2 = 2;
 /** Button 3 */
-constexpr int k_J_UK17_button_3 = 3;               // AVAILABLE
+constexpr int k_J_UK17_button_3 = 3;
 /** Button 4 */
-constexpr int k_J_UK17_button_4 = 4;               // AVAILABLE
+constexpr int k_J_UK17_button_4 = 4;
 /** Button 5 */
-constexpr int k_J_UK17_button_5 = 5;               // AVAILABLE
+constexpr int k_J_UK17_button_5 = 5;
 /** Button 6 */
-constexpr int k_J_UK17_button_6 = 6;               // AVAILABLE
+constexpr int k_J_UK17_button_6 = 6;
 /** Button 7 */
-constexpr int k_J_UK17_button_7 = 7;               // AVAILABLE
+constexpr int k_J_UK17_button_7 = 7;
 /** Button 8 */
-constexpr int k_J_UK17_button_8 = 8;               // AVAILABLE
+constexpr int k_J_UK17_button_8 = 8;
 /** Button 9 */
-constexpr int k_J_UK17_button_9 = 9;               // AVAILABLE
+constexpr int k_J_UK17_button_9 = 9;
 /** Button 10 */
-constexpr int k_J_UK17_button_10 = 10;             // AVAILABLE
+constexpr int k_J_UK17_button_10 = 10;
 /** Button 11 */
-constexpr int k_J_UK17_button_11 = 11;             // AVAILABLE
+constexpr int k_J_UK17_button_11 = 11;
 /** Button 12 */
-constexpr int k_J_UK17_button_12 = 12;             // AVAILABLE
+constexpr int k_J_UK17_button_12 = 12;
 
 // POV
 
 /** The value of the center position of the POV */
-constexpr int k_J_UK17_POV_Center = -1;            // AVAILABLE
+constexpr int k_J_UK17_POV_Center = -1;
 /** The value of the North position of the POV */
-constexpr int k_J_UK17_POV_North = 0;              // AVAILABLE
+constexpr int k_J_UK17_POV_North = 0;
 /** The value of the Northeast position of the POV */
-constexpr int k_J_UK17_POV_NorthEast = 45;         // AVAILABLE
+constexpr int k_J_UK17_POV_NorthEast = 45;
 /** The value of the East position of the POV */
-constexpr int k_J_UK17_POV_East = 90;              // AVAILABLE
+constexpr int k_J_UK17_POV_East = 90;
 /** The value of the Southeast position of the POV */
-constexpr int k_J_UK17_POV_SouthEast = 135;        // AVAILABLE
+constexpr int k_J_UK17_POV_SouthEast = 135;
 /** The value of the South position of the POV */
-constexpr int k_J_UK17_POV_South = 180;            // AVAILABLE
+constexpr int k_J_UK17_POV_South = 180;
 /** The value of the Southwest position of the POV */
-constexpr int k_J_UK17_POV_SouthWest = 225;        // AVAILABLE
+constexpr int k_J_UK17_POV_SouthWest = 225;
 /** The value of the West position of the POV */
-constexpr int k_J_UK17_POV_West = 270;             // AVAILABLE
+constexpr int k_J_UK17_POV_West = 270;
 /** The value of the Northwest position of the POV */
-constexpr int k_J_UK17_POV_NorthWest = 315;        // AVAILABLE
+constexpr int k_J_UK17_POV_NorthWest = 315;
 
 #endif // #ifndef LOGITECHEXTREME3DPROJ-UK17_H

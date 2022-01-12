@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -34,12 +34,15 @@
 // Include the robot constants header
 #include "RobotConstants.h"
 
+// Include the Video header
+#include "Vision/Video.h"
+
 /************************** Library Header Files ******************************/
 
-// Include the subsystem class header file
-#include <frc/commands/Subsystem.h>
+// Include the NEW(2020) subsystem base class header file
+#include <frc2/command/SubsystemBase.h>
 
-// For the PWM Victor SPX Motor Controllers 
+// Include the PWMVictorSPX header file, for the motor controllers
 #include <frc/PWMVictorSPX.h>
 
 // For the differential drive
@@ -53,25 +56,18 @@
  * @brief   This class declares the drive train subsystem.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class SubSysDriveTrain : public frc::Subsystem {
+
+class SubSysDriveTrain : public frc2::SubsystemBase {
 
   public:
+
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
 
     /** The default constructor for the SubSysDriveTrain class */
     SubSysDriveTrain();
 
     /** The destructor for the SubSysDriveTrain class */
     ~SubSysDriveTrain();
-
-    /**
-     * Initialize the default command for this subsystem.
-     *
-     * This is meant to be the place to call SetDefaultCommand in a subsystem
-     * and will be called on all the subsystems by the CommandBase method 
-     * before the program starts running by using the list of all registered
-     * Subsystems inside the Scheduler. 
-    */
-    void InitDefaultCommand() override;
 
     /** The periodic method for the drivetrain */
     void Periodic() override;
@@ -201,14 +197,14 @@ class SubSysDriveTrain : public frc::Subsystem {
 
     /***************************** Private Members ****************************/
 
-    /** A pointer to the left drivetrain motors (speed) controller */
-    std::shared_ptr<frc::PWMVictorSPX> m_leftDriveTrainController;
+    /** The left drivetrain motors (speed) controller */
+    frc::PWMVictorSPX m_leftDriveTrainController;
 
-    /** A pointer to the right drivetrain motors (speed) controller */
-    std::shared_ptr<frc::PWMVictorSPX> m_rightDriveTrainController;
+    /** The right drivetrain motors (speed) controller */
+    frc::PWMVictorSPX m_rightDriveTrainController;
 
-    /** A pointer to a differential drive */
-    std::shared_ptr<frc::DifferentialDrive> m_differentialDrive;
+    /** A differential drive */
+    frc::DifferentialDrive m_differentialDrive;
 
     /** A string to hold the drive train mode */
     std::string m_DriveTrainModeString;
@@ -240,8 +236,12 @@ class SubSysDriveTrain : public frc::Subsystem {
     /** Boolean to indicate that the drive direction is switched */
     bool m_drive_direction_switched;
 
+    /** A video class used to show video while driving */
+    Video m_Video;
+
     // /***************************** Private Methods ****************************/
 
 }; // end class SubSysDriveTrain
 
 #endif // #ifndef SUBSYSDRIVETRAIN_H
+

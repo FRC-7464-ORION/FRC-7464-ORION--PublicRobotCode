@@ -2,14 +2,13 @@
  * @file   SubSysHansFranzArms.cpp
  * @brief  This file defines the SubSysHansFranzArms class.
  *
- * The SubSysHansFranzArms class allows the robot to move (clockwise (CW) or 
- * counter-clockwise (CCW)) the Wheel of Fortune (WoF) in the trench.
+ * The SubSysHansFranzArms class is used to raise and lower our lifting arms.
  *
  * COPYRIGHT NOTICES:
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -38,24 +37,18 @@
 
 /************************ Member function definitions *************************/
 
-// The SubSysHansFranzArms default constructor
-SubSysHansFranzArms::SubSysHansFranzArms() : Subsystem("SubSysHansFranzArms") {
+// The SubSysHansFranzArms constructor
+// NOTE: The 2nd line is known as a member initialization (or initializer)
+//       list.
+// See https://www.learncpp.com/cpp-tutorial/8-5a-constructor-member-initializer-lists/
+SubSysHansFranzArms::SubSysHansFranzArms()
+  : m_HansFranzArmsController{k_HansFranzArmsPWMPort} {
 
-  // Create a new motor controller for the PAT turner motor and reset
-  m_HansFranzArmsController.reset(
-    new frc::PWMVictorSPX(k_HansFranzArmsPWMPort));
-
-#if ORION_DEBUG
-  if(m_HansFranzArmsController == nullptr) {
-    frc::DriverStation::ReportError("m_HansFranzArmsController NOT initialized!");
-  }
-  else {
-    frc::DriverStation::ReportWarning("m_HansFranzArmsController initialized!");
-  }
-#endif
+  // Set the subsystem's name
+  SetName("SubSysHansFranzArms");
 
   // Set the motor safety timeout for Hans and Franz
-  m_HansFranzArmsController->SetExpiration(k_HansFranzSafetyTimeout);
+  m_HansFranzArmsController.SetExpiration(k_HansFranzSafetyTimeout);
 
   // Disable Hans and Franz arms initially
   m_HansFranzArmsEnabled = false;
@@ -108,18 +101,7 @@ SubSysHansFranzArms::~SubSysHansFranzArms() {
   // Delete the fully retracted limit switch
   delete m_HansFranzArms_FullyRetracted_LimitSwitch;
   
-  // Delete the Hans and Franz arm controller
-  std::default_delete<frc::PWMVictorSPX> m_HansFranzArmsController;
-
 } // end SubSysHansFranzArms::~SubSysHansFranzArms()
-
-// The initial default command
-void SubSysHansFranzArms::InitDefaultCommand() {
-
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
-
-} // end SubSysHansFranzArms::InitDefaultCommand()
 
 // The periodic method for the SubSysHansFranzArms subsystem
 void SubSysHansFranzArms::Periodic() {
@@ -127,7 +109,7 @@ void SubSysHansFranzArms::Periodic() {
   // Put code here to be run every loop
 
   // Feed the motor controller safety system
-  m_HansFranzArmsController->Feed();
+  m_HansFranzArmsController.Feed();
 
 } // end SubSysHansFranzArms::Periodic()
 
@@ -217,14 +199,14 @@ void SubSysHansFranzArms::MoveHansFranzArms(double speed) {
     {
 
       // Set the Hans and Franz arms motor to the passed in speed
-      m_HansFranzArmsController->Set(speed);
+      m_HansFranzArmsController.Set(speed);
 
     }
     else // positive or negative speeds are not allowed
     {
 
       // Set the Hans and Franz arms motor to be stopped
-      m_HansFranzArmsController->Set(k_MotorStopSpeed);
+      m_HansFranzArmsController.Set(k_MotorStopSpeed);
 
     } // end ((GetMotorSpeedDir(speed) == POSITIVE)...
 

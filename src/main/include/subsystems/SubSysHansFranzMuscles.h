@@ -11,7 +11,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -38,8 +38,8 @@
 
 /************************** Library Header Files ******************************/
 
-// Include the subsystem class header file
-#include <frc/commands/Subsystem.h>
+// Include the NEW(2020) subsystem base class header file
+#include <frc2/command/SubsystemBase.h>
 
 // Include the header file for a compressor
 #include <frc/Compressor.h>
@@ -55,25 +55,17 @@
  * @brief   This class declares our lift robot mechanism subsystem.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class SubSysHansFranzMuscles : public frc::Subsystem {
+class SubSysHansFranzMuscles : public frc2::SubsystemBase {
 
   public:
+
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
 
     /** The default constructor for the SubSysHansFranzMuscles class */
     SubSysHansFranzMuscles();
 
     /** The default destructor for the SubSysHansFranzMuscles class */
     ~SubSysHansFranzMuscles();
-
-    /**
-     * Initialize the default command for this subsystem.
-     *
-     * This is meant to be the place to call SetDefaultCommand in a subsystem
-     * and will be called on all the subsystems by the CommandBase method 
-     * before the program starts running by using the list of all registered
-     * Subsystems inside the Scheduler.
-    */
-    void InitDefaultCommand() override;
 
     /** The periodic method for HansFranz muscles */
     void Periodic() override;
@@ -90,17 +82,27 @@ class SubSysHansFranzMuscles : public frc::Subsystem {
     /** Method to enable Hans and Franz muscles */
     void EnableHansFranzMuscles();
 
-    /** Method to get if Hans and Franz muscles are enabled */
+    /** 
+     * Method to get if Hans and Franz muscles are enabled 
+     * 
+     * @return true=Hans/Franz Muscles enabled, false=not enabled 
+     */
     bool AreHansFranzMusclesEnabled();
 
-    /** Method to get Hans and Franz muscles state */
+    /** 
+     * Method to get Hans and Franz muscles state
+     * 
+     * @return String telling state of Hans/Franz muscles
+     */
     std::string GetHansFranzMusclesState();
 
   private:
     // It's desirable that everything possible under private except
     // for methods that implement subsystem capabilities
 
-    /***************************** Private Members ****************************/
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
 
     /** A pointer to a compressor */
     frc::Compressor* m_compressor;
@@ -116,8 +118,6 @@ class SubSysHansFranzMuscles : public frc::Subsystem {
 
     /** A string to hold the state of Hans' and Franz's muscles */
     std::string m_HansFranzMusclesState;
-
-    /***************************** Private Methods ****************************/
 
 }; // end class SubSysHansFranzMuscles
 

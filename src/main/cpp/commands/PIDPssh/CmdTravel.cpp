@@ -28,35 +28,23 @@
 // Include the header file for the CmdTravel class
 #include "commands/PIDPssh/CmdTravel.h"
 
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-// Include the header file that defines the F310 axes/buttons
-#include "HIDs/LogitechF310.h"
-
-// Include the Robot class header file
-#include "Robot.h"
-
 /************************** Library Header Files ******************************/
-
-// Include the I/O stream class, so we can write to the console
-#include <iostream>
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdTravel class
-CmdTravel::CmdTravel() {
+// The constructor for the CmdTravel class
+CmdTravel::CmdTravel(PIDSubSysPssh* subsystem) 
+  : m_PIDsubSysPssh(subsystem) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the name of the command
+  SetName("CmdTravel");
+
+  // Use AddRequirements() here to declare subsystem dependencies
 
   // Require the use of the PID Pssh subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_PIDsubSysPssh.get());
+  AddRequirements({subsystem});
 
-} // end CmdTravel::CmdTravel()
+} // end CmdTurnWoFCW::CmdTurnWoFCW(SubSysPATTurner* subsystem)...
 
 // The destructor for the CmdTravel class
 CmdTravel::~CmdTravel() {
@@ -66,8 +54,21 @@ CmdTravel::~CmdTravel() {
 // Called just before this Command runs the first time
 void CmdTravel::Initialize() {
 
+  // Reset the PID controller for Pssh
+  m_PIDsubSysPssh->ResetPIDController();
+
+  // Indicate we are in travel mode
+  m_PIDsubSysPssh->SetPsshState(k_PsshTravelString);
+
+  // Set the set point for travel mode
+  m_PIDsubSysPssh->SetSetpoint(k_PsshTravelSetpoint);
+
   // Indicate that this command is interruptable
-  SetInterruptible(k_CmdIsInterruptable);
+//  SetInterruptible(k_CmdIsInterruptable);
+
+#if PSSH_DEBUG
+    frc::DriverStation::ReportWarning("Pssh in travel mode!");
+#endif // #if PSSH_DEBUG
 
 } // end CmdTravel::Initialize()
 
@@ -75,7 +76,7 @@ void CmdTravel::Initialize() {
 void CmdTravel::Execute() {
 
   // Tell Pssh to go to travel mode
-  Robot::m_PIDsubSysPssh->Travel();
+  m_PIDsubSysPssh->Travel();
 
 }  // end CmdTravel::Execute()
 
@@ -86,44 +87,40 @@ bool CmdTravel::IsFinished() {
   bool at_travel_position;
 
   // Boolean to see if we have timed out
-  bool cmd_timed_out;
+//  bool cmd_timed_out;
 
   // See if we are on target
-  at_travel_position = Robot::m_PIDsubSysPssh->OnTarget();
+  at_travel_position = 
+    m_PIDsubSysPssh->GetController().AtSetpoint();
 
   // See if we have timed out
-  cmd_timed_out = IsTimedOut();
+//  cmd_timed_out = IsTimedOut();
 
   // If we are on target...
   if(at_travel_position)
     // Set the state to travel
-    Robot::m_PIDsubSysPssh->SetPsshState(k_PsshTravelString);
+    m_PIDsubSysPssh->SetPsshState(k_PsshTravelString);
 
   // If we have timed out
-  if(cmd_timed_out)
+//  if(cmd_timed_out)
     // Set the state to timed out
-    Robot::m_PIDsubSysPssh->SetPsshState(k_PsshTimedOutString);
+//    m_PIDsubSysPssh->SetPsshState(k_PsshTimedOutString);
 
   // Return true if we have made our target or timed out
-  return at_travel_position || cmd_timed_out;
+//  return at_travel_position || cmd_timed_out;
+
+  // Return true if we have made our target
+  return at_travel_position;
 
 } // end CmdTravel::IsFinished()
 
 // Called once after isFinished returns true
-void CmdTravel::End() {
+void CmdTravel::End(bool interrupted) {
 
   // Stop Pssh
-  Robot::m_PIDsubSysPssh->Stop();
+  m_PIDsubSysPssh->Stop();
+
+  // Disable the PID controller
+  m_PIDsubSysPssh->Disable();
 
 } // end CmdTravel::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdTravel::Interrupted() {
-
-  // Run the same method as End()
-  CmdTravel::End();
-
-} // end CmdTravel::Interrupted()
-
-#endif // #if USE_PID_PSSH

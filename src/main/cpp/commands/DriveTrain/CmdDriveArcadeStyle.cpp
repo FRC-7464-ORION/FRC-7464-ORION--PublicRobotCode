@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -44,19 +44,18 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdDriveArcadeStyle class
-CmdDriveArcadeStyle::CmdDriveArcadeStyle() {
+// The constructor for the CmdDriveArcadeStyle class
+CmdDriveArcadeStyle::CmdDriveArcadeStyle(
+  SubSysDriveTrain* subsystem, frc::Joystick* joystick)
+  : m_subSysDriveTrain(subsystem), m_joystick(joystick) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdDriveArcadeStyle");
 
   // Require the use of the drive train subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysDriveTrain.get());
+  AddRequirements({subsystem});
 
-} // end CmdDriveArcadeStyle::CmdDriveArcadeStyle()
+} // end CmdDriveArcadeStyle::CmdDriveArcadeStyle(...)
 
 // The destructor for the CmdDriveArcadeStyle class
 CmdDriveArcadeStyle::~CmdDriveArcadeStyle() {
@@ -67,15 +66,12 @@ CmdDriveArcadeStyle::~CmdDriveArcadeStyle() {
 void CmdDriveArcadeStyle::Initialize() {
 
   // Set the drive train mode string to arcade
-  Robot::m_subSysDriveTrain->SetDriveTrainModeStringToArcade();
+  m_subSysDriveTrain->SetDriveTrainModeStringToArcade();
 
 } // end CmdDriveArcadeStyle::Initialize()
 
 // Called repeatedly when this Command is scheduled to run
 void CmdDriveArcadeStyle::Execute() {
-
-  // Declare a pointer to a joystick
-  frc::Joystick* joystick;
 
   // Declare raw thumbstick outputs
   double raw_Y_axis;
@@ -88,14 +84,11 @@ void CmdDriveArcadeStyle::Execute() {
   double corrected_Y_axis_motor_speed;
   double corrected_X_axis_motor_speed;
 
-  // Get the pointer to the OI's joystick
-  joystick = Robot::m_oi->getJoystick();
-
   // Get the raw Y axis output from the left thumbstick
-  raw_Y_axis = joystick->GetRawAxis(k_F310_leftThumbstick_Y_axis);
+  raw_Y_axis = m_joystick->GetRawAxis(k_F310_leftThumbstick_Y_axis);
 
   // Get the raw X axis output from the left thumbstick
-  raw_X_axis = joystick->GetRawAxis(k_F310_leftThumbstick_X_axis);
+  raw_X_axis = m_joystick->GetRawAxis(k_F310_leftThumbstick_X_axis);
 
   // Invert the y axis so we go the expected forward/back direction
   inv_Y_axis = Correct_Y_Axis_Inversion(raw_Y_axis);
@@ -104,18 +97,18 @@ void CmdDriveArcadeStyle::Execute() {
   //   control at low speeds
   corrected_Y_axis_motor_speed =
     NullDesensLimit(inv_Y_axis,
-                    Robot::m_subSysDriveTrain->GetDriveTrainNullZone(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainLimit(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainExponent());
+                    m_subSysDriveTrain->GetDriveTrainNullZone(),
+                    m_subSysDriveTrain->GetDriveTrainLimit(),
+                    m_subSysDriveTrain->GetDriveTrainExponent());
 
   corrected_X_axis_motor_speed =
     NullDesensLimit(raw_X_axis,
-                    Robot::m_subSysDriveTrain->GetDriveTrainNullZone(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainLimit(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainExponent());
+                    m_subSysDriveTrain->GetDriveTrainNullZone(),
+                    m_subSysDriveTrain->GetDriveTrainLimit(),
+                    m_subSysDriveTrain->GetDriveTrainExponent());
 
   // Drive arcade style using the corrected joystick inputs
-  Robot::m_subSysDriveTrain->DriveArcadeStyle(
+  m_subSysDriveTrain->DriveArcadeStyle(
     corrected_Y_axis_motor_speed,
     corrected_X_axis_motor_speed
   );
@@ -130,23 +123,13 @@ bool CmdDriveArcadeStyle::IsFinished() {
 
 } // end CmdDriveArcadeStyle::IsFinished()
 
-// Called once after isFinished returns true
-void CmdDriveArcadeStyle::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdDriveArcadeStyle::End(bool interrupted) {
 
   // With IsFinished() always returning false, this should never
   //   run. But just in case, this stops the drive train.
-  Robot::m_subSysDriveTrain->DriveArcadeStyle(k_MotorStopSpeed,
-                                              k_MotorStopSpeed);
+  m_subSysDriveTrain->DriveArcadeStyle(k_MotorStopSpeed,
+                                       k_MotorStopSpeed);
 
 } // end CmdDriveArcadeStyle::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdDriveArcadeStyle::Interrupted() {
-
-  // This should only run when we switch between arcade and
-  //   tank drive, so we will stop the motors.
-  Robot::m_subSysDriveTrain->DriveArcadeStyle(k_MotorStopSpeed,
-                                              k_MotorStopSpeed);
-
-} // end cmdDriveArcadeStyle::Interrupted()

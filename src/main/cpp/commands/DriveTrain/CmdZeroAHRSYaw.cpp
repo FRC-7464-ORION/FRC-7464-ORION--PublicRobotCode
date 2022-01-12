@@ -33,13 +33,20 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdZeroAHRSYaw class
-CmdZeroAHRSYaw::CmdZeroAHRSYaw() {
+// The constructor for the CmdZeroAHRSYaw class
+CmdZeroAHRSYaw::CmdZeroAHRSYaw(
+  SubSysDriveTrain* subsystem,
+  AHRS* ahrs)
+  : m_subSysDriveTrain(subsystem),
+    m_AHRS(ahrs){
 
-  // Indicate our turn is not completed
+  // Set the command's name
+  SetName("CmdZeroAHRSYaw");
+
+  // Indicate we have not started
   m_command_completed = false;
 
-} // end CmdZeroAHRSYaw::CmdZeroAHRSYaw()
+} // end CmdZeroAHRSYaw::CmdZeroAHRSYaw(...)
 
 // The destructor for the CmdZeroAHRSYaw class
 CmdZeroAHRSYaw::~CmdZeroAHRSYaw() {
@@ -59,34 +66,26 @@ void CmdZeroAHRSYaw::Execute() {
 
   // Zero the yaw, so we are always pointing to 0 when starting
   // (Robot-Based Reference System)
-  Robot::m_AHRS->ZeroYaw();
+  m_AHRS->ZeroYaw();
 
   // Indicate we have now finished the command
   m_command_completed = true;
 
 }  // end CmdZeroAHRSYaw::Execute()
 
-// Make this return true when this Command no longer needs to run Execute()
+// Make this return true when this Command no longer needs to run execute()
 bool CmdZeroAHRSYaw::IsFinished() {
 
-  // Return if we are completed or not
+  // Indicate we are done
   return m_command_completed;
 
 } // end CmdZeroAHRSYaw::IsFinished()
 
-// Called once after isFinished returns true
-void CmdZeroAHRSYaw::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdZeroAHRSYaw::End(bool interrupted) {
 
-  // Indicate our command is not completed, as we will be called again
-  m_command_completed = false;
+  // Indicate we are finished
+  m_command_completed = true;
 
 } // end CmdZeroAHRSYaw::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdZeroAHRSYaw::Interrupted() {
-
-  // Call the End method
-  End();
-
-} // end CmdZeroAHRSYaw::Interrupted()

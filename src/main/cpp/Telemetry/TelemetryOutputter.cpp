@@ -28,16 +28,24 @@
 // Include the header file for the TelemetryOutputter class
 #include "Telemetry/TelemetryOutputter.h"
 
-// Include the header file for the robot
-#include "Robot.h"
-
-// Include the RobotMap header file
-#include "RobotMap.h"
-
 /************************ Member function definitions *************************/
 
-// The default constructor for the TelemetryOutputter class
-TelemetryOutputter::TelemetryOutputter() {
+// The constructor for the TelemetryOutputter class
+TelemetryOutputter::TelemetryOutputter(
+  RobotTick* robot_tick,
+  AHRS* ahrs,
+  SubSysDriveTrain* drivetrain,
+  PIDSubSysPssh* pssh,
+  SubSysHansFranzArms* arms,
+  SubSysHansFranzMuscles* muscles )
+
+  : m_RobotTick(robot_tick),
+    m_AHRS(ahrs),
+    m_subSysDriveTrain(drivetrain),
+    m_PIDsubSysPssh(pssh),
+    m_subSysHansFranzArms(arms),
+    m_subSysHansFranzMuscles(muscles)
+{
 
   // Declare a new instance of the power distribution panel
   m_pdp = new frc::PowerDistributionPanel();
@@ -61,84 +69,133 @@ TelemetryOutputter::~TelemetryOutputter() {
 // Method to output the telemetry to the Smart Dashboard
 void TelemetryOutputter::OutputTelemetryToSmartDashboard() {
 
-  // Get the telemetry
-  GetTelemetry();
-
-  // and then output it
+  // Output PDP telemetry with new method
   OutputTelemetry();
 
 } // end OutputTelemetryToSmartDashboard()
 
-// Method to convert celcius to farenheit.
-double TelemetryOutputter::CelsiusToFarenheit(double celcius) {
+// A new method of outputting telemetry
+void TelemetryOutputter::OutputTelemetry()
+{
+  // Index to go through all the telemetry items
+  int index;
 
-  // Return the celcius temperature in farenheit
-  //   using the formula 
-  //
-  //         9
-  // F = C x - + 32
-  //         5
-  //
-  return ((celcius*9.0)/5.0) + 32.0;
+  // The current telemetry ID
+  telemetry_output_ID current_telemetry_ID;
 
-} // end CmdOutputTelemetry::CelsiusToFarenheit
+  // A function pointer to the current telemetry item getter
+  //   function.
+  void (TelemetryOutputter::*getter)();
 
-// Method to get the FPGA major revision # from the FPGA Revision
-int 
-  TelemetryOutputter::GetMajorRevisionFromFPGARevision(
-    int64_t FPGA_Revision
-  ) {
+  // Loop through all of the telemetry items, starting at the 
+  //   2nd telemetry ID (the first real item) until we get to the
+  //   next to last telemetry item 
+  for(index = FIRST_TELEMETRY_ID+1; 
+      index != LAST_TELEMETRY_ID; 
+      index++)
+  {
 
-  // The Major Revision is the 1st 12 bits, so we need to 
-  //   shift 64 bits - 12 bits = 52 bits over to the right
-  //   (k_FPGA_RevisionMajorRevisionShift = 52)
-  return FPGA_Revision >> mk_FPGA_RevisionMajorRevisionShift;
+    // Convert the index back to a telemetry output ID
+    current_telemetry_ID = (telemetry_output_ID)index;
 
-} // end GetMajorRevisionFromFPGARevision(int64_t FPGA_Revision)
+    // If the telemetry item is scheduled to be output...
+    if(m_RobotTick->GetRobotTick() % 
+       mk_telemetry[current_telemetry_ID].tick_interval == 
+       mk_telemetry[current_telemetry_ID].tick_offset)
+    {
+      // Get the getter from the structure
+      getter = mk_telemetry[current_telemetry_ID].get_function;
 
-// Method to get the FPGA minor revision # from the FPGA Revision
-int
-  TelemetryOutputter::GetMinorRevisionFromFPGARevision(
-    int64_t FPGA_Revision
-  ) {
+      // Run the getter function
+      (this->*getter)();
 
-  // We need to first get rid of all the bits but the minor revision,
-  //   then we shift the remaining bits (the minor version) over
-  //   the appropriate number of bits.
-  return (
-    (FPGA_Revision & mk_FPGA_RevisionMinorRevisionMask) >>
-     mk_FPGA_RevisionMinorRevisionShift);
+      // Switch on the data type of the telemetry item
+      switch(mk_telemetry[current_telemetry_ID].data_type)
+      {
 
-} // end CmdOutputTelemetry::GetMinorRevisionFromFPGARevision(...)
+        // NOTE: A little explanation is warranted for the value sent.
+        //       The value to send was referenced via a void pointer.
+        //       A void pointer allows you to point to any type of data.
+        //       This makes it ideal for our purposes, where we have
+        //       different data types to output. However, when we want
+        //       to actually use the data, we have to convert it back
+        //       to the original data type (bool, double, float, int,
+        //       string, etc.). So we cast the value (again, stored
+        //       as a void pointer) to the specific data type pointer.
+        //       This is done by putting the (bool*), (double*), 
+        //       (float*), (int*), (std::string*), etc. in front of the
+        //       value from the telemetry item. But now we have a
+        //       pointer to the value we want, not the actual value.
+        //       So we dereference the pointer with a "*" in front.
+        //
+        //       So the whole thing looks like:
+        //
+        // Dereference       Data Type Ptr
+        //       |               |
+        //       |   |-----------|             |--- void ptr to output value
+        //       |   |                         |
+        //       ||-----||----------------------------------------|
+        //       *(bool*)(mk_telemetry[current_telemetry_ID].value)
 
-// Method to get the FPGA build number from the FPGA Revision
-int
-  TelemetryOutputter::GetBuildNumberFromFPGARevision(
-    int64_t FPGA_Revision
-  ) {
+        case BOOLEAN:
 
-  // We need to get rid of all the bits but the build number
-  return FPGA_Revision & mk_FPGA_RevisionBuildNumberMask;
+          frc::SmartDashboard::PutBoolean(
+            mk_telemetry[current_telemetry_ID].SD_Key,
+            *(bool*)(mk_telemetry[current_telemetry_ID].value));
 
-} // end TelemetryOutputter::GetBuildNumberFromFPGARevision(...)
+          break;
 
-// Method to see if measured value is between the minimum and maximum
-//   acceptable range
-bool TelemetryOutputter::GetIfWithinRange(double MeasuredValue,
-                                          double MinValue,
-                                          double MaxValue) {
+        case DOUBLE:
 
-  // Declare a local status, assumed to be true at this time
-  bool status = true;
+          frc::SmartDashboard::PutNumber(
+            mk_telemetry[current_telemetry_ID].SD_Key,
+            *(double*)(mk_telemetry[current_telemetry_ID].value));
 
-  // If the measuerd value is less than the min,
-  //   or greater than the max
-  if( (MeasuredValue < MinValue) ||
-      (MeasuredValue > MaxValue) )
-    // Indicate the status is bad
-    status = false;
+          break;
 
-  // Return the status of if the measured value is within range or not
-  return status;
+        case FLOAT:
 
-} // end TelemetryOutputter::GetIfWithinRange(double, double, double)
+          frc::SmartDashboard::PutNumber(
+            mk_telemetry[current_telemetry_ID].SD_Key,
+            *(float*)(mk_telemetry[current_telemetry_ID].value));
+
+          break;
+
+        case INTEGER:
+
+          frc::SmartDashboard::PutNumber(
+            mk_telemetry[current_telemetry_ID].SD_Key,
+            *(int*)(mk_telemetry[current_telemetry_ID].value));
+
+          break;
+
+        case STRING:
+
+          frc::SmartDashboard::PutString(
+            mk_telemetry[current_telemetry_ID].SD_Key,
+            *(std::string*)(mk_telemetry[current_telemetry_ID].value));
+
+          break;
+
+        case UINT64T:
+
+          frc::SmartDashboard::PutNumber(
+            mk_telemetry[current_telemetry_ID].SD_Key,
+            *(uint64_t*)(mk_telemetry[current_telemetry_ID].value));
+
+          break;
+          
+        case NOTYPE:
+        default:
+
+          // Intentionally do nothing here
+
+          break;
+
+      } // end switch(mk_telemetry[current_telemetry_ID].data_type)
+
+    } // end if(m_RobotTick->GetRobotTick() % ...
+
+  } // end for(index...)
+
+} // end void TelemetryOutputter::OutputTelemetry()

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['accelerometer',['Accelerometer',['../classfrc_1_1_accelerometer.html',1,'frc']]],
+  ['accept_5frange_5ftype',['accept_range_type',['../struct_telemetry_outputter_1_1accept__range__type.html',1,'TelemetryOutputter']]],
   ['accumulator',['Accumulator',['../class_s_p_i_1_1_accumulator.html',1,'frc::SPI']]],
   ['addressableled',['AddressableLED',['../classfrc_1_1_addressable_l_e_d.html',1,'frc']]],
   ['adxl345_5fi2c',['ADXL345_I2C',['../classfrc_1_1_a_d_x_l345___i2_c.html',1,'frc']]],
@@ -14,7 +15,7 @@ var searchData=
   ['ahrsprotocol',['AHRSProtocol',['../class_a_h_r_s_protocol.html',1,'']]],
   ['ahrsupdate',['AHRSUpdate',['../struct_a_h_r_s_protocol_1_1_a_h_r_s_update.html',1,'AHRSProtocol']]],
   ['ahrsupdatebase',['AHRSUpdateBase',['../struct_a_h_r_s_protocol_1_1_a_h_r_s_update_base.html',1,'AHRSProtocol']]],
-  ['allaxes',['AllAxes',['../structfrc_1_1_a_d_x_l345___i2_c_1_1_all_axes.html',1,'frc::ADXL345_I2C::AllAxes'],['../structfrc_1_1_a_d_x_l345___s_p_i_1_1_all_axes.html',1,'frc::ADXL345_SPI::AllAxes'],['../structfrc_1_1_a_d_x_l362_1_1_all_axes.html',1,'frc::ADXL362::AllAxes']]],
+  ['allaxes',['AllAxes',['../structfrc_1_1_a_d_x_l362_1_1_all_axes.html',1,'frc::ADXL362::AllAxes'],['../structfrc_1_1_a_d_x_l345___i2_c_1_1_all_axes.html',1,'frc::ADXL345_I2C::AllAxes'],['../structfrc_1_1_a_d_x_l345___s_p_i_1_1_all_axes.html',1,'frc::ADXL345_SPI::AllAxes']]],
   ['analogaccelerometer',['AnalogAccelerometer',['../classfrc_1_1_analog_accelerometer.html',1,'frc']]],
   ['analogencoder',['AnalogEncoder',['../classfrc_1_1_analog_encoder.html',1,'frc']]],
   ['analoggyro',['AnalogGyro',['../classfrc_1_1_analog_gyro.html',1,'frc']]],

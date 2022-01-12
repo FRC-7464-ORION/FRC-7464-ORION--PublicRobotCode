@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['omega',['omega',['../structfrc_1_1_chassis_speeds.html#a512d3d4511e399adc63651fbf8ee18bf',1,'frc::ChassisSpeeds']]]
+  ['left',['left',['../structfrc_1_1_differential_drive_wheel_speeds.html#a1936fbb4670627a049bccc42ea8af0be',1,'frc::DifferentialDriveWheelSpeeds']]]
 ];

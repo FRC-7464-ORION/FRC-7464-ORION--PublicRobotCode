@@ -96,6 +96,7 @@
  *       specified by @c k_LeftDriveTrainMotorsPWMPort using a PWM Y-cable.
 */
 constexpr int k_LeftDriveTrainMotorsPWMPort  = 0;
+
 /**
  * The PWM port on the roboRIO for the right drive train motors controller.
  *
@@ -148,7 +149,7 @@ constexpr int k_PATTurnerMotorPDPChannel = 1;
 constexpr int k_PsshMotorPDPChannel = 14;
 
 /** The PDP channel number for the Hans/Franz arms motor */
-constexpr int k_HansFranzArmsMotorChannel = 15;
+constexpr int k_HansFranzArmsMotorPDPChannel = 15;
 
 // *********************** PRIMARY PCM CHANNELS *******************************
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['Y',['../classfrc_1_1_translation2d.html#a6cf391feb31627ca0b90f5e5ba520be6',1,'frc::Translation2d']]]
+  ['zeroyaw',['ZeroYaw',['../class_a_h_r_s.html#ad1a4108e35040d8f2ab2c68e79947264',1,'AHRS']]]
 ];

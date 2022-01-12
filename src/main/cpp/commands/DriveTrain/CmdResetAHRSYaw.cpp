@@ -33,13 +33,20 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdResetAHRSYaw class
-CmdResetAHRSYaw::CmdResetAHRSYaw() {
+// The constructor for the CmdResetAHRSYaw class
+CmdResetAHRSYaw::CmdResetAHRSYaw(
+  SubSysDriveTrain* subsystem,
+  AHRS* ahrs)
+  : m_subSysDriveTrain(subsystem),
+    m_AHRS(ahrs){
 
-  // Indicate our turn is not completed
+  // Set the command's name
+  SetName("CmdResetAHRSYaw");
+
+  // Indicate we have not started
   m_command_completed = false;
 
-} // end CmdResetAHRSYaw::CmdResetAHRSYaw()
+} // end CmdResetAHRSYaw::CmdResetAHRSYaw(...)
 
 // The destructor for the CmdResetAHRSYaw class
 CmdResetAHRSYaw::~CmdResetAHRSYaw() {
@@ -59,34 +66,26 @@ void CmdResetAHRSYaw::Execute() {
 
   // Reset the yaw, so we are always pointing to 0 when starting
   // (Robot-Based Reference System)
-  Robot::m_AHRS->Reset();
+  m_AHRS->Reset();
 
   // Indicate we have now finished the command
   m_command_completed = true;
 
 }  // end CmdResetAHRSYaw::Execute()
 
-// Make this return true when this Command no longer needs to run Execute()
+// Make this return true when this Command no longer needs to run execute()
 bool CmdResetAHRSYaw::IsFinished() {
 
-  // Return if we are completed or not
+  // Indicate we are done
   return m_command_completed;
 
 } // end CmdResetAHRSYaw::IsFinished()
 
-// Called once after isFinished returns true
-void CmdResetAHRSYaw::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdResetAHRSYaw::End(bool interrupted) {
 
-  // Indicate our command is not completed, as we will be called again
-  m_command_completed = false;
+  // Indicate we are finished
+  m_command_completed = true;
 
 } // end CmdResetAHRSYaw::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdResetAHRSYaw::Interrupted() {
-
-  // Call the End method
-  End();
-
-} // end CmdResetAHRSYaw::Interrupted()

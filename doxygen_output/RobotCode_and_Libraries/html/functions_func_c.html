@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode/WPILIBC(v2020.3.2): Class Members - Functions</title>
+<title>NewRobotCode/WPILIBC(v2020.3.2): Class Members - Functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode/WPILIBC(v2020.3.2)
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode/WPILIBC(v2020.3.2)
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -117,13 +117,20 @@ $(document).ready(function(){initNavTree('functions_func_c.html','');});
 : <a class="el" href="classfrc_1_1_c_a_n.html#a525de1b7362e33abc5d40d78dfffd68d">frc::CAN</a>
 </li>
 <li>Cancel()
-: <a class="el" href="classfrc_1_1_command.html#af566114c4b517ef22d8c7820c171b8b2">frc::Command</a>
+: <a class="el" href="classfrc2_1_1_command.html#af566114c4b517ef22d8c7820c171b8b2">frc2::Command</a>
+, <a class="el" href="classfrc2_1_1_command_scheduler.html#abe103ba35252c3cf6738c6f174deb015">frc2::CommandScheduler</a>
+</li>
+<li>CancelAll()
+: <a class="el" href="classfrc2_1_1_command_scheduler.html#aac6d7e39279b9972b61f4b7ae7cd5627">frc2::CommandScheduler</a>
 </li>
 <li>CancelInterrupts()
 : <a class="el" href="classfrc_1_1_interruptable_sensor_base.html#a3a520da3879ef6fa5e383783ba10c361">frc::InterruptableSensorBase</a>
 </li>
+<li>CancelWhenActive()
+: <a class="el" href="classfrc2_1_1_trigger.html#a70aa38470973ec6b1a2452d34dde4ab9">frc2::Trigger</a>
+</li>
 <li>CancelWhenPressed()
-: <a class="el" href="classfrc_1_1_button.html#a134e4bd3bb1f22639a2575761aff67d0">frc::Button</a>
+: <a class="el" href="classfrc2_1_1_button.html#a249077c2faab9d2755a5cfdefeadc651">frc2::Button</a>
 </li>
 <li>CelsiusToFarenheit()
 : <a class="el" href="class_telemetry_outputter.html#a0357f899c34fe3a882d2803da4dee6bc">TelemetryOutputter</a>
@@ -168,6 +175,9 @@ $(document).ready(function(){initNavTree('functions_func_c.html','');});
 : <a class="el" href="classfrc_1_1_compressor.html#a617f5336cf8cb8adcff5d2424d0bff4d">frc::Compressor</a>
 , <a class="el" href="classfrc_1_1_solenoid_base.html#a95ec6e9bdffc2edba6a8244d88a95b8c">frc::SolenoidBase</a>
 </li>
+<li>ClearButtons()
+: <a class="el" href="classfrc2_1_1_command_scheduler.html#a568cf9b99133fc54bc23a0ba0c270628">frc2::CommandScheduler</a>
+</li>
 <li>ClearDownSource()
 : <a class="el" href="classfrc_1_1_counter.html#a14f57c89d5e20d5ca590877dcc6be50f">frc::Counter</a>
 </li>
@@ -189,9 +199,6 @@ $(document).ready(function(){initNavTree('functions_func_c.html','');});
 <li>ClearRecordingFileNameFormat()
 : <a class="el" href="classfrc_1_1_shuffleboard.html#ac5b06cc880d2c6cf1cd639413bb8f10d">frc::Shuffleboard</a>
 </li>
-<li>ClearRequirements()
-: <a class="el" href="classfrc_1_1_command.html#a034fe5a199de5a8aced60904de5dc00f">frc::Command</a>
-</li>
 <li>ClearStickyFaults()
 : <a class="el" href="classfrc_1_1_power_distribution_panel.html#a8c94da01fa1fefc0aed1290f0234fa74">frc::PowerDistributionPanel</a>
 </li>
@@ -199,94 +206,100 @@ $(document).ready(function(){initNavTree('functions_func_c.html','');});
 : <a class="el" href="classfrc_1_1_counter.html#adfbbfef3d5b90d61d2a3702c3876e599">frc::Counter</a>
 </li>
 <li>CmdAutoDriveStraight()
-: <a class="el" href="class_cmd_auto_drive_straight.html#ad8a0059b8454e89e5db95505a96a1b81">CmdAutoDriveStraight</a>
+: <a class="el" href="class_cmd_auto_drive_straight.html#aefc70c2a55915972965b4bc3e173b8d4">CmdAutoDriveStraight</a>
 </li>
 <li>CmdAutoTurnAngle()
-: <a class="el" href="class_cmd_auto_turn_angle.html#aea4bdec803c22aa82be92811a9147799">CmdAutoTurnAngle</a>
+: <a class="el" href="class_cmd_auto_turn_angle.html#a910c68ec7e87f10084db21e77bfcd3d1">CmdAutoTurnAngle</a>
 </li>
 <li>CmdDisableHansFranzMuscles()
-: <a class="el" href="class_cmd_disable_hans_franz_muscles.html#a8d286062c9b78be8e45140b874e3f403">CmdDisableHansFranzMuscles</a>
+: <a class="el" href="class_cmd_disable_hans_franz_muscles.html#af3ef3a9bd32d25202eab730deed596a1">CmdDisableHansFranzMuscles</a>
+</li>
+<li>CmdDisableSmoothingMode()
+: <a class="el" href="class_cmd_disable_smoothing_mode.html#a7c2ace69ec8a32261df92209ae66cfa7">CmdDisableSmoothingMode</a>
 </li>
 <li>CmdDisableTurboMode()
-: <a class="el" href="class_cmd_disable_turbo_mode.html#a3fb07d1c3966e3b3b8925b67e3762e83">CmdDisableTurboMode</a>
+: <a class="el" href="class_cmd_disable_turbo_mode.html#a3694a02a27b348cee0615a7f3680d300">CmdDisableTurboMode</a>
 </li>
 <li>CmdDriveArcadeStyle()
-: <a class="el" href="class_cmd_drive_arcade_style.html#aabf1355d5f0c010e01ddfa6e3b2e58de">CmdDriveArcadeStyle</a>
+: <a class="el" href="class_cmd_drive_arcade_style.html#acda32a914692c40f6851badc73e188a5">CmdDriveArcadeStyle</a>
 </li>
 <li>CmdDriveTankStyle()
-: <a class="el" href="class_cmd_drive_tank_style.html#a839bf6b537026c43ff1381cd438bce51">CmdDriveTankStyle</a>
+: <a class="el" href="class_cmd_drive_tank_style.html#ad1c2fb11019ba497c9aca0075e764632">CmdDriveTankStyle</a>
 </li>
 <li>CmdDump()
-: <a class="el" href="class_cmd_dump.html#a2699a4fa5460b338eb4f459f43cf50d8">CmdDump</a>
+: <a class="el" href="class_cmd_dump.html#a455ab5c26f731983e6befa081eae18cb">CmdDump</a>
 </li>
 <li>CmdEnableHansFranzArms()
-: <a class="el" href="class_cmd_enable_hans_franz_arms.html#aef70e1d5b64f9627b686defaf1e9e32e">CmdEnableHansFranzArms</a>
+: <a class="el" href="class_cmd_enable_hans_franz_arms.html#a61266756f82416689a7cb3b85882fa36">CmdEnableHansFranzArms</a>
 </li>
 <li>CmdEnableHansFranzMuscles()
-: <a class="el" href="class_cmd_enable_hans_franz_muscles.html#ac222754885b909d069cd09fffaeae78f">CmdEnableHansFranzMuscles</a>
+: <a class="el" href="class_cmd_enable_hans_franz_muscles.html#aa266c3dcd0436c873a682d36e8b004da">CmdEnableHansFranzMuscles</a>
+</li>
+<li>CmdEnableSmoothingMode()
+: <a class="el" href="class_cmd_enable_smoothing_mode.html#aed3e437edf51578818f8494c9935bf07">CmdEnableSmoothingMode</a>
 </li>
 <li>CmdEnableTurboMode()
-: <a class="el" href="class_cmd_enable_turbo_mode.html#a88e96e1a41477796a9757543e71ff684">CmdEnableTurboMode</a>
+: <a class="el" href="class_cmd_enable_turbo_mode.html#a0a25461815442f117b3bcc82c644226d">CmdEnableTurboMode</a>
 </li>
 <li>CmdExtendHansFranzMuscles()
-: <a class="el" href="class_cmd_extend_hans_franz_muscles.html#a782560a8b0c6f1a0fc5360adafceea07">CmdExtendHansFranzMuscles</a>
+: <a class="el" href="class_cmd_extend_hans_franz_muscles.html#aa6dd9c2be84a48d87f394c21548810e1">CmdExtendHansFranzMuscles</a>
 </li>
 <li>CmdGrpAutoDefault()
-: <a class="el" href="class_cmd_grp_auto_default.html#acc2efdd33b64a9ac74c20cc5a968d81e">CmdGrpAutoDefault</a>
+: <a class="el" href="class_cmd_grp_auto_default.html#aa1cb004a0e36cabe55515cfd7a58ea2e">CmdGrpAutoDefault</a>
 </li>
 <li>CmdGrpAutoDefCenter()
-: <a class="el" href="class_cmd_grp_auto_def_center.html#a9958ba3415894c2569d02ac6b03da654">CmdGrpAutoDefCenter</a>
+: <a class="el" href="class_cmd_grp_auto_def_center.html#a6c6844245cd2a7dcfe8d41e4038363f4">CmdGrpAutoDefCenter</a>
 </li>
 <li>CmdGrpAutoDefLeft()
-: <a class="el" href="class_cmd_grp_auto_def_left.html#a5eaaec3d9664a5cc9471f807d3463560">CmdGrpAutoDefLeft</a>
+: <a class="el" href="class_cmd_grp_auto_def_left.html#ab3045ec7b7454f10637f9c555dc8c46a">CmdGrpAutoDefLeft</a>
 </li>
 <li>CmdGrpAutoDefRight()
-: <a class="el" href="class_cmd_grp_auto_def_right.html#ace857ca22f7bc00367b376d6ea50494b">CmdGrpAutoDefRight</a>
+: <a class="el" href="class_cmd_grp_auto_def_right.html#a24d5f98e39331c1bc9496ec4b89f0cf8">CmdGrpAutoDefRight</a>
 </li>
 <li>CmdGrpAutoOffCenter()
-: <a class="el" href="class_cmd_grp_auto_off_center.html#ab07553c5b61b44dd4a30d49aa619d6ba">CmdGrpAutoOffCenter</a>
+: <a class="el" href="class_cmd_grp_auto_off_center.html#a35b261d6148e80318374e18a6a0404c9">CmdGrpAutoOffCenter</a>
 </li>
 <li>CmdGrpAutoOffLeft()
-: <a class="el" href="class_cmd_grp_auto_off_left.html#a808cb110add48255072c5fb2573bcbc7">CmdGrpAutoOffLeft</a>
+: <a class="el" href="class_cmd_grp_auto_off_left.html#a6785d3f9c49a7e0fdaf9fe6d65fa10b9">CmdGrpAutoOffLeft</a>
 </li>
 <li>CmdGrpAutoOffRight()
-: <a class="el" href="class_cmd_grp_auto_off_right.html#a2223fe425db8c79c6f21869f16d84844">CmdGrpAutoOffRight</a>
+: <a class="el" href="class_cmd_grp_auto_off_right.html#a5540e1a662c1427d9d2831daeb51a6da">CmdGrpAutoOffRight</a>
 </li>
 <li>CmdGrpEnableHansAndFranz()
-: <a class="el" href="class_cmd_grp_enable_hans_and_franz.html#af14757af1a78a68c6af2e36368a40938">CmdGrpEnableHansAndFranz</a>
+: <a class="el" href="class_cmd_grp_enable_hans_and_franz.html#a074897708103558dff21b047adf12d67">CmdGrpEnableHansAndFranz</a>
 </li>
 <li>CmdLoad()
-: <a class="el" href="class_cmd_load.html#a437aae9b65ad1f009768c3030551d697">CmdLoad</a>
+: <a class="el" href="class_cmd_load.html#a66137545ff69c94ab75206c656be626a">CmdLoad</a>
 </li>
 <li>CmdMoveHansFranzArms()
-: <a class="el" href="class_cmd_move_hans_franz_arms.html#ad0a0d6a756a4f009a92b0685a6ce4a81">CmdMoveHansFranzArms</a>
+: <a class="el" href="class_cmd_move_hans_franz_arms.html#ac60adef67ae3dda82f88d309e2e84941">CmdMoveHansFranzArms</a>
 </li>
 <li>CmdResetAHRSYaw()
-: <a class="el" href="class_cmd_reset_a_h_r_s_yaw.html#af940d540d9180c3877116ed26bfd8695">CmdResetAHRSYaw</a>
+: <a class="el" href="class_cmd_reset_a_h_r_s_yaw.html#affe0cb5585e2adceb57a3932bae4c0a7">CmdResetAHRSYaw</a>
 </li>
 <li>CmdRetractHansFranzMuscles()
-: <a class="el" href="class_cmd_retract_hans_franz_muscles.html#a8b5adf68ad0141bea840c457ac0e3ce0">CmdRetractHansFranzMuscles</a>
+: <a class="el" href="class_cmd_retract_hans_franz_muscles.html#ab576e558b2d1c3d835c6e6dbd6810ead">CmdRetractHansFranzMuscles</a>
 </li>
 <li>CmdToggleDriveDirection()
-: <a class="el" href="class_cmd_toggle_drive_direction.html#aea51fa591f9cbe03d263488401a9d2ac">CmdToggleDriveDirection</a>
+: <a class="el" href="class_cmd_toggle_drive_direction.html#ad6901cd0a2e8b0c29b0f4fee6438eeb3">CmdToggleDriveDirection</a>
 </li>
 <li>CmdToggleSmoothingMode()
-: <a class="el" href="class_cmd_toggle_smoothing_mode.html#ac93611e342ee73112235c28c699b4870">CmdToggleSmoothingMode</a>
+: <a class="el" href="class_cmd_toggle_smoothing_mode.html#af39b91b5f3c33895da6ea319377e9436">CmdToggleSmoothingMode</a>
 </li>
 <li>CmdTravel()
-: <a class="el" href="class_cmd_travel.html#a6d9c3fdb3da6d8343b05d2c15ab5f852">CmdTravel</a>
+: <a class="el" href="class_cmd_travel.html#a26ce730362824e803cf5bb5bcc8ae063">CmdTravel</a>
 </li>
 <li>CmdTurnWoFCCW()
-: <a class="el" href="class_cmd_turn_wo_f_c_c_w.html#aeda0ec048cf3b1f20184fc1dcbea6dc0">CmdTurnWoFCCW</a>
+: <a class="el" href="class_cmd_turn_wo_f_c_c_w.html#a0dcdf6c63298f52c12d62dee29a94024">CmdTurnWoFCCW</a>
 </li>
 <li>CmdTurnWoFCW()
-: <a class="el" href="class_cmd_turn_wo_f_c_w.html#aac92b3bc3fb3d79c07aecb6debdfa858">CmdTurnWoFCW</a>
+: <a class="el" href="class_cmd_turn_wo_f_c_w.html#add3acac1265495e23d32548a7a08b3f0">CmdTurnWoFCW</a>
 </li>
 <li>CmdWaitSeconds()
-: <a class="el" href="class_cmd_wait_seconds.html#a9b212f932a2a6e63629c9d44f9e574e3">CmdWaitSeconds</a>
+: <a class="el" href="class_cmd_wait_seconds.html#a3b4a6458f5c0d431dc2345e7531d2438">CmdWaitSeconds</a>
 </li>
 <li>CmdZeroAHRSYaw()
-: <a class="el" href="class_cmd_zero_a_h_r_s_yaw.html#a0afa26dcb6f273162d3685e63a1825ac">CmdZeroAHRSYaw</a>
+: <a class="el" href="class_cmd_zero_a_h_r_s_yaw.html#a8a7e3aad17be612fce9511e154227162">CmdZeroAHRSYaw</a>
 </li>
 <li>Coefficients()
 : <a class="el" href="classfrc_1_1_cubic_hermite_spline.html#ae007233e2a7eafb73a053e2936584d2b">frc::CubicHermiteSpline</a>
@@ -297,13 +310,7 @@ $(document).ready(function(){initNavTree('functions_func_c.html','');});
 : <a class="el" href="classfrc_1_1_color.html#a3f3ec4679fae082def6223159d3cecf8">frc::Color</a>
 </li>
 <li>Color8Bit()
-: <a class="el" href="classfrc_1_1_color8_bit.html#a37b4731923004c306cdf44085ca90f87">frc::Color8Bit</a>
-</li>
-<li>Command()
-: <a class="el" href="classfrc_1_1_command.html#a07f3a3dea926e8b28f7267a43e3c0b28">frc::Command</a>
-</li>
-<li>CommandGroup()
-: <a class="el" href="classfrc_1_1_command_group.html#a5f46acc8378287a0602f9e37c5edc8ee">frc::CommandGroup</a>
+: <a class="el" href="classfrc_1_1_color8_bit.html#a53dc0449308cd835e98db226640e4a65">frc::Color8Bit</a>
 </li>
 <li>common_constructor_function()
 : <a class="el" href="class_cmd_auto_drive_straight.html#a1d7ee7caf75ed14bef38868bd58e8656">CmdAutoDriveStraight</a>
@@ -311,17 +318,17 @@ $(document).ready(function(){initNavTree('functions_func_c.html','');});
 <li>Compressor()
 : <a class="el" href="classfrc_1_1_compressor.html#a1f30d3249f8224db8daebdddd5c84dfc">frc::Compressor</a>
 </li>
-<li>Condition()
-: <a class="el" href="classfrc_1_1_conditional_command.html#acfdf4c0cba90cef0d304efaebaeb3d12">frc::ConditionalCommand</a>
-</li>
 <li>ConditionalCommand()
-: <a class="el" href="classfrc_1_1_conditional_command.html#a2d96201a50c5718975d9cac66f44d273">frc::ConditionalCommand</a>
+: <a class="el" href="classfrc2_1_1_conditional_command.html#a188a04a41c25300aa50ce8b1d258eb32">frc2::ConditionalCommand</a>
 </li>
 <li>ConfigureAutoStall()
 : <a class="el" href="classfrc_1_1_s_p_i.html#a5b55067015c6c0d7cde65f95d998595a">frc::SPI</a>
 </li>
-<li>ConfirmCommand()
-: <a class="el" href="classfrc_1_1_subsystem.html#a569548ab981805f2e3332863da1a0d1e">frc::Subsystem</a>
+<li>ConfigureButtonBindings()
+: <a class="el" href="class_robot_container.html#aa1b33cbe7d850dfd456ad0b352b82ba5">RobotContainer</a>
+</li>
+<li>ConfigureXBoardCommands()
+: <a class="el" href="class_robot_container.html#a950f664663ce57b7acc1708dadea79ef">RobotContainer</a>
 </li>
 <li>Constraints()
 : <a class="el" href="classfrc_1_1_trajectory_config.html#a8f18569ad611cc6d009365ab116e4f07">frc::TrajectoryConfig</a>
@@ -337,11 +344,14 @@ $(document).ready(function(){initNavTree('functions_func_c.html','');});
 : <a class="el" href="classfrc_1_1_cubic_hermite_spline.html#a05c5e5587b3a0aa28cd114ec34677d53">frc::CubicHermiteSpline</a>
 , <a class="el" href="classfrc_1_1_quintic_hermite_spline.html#a00e8d1823d870a755624742ad589f367">frc::QuinticHermiteSpline</a>
 </li>
+<li>ConvertDblSecondsToMinutesSecondsTenths()
+: <a class="el" href="class_telemetry_outputter.html#a01797c9f2d278883a964ab5ed18f7d04">TelemetryOutputter</a>
+</li>
 <li>Cos()
 : <a class="el" href="classfrc_1_1_rotation2d.html#a0f562fbf812faf44f82810702740d19e">frc::Rotation2d</a>
 </li>
 <li>Counter()
-: <a class="el" href="classfrc_1_1_counter.html#a9c7d57696e482eff75e1e03eaf6f8120">frc::Counter</a>
+: <a class="el" href="classfrc_1_1_counter.html#a8be85912dad7a2093326edff2cccd0bb">frc::Counter</a>
 </li>
 <li>CreateOutput()
 : <a class="el" href="classfrc_1_1_analog_trigger.html#aba91ff6814cb8fd33b5ee9e3a56f5bb7">frc::AnalogTrigger</a>

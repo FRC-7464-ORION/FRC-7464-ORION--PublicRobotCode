@@ -32,13 +32,16 @@
 
 /*************************** Local Header Files *******************************/
 
+/************************** Library Header Files ******************************/
+
 // Include the header file for the timer class
 #include <frc/Timer.h>
 
-/************************** Library Header Files ******************************/
+// Include the header file for the NEW(2020) Command base class
+#include <frc2/command/CommandBase.h>
 
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
 
 /** ****************************************************************************
  * @class   CmdWaitSeconds
@@ -46,15 +49,19 @@
  *            for a given time, in seconds
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdWaitSeconds : public frc::Command {
+class CmdWaitSeconds
+  : public frc2::CommandHelper<frc2::CommandBase, CmdWaitSeconds> {
 
   public:
 
-    /** The CmdWaitSeconds class default constructor. */
-    CmdWaitSeconds();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
 
-    /** The constructor for giving a time */
-    CmdWaitSeconds(double sec);
+    /** 
+     * The CmdWaitSeconds class constructor.
+     * 
+     * @param sec       The amount of time in seconds to wait
+     */
+    explicit CmdWaitSeconds(double sec);
 
     /** The CmdWaitSeconds class destructor. */
     ~CmdWaitSeconds();
@@ -89,38 +96,27 @@ class CmdWaitSeconds : public frc::Command {
     bool IsFinished() override;
 
     /**
-     * Called when the command ended peacefully.
+     * Called when either the command finishes normally, or when it is
+     * interrupted/canceled.
      *
      * This is where you may want to wrap up loose ends, like shutting off
      * a motor that was being used in the command.
      *
-     * Reimplemented in frc::CommandGroup.
+     * @param interrupted false = not interrupted, true = interrupted
     */
-    void End() override;
-
-    /**
-     * Called when the command ends because somebody called Cancel() or another
-     * command shared the same requirements as this one, and booted it out.
-     *
-     * This is where you may want to wrap up loose ends, like shutting off a
-     * motor that was being used in the command.
-     *
-     * Generally, it is useful to simply call the End() method within this
-     * method, as done here.
-     *
-     * Reimplemented in frc::CommandGroup.
-    */
-    void Interrupted() override;
+    void End(bool interrupted) override;
 
   private:
 
-    /*********************** Private member variables *************************/
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
 
     /** The time to wait, in seconds */
     double wait_time_seconds;
 
-    /** A pointer to a timer class */
-    frc::Timer* m_timer;
+    /** A timer class */
+    frc::Timer m_timer{};
 
     /** A boolean to indicate we have exceeded our time */
     bool wait_time_exceeded;

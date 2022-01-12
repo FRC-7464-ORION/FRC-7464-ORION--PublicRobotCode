@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: CmdEnableTurboMode Class Reference</title>
+<title>NewRobotCode: CmdEnableTurboMode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('class_cmd_enable_turbo_mode.html','');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_cmd_enable_turbo_mode-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CmdEnableTurboMode Class Reference</div>  </div>
@@ -109,8 +110,8 @@ Inheritance diagram for CmdEnableTurboMode:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a88e96e1a41477796a9757543e71ff684"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#a88e96e1a41477796a9757543e71ff684">CmdEnableTurboMode</a> ()</td></tr>
-<tr class="separator:a88e96e1a41477796a9757543e71ff684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a25461815442f117b3bcc82c644226d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#a0a25461815442f117b3bcc82c644226d">CmdEnableTurboMode</a> (<a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *subsystem)</td></tr>
+<tr class="separator:a0a25461815442f117b3bcc82c644226d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4756dc5a521c579162ed1b8d7a74717"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#af4756dc5a521c579162ed1b8d7a74717">~CmdEnableTurboMode</a> ()</td></tr>
 <tr class="separator:af4756dc5a521c579162ed1b8d7a74717"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cf50bc664b45f7d4089ea0dd210c0e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#a5cf50bc664b45f7d4089ea0dd210c0e7">Initialize</a> () override</td></tr>
@@ -119,33 +120,51 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1c3e47b626d3f3b9d9ea3fba18626e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cf53c7c00acfeb457c2defcfa1e5baa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#a1cf53c7c00acfeb457c2defcfa1e5baa">IsFinished</a> () override</td></tr>
 <tr class="separator:a1cf53c7c00acfeb457c2defcfa1e5baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af45f2e044450777b6fd792573ba054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#a2af45f2e044450777b6fd792573ba054">End</a> () override</td></tr>
-<tr class="separator:a2af45f2e044450777b6fd792573ba054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4556b977b40c71510af1038a5c8269ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#a4556b977b40c71510af1038a5c8269ca">Interrupted</a> () override</td></tr>
-<tr class="separator:a4556b977b40c71510af1038a5c8269ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af327c101e813866cc14e2a218e6e7886"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#af327c101e813866cc14e2a218e6e7886">End</a> (bool interrupted) override</td></tr>
+<tr class="separator:af327c101e813866cc14e2a218e6e7886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a67f02d237f9a62880e062d6a750de150"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_enable_turbo_mode.html#a67f02d237f9a62880e062d6a750de150">m_subSysDriveTrain</a></td></tr>
+<tr class="separator:a67f02d237f9a62880e062d6a750de150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is a class that defines a command used in driving the robot using turbo mode. </p>
 <hr/>
 <dl class="section author"><dt>Author</dt><dd>FRC Team #7464 - ORION </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8h_source.html#l00052">52</a> of file <a class="el" href="_cmd_enable_turbo_mode_8h_source.html">CmdEnableTurboMode.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8h_source.html#l00055">55</a> of file <a class="el" href="_cmd_enable_turbo_mode_8h_source.html">CmdEnableTurboMode.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a88e96e1a41477796a9757543e71ff684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88e96e1a41477796a9757543e71ff684">&#9670;&nbsp;</a></span>CmdEnableTurboMode()</h2>
+<a id="a0a25461815442f117b3bcc82c644226d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a25461815442f117b3bcc82c644226d">&#9670;&nbsp;</a></span>CmdEnableTurboMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">CmdEnableTurboMode::CmdEnableTurboMode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td>
+          <td class="paramname"><em>subsystem</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_enable_turbo_mode.html" title="This is a class that defines a command used in driving the robot using turbo mode.">CmdEnableTurboMode</a> class default constructor. </p>
+<p>The <a class="el" href="class_cmd_enable_turbo_mode.html" title="This is a class that defines a command used in driving the robot using turbo mode.">CmdEnableTurboMode</a> class constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subsystem</td><td>The subsystem used by this command </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00046">46</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
 
@@ -167,13 +186,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>The <a class="el" href="class_cmd_enable_turbo_mode.html" title="This is a class that defines a command used in driving the robot using turbo mode.">CmdEnableTurboMode</a> class destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00060">60</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00059">59</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2af45f2e044450777b6fd792573ba054"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2af45f2e044450777b6fd792573ba054">&#9670;&nbsp;</a></span>End()</h2>
+<a id="af327c101e813866cc14e2a218e6e7886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af327c101e813866cc14e2a218e6e7886">&#9670;&nbsp;</a></span>End()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +203,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CmdEnableTurboMode::End </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>interrupted</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -194,9 +214,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Called when the command ended peacefully.</p>
+<p>Called when either the command finishes normally, or when it is interrupted/canceled.</p>
 <p>This is where you may want to wrap up loose ends, like shutting off a motor that was being used in the command.</p>
-<p>Reimplemented in frc::CommandGroup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupted</td><td>false = not interrupted, true = interrupted </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00089">89</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
 
@@ -226,7 +251,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>The execute method is called repeatedly until this Command either finishes or is canceled. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00073">73</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00072">72</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,38 +279,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>The initialize method is called the first time this Command is run after being started. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00065">65</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a4556b977b40c71510af1038a5c8269ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4556b977b40c71510af1038a5c8269ca">&#9670;&nbsp;</a></span>Interrupted()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CmdEnableTurboMode::Interrupted </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Called when the command ends because somebody called Cancel() or another command shared the same requirements as this one, and booted it out.</p>
-<p>This is where you may want to wrap up loose ends, like shutting off a motor that was being used in the command.</p>
-<p>Generally, it is useful to simply call the <a class="el" href="class_cmd_enable_turbo_mode.html#a2af45f2e044450777b6fd792573ba054">End()</a> method within this method, as done here.</p>
-<p>Reimplemented in frc::CommandGroup. </p>
-
-<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00097">97</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00064">64</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
 
 </div>
 </div>
@@ -311,19 +305,45 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns whether this command is finished. If it is, then the command will be removed and <a class="el" href="class_cmd_enable_turbo_mode.html#a2af45f2e044450777b6fd792573ba054">End()</a> will be called.</p>
+<p>Returns whether this command is finished. If it is, then the command will be removed and <a class="el" href="class_cmd_enable_turbo_mode.html#af327c101e813866cc14e2a218e6e7886">End()</a> will be called.</p>
 <p>It may be useful for a team to reference the IsTimedOut() method for time-sensitive commands.</p>
 <p>Returning false will result in the command never ending automatically. It may still be cancelled manually or interrupted by another command.</p>
 <p>Returning true will result in the command executing once and finishing immediately. We recommend using InstantCommand for this.</p>
 <dl class="section return"><dt>Returns</dt><dd>True = Command finished, False = Command not finished </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00081">81</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html#l00080">80</a> of file <a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a67f02d237f9a62880e062d6a750de150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67f02d237f9a62880e062d6a750de150">&#9670;&nbsp;</a></span>m_subSysDriveTrain</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a>* CmdEnableTurboMode::m_subSysDriveTrain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A pointer to the drive train subsystem </p>
+
+<p class="definition">Definition at line <a class="el" href="_cmd_enable_turbo_mode_8h_source.html#l00119">119</a> of file <a class="el" href="_cmd_enable_turbo_mode_8h_source.html">CmdEnableTurboMode.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/ORION22/RobotCode/src/main/include/commands/DriveTrain/<a class="el" href="_cmd_enable_turbo_mode_8h_source.html">CmdEnableTurboMode.h</a></li>
-<li>C:/ORION22/RobotCode/src/main/cpp/commands/DriveTrain/<a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/include/commands/DriveTrain/<a class="el" href="_cmd_enable_turbo_mode_8h_source.html">CmdEnableTurboMode.h</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/cpp/commands/DriveTrain/<a class="el" href="_cmd_enable_turbo_mode_8cpp_source.html">CmdEnableTurboMode.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

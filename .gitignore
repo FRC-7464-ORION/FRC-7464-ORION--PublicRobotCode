@@ -62,9 +62,6 @@ hs_err_pid*
 ### Linux ###
 *~
 
-### emacs on Windows ###
-*.*~
-
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 
@@ -157,6 +154,11 @@ gradle-app.setting
 .classpath
 .project
 .settings/
-#bin/
+bin/
+
+# Do not ignore this file, as it is the layout configuration file for
+# the Robot Simulation GUI
+!imgui.ini
+
 
 # End of https://www.gitignore.io/api/c++,java,linux,macos,gradle,windows,visualstudiocode

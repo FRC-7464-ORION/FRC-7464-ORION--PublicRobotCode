@@ -34,16 +34,31 @@
 // Include our constants header file
 #include "RobotConstants.h"
 
+// Include the header for our robot tick
+#include "RobotTick.h"
+
 // Include the SmartDashboard Keys header file
 #include "Telemetry/SmartDashboardKeys.h"
+
+// The header for the NavX MXP AHRS class
+#include "AHRS.h"
+
+// Include the drive train subsystem header
+#include "subsystems/SubSysDriveTrain.h"
+
+// Include the Pssh PID subsystem header
+#include "subsystems/PIDSubSysPssh.h"
+
+// Include the Hans/Franz arms subsystem header
+#include "subsystems/SubSysHansFranzArms.h"
+
+// Include the Hans/Franz muscles subsystem header
+#include "subsystems/SubSysHansFranzMuscles.h"
 
 /************************** Library Header Files ******************************/
 
 // Include the header file to declare strings
 #include <string>
-
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
 
 // Include the SmartDashboard class header file, which allows us to transmit
 //   robot data to the operator console
@@ -60,6 +75,9 @@
 // Include the header file for the roboRIO controller telemetry
 #include <frc/RobotController.h>
 
+// Include the header file for the FMS/Driver station telemetry
+#include <frc/DriverStation.h>
+
 /** ****************************************************************************
  * @class   TelemetryOutputter
  * @brief   This is a class that provides a means to output general
@@ -71,8 +89,24 @@ class TelemetryOutputter {
 
   public:
 
-    /** The TelemetryOutputter class default constructor. */
-    TelemetryOutputter();
+    /** 
+     * The TelemetryOutputter class constructor.
+     * 
+     * @param robot_tick    A pointer to a robot tick
+     * @param ahrs          A pointer to a NavX MXP AHRS
+     * @param drivetrain    A pointer to a drivetrain subsystem
+     * @param pssh          A pointer to a Pssh PID subsystem
+     * @param arms          A pointer to a Hans/Franz arms subsystem
+     * @param muscles       A pointer to a Hans/Franz muscles subsystem
+    */
+    TelemetryOutputter(
+      RobotTick *robot_tick,
+      AHRS* ahrs,
+      SubSysDriveTrain* drivetrain,
+      PIDSubSysPssh* pssh,
+      SubSysHansFranzArms* arms,
+      SubSysHansFranzMuscles* muscles
+    );
 
     /** The TelemetryOutputter class destructor. */
     ~TelemetryOutputter();
@@ -84,6 +118,24 @@ class TelemetryOutputter {
 
     /********************* Private member variables ***********************/
 
+    /** A pointer to a robot tick class */
+    RobotTick* m_RobotTick;
+
+    /** A pointer to an AHRS NavX MXP */
+    AHRS* m_AHRS;
+
+    /** A pointer to a drive train subsystem */
+    SubSysDriveTrain* m_subSysDriveTrain;
+
+    /** A pointer to a Pssh PID subsytem */
+    PIDSubSysPssh* m_PIDsubSysPssh;
+
+    /** A pointer to a Hans/Franz arms subsystem */
+    SubSysHansFranzArms* m_subSysHansFranzArms;
+
+    /** A pointer to a Hans/Franz muscles subsystem */
+    SubSysHansFranzMuscles* m_subSysHansFranzMuscles;
+
     /////////// Member variables for various telemetry deliverers ///////////
 
     /** Declare a pointer to a power distribution panel (PDP) instance */
@@ -94,8 +146,31 @@ class TelemetryOutputter {
 
     ///////////////// Member variable for storing telemetry /////////////////
 
-    /** A string to hold the drive train mode */
-    std::string m_DriveTrainModeString;
+    // Field Management System (FMS) and Driver Station (DS) Information
+
+    /** String to hold the alliance color and station # */
+    std::string m_AllianceColorStationNumber;
+
+    /** String to hold the match type and number */
+    std::string m_MatchTypeNumber;
+
+    /** String to hold the match mode type */
+    std::string m_MatchMode;
+
+    /** String to hold time remaining in the current period */
+    std::string m_PeriodTimeRemaining;
+
+    /** String to hold the FMS status */
+    std::string m_FMSStatus;
+
+    /** String to hold the driver station status */
+    std::string m_DSStatus;
+
+    /** String to hold the robot status */
+    std::string m_RobotStatus;
+
+    // Power distribution panel (PDP) overall information 
+    //   (individual current for channels not shown here)
 
     /** The PDP temperature, in Celsius */
     double m_PDP_temperature_C;
@@ -137,48 +212,30 @@ class TelemetryOutputter {
     /** The overall battery status */
     bool m_PDP_BatteryStatus;
 
-    /** The current used in the left drive train motor #0, in Amps */
-    double m_PDP_LeftDriveTrainMotor0Current;
+    // Controller Area Network (CAN) Information
 
-    /** The current used in the left drive train motor #1, in Amps */
-    double m_PDP_LeftDriveTrainMotor1Current;
+    /** Float to hold CAN bus utilization percentage */
+    float m_CANUtilization;
 
-    /** The current used in the left drive train, both motors, in Amps */
-    double m_PDP_LeftDriveTrainMotorsCurrent;
+    /** Float to hold minimum CAN bus utilization percentage */
+    float m_MinCANUtilization = 100.0;
 
-    /** The current used in the right drive train motor #0, in Amps */
-    double m_PDP_RightDriveTrainMotor0Current;
+    /** Float to hold maximum CAN bus utilization percentage */
+    float m_MaxCANUtilization = 0.0;
 
-    /** The current used in the right drive train motor #1, in Amps */
-    double m_PDP_RightDriveTrainMotor1Current;
+    /** Integer to hold count of CAN bus off events */
+    int m_CANBusOffCount;
 
-    /** The current used in the right drive train, both motors, in Amps */
-    double m_PDP_RightDriveTrainMotorsCurrent;
+    /** Integer to hold count of CAN bus TX full events */
+    int m_CANTXFullCount;
 
-    /** The current used in the drive train, all motors, in Amps */
-    double m_PDP_DriveTrainMotorsCurrent;
+    /** Integer to hold count of CAN bus RX error events */
+    int m_CANRXErrorCount;
 
-    /** The current used in the PAT Turner motor, in Amps */
-    double m_PDP_PATTurnerMotorCurrent;
+    /** Integer to hold count of CAN bus TX error events */
+    int m_CANTXErrorCount;
 
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-    /** The current used in the Pssh motor, in Amps */
-    double m_PDP_PsshMotorCurrent;
-
-#endif // #if USE_PID_PSSH
-
-    /** The current used in the H/F Arms motor, in Amps */
-    double m_PDP_H_F_ArmsMotorCurrent;
-
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-    /** The angle of Pssh, as read from the potentiometer */
-    double m_PsshPotAngle;
-
-#endif // #if USE_PID_PSSH
+    // RoboRIO Information
 
     /** The acceleration along the roboRIOs X-Axis, in Gs */
     double m_roboRIO_Accel_X_Axis;
@@ -282,8 +339,8 @@ class TelemetryOutputter {
     /** roboRIO 6V rail overall status */ 
     bool m_roboRIO_6V_Rail_Status;
 
-    /** Boolean to determine if the roboRIO is browned out */
-    bool m_roboRIO_IsBrownedOut;
+    /** Boolean to determine if the roboRIO is not browned out */
+    bool m_roboRIO_IsNotBrownedOut;
 
     /** Boolean to determine if the roboRIO system is active */
     bool m_roboRIO_IsSysActive;
@@ -320,17 +377,24 @@ class TelemetryOutputter {
     /** The build number of the FPGA revision */
     int m_roboRIO_FPGA_BuildNumber;
 
+    /** The roboRIO's FPGA version, revision, and build information */
+    std::string m_roboRIO_FPGA_Ver_Rev_Bld;
+
     /** The roboRIO FPGA time elapsed since boot, in microseconds (0.000001s) */
     uint64_t m_roboRIO_FPGA_Time;
 
     /** The roboRIO FPGA version number */
     int m_roboRIO_FPGA_VersionNumber;
 
-    /** The status of the drive train turbo mode */
-    std::string m_DriveTrainTurboState;
+    // Software Version Information
 
-    /** The status of the drive train smoothing mode */
-    std::string m_DriveTrainSmoothingState;
+    /** String to hold the ORION robot code software version */
+    std::string m_ORION_RobotCode_SW_Version;
+
+    /** String to hold the WPILibC code software version */
+    std::string m_WPILibC_Code_SW_Version;
+
+    // Attitude and Heading Reference System (AHRS) Information
 
     /** The status of the AHRS connection */
     bool m_AHRS_ConnectionStatus;
@@ -369,7 +433,7 @@ class TelemetryOutputter {
     double m_AHRS_FusedHdg;
 
     /** The status of magnetic disturbance on the AHRS */
-    bool m_AHRS_MagDisturb;
+    bool m_AHRS_NoMagDisturb;
 
     /** The status of the AHRS magnetometer calibration */
     bool m_AHRS_MgntmtrCalStatus;
@@ -401,16 +465,61 @@ class TelemetryOutputter {
     /** The firmware version of the AHRS */
     std::string m_AHRS_FWVer;
 
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
+    // Drive Train Information
+
+    /** A string to hold the drive train mode */
+    std::string m_DriveTrainModeString;
+
+    /** The status of the drive train turbo mode */
+    std::string m_DriveTrainTurboState;
+
+    /** The status of the drive train smoothing mode */
+    std::string m_DriveTrainSmoothingState;
+
+    /** The drive direction */
+    std::string m_drive_dir;
+
+    /** The current used in the left drive train motor #0, in Amps */
+    double m_LeftDriveTrainMotor0Current;
+
+    /** The current used in the left drive train motor #1, in Amps */
+    double m_LeftDriveTrainMotor1Current;
+
+    /** The current used in the left drive train, both motors, in Amps */
+    double m_LeftDriveTrainMotorsCurrent;
+
+    /** The current used in the right drive train motor #0, in Amps */
+    double m_RightDriveTrainMotor0Current;
+
+    /** The current used in the right drive train motor #1, in Amps */
+    double m_RightDriveTrainMotor1Current;
+
+    /** The current used in the right drive train, both motors, in Amps */
+    double m_RightDriveTrainMotorsCurrent;
+
+    /** The current used in the drive train, all motors, in Amps */
+    double m_DriveTrainMotorsCurrent;
+
+    // PAT Information
+
+    /** The current used in the PAT Turner motor, in Amps */
+    double m_PDP_PATTurnerMotorCurrent;
+
+    // Pssh Information
+
+    /** The current used in the Pssh motor, in Amps */
+    double m_PDP_PsshMotorCurrent;
+
+    /** The angle of Pssh, as read from the potentiometer */
+    double m_PsshPotAngle;
 
     /** The state of Pssh */
     std::string m_Pssh_State;
 
-#endif // #if USE_PID_PSSH
+    // Hans and Franz Information
 
-    /** The drive direction */
-    std::string m_drive_dir;
+    /** The current used in the H/F Arms motor, in Amps */
+    double m_PDP_H_F_ArmsMotorCurrent;
 
     /** Are the arms enabled */
     bool m_HansFranzArmsEnabled;
@@ -433,329 +542,57 @@ class TelemetryOutputter {
     ///////////// Member variables for choosing telemetry output /////////////
 
     /** Constant for choosing to output telemetry */
-    const bool m_OutputTelemetry = true;
+    const bool mk_Output = true;
     /** Constant for NOT choosing to output telemetry */
-    const bool m_DoNOT_OutputTelemetry = false;
-
-    /** Choose to output drive train mode string or not */
-    const bool m_Output_DriveTrainModeString             = m_OutputTelemetry;
-
-    /** Choose to output temperature or not */
-    const bool m_Output_PDP_Temperature                  = m_OutputTelemetry;
-    /** Choose to output operating temperature status or not */
-    const bool m_Output_PDP_OperatingTemperatureStatus   = m_OutputTelemetry;
-
-    /** Choose to output battery voltage or not */
-    const bool m_Output_PDP_BatteryVoltage               = m_OutputTelemetry;
-    /** Choose to output battery voltage status or not */
-    const bool m_Output_PDP_BatteryVoltageStatus         = m_OutputTelemetry;
-    /** Choose to output battery current or not */
-    const bool m_Output_PDP_BatteryCurrent               = m_OutputTelemetry;
-    /** Choose to output battery current status or not */
-    const bool m_Output_PDP_BatteryCurrentStatus         = m_OutputTelemetry;
-    /** Choose to output battery power or not */
-    const bool m_Output_PDP_BatteryPower                 = m_OutputTelemetry;
-    /** Choose to output battery energy or not */
-    const bool m_Output_PDP_BatteryEnergy                = m_OutputTelemetry;
-    /** Choose to output battery status or not */
-    const bool m_Output_PDP_BatteryStatus                = m_OutputTelemetry;
-
-    /** Choose to output the current used in the left drive train motor #0 */
-    const bool m_Output_PDP_LeftDriveTrainMotor0Current  = m_OutputTelemetry;
-    /** Choose to output the current used in the left drive train motor #1 */
-    const bool m_Output_PDP_LeftDriveTrainMotor1Current  = m_OutputTelemetry;
-    /** Choose to output the current used in the left drive train (both motors) */
-    const bool m_Output_PDP_LeftDriveTrainMotorsCurrent  = m_OutputTelemetry;
-
-    /** Choose to output the current used in the right drive train motor #0 */
-    const bool m_Output_PDP_RightDriveTrainMotor0Current = m_OutputTelemetry;
-    /** Choose to output the current used in the right drive train motor #1 */
-    const bool m_Output_PDP_RightDriveTrainMotor1Current = m_OutputTelemetry;
-    /** Choose to output the current used in the right drive train (both motors) */
-    const bool m_Output_PDP_RightDriveTrainMotorsCurrent = m_OutputTelemetry;
-
-    /** Choose to output the current used in the drive train (all motors) */
-    const bool m_Output_PDP_DriveTrainMotorsCurrent      = m_OutputTelemetry;
-
-    /** Choose to output the current used in the PAT Turner motor */
-    const bool m_Output_PDP_PATTurnerMotorCurrent        = m_OutputTelemetry;
-
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-    /** Choose to output the current used in the Pshh motor */
-    const bool m_Output_PDP_PsshMotorCurrent             = m_OutputTelemetry;
-
-#endif // #if USE_PID_PSSH
-
-    /** Choose to output the current used in the H/F Arms motor */
-    const bool m_Output_PDP_H_F_ArmsMotorCurrent         = m_OutputTelemetry;
-
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-    /** Choose to output the angle of Pssh */
-    const bool m_Output_PsshPotAngle                     = m_OutputTelemetry;
-
-#endif // #if USE_PID_PSSH
-
-    /** Choose to output the roboRIO's accelerometer X-axis */
-    const bool m_Output_roboRIO_Accel_X_Axis             = m_OutputTelemetry;
-    /** Choose to output the roboRIO's accelerometer Y-axis */
-    const bool m_Output_roboRIO_Accel_Y_Axis             = m_OutputTelemetry;
-    /** Choose to output the roboRIO's accelerometer Z-axis */
-    const bool m_Output_roboRIO_Accel_Z_Axis             = m_OutputTelemetry;
-
-    /** Choose to output the roboRIO's status */
-    const bool m_Output_roboRIO_StatusOK                 = m_OutputTelemetry;
-
-    /** Choose to output the roboRIO's input voltage */
-    const bool m_Output_roboRIO_InputVoltage             = m_OutputTelemetry;
-    /** Choose to output the roboRIO's input voltage status */
-    const bool m_Output_roboRIO_InputVoltageStatus       = m_OutputTelemetry;
-    /** Choose to output the roboRIO's input current */
-    const bool m_Output_roboRIO_InputCurrent             = m_OutputTelemetry;
-    /** Choose to output the roboRIO's input current status */
-    const bool m_Output_roboRIO_InputCurrentStatus       = m_OutputTelemetry;
-    /** Choose to output the roboRIO's power consumption */
-    const bool m_Output_roboRIO_InputPower               = m_OutputTelemetry;
-    /** Choose to output the roboRIO's overall input power status */
-    const bool m_Output_roboRIO_InputSPowerStatus        = m_OutputTelemetry;
-
-    /** Choose to output the roboRIO's 3.3V rail voltage */
-    const bool m_Output_roboRIO_3_3V_Rail_Voltage        = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 3.3V rail voltage status */
-    const bool m_Output_roboRIO_3_3V_Rail_VoltageStatus  = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 3.3V rail current */
-    const bool m_Output_roboRIO_3_3V_Rail_Current        = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 3.3V rail current status */
-    const bool m_Output_roboRIO_3_3V_Rail_CurrentStatus  = m_OutputTelemetry;
-
-    /** Choose to output if roboRIO 3.3V rail is enabled */
-    const bool m_Output_roboRIO_3_3V_Rail_IsEnabled      = m_OutputTelemetry;
-    /** 
-     * Choose to output the number of roboRIO 3.3V rail current faults
-     *  since boot
-    */ 
-    const bool m_Output_roboRIO_3_3V_Rail_FaultCount     = m_OutputTelemetry;
-    /** Choose to output the roboRIO 3.3V rail current faults status */ 
-    const bool m_Output_roboRIO_3_3V_Rail_FaultCountStatus = m_OutputTelemetry;
-    /** Choose to Output the roboRIO's 3.3V rail overall status */
-    const bool m_Output_roboRIO_3_3V_Rail_Status           = m_OutputTelemetry;
-
-    /** Choose to output the roboRIO's 5V rail voltage */
-    const bool m_Output_roboRIO_5V_Rail_Voltage          = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 5V rail voltage status */
-    const bool m_Output_roboRIO_5V_Rail_VoltageStatus    = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 5V rail current */
-    const bool m_Output_roboRIO_5V_Rail_Current          = m_OutputTelemetry;
-    /** Choose to outpuhe roboRIO's 5V rail current status */
-    const bool m_Output_roboRIO_5V_Rail_CurrentStatus    = m_OutputTelemetry;
-    /** Choose to output if roboRIO 5V rail is enabled */
-    const bool m_Output_roboRIO_5V_Rail_IsEnabled        = m_OutputTelemetry;
-    /** 
-     * Choose to output the number of roboRIO 5V rail current faults
-     * since boot
-    */ 
-    const bool m_Output_roboRIO_5V_Rail_FaultCount       = m_OutputTelemetry;
-    /** Choose to output the roboRIO 5V rail current fault status */ 
-    const bool m_Output_roboRIO_5V_Rail_FaultCountStatus = m_OutputTelemetry;
-    /** Choose to output the roboRIO 5V rail overall status */ 
-    const bool m_Output_roboRIO_5V_Rail_Status           = m_OutputTelemetry;
-
-
-    /** Choose to output the roboRIO's 6V rail voltage */
-    const bool m_Output_roboRIO_6V_Rail_Voltage          = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 6V rail voltage status */
-    bool m_Output_roboRIO_6V_Rail_VoltageStatus          = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 6V rail current */
-    const bool m_Output_roboRIO_6V_Rail_Current          = m_OutputTelemetry;
-    /** Choose to output the roboRIO's 6V rail current status */
-    const bool m_Output_roboRIO_6V_Rail_CurrentStatus    = m_OutputTelemetry;
-    /** Choose to output if roboRIO 6V rail is enabled */
-    const bool m_Output_roboRIO_6V_Rail_IsEnabled        = m_OutputTelemetry;
-    /** 
-     * Choose to output the number of roboRIO 6V rail current faults
-     * since boot
-    */ 
-    const bool m_Output_roboRIO_6V_Rail_FaultCount       = m_OutputTelemetry;
-    /** Choose to output the roboRIO 6V rail current fault status */ 
-    const bool m_Output_roboRIO_6V_Rail_FaultCountStatus = m_OutputTelemetry;
-
-    /** Choose to output the roboRIO 6V rail overall status */ 
-    const bool m_Output_roboRIO_6V_Rail_Status           = m_OutputTelemetry;
-
-
-    /** Choose to output if the roboRIO is browned out */
-    const bool m_Output_roboRIO_IsBrownedOut             = m_OutputTelemetry;
-
-    /** Choose to output if the roboRIO system is active */
-    const bool m_Output_roboRIO_IsSysActive              = m_OutputTelemetry;
-
-    /** 
-     * Choose to output the roboRIO FPGA time elapsed since boot,
-     * in microseconds (0.000001s = 1x10^(-6)s)
-    */
-    const bool m_Output_roboRIO_FPGA_Time                = m_OutputTelemetry;
-
-    /** Choose to output the roboRIO FPGA version number and revision */
-    const bool m_Output_roboRIO_FPGA_VerNumRev           = m_OutputTelemetry;
-
-    /** Choose to output the drive train turbo mode */
-    const bool m_Output_DriveTrainTurboState             = m_OutputTelemetry;
-
-    /** Choose to output the drive train smoothing mode */
-    const bool m_Output_DriveTrainSmoothingState         = m_OutputTelemetry;
-
-    /** Choose to output the status of the AHRS connection */
-    const bool m_Output_AHRS_ConnectionStatus            = m_OutputTelemetry;
-
-    /** Choose to output the status of the AHRS calibration */
-    const bool m_Output_AHRS_CalibrationStatus           = m_OutputTelemetry;
-
-    /** Choose to output the pitch of the AHRS */
-    const bool m_Output_AHRS_Pitch                       = m_OutputTelemetry;
-
-    /** Choose to output the roll of the AHRS */
-    const bool m_Output_AHRS_Roll                        = m_OutputTelemetry;
-
-    /** Choose to output the yaw of the AHRS */
-    const bool m_Output_AHRS_Yaw                         = m_OutputTelemetry;
-
-    /** Choose to output the compass heading of the AHRS */
-    const bool m_Output_AHRS_CompassHdg                  = m_OutputTelemetry;
-
-    /** Choose to output the linear acceleration on the x axis */
-    const bool m_Output_AHRS_LinearAccelX                = m_OutputTelemetry;
-
-    /** Choose to output the linear acceleration on the y axis */
-    const bool m_Output_AHRS_LinearAccelY                = m_OutputTelemetry;
-
-    /** Choose to output the linear acceleration on the z axis */
-    const bool m_Output_AHRS_LinearAccelZ                = m_OutputTelemetry;
-
-    /** Choose to output the status of the movemement of the AHRS */
-    const bool m_Output_AHRS_Moving                      = m_OutputTelemetry;
-
-    /** Choose to output the status of the rotation of the AHRS */
-    const bool m_Output_AHRS_Rotating                    = m_OutputTelemetry;
-
-    /** Choose to output the fused heading of the AHRS */
-    const bool m_Output_AHRS_FusedHdg                    = m_OutputTelemetry;
-
-    /** Choose to output the status of magnetic disturbance on the AHRS */
-    const bool m_Output_AHRS_MagDisturb                  = m_OutputTelemetry;
-
-    /** Choose to output the status of the AHRS magnetometer calibration */
-    const bool m_Output_AHRS_MgntmtrCalStatus            = m_OutputTelemetry;
-
-    /** Choose to output the Quaternion W of the AHRS */
-    const bool m_Output_AHRS_QuatW                       = m_OutputTelemetry;
-
-    /** Choose to output the Quaternion X of the AHRS */
-    const bool m_Output_AHRS_QuatX                       = m_OutputTelemetry;
-
-    /** Choose to output the Quaternion Y of the AHRS */
-    const bool m_Output_AHRS_QuatY                       = m_OutputTelemetry;
-
-    /** Choose to output the Quaternion Z of the AHRS */
-    const bool m_Output_AHRS_QuatZ                       = m_OutputTelemetry;
-
-    /** Choose to output the yaw angle of the AHRS */
-    const bool m_Output_AHRS_YawAngle                    = m_OutputTelemetry;
-
-    /** Choose to output the yaw angle adjustment of the AHRS */
-    const bool m_Output_AHRS_YawAngleAdj                 = m_OutputTelemetry;
-
-    /** Choose to output the rotation rate of the AHRS */
-    const bool m_Output_AHRS_RotRate                     = m_OutputTelemetry;
-
-    /** Choose to output the temperature of the AHRS */
-    const bool m_Output_AHRS_Temp_F                      = m_OutputTelemetry;
-
-    /** Choose to output the firmware version of the AHRS */
-    const bool m_Output_AHRS_FWVer                       = m_OutputTelemetry;
-
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
-    /** Choose to output the state of Pssh */
-    const bool m_Output_Pssh_State                       = m_OutputTelemetry;
-
-#endif // #if USE_PID_PSSH
-
-    /** Choose to output the drive direction */
-    const bool m_Output_drive_dir                        = m_OutputTelemetry;
-
-    /** Choose to output if the arms are enabled */
-    const bool m_Output_HansFranzArmsEnabled             = m_OutputTelemetry;
-
-    /** Choose to output if the muscles enabled */
-    const bool m_Output_HansFranzMusclesEnabled          = m_OutputTelemetry;
-
-    /** Choose to output the state of the arms */
-    const bool m_Output_HansFranzArmsState               = m_OutputTelemetry;
-
-    /** Choose to output the state of the muscles */
-    const bool m_Output_HansFranzMusclesState            = m_OutputTelemetry;
-
-    /** Choose to output the boolean to indicate if arms are fully retracted */
-    bool m_Output_HansFranzArmsRetracted                 = m_OutputTelemetry;
-
-    /** Choose to output the boolean to indicate if arms are fully extended */
-    bool m_Output_HansFranzArmsExtended                  = m_OutputTelemetry;
+    const bool mk_DoNOT_Output = false;
 
     ////////////////////////// Some other constants //////////////////////////
 
-    /** The minimum operating temperature, in C (0C = 32F)*/
-    const double mk_PDP_OperatingTemperatureMin = 0.0;
-    /** The maximum operating temperature, in C (40C = 104F) */
-    const double mk_PDP_OperatingTemperatureMax = 40.0;
-    /** The battery voltage minimum acceptable voltage, in Volts
-        Note: This is no-load voltage */
-    const double mk_PDP_BatteryVoltageMin = 12.25;
-    /** The battery voltage maximum acceptable voltage, in Volts
-        Note: This is no-load voltage */
-    const double mk_PDP_BatteryVoltageMax = 14.40;
-    /** The battery current minimum acceptable current, in Amps */
-    const double mk_PDP_BatteryCurrentMin = 0.00;
-    /** The battery current maximum acceptable current, in Amps */
-    const double mk_PDP_BatteryCurrentMax = 120.00;
+    /** 
+     * A structure for storing a parameter's acceptable range of values
+     * by storing its minimum and maximum acceptable values.
+     * 
+     * NOTE: The values are inclusive, meaning that the values given
+     *       are acceptable. 
+    */
+    struct accept_range_type
+    {
+      /** The minimum acceptable value */
+      double min_acc_value;
+      /** The maximum acceptable value */
+      double max_acc_value;
+
+    }; // end struct acceptable_range_type
+
+    /** The acceptable operating temperature range, in C */
+    const accept_range_type mk_PDP_OperatingTemperatureRange = {0.0, 40.0};
+    /** The acceptable range for the battery voltage, in Volts */
+    const accept_range_type mk_PDP_BatteryVoltageRange = {12.25, 14.40};
+    /** The acceptable range for the battery current, in Amps */
+    const accept_range_type mk_PDP_BatteryCurrentRange = {0.00, 120.00};
     /** The maximum battery current for testing acceptable battery
         state of charge (SoC), in Amps */
     const double mk_PDP_BatteryVoltageMaxForSoCTest = 0.250;
-    /** The roboRIO input voltage minimum acceptable voltage, in Volts */
-    const double mk_roboRIOVoltageInMin = 7.00;
-    /** The roboRIO input voltage maximum acceptable voltage, in Volts */
-    const double mk_roboRIOVoltageInMax = 16.00;
-    /** The roboRIO input current minimum acceptable current, in Amps */
-    const double mk_roboRIOCurrentInMin = 0.25;
-    /** The roboRIO input current maximum acceptable current, in Amps */
-    const double mk_roboRIOCurrentInMax = 6.5;
-    /** The roboRIO 3.3V output minimum acceptable voltage, in Volts */
-    const double mk_roboRIO3V3VoltageMin = 3.1;
-    /** The roboRIO 3.3V output maximum acceptable voltage, in Volts */
-    const double mk_roboRIO3V3VoltageMax = 3.465;
-    /** The roboRIO 3.3V output minimum acceptable current, in Amps */
-    const double mk_roboRIO3V3CurrentMin = 0.0;
-    /** The roboRIO 3.3V output maximum acceptable current, in Amps */
-    const double mk_roboRIO3V3CurrentMax = 1.225;
-    /** The roboRIO 5V output minimum acceptable voltage, in Volts */
-    const double mk_roboRIO5VVoltageMin = 4.7;
-    /** The roboRIO 5V output maximum acceptable voltage, in Volts */
-    const double mk_roboRIO5VVoltageMax = 5.25;
-    /** The roboRIO 5V output minimum acceptable current, in Amps */
-    const double mk_roboRIO5VCurrentMin = 0.0;
-    /** The roboRIO 5V output maximum acceptable current, in Amps */
-    const double mk_roboRIO5VCurrentMax = 1.0;
-    /** The roboRIO 6V output minimum acceptable voltage, in Volts */
-    const double mk_roboRIO6VVoltageMin = 5.5;
-    /** The roboRIO 6V output maximum acceptable voltage, in Volts */
-    const double mk_roboRIO6VVoltageMax = 6.1;
-    /** The roboRIO 6V output minimum acceptable current, in Amps */
-    const double mk_roboRIO6VCurrentMin = 0.0;
-    /** The roboRIO 6V output maximum acceptable current, in Amps */
-    const double mk_roboRIO6VCurrentMax = 2.2;
+    /** The acceptable range for roboRIO accelorometers (X,Y,Z), in Gs */
+    const accept_range_type mk_roboRIOAccelRange = {-8.0, 8.0};
+    /** The acceptable range for roboRIO input voltage, in Volts */
+    const accept_range_type mk_roboRIOVoltageInRange = {7.00, 16.00};
+    /** The acceptable range for roboRIO input current, in Amps */
+    const accept_range_type mk_roboRIOCurrentInRange = {0.25, 6.50};
+    /** The acceptable range for roboRIO input power, in Watts */
+    const accept_range_type mk_roboRIOPowerInRange = {1.75, 104.0};
+    /** The acceptable range for the 3.3V rail voltage, in Volts */
+    const accept_range_type mk_roboRIO3V3VoltageRange = {3.1, 3.465};
+    /** The acceptable range for the 3.3V rail current, in Amps */
+    const accept_range_type mk_roboRIO3V3CurrentRange = {0.0, 1.225};
+    /** The acceptable range for the 5V rail voltage, in Volts */
+    const accept_range_type mk_roboRIO5VVoltageRange = {4.7, 5.25};
+    /** The acceptable range for the 5V rail current, in Amps */
+    const accept_range_type mk_roboRIO5VCurrentRange = {0.0, 1.0};
+    /** The acceptable range for the 6V rail voltage, in Volts */
+    const accept_range_type mk_roboRIO6VVoltageRange = {5.5, 6.1};
+    /** The acceptable range for the 6V rail current, in Amps */
+    const accept_range_type mk_roboRIO6VCurrentRange = {0.0, 2.2};
 
     /** The percentage of current where we will flag */
     const double mk_PercentageMaxCurrent = 0.9;
@@ -764,7 +601,7 @@ class TelemetryOutputter {
      * The number of bits to shift to the right to get the FPGA 
      * major revision from the FPGA revision 
     */
-    const uint mk_FPGA_RevisionMajorRevisionShift = 52;
+    const uint64_t mk_FPGA_RevisionMajorRevisionShift = 52;
 
     /** 
      * The mask needed to get only the FPGA minor revision bits from 
@@ -775,7 +612,7 @@ class TelemetryOutputter {
      * The number of bits to shift to the right to get the FPGA
      * minor revision from the FPGA revision
     */
-    const uint mk_FPGA_RevisionMinorRevisionShift = 44;
+    const uint64_t mk_FPGA_RevisionMinorRevisionShift = 44;
 
     /** 
      * The mask needed to get only the FPGA build number bits from
@@ -783,8 +620,483 @@ class TelemetryOutputter {
     */
     const uint64_t mk_FPGA_RevisionBuildNumberMask = 0x0000000000000FFF;
 
-    //////////////////////////// Member functions ////////////////////////////
+    /** The string for the red alliance */
+    const std::string mk_RedAlliance = "RED";
+    /** The string for the blue alliance */
+    const std::string mk_BlueAlliance = "BLUE";
+    /** The string for an invalid alliance */
+    const std::string mk_InvalidAlliance = "INVALID";
+    /** The string for an unknown alliance */
+    const std::string mk_UnknownAlliance = "UNKNOWN";
+    /** The string for station #0 (invalid) */
+    const std::string mk_StationNumber0 = "INVALID";
+    /** The string for station #1 (left) */
+    const std::string mk_StationNumber1 = "1(L)";
+    /** The string for station #2 (center) */
+    const std::string mk_StationNumber2 = "2(C)";
+    /** The string for station #3 (right) */
+    const std::string mk_StationNumber3 = "3(R)";
+    /** The string for an unknown station # */
+    const std::string mk_StationNumberUnknown = "UNKNOWN";
+    /** The string for combining Alliance color and station # */
+    const std::string mk_AllianceStationNumberGlue = ": ";
 
+    /** The string for no match type */
+    const std::string mk_MatchTypeNone = "NONE";
+    /** The string for a practice match type */
+    const std::string mk_MatchTypePractice = "PRACTICE";
+    /** The string for a qualification match type */
+    const std::string mk_MatchTypeQualification = "QUALIFICATION";
+    /** The string for an elimination match type */
+    const std::string mk_MatchTypeElimination = "ELIMINATION";
+    /** The string for an unknown match type */
+    const std::string mk_MatchTypeUnknown = "UNKNOWN";
+    /** The string for combining match type and match # */
+    const std::string mk_MatchTypeNumberGlue = " #";
+
+    /** The string indicating match mode is autonomous */
+    const std::string mk_MatchModeAutonomous = "AUTO";
+    /** The string indicating match mode is teleoperated */
+    const std::string mk_MatchModeTeleoperated = "TELEOP";
+    /** The string indicating match mode is test */
+    const std::string mk_MatchModeTest = "TEST";
+    /** The string indicating match mode is unknown */
+    const std::string mk_MatchModeUnknown = "UNKNOWN";
+
+    /** The string indicating that the FMS is attached */
+    const std::string mk_FMSAttached = "YES";
+    /** The string indicating that the FMS is not attached */
+    const std::string mk_FMSNotAttached = "NO";
+
+    /** The string indicating that the driver station is attached */
+    const std::string mk_DSAttached = "YES";
+    /** The string indicating that the driver station is not attached */
+    const std::string mk_DSNotAttached = "NO";
+
+    /** The string showing the robot status is enabled */
+    const std::string mk_RobotStatusEnabled = "ENABLED";
+    /** The string showing the robot status is disabled */
+    const std::string mk_RobotStatusDisabled = "DISABLED";
+    /** The string showing the robot status is emergency stopped */
+    const std::string mk_RobotStatusEStopped = "E-STOPPED!";
+    /** The string showing the robot status is unknown */
+    const std::string mk_RobotStatusUnknown = "UNKNOWN";
+
+    /** An enumeration of output telemetry data types */
+    enum telemetry_output_data_type
+    {
+
+      /** For data type bool */
+      BOOLEAN,
+      /** For data type double */
+      DOUBLE,
+      /** For data type float */
+      FLOAT,
+      /** For data type int */
+      INTEGER,
+      /** For telemetry items with no data type */
+      NOTYPE,
+      /** For data type std::string */
+      STRING,
+      /** For data type uint64_t */
+      UINT64T
+
+    }; // end enum telemetry_output_data_type
+
+    /** An enumeration of output telemetry IDs */
+    enum telemetry_output_ID
+    {
+
+      /** This shall always be the first telemetry ID */
+      FIRST_TELEMETRY_ID,
+
+      // Field Management System (FMS) and Driver Station (DS) IDs
+
+      /** The FMS alliance color and station number */
+      FMS_ALLNC_STN,
+      /** The FMS match type and match # */
+      FMS_MATCH_TYPE_NUM,
+      /** The FMS match mode */
+      FMS_MATCH_MODE,
+      /** The FMS period time remaining */
+      FMS_PRD_TIME_REM,
+      /** The status of the FMS */
+      FMS_STATUS,
+      /** The driver station status */
+      DS_STATUS,
+      /** The state of the robot from the driver station */
+      DS_ROBOT_STATUS,
+
+      // Power distribution panel (PDP) overall information IDs 
+      //   (individual current for channels not shown here)
+
+      /** The temperature reported by the PDP */
+      PDP_TEMPERATURE,
+      /** The PDP temperature status */
+      PDP_TEMPERATURE_STATUS,
+      /** The battery voltage, as reported by the PDP */
+      PDP_BATTERY_VOLTAGE,
+      /** The battery voltage status */
+      PDP_BATTERY_VOLTAGE_STATUS,
+      /** The battery current, as reported by the PDP */
+      PDP_BATTERY_CURRENT,
+      /** The battery current status */
+      PDP_BATTERY_CURRENT_STATUS,
+      /** The battery power being delivered, as reported by the PDP */
+      PDP_BATTERY_POWER,
+      /** The battery energy delivered since reset, as reported by the PDP */
+      PDP_BATTERY_ENERGY,
+      /** The overall battery status */
+      PDP_BATTERY_STATUS,
+
+      // Controller Area Network (CAN) Information IDs
+
+      /** The CAN bus utilization */
+      CAN_UTILIZATION,
+      /** The maximum CAN bus utilization */
+      CAN_MAX_UTILIZATION,
+      /** The minimum CAN bus utilization */
+      CAN_MIN_UTILIZATION,
+      /** The CAN bus off event count */
+      CAN_BUS_OFF_COUNT,
+      /** The CAN bus TX full event count */
+      CAN_TX_FULL_COUNT,
+      /** The CAN RX error count */
+      CAN_RX_ERR_COUNT,
+      /** The CAN TX error count */
+      CAN_TX_ERR_COUNT,
+
+      // RoboRIO Information IDs
+
+      /** roboRIO X acceleration axis */
+      ROBORIO_ACCEL_X_AXIS,
+      /** roboRIO Y acceleration axis */
+      ROBORIO_ACCEL_Y_AXIS,
+      /** roboRIO Z acceleration axis */
+      ROBORIO_ACCEL_Z_AXIS,
+      /** roboRIO input voltage */
+      ROBORIO_INPUT_VOLTAGE,
+      /** roboRIO input current */
+      ROBORIO_INPUT_CURRENT,
+      /** roboRIO input power consumption */
+      ROBORIO_INPUT_POWER,
+      /** roboRIO's 3.3V rail voltage */
+      ROBORIO_3_3V_RAIL_VOLTAGE,
+      /** roboRIO's 3.3V rail current */
+      ROBORIO_3_3V_RAIL_CURRENT,
+      /** roboRIO's 3.3V rail enabled or not */
+      ROBORIO_3_3V_RAIL_ENABLED,
+      /** roboRIO's 3.3V rail fault count */
+      ROBORIO_3_3V_RAIL_FLT_CNT,
+      /** roboRIO's 5V rail voltage */
+      ROBORIO_5V_RAIL_VOLTAGE,
+      /** roboRIO's 5V rail current */
+      ROBORIO_5V_RAIL_CURRENT,
+      /** roboRIO's 5V rail enabled or not */
+      ROBORIO_5V_RAIL_ENABLED,
+      /** roboRIO's 5V rail fault count */
+      ROBORIO_5V_RAIL_FLT_CNT,
+      /** roboRIO's 6V rail voltage */
+      ROBORIO_6V_RAIL_VOLTAGE,
+      /** roboRIO's 6V rail current */
+      ROBORIO_6V_RAIL_CURRENT,
+      /** roboRIO's 6V rail enabled or not */
+      ROBORIO_6V_RAIL_ENABLED,
+      /** roboRIO's 6V rail fault count */
+      ROBORIO_6V_RAIL_FLT_CNT,
+      /** roboRIO browned out status */
+      ROBORIO_ISNT_BROWNED_OUT,
+      /** roboRIO system active status */
+      ROBORIO_IS_SYS_ACTIVE,
+      /** 
+       * roboRIO field programmable gate array (FPGA) 
+       * version, revision, and build
+      */
+      ROBORIO_FPGA_VER_REV_BLD,
+      /** roboRIO FPGA time */
+      ROBORIO_FPGA_TIME,
+
+      // Software Version Information IDs
+
+      /** The software version of the ORION Robot Code */
+      ORION_ROBOTCODE_SW_VER,
+      /** The software version of the WPILibC code used */
+      WPILIBC_CODE_SW_VER,
+
+      // Attitude and Heading Reference System (AHRS) Information IDs
+
+      /** The AHRS connection status */
+      AHRS_CONNECTION_STATUS,
+      /** The AHRS calibration status */
+      AHRS_CALIBRATION_STATUS,
+      /** The AHRS pitch */
+      AHRS_PITCH,
+      /** The AHRS roll */
+      AHRS_ROLL,
+      /** The AHRS yaw */
+      AHRS_YAW,
+      /** The AHRS compass heading */
+      AHRS_COMPASS_HDG,
+      /** The AHRS linear acceleration on the X axis */
+      AHRS_LIN_ACCL_X,
+      /** The AHRS linear acceleration on the Y axis */
+      AHRS_LIN_ACCL_Y,
+      /** The AHRS linear acceleration on the Z axis */
+      AHRS_LIN_ACCL_Z,
+      /** The AHRS movement status */
+      AHRS_MOVING_STATUS,
+      /** The AHRS rotation status */
+      AHRS_ROTATING_STATUS,
+      /** The AHRS fused heading */
+      AHRS_FUSED_HDG,
+      /** The AHRS No Magnetic Disturbance status */
+      AHRS_NO_MAG_DISTURB,
+      /** The AHRS magnetometer calibration status */
+      AHRS_MGNTMTR_CAL_STATUS,
+      /** The AHRS Quaternion W */
+      AHRS_QUAT_W,
+      /** The AHRS Quaternion X */
+      AHRS_QUAT_X,
+      /** The AHRS Quaternion Y */
+      AHRS_QUAT_Y,
+      /** The AHRS Quaternion Z */
+      AHRS_QUAT_Z,
+      /** The AHRS yaw angle */
+      AHRS_YAW_ANGLE,
+      /** The AHRS yaw angle adjustment */
+      AHRS_YAW_ANGLE_ADJ,
+      /** The AHRS rotation rate */
+      AHRS_ROTATION_RATE,
+      /** The AHRS temperature in Farenheit */
+      AHRS_TEMP_F,
+      /** The AHRS firmware version */
+      AHRS_FW_VER,
+
+      // Drive Train Information IDs
+
+      /** The drive train mode */
+      DRV_TRN_MODE,
+      /** The drive train turbo state */
+      DRV_TRN_TURBO_STATE,
+      /** The drive train smooting state */
+      DRV_TRN_SMOOTH_STATE,
+      /** The drive train driving direction */
+      DRV_TRN_DRV_DIR,
+      /** The drive train left motor #0 current */
+      DRV_TRN_L_MTR_0_CURRENT,
+      /** The drive train left motor #1 current */
+      DRV_TRN_L_MTR_1_CURRENT,
+      /** The drive train left motors current */
+      DRV_TRN_L_MTRS_CURRENT,
+      /** The drive train right motor #0 current */
+      DRV_TRN_R_MTR_0_CURRENT,
+      /** The drive train right motor #1 current */
+      DRV_TRN_R_MTR_1_CURRENT,
+      /** The drive train right motors current */
+      DRV_TRN_R_MTRS_CURRENT,
+      /** The drive train motors current */
+      DRV_TRN_MOTORS_CURRENT,
+
+      // PAT Information IDs
+
+      /** The PAT motor current */
+      PAT_TURNER_MOTOR_CURRENT,
+
+      // Pssh Information IDs
+
+      /** The Pssh motor current */
+      PSSH_MOTOR_CURRENT,
+      /** The Pssh potentiometer angle */
+      PSSH_POT_ANGLE,
+      /** The Pssh state */
+      PSSH_STATE,
+
+      // Hans and Franz Information IDs
+
+      /** The Hans/Franz Arms motor current */
+      H_F_ARMS_MTR_CURRENT,
+      /** The Hans/Franz Arms enabled status */
+      H_F_ARMS_ENABLED,
+      /** The Hans/Franz Muscles enabled status */
+      H_F_MUSCLES_ENABLED,
+      /** The Hans/Franz Arms state */
+      H_F_ARMS_STATE,
+      /** The Hans/Franz Muscles state */
+      H_F_MUSCLES_STATE,
+      /** The Hans/Franz Arms retracted state */
+      H_F_ARMS_RETRACTED,
+      /** Get the Hans/Franz Arms extended state */
+      H_F_ARMS_EXTENDED,
+
+      /** This shall always be the last telemetry ID */
+      LAST_TELEMETRY_ID 
+
+    }; // end enum telemetry_output_ID
+
+    /** A structure used to hold data for each telemetry item output */
+    struct telemetry_output_type
+    {
+
+      /** The ID of the telemetry item */
+      telemetry_output_ID ID;
+      /** The SmartDashboard key for the telemetry item */
+      const std::string SD_Key;
+      /** Boolean to indicate if we are outputting this item or not */
+      bool output;
+      /** Integer indicating the number of ticks elapsed between outputs */
+      uint64_t tick_interval;
+      /** Integer indicating the of ticks offset from the interval */ 
+      uint64_t tick_offset;
+      /** Function pointer to the get function to be ran for this ID */
+      void (TelemetryOutputter::*get_function)();
+      /** The data type of the telemetry to be output */
+      telemetry_output_data_type data_type;
+      /** A void pointer to the value pertaining to this ID */
+      void* value;
+
+    }; // end struct telemetry_output_type
+
+    // NOTE: If you change the SD keys below, you will need to redevelop your
+    //       dashboard (default, SmartDashboard, or Shuffleboard). On some
+    //       dashboards, you can change the displayed title, or add a
+    //       label.
+
+    /** A table representing the telemetry items */
+    const telemetry_output_type mk_telemetry[LAST_TELEMETRY_ID+1] =
+    {
+
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {FIRST_TELEMETRY_ID,         "",                      mk_DoNOT_Output,   1,   0, NULL,                                                NOTYPE,  NULL                             },
+
+      // Field Management System (FMS) and Driver Station (DS) Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {FMS_ALLNC_STN,              "Alliance & Station #",  mk_Output,         1,   0, &TelemetryOutputter::GetAllianceColorStationNumber,  STRING,  &m_AllianceColorStationNumber    },
+      {FMS_MATCH_TYPE_NUM,         "Match Type & #",        mk_Output,         1,   0, &TelemetryOutputter::GetMatchTypeMatchNumber,        STRING,  &m_MatchTypeNumber               },
+      {FMS_MATCH_MODE,             "Match Mode",            mk_Output,         1,   0, &TelemetryOutputter::GetMatchMode,                   STRING,  &m_MatchMode                     },
+      {FMS_PRD_TIME_REM,           "Period Time Remaining", mk_Output,         1,   0, &TelemetryOutputter::GetMatchTime,                   STRING,  &m_PeriodTimeRemaining           },
+      {FMS_STATUS,                 "FMS Cnctd?",            mk_Output,         1,   0, &TelemetryOutputter::GetFMSStatus,                   STRING,  &m_FMSStatus                     },
+      {DS_STATUS,                  "DS Cnctd?",             mk_Output,         1,   0, &TelemetryOutputter::GetDSStatus,                    STRING,  &m_DSStatus                      },
+      {DS_ROBOT_STATUS,            "Robot Status",          mk_Output,         1,   0, &TelemetryOutputter::GetRobotStatus,                 STRING,  &m_RobotStatus                   },
+
+      // Power distribution panel (PDP) overall information (individual current for channels not shown here)
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {PDP_TEMPERATURE,            "Temp (F)",              mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Temperature,            DOUBLE,  &m_PDP_temperature_F             },
+      {PDP_TEMPERATURE_STATUS,     "Temp OK",               mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Temperature_Status,     BOOLEAN, &m_PDP_OperatingTemperatureStatus},
+      {PDP_BATTERY_VOLTAGE,        "Batt V(V)",             mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Battery_Voltage,        DOUBLE,  &m_PDP_BatteryVoltage            },
+      {PDP_BATTERY_VOLTAGE_STATUS, "Batt Volt OK",          mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Battery_Voltage_Status, BOOLEAN, &m_PDP_BatteryVoltageStatus      },
+      {PDP_BATTERY_CURRENT,        "Batt C(A)",             mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Battery_Current,        DOUBLE,  &m_PDP_BatteryCurrent            },
+      {PDP_BATTERY_CURRENT_STATUS, "Batt Curr OK",          mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Battery_Current_Status, BOOLEAN, &m_PDP_BatteryCurrentStatus      },
+      {PDP_BATTERY_POWER,          "Batt P(W)",             mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Battery_Power,          DOUBLE,  &m_PDP_BatteryPower              },
+      {PDP_BATTERY_ENERGY,         "Batt E(J)",             mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Battery_Energy,         DOUBLE,  &m_PDP_BatteryEnergy             },
+      {PDP_BATTERY_STATUS,         "Batt OK",               mk_Output,         1,   0, &TelemetryOutputter::Get_PDP_Battery_Status,         BOOLEAN, &m_PDP_BatteryStatus             },
+
+      // Controller Area Network (CAN) Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {CAN_UTILIZATION,            "CAN UTIL. (%)",         mk_Output,         1,   0, &TelemetryOutputter::GetCANUtilization,              FLOAT,   &m_CANUtilization                },
+      {CAN_MAX_UTILIZATION,        "MAX. CAN UTIL. (%)",    mk_Output,         1,   0, &TelemetryOutputter::GetMaxCANUtilization,           FLOAT,   &m_MaxCANUtilization             },
+      {CAN_MIN_UTILIZATION,        "MIN. CAN UTIL. (%)",    mk_Output,         1,   0, &TelemetryOutputter::GetMinCANUtilization,           FLOAT,   &m_MinCANUtilization             },
+      {CAN_BUS_OFF_COUNT,          "CAN BUS OFF CNT",       mk_Output,         1,   0, &TelemetryOutputter::GetCANBusOffCount,              INTEGER, &m_CANBusOffCount                },
+      {CAN_TX_FULL_COUNT,          "CAN TX FULL CNT",       mk_Output,         1,   0, &TelemetryOutputter::GetCANTXFullCount,              INTEGER, &m_CANTXFullCount                },
+      {CAN_RX_ERR_COUNT,           "CAN RX ERROR CNT",      mk_Output,         1,   0, &TelemetryOutputter::GetCANRXErrorCount,             INTEGER, &m_CANRXErrorCount               },
+      {CAN_TX_ERR_COUNT,           "CAN TX ERROR CNT",      mk_Output,         1,   0, &TelemetryOutputter::GetCANTXErrorCount,             INTEGER, &m_CANTXErrorCount               },
+
+      // RoboRIO Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {ROBORIO_ACCEL_X_AXIS,       "X-Axis A(G)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Accel_X_Axis,        DOUBLE,  &m_roboRIO_Accel_X_Axis          },
+      {ROBORIO_ACCEL_Y_AXIS,       "Y-Axis A(G)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Accel_Y_Axis,        DOUBLE,  &m_roboRIO_Accel_Y_Axis          },
+      {ROBORIO_ACCEL_Z_AXIS,       "Z-Axis A(G)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Accel_Z_Axis,        DOUBLE,  &m_roboRIO_Accel_Z_Axis          },
+      {ROBORIO_INPUT_VOLTAGE,      "CTL V_IN(V)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Input_Voltage,       DOUBLE,  &m_roboRIO_InputVoltage          },
+      {ROBORIO_INPUT_CURRENT,      "CTL I_IN(A)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Input_Current,       DOUBLE,  &m_roboRIO_InputCurrent          },
+      {ROBORIO_INPUT_POWER,        "CTL P_IN(W)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Input_Power,         DOUBLE,  &m_roboRIO_InputPower            },
+      {ROBORIO_3_3V_RAIL_VOLTAGE,  "CTL 3.3V V(V)",         mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_3_3V_Rail_Voltage,   DOUBLE,  &m_roboRIO_3_3V_Rail_Voltage     },
+      {ROBORIO_3_3V_RAIL_CURRENT,  "CTL 3.3V I(A)",         mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_3_3V_Rail_Current,   DOUBLE,  &m_roboRIO_3_3V_Rail_Current     },
+      {ROBORIO_3_3V_RAIL_ENABLED,  "CTL 3.3V ENBLD",        mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_3_3V_Rail_Enabled,   BOOLEAN, &m_roboRIO_3_3V_Rail_IsEnabled   },
+      {ROBORIO_3_3V_RAIL_FLT_CNT,  "CTL 3.3V FAULTS",       mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_3_3V_Rail_Flt_Cnt,   INTEGER, &m_roboRIO_3_3V_Rail_FaultCount  },
+      {ROBORIO_5V_RAIL_VOLTAGE,    "CTL 5V V(V)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_5V_Rail_Voltage,     DOUBLE,  &m_roboRIO_5V_Rail_Voltage       },
+      {ROBORIO_5V_RAIL_CURRENT,    "CTL 5V I(A)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_5V_Rail_Current,     DOUBLE,  &m_roboRIO_5V_Rail_Current       },
+      {ROBORIO_5V_RAIL_ENABLED,    "CTL 5V ENBLD",          mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_5V_Rail_Enabled,     BOOLEAN, &m_roboRIO_5V_Rail_IsEnabled     },
+      {ROBORIO_5V_RAIL_FLT_CNT,    "CTL 5V FAULTS",         mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_5V_Rail_Flt_Cnt,     INTEGER, &m_roboRIO_5V_Rail_FaultCount    },
+      {ROBORIO_6V_RAIL_VOLTAGE,    "CTL 6V V(V)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_6V_Rail_Voltage,     DOUBLE,  &m_roboRIO_6V_Rail_Voltage       },
+      {ROBORIO_6V_RAIL_CURRENT,    "CTL 6V I(A)",           mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_6V_Rail_Current,     DOUBLE,  &m_roboRIO_6V_Rail_Current       },
+      {ROBORIO_6V_RAIL_ENABLED,    "CTL 6V ENBLD",          mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_6V_Rail_Enabled,     BOOLEAN, &m_roboRIO_6V_Rail_IsEnabled     },
+      {ROBORIO_6V_RAIL_FLT_CNT,    "CTL 6V FAULTS",         mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_6V_Rail_Flt_Cnt,     INTEGER, &m_roboRIO_6V_Rail_FaultCount    },
+      {ROBORIO_ISNT_BROWNED_OUT,   "POWER OK",              mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Isnt_BrownedOut,     BOOLEAN, &m_roboRIO_IsNotBrownedOut       },
+      {ROBORIO_IS_SYS_ACTIVE,      "SYS ACTV",              mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_Is_SysActive,        BOOLEAN, &m_roboRIO_IsSysActive           },
+      {ROBORIO_FPGA_VER_REV_BLD,   "FPGA Ver.",             mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_FPGA_Ver_Rev_Bld,    STRING,  &m_roboRIO_FPGA_Ver_Rev_Bld      },
+      {ROBORIO_FPGA_TIME,          "FPGA Time(uS)",         mk_Output,         1,   0, &TelemetryOutputter::GetRoboRIO_FPGA_Time,           UINT64T, &m_roboRIO_FPGA_Time             },
+
+      // Software Version Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {ORION_ROBOTCODE_SW_VER,     "ORION SW Version:",     mk_Output,         1,   0, &TelemetryOutputter::GetORION_RobotCode_SW_Ver,      STRING,  &m_ORION_RobotCode_SW_Version    },
+      {WPILIBC_CODE_SW_VER,        "WPILibC SW Version:",   mk_Output,         1,   0, &TelemetryOutputter::GetWPILibC_Code_SW_Ver,         STRING,  &m_WPILibC_Code_SW_Version       },
+
+      // Attitude and Heading Reference System (AHRS) Information 
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {AHRS_CONNECTION_STATUS,     "AHRS Cnct'd",           mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Connection_Status,      BOOLEAN, &m_AHRS_ConnectionStatus         },
+      {AHRS_CALIBRATION_STATUS,    "AHRS Cal'd",            mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Calibration_Status,     BOOLEAN, &m_AHRS_CalibrationStatus        },
+      {AHRS_PITCH,                 "Pitch",                 mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Pitch,                  DOUBLE,  &m_AHRS_Pitch                    },
+      {AHRS_ROLL,                  "Roll",                  mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Roll,                   DOUBLE,  &m_AHRS_Roll                     },
+      {AHRS_YAW,                   "Yaw",                   mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Yaw,                    DOUBLE,  &m_AHRS_Yaw                      },
+      {AHRS_COMPASS_HDG,           "Compass Hdg",           mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Compass_Hdg,            DOUBLE,  &m_AHRS_CompassHdg               },
+      {AHRS_LIN_ACCL_X,            "Linear X Accel",        mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Lin_Accl_X,             DOUBLE,  &m_AHRS_LinearAccelX             },
+      {AHRS_LIN_ACCL_Y,            "Linear Y Accel",        mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Lin_Accl_Y,             DOUBLE,  &m_AHRS_LinearAccelY             },
+      {AHRS_LIN_ACCL_Z,            "Linear Z Accel",        mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Lin_Accl_Z,             DOUBLE,  &m_AHRS_LinearAccelZ             },
+      {AHRS_MOVING_STATUS,         "Moving",                mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Moving_Status,          BOOLEAN, &m_AHRS_Moving                   },
+      {AHRS_ROTATING_STATUS,       "Rotating",              mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Rotating_Status,        BOOLEAN, &m_AHRS_Rotating                 },
+      {AHRS_FUSED_HDG,             "Fused Hdg",             mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Fused_Heading,          DOUBLE,  &m_AHRS_FusedHdg                 },
+      {AHRS_NO_MAG_DISTURB,        "No Mag Disturb",        mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_No_Mag_Disturb,         BOOLEAN, &m_AHRS_NoMagDisturb             },
+      {AHRS_MGNTMTR_CAL_STATUS,    "Mgntmtr Cal'd",         mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Mgntmtr_Cal_Status,     BOOLEAN, &m_AHRS_MgntmtrCalStatus         },
+      {AHRS_QUAT_W,                "Quat W",                mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_QuatW,                  DOUBLE,  &m_AHRS_QuatW                    },
+      {AHRS_QUAT_X,                "Quat X",                mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_QuatX,                  DOUBLE,  &m_AHRS_QuatX                    },
+      {AHRS_QUAT_Y,                "Quat Y",                mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_QuatY,                  DOUBLE,  &m_AHRS_QuatY                    },
+      {AHRS_QUAT_Z,                "Quat Z",                mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_QuatZ,                  DOUBLE,  &m_AHRS_QuatZ                    },
+      {AHRS_YAW_ANGLE,             "Yaw Angle",             mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Yaw_Angle,              DOUBLE,  &m_AHRS_YawAngle                 },
+      {AHRS_YAW_ANGLE_ADJ,         "Yaw Angle Adj",         mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Yaw_Angle_Adj,          DOUBLE,  &m_AHRS_YawAngleAdj              },
+      {AHRS_ROTATION_RATE,         "Rot. Rate",             mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Rotation_Rate,          DOUBLE,  &m_AHRS_RotRate                  },
+      {AHRS_TEMP_F,                "AHRS Temp.",            mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_Temperature_F,          DOUBLE,  &m_AHRS_Temp_F                   },
+      {AHRS_FW_VER,                "AHRS FW Ver.",          mk_Output,         1,   0, &TelemetryOutputter::GetAHRS_FW_Ver,                 STRING,  &m_AHRS_FWVer                    },
+
+      // Drive Train Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {DRV_TRN_MODE,               "DT Mode",               mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnMode,                  STRING,  &m_DriveTrainModeString          },
+      {DRV_TRN_TURBO_STATE,        "Turbo Status",          mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnTurboState,            STRING,  &m_DriveTrainTurboState          },
+      {DRV_TRN_SMOOTH_STATE,       "Smooth Status",         mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnSmoothState,           STRING,  &m_DriveTrainSmoothingState      },
+      {DRV_TRN_DRV_DIR,            "Drive Front",           mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnDrvDir,                STRING,  &m_drive_dir                     },
+      {DRV_TRN_L_MTR_0_CURRENT,    "LDTM0 C(A)",            mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnLftMtr0Current,        DOUBLE,  &m_LeftDriveTrainMotor0Current   },
+      {DRV_TRN_L_MTR_1_CURRENT,    "LDTM1 C(A)",            mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnLftMtr1Current,        DOUBLE,  &m_LeftDriveTrainMotor1Current   },
+      {DRV_TRN_L_MTRS_CURRENT,     "LDT C(A)",              mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnLftMtrsCurrent,        DOUBLE,  &m_LeftDriveTrainMotorsCurrent   },
+      {DRV_TRN_R_MTR_0_CURRENT,    "RDTM0 C(A)",            mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnRghtMtr0Current,       DOUBLE,  &m_RightDriveTrainMotor0Current  },
+      {DRV_TRN_R_MTR_1_CURRENT,    "RDTM1 C(A)",            mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnRghtMtr1Current,       DOUBLE,  &m_RightDriveTrainMotor1Current  },
+      {DRV_TRN_R_MTRS_CURRENT,     "RDT C(A)",              mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnRghtMtrsCurrent,       DOUBLE,  &m_RightDriveTrainMotorsCurrent  },
+      {DRV_TRN_MOTORS_CURRENT,     "DT C(A)",               mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnMtrsCurrent,           DOUBLE,  &m_DriveTrainMotorsCurrent       },
+
+      // PAT Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {PAT_TURNER_MOTOR_CURRENT,   "PAT C(A)",              mk_Output,         1,   0, &TelemetryOutputter::GetPATMtrCurrent,               DOUBLE,  &m_PDP_PATTurnerMotorCurrent     },
+
+      // Pssh Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {PSSH_MOTOR_CURRENT,         "Pssh C(A)",             mk_Output,         1,   0, &TelemetryOutputter::GetPsshMtrCurrent,              DOUBLE,  &m_PDP_PsshMotorCurrent          },
+      {PSSH_POT_ANGLE,             "Pssh Angle (°)",        mk_Output,         1,   0, &TelemetryOutputter::GetPsshPotAngle,                DOUBLE,  &m_PsshPotAngle                  },
+      {PSSH_STATE,                 "Pssh State",            mk_Output,         1,   0, &TelemetryOutputter::GetPsshState,                   STRING,  &m_Pssh_State                    },
+
+
+      // Hans and Franz Information
+//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
+      {H_F_ARMS_MTR_CURRENT,       "H-F Arms C(A)",         mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsMtrCurrent,            DOUBLE,  &m_PDP_H_F_ArmsMotorCurrent      },
+      {H_F_ARMS_ENABLED,           "Arms Enabled",          mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsEnabled,               BOOLEAN, &m_HansFranzArmsEnabled          },
+      {H_F_MUSCLES_ENABLED,        "Muscles Enabled",       mk_Output,         1,   0, &TelemetryOutputter::GetHFMusclesEnabled,            BOOLEAN, &m_HansFranzMusclesEnabled       },
+      {H_F_ARMS_STATE,             "Arms State",            mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsState,                 STRING,  &m_HansFranzArmsState            },
+      {H_F_MUSCLES_STATE,          "Muscles State",         mk_Output,         1,   0, &TelemetryOutputter::GetHFMusclesState,              STRING,  &m_HansFranzMusclesState         },
+      {H_F_ARMS_RETRACTED,         "Arms Fully Retracted",  mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsRtrctd,                BOOLEAN, &m_HansFranzArmsRetracted        },
+      {H_F_ARMS_EXTENDED,          "Arms Fully Extended",   mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsExtnded,               BOOLEAN, &m_HansFranzArmsExtended         },
+
+
+      {LAST_TELEMETRY_ID,          "",                      mk_DoNOT_Output,   1,   0, NULL,                                                NOTYPE,  NULL                             }
+    
+    }; // end const telemetry_output_type mk_telemetry[LAST_TELEMETRY_ID+1]=
+
+    //////////////////////////// Member functions ///////////////////////////
     /**
      * Method to convert celcius to farenheit.
      *
@@ -792,12 +1104,6 @@ class TelemetryOutputter {
      * @return         The temperature in Farenheit
     */
     double CelsiusToFarenheit(double celcius);
-
-    /** Method to get telemetry */
-    void GetTelemetry();
-
-    /** Method to output telemetry */
-    void OutputTelemetry();
 
     /**
      * Method to get the FPGA major revision # from the FPGA Revision.
@@ -838,12 +1144,263 @@ class TelemetryOutputter {
      * acceptable range
      *
      * @param MeasuredValue The value that we have measured
-     * @param MinValue      The minimum acceptable value
-     * @param MaxValue      The maximum acceptable value
+     * @param AcceptRange   The acceptable range
      *
-     * @return true = Within accepaptable range, false = outside range
+     * @return true = Within acceptable range, false = outside range
     */
-    bool GetIfWithinRange(double MeasuredValue, double MinValue, double MaxValue);
+    bool GetIfWithinRange(double MeasuredValue, 
+                          accept_range_type AcceptRange);
+
+    /**
+     * Method to see if measured value is between the minimum and maximum
+     * acceptable range, with a maximum percent
+     *
+     * @param MeasuredValue The value that we have measured
+     * @param AcceptRange   The acceptable range
+     *
+     * @return true = Within acceptable range, false = outside range
+    */
+    bool GetIfWithinRangeWithMaxPercent(double MeasuredValue, 
+                                        accept_range_type AcceptRange);
+
+    /**
+     * Method to convert a double representing seconds to standard match 
+     * time format. Standard match time format is:
+     * 
+     * m:ss.t
+     * 
+     * where 
+     * m  = minutes (0-9)
+     * ss = seconds (00-59)
+     * t  = tenths of seconds (0-9)
+     * 
+     * @param  seconds_dbl  The seconds in double to convert
+     * 
+     * @return String containing the standard match time format.
+     */ 
+    std::string ConvertDblSecondsToMinutesSecondsTenths(double seconds_dbl);
+
+    /** A method of outputting telemetry */
+    void OutputTelemetry();
+
+    ////////////////////// TELEMETRY GETTER FUNCTIONS //////////////////////////
+
+    // Field Management System (FMS) and Driver Station (DS)
+
+    /** Method to get the alliance color and station #. */
+    void GetAllianceColorStationNumber();
+    /** Method to get the match type and match #. */
+    void GetMatchTypeMatchNumber();
+    /** Method to get the match mode. */
+    void GetMatchMode();
+    /** Method to get the match time */
+    void GetMatchTime();
+    /** Method to get the FMS connection status */
+    void GetFMSStatus();
+    /** Method to get the DS status */
+    void GetDSStatus();
+    /** Method to get the robot state. */
+    void GetRobotStatus();
+
+    // Power distribution panel (PDP) overall information IDs 
+    //   (individual current for channels not shown here)
+
+    /** Method to get the temperature as reported by the PDP */
+    void Get_PDP_Temperature();
+    /** Method to get the temperature status */
+    void Get_PDP_Temperature_Status();
+    /** Method to get the main battery voltage as reported by the PDP */
+    void Get_PDP_Battery_Voltage();
+    /** Method to get the battery voltage status */
+    void Get_PDP_Battery_Voltage_Status();
+    /** Method to get the main battery current as reported by the PDP */
+    void Get_PDP_Battery_Current();
+    /** Method to get the battery current status */
+    void Get_PDP_Battery_Current_Status();
+    /** Method to get the current power output of the battery, 
+     *  as reported by the PDP */
+    void Get_PDP_Battery_Power();
+    /** Method to get the energy output of the battery since last reset, 
+     *  as reported by the PDP */
+    void Get_PDP_Battery_Energy();
+    /** Method to get the battery status */
+    void Get_PDP_Battery_Status();
+
+    // Controller Area Network (CAN) Information
+
+    /** Method to get the current CAN bus utilization */
+    void GetCANUtilization();
+    /** Method to get the maximum CAN bus utilization */
+    void GetMaxCANUtilization();
+    /** Method to get the minimum CAN bus utilization */
+    void GetMinCANUtilization();
+    /** Method to get the count of CAN bus off events */
+    void GetCANBusOffCount();
+    /** Method to get the count of CAN TX full events */
+    void GetCANTXFullCount();
+    /** Method to get the count of CAN RX error events */
+    void GetCANRXErrorCount();
+    /** Method to get the count of CAN TX error events */
+    void GetCANTXErrorCount();
+
+    // RoboRIO Information
+
+    /** Get the roboRIO X axis accelerometer value */
+    void GetRoboRIO_Accel_X_Axis();
+    /** Get the roboRIO Y axis accelerometer value */
+    void GetRoboRIO_Accel_Y_Axis();
+    /** Get the roboRIO Z axis accelerometer value */
+    void GetRoboRIO_Accel_Z_Axis();
+    /** Get the roboRIO input voltage*/
+    void GetRoboRIO_Input_Voltage();
+    /** Get the roboRIO input current */
+    void GetRoboRIO_Input_Current();
+    /** Get the roboRIO input power */
+    void GetRoboRIO_Input_Power();
+    /** Get the roboRIO 3.3V rail voltage */
+    void GetRoboRIO_3_3V_Rail_Voltage();
+    /** Get the roboRIO 3.3V rail current */
+    void GetRoboRIO_3_3V_Rail_Current();
+    /** Get the roboRIO 3.3V rail enabled status */
+    void GetRoboRIO_3_3V_Rail_Enabled();
+    /** Get the roboRIO 3.3V rail fault count */
+    void GetRoboRIO_3_3V_Rail_Flt_Cnt();
+    /** Get the roboRIO 5V rail voltage */
+    void GetRoboRIO_5V_Rail_Voltage();
+    /** Get the roboRIO 5V rail current */
+    void GetRoboRIO_5V_Rail_Current();
+    /** Get the roboRIO 5V rail enabled status */
+    void GetRoboRIO_5V_Rail_Enabled();
+    /** Get the roboRIO 5V rail fault count */
+    void GetRoboRIO_5V_Rail_Flt_Cnt();
+    /** Get the roboRIO 6V rail voltage */
+    void GetRoboRIO_6V_Rail_Voltage();
+    /** Get the roboRIO 6V rail current */
+    void GetRoboRIO_6V_Rail_Current();
+    /** Get the roboRIO 6V rail enabled status */
+    void GetRoboRIO_6V_Rail_Enabled();
+    /** Get the roboRIO 6V rail fault count */
+    void GetRoboRIO_6V_Rail_Flt_Cnt();
+    /** Get the roboRIO Isn't browned out status */
+    void GetRoboRIO_Isnt_BrownedOut();
+    /** Get the roboRIO is system active status */
+    void GetRoboRIO_Is_SysActive();
+    /** Get the roboRIO FPGA's version, revision, and build */
+    void GetRoboRIO_FPGA_Ver_Rev_Bld();
+    /** Get the roboRIO FPGA time */
+    void GetRoboRIO_FPGA_Time();
+
+    // Software Version Information
+
+    /** Get the software version of the ORiON RobotCode */
+    void GetORION_RobotCode_SW_Ver();
+    /** Get the software version of the WPILibC code used */
+    void GetWPILibC_Code_SW_Ver();
+
+    // Attitude and Heading Reference System (AHRS) Information
+
+    /** Get the AHRS connection status */
+    void GetAHRS_Connection_Status();
+    /** Get the AHRS calibration status */
+    void GetAHRS_Calibration_Status();
+    /** Get the AHRS pitch */
+    void GetAHRS_Pitch();
+    /** Get the AHRS roll */
+    void GetAHRS_Roll();
+    /** Get the AHRS yaw */
+    void GetAHRS_Yaw();
+    /** Get the AHRS compass heading */
+    void GetAHRS_Compass_Hdg();
+    /** Get the AHRS linear acceleration on the X axis */
+    void GetAHRS_Lin_Accl_X();
+    /** Get the AHRS linear acceleration on the Y axis */
+    void GetAHRS_Lin_Accl_Y();
+    /** Get the AHRS linear acceleration on the Z axis */
+    void GetAHRS_Lin_Accl_Z();
+    /** Get the AHRS movement status */
+    void GetAHRS_Moving_Status();
+    /** Get the AHRS rotation status */
+    void GetAHRS_Rotating_Status();
+    /** Get the AHRS fused heading */
+    void GetAHRS_Fused_Heading();
+    /** Get the AHRS No Magnetic Disturbance status */
+    void GetAHRS_No_Mag_Disturb();
+    /** Get the AHRS magnetometer calibration status */
+    void GetAHRS_Mgntmtr_Cal_Status();
+    /** Get the AHRS Quaternion W */
+    void GetAHRS_QuatW();
+    /** Get the AHRS Quaternion X */
+    void GetAHRS_QuatX();
+    /** Get the AHRS Quaternion Y */
+    void GetAHRS_QuatY();
+    /** Get the AHRS Quaternion Z */
+    void GetAHRS_QuatZ();
+    /** Get the AHRS yaw angle */
+    void GetAHRS_Yaw_Angle();
+    /** Get the AHRS yaw angle adjustment */
+    void GetAHRS_Yaw_Angle_Adj();
+    /** Get the AHRS rotation rate */
+    void GetAHRS_Rotation_Rate();
+    /** Get the AHRS temperature in Farenheit */
+    void GetAHRS_Temperature_F();
+    /** Get the AHRS firmware version */
+    void GetAHRS_FW_Ver();
+
+    // Drive Train Information
+
+    /** Get the drive train mode */
+    void GetDrvTrnMode();
+    /** Get the drive train turbo state */
+    void GetDrvTrnTurboState();
+    /** Get the drive train smooting state */
+    void GetDrvTrnSmoothState();
+    /** Get the drive train driving direction */
+    void GetDrvTrnDrvDir();
+    /** Get the drive train left motor #0 current */
+    void GetDrvTrnLftMtr0Current();
+    /** Get the drive train left motor #1 current */
+    void GetDrvTrnLftMtr1Current();
+    /** Get the drive train left motors current */
+    void GetDrvTrnLftMtrsCurrent();
+    /** Get the drive train right motor #0 current */
+    void GetDrvTrnRghtMtr0Current();
+    /** Get the drive train right motor #1 current */
+    void GetDrvTrnRghtMtr1Current();
+    /** Get the drive train right motors current */
+    void GetDrvTrnRghtMtrsCurrent();
+    /** Get the drive train motors current */
+    void GetDrvTrnMtrsCurrent();
+
+    // PAT Information
+
+    /** Get the PAT motor current */
+    void GetPATMtrCurrent();
+
+    // Pssh Information
+
+    /** Get the Pssh motor current */
+    void GetPsshMtrCurrent();
+    /** Get the Pssh potentiometer angle */
+    void GetPsshPotAngle();
+    /** Get the Pssh state */
+    void GetPsshState();
+
+    // Hans and Franz Information
+
+    /** Get the Hans/Franz Arms motor current */
+    void GetHFArmsMtrCurrent();
+    /** Get the Hans/Franz Arms enabled status */
+    void GetHFArmsEnabled();
+    /** Get the Hans/Franz Muscles enabled status */
+    void GetHFMusclesEnabled();
+    /** Get the Hans/Franz Arms state */
+    void GetHFArmsState();
+    /** Get the Hans/Franz Muscles state */
+    void GetHFMusclesState();
+    /** Get the Hans/Franz Arms retracted state */
+    void GetHFArmsRtrctd();
+    /** Get the Hans/Franz Arms extended state */
+    void GetHFArmsExtnded();
 
 }; // end class TelemetryOutputter
 

@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -41,19 +41,18 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdTurnWoFCW class
-CmdTurnWoFCW::CmdTurnWoFCW() {
+// The constructor for the CmdTurnWoFCW class
+CmdTurnWoFCW::CmdTurnWoFCW(SubSysPATTurner* subsystem, 
+                           frc::Joystick* joystick) 
+  : m_subSysPATTurner(subsystem), m_joystick(joystick) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdTurnWoFCW");
 
   // Require the use of the PAT Turner subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysPATTurner.get());
+  AddRequirements({subsystem});
 
-} // end CmdTurnWoFCW::CmdTurnWoFCW()
+} // end CmdTurnWoFCW::CmdTurnWoFCW(SubSysPATTurner* subsystem)...
 
 // The destructor for the CmdTurnWoFCW class
 CmdTurnWoFCW::~CmdTurnWoFCW() {
@@ -68,21 +67,15 @@ void CmdTurnWoFCW::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdTurnWoFCW::Execute() {
 
-  // Declare a pointer to a joystick
-  frc::Joystick* joystick;
-
   // Declare raw output axis
   double raw_axis;
 
-  // Get the pointer to the OI's secondary joystick
-  joystick = Robot::m_oi->getSecondaryJoystick();
-
   // Get the raw axis output from the 2nd joystick left trigger y axis
-  raw_axis = joystick->GetRawAxis(k_F310_leftTrigger_Y_axis);
+  raw_axis = m_joystick->GetRawAxis(k_F310_leftTrigger_Y_axis);
 
-  // Control PAT Turner using the raw axis, as we are filtering in the 
-  // subsystem
-  Robot::m_subSysPATTurner->TurnWoF(raw_axis);
+  // Send the controller the raw speed as we are filtering in
+  // the subsystem
+  m_subSysPATTurner->TurnWoF(raw_axis);
 
 } // end CmdTurnWoFCW::Execute()
 
@@ -94,21 +87,12 @@ bool CmdTurnWoFCW::IsFinished() {
 
 } // end CmdTurnWoFCW::IsFinished()
 
-// Called once after isFinished returns true
-void CmdTurnWoFCW::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdTurnWoFCW::End(bool interrupted) {
 
   // With IsFinished() always returning false, this should never
-  //   run. But just in case, this stops Capt. Hook.
-  Robot::m_subSysPATTurner->TurnWoF(k_MotorStopSpeed);
+  //   run. But just in case, this stops PAT Turner
+  m_subSysPATTurner->TurnWoF(k_MotorStopSpeed);
 
 } // end CmdTurnWoFCW::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdTurnWoFCW::Interrupted() {
-
-  // This should only run when we switch between turning the WoF clockwise and
-  // then turning the WoF counterclockwise
-  Robot::m_subSysPATTurner->TurnWoF(k_MotorStopSpeed);
-
-} // end CmdTurnWoFCW::Interrupted()

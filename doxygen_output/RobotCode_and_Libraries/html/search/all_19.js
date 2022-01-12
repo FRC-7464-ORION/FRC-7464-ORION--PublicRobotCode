@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['y',['Y',['../classfrc_1_1_translation2d.html#a6cf391feb31627ca0b90f5e5ba520be6',1,'frc::Translation2d']]],
-  ['yprupdate',['YPRUpdate',['../struct_i_m_u_protocol_1_1_y_p_r_update.html',1,'IMUProtocol']]]
+  ['zero',['ZERO',['../class_sub_sys_hans_franz_arms.html#a0ecb3a91b56e67dc717661f23833e5a3a32fb923c2007df24df42b0ec352b4774',1,'SubSysHansFranzArms']]],
+  ['zeroyaw',['ZeroYaw',['../class_a_h_r_s.html#ad1a4108e35040d8f2ab2c68e79947264',1,'AHRS']]]
 ];

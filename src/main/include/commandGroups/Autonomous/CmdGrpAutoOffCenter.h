@@ -34,27 +34,47 @@
 
 /*************************** Local Header Files *******************************/
 
+// Include the header file for the drive train subsystem
+#include "subsystems/SubSysDriveTrain.h"
+
+// The header for the NavX MXP AHRS
+#include "AHRS.h"
+
 /************************** Library Header Files ******************************/
 
-// Include the header file for the CommandGroup class
-#include <frc/commands/CommandGroup.h>
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
+
+// Include the header file for the NEW(2020) sequential command group class
+#include <frc2/command/SequentialCommandGroup.h>
 
 /** ****************************************************************************
  * @class   CmdGrpAutoOffCenter
  * @brief   This is a class that defines a group of commands that is used to
- *            control the robot autonomously.
+ *            control the robot autonomously, running offense from the center
+ *            position.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdGrpAutoOffCenter : public frc::CommandGroup {
+
+class CmdGrpAutoOffCenter 
+  : public frc2::CommandHelper<frc2::SequentialCommandGroup, 
+                               CmdGrpAutoOffCenter> {
 
   public:
 
-    /** The CmdGrpAutoOffCenter class default constructor. */
-    CmdGrpAutoOffCenter();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
 
-    /** The CmdGrpAutoOffCenter class destructor. */
-    ~CmdGrpAutoOffCenter();
+    /** 
+     * The CmdGrpAutoOffCenter class constructor.
+     *
+     * @param drivetrain    The drivetrain subsystem
+     * @param ahrs          The AHRS
+     */
+    CmdGrpAutoOffCenter(
+      SubSysDriveTrain* drivetrain,
+      AHRS* ahrs);
 
+  // NOTE: FOR SOME REASON CANNOT CREATE A DESTRUCTOR
 
 }; // end class CmdGrpAutoOffCenter
 

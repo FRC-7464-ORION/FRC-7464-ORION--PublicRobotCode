@@ -36,6 +36,10 @@
 // Include the header file for turning autonomously
 #include "commands/DriveTrain/CmdAutoTurnAngle.h"
 
+// Include the header files for disabling/enabling smoothing mode
+#include "commands/DriveTrain/CmdDisableSmoothingMode.h"
+#include "commands/DriveTrain/CmdEnableSmoothingMode.h"
+
 // Include the header file for the CmdWaitSeconds class
 #include "commands/Generic/CmdWaitSeconds.h"
 
@@ -43,49 +47,42 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdAutoDriveStraight class
-CmdGrpAutoDefault::CmdGrpAutoDefault() {
+// The constructor for the CmdAutoDriveStraight class
+CmdGrpAutoDefault::CmdGrpAutoDefault(
+    SubSysDriveTrain* drivetrain,
+    AHRS* ahrs) {
 
-  // TODO: Should we use pointers to commands, intialize them with new,
-  //       use the pointers in AddSequential, AddParallel, etc., then
-  //       delete the instances using the pointers?
-  //       See https://www.chiefdelphi.com/t/can-the-old-commandgroup-framework-cause-memory-leaks/375847
+  // Set the name
+  SetName("CmdGrpAutoDefault");
 
-  // Drive straight forward 1/2 second at 20%
-  AddSequential(new CmdAutoDriveStraight(
-    0.20,
-    CmdAutoDriveStraight::SECONDS,
-    CmdAutoDriveStraight::FORWARD,
-    0.50   
-  ));
+  // Add commands to be sequentially ran...
+  AddCommands(
 
-  // Wait 1 second 
-  AddSequential(new CmdWaitSeconds(2.0));
+    // Disable smoothing mode
+    CmdDisableSmoothingMode(drivetrain),
 
-  // Drive straight back 1/2 second at 20%
-  AddSequential(new CmdAutoDriveStraight(
-    0.20,
-    CmdAutoDriveStraight::SECONDS,
-    CmdAutoDriveStraight::REVERSE,
-    0.50    
-  ));
+    // Drive straight forward 5.0 seconds at 10%
+    CmdAutoDriveStraight(
+      drivetrain,
+      0.10,
+      CmdAutoDriveStraight::SECONDS,
+      CmdAutoDriveStraight::FORWARD,
+      5.0),
 
-  // Wait 1 second 
-  AddSequential(new CmdWaitSeconds(2.0));
+    // Wait 5.0 seconds
+    CmdWaitSeconds(5.0),
 
-  // Turn at 40% speed 45 degrees to the right
-  AddSequential(new CmdAutoTurnAngle(0.30, 45.0));
+    // Drive straight reverse 5.0 seconds at 10%
+    CmdAutoDriveStraight(
+      drivetrain,
+      0.10,
+      CmdAutoDriveStraight::SECONDS,
+      CmdAutoDriveStraight::REVERSE,
+      5.0),
 
-  // Wait 1 second 
-  AddSequential(new CmdWaitSeconds(2.0));
+    // Enable smoothing mode
+    CmdEnableSmoothingMode(drivetrain)
 
-  // Turn at 40% speed 45 degrees to the left
-  AddSequential(new CmdAutoTurnAngle(0.30, -45.0));
+  );
 
-} // end CmdGrpAutoDefault::CmdGrpAutoDefault()
-
-// The destructor for the CmdGrpAutoDefault class
-CmdGrpAutoDefault::~CmdGrpAutoDefault() {
-
-
-} // end CmdGrpAutoDefault::~CmdGrpAutoDefault()
+} // end CmdGrpAutoDefault::CmdGrpAutoDefault(...)

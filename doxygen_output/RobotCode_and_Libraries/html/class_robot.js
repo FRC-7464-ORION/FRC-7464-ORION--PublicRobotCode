@@ -7,12 +7,12 @@ var class_robot =
     [ "outputVersionInfoToConsole", "class_robot.html#aa57673b5f70b0f121ccba3f89808d6e1", null ],
     [ "RobotInit", "class_robot.html#a66f23dae271748d525cf3ab046375f79", null ],
     [ "RobotPeriodic", "class_robot.html#a8fad82c2250bcfb83b743b5c0dd6ed27", null ],
+    [ "SimulationInit", "class_robot.html#a0ec3407013454a8017474d0beb756ac8", null ],
+    [ "SimulationPeriodic", "class_robot.html#a210b114f375fd78f0abd2c69b0e721a2", null ],
     [ "TeleopInit", "class_robot.html#aa3e246794bfbbb4406fc87f351762038", null ],
     [ "TeleopPeriodic", "class_robot.html#a324322627c63b3870daf7c7ddc5bea63", null ],
     [ "TestPeriodic", "class_robot.html#af0ac44a962e609e9b042285e699d1db8", null ],
-    [ "autonomous_chooser", "class_robot.html#a9fa2549ac0340ca3e5d1eff0e31c3fc3", null ],
-    [ "autonomousCommand", "class_robot.html#a39a1ad6a474b91e0ce7f1ebca31314c9", null ],
+    [ "m_autonomousCommand", "class_robot.html#a393c04c962bc37c3f64a31c2cf8c1a18", null ],
     [ "m_RobotCode_version_msg", "class_robot.html#a40f89b52c7fe922fbf7c39f86d283fc8", null ],
-    [ "m_telemetry_debug_msg", "class_robot.html#a232b798be894fd546baf5b678bd31cf9", null ],
-    [ "m_version", "class_robot.html#a736163922970d430a03c6e4778eb02a3", null ]
+    [ "m_RobotContainer", "class_robot.html#a98bf1b7b73cdee15f9d092fef140bfaf", null ]
 ];

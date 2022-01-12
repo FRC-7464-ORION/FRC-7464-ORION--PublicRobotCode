@@ -10,7 +10,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -42,19 +42,18 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdEnableTurboMode class
-CmdEnableTurboMode::CmdEnableTurboMode() {
+// The constructor for the CmdEnableTurboMode class
+CmdEnableTurboMode::CmdEnableTurboMode(
+  SubSysDriveTrain* subsystem)
+  : m_subSysDriveTrain(subsystem){
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdEnableTurboMode");
 
   // Require the use of the drive train subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysDriveTrain.get());
+  AddRequirements({subsystem});
 
-} // end CmdEnableTurboMode::CmdEnableTurboMode()
+} // end CmdEnableTurboMode::CmdEnableTurboMode(...)
 
 // The destructor for the CmdEnableTurboMode class
 CmdEnableTurboMode::~CmdEnableTurboMode() {
@@ -65,7 +64,7 @@ CmdEnableTurboMode::~CmdEnableTurboMode() {
 void CmdEnableTurboMode::Initialize() {
 
   // Turn on turbo mode
-  Robot::m_subSysDriveTrain->SetTurboModeOn();
+  m_subSysDriveTrain->SetTurboModeOn();
 
 } // end CmdEnableTurboMode::Initialize()
 
@@ -85,18 +84,10 @@ bool CmdEnableTurboMode::IsFinished() {
 
 } // end CmdEnableTurboMode::IsFinished()
 
-// Called once after isFinished returns true
-void CmdEnableTurboMode::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdEnableTurboMode::End(bool interrupted) {
 
   // No need to do anything here
 
 } // end CmdEnableTurboMode::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdEnableTurboMode::Interrupted() {
-
-  // Run the same method as End()
-  CmdEnableTurboMode::End();
-
-} // end CmdEnableTurboMode::Interrupted()

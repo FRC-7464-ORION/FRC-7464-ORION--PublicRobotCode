@@ -3,13 +3,13 @@
  * @brief  This file defines the CmdMoveHansFranzArms class.
  *
  * The CmdMoveHansFranzArms class is used to control the movement of the robot
- * using a differential drive in arcade mode.
+ * Hans and Franz arms.
  *
  * COPYRIGHT NOTICES:
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -44,17 +44,16 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdMoveHansFranzArms class
-CmdMoveHansFranzArms::CmdMoveHansFranzArms() {
+// The constructor for the CmdMoveHansFranzArms class
+CmdMoveHansFranzArms::CmdMoveHansFranzArms(SubSysHansFranzArms* subsystem,
+                                           frc::Joystick* joystick)
+  : m_subSysHansFranzArms(subsystem), m_joystick(joystick) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdMoveHansFranzArms");
 
-  // Require the use of the Hans and Franz subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysHansFranzArms.get());
+  // Require the use of the Hans and Franz arm subsystem
+  AddRequirements({subsystem});
 
 } // end CmdMoveHansFranzArms::CmdMoveHansFranzArms()
 
@@ -71,9 +70,6 @@ void CmdMoveHansFranzArms::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdMoveHansFranzArms::Execute() {
 
-  // Declare a pointer to a joystick
-  frc::Joystick* joystick;
-
   // Declare raw axis output
   double raw_axis;
 
@@ -83,11 +79,8 @@ void CmdMoveHansFranzArms::Execute() {
   // Declare corrected axes for motor speed
   double corrected_axis_motor_speed;
 
-  // Get the pointer to the OI's secondary joystick
-  joystick = Robot::m_oi->getSecondaryJoystick();
-
   // Get the raw axis output from the right thumbstick y axis
-  raw_axis = joystick->GetRawAxis(k_F310_rightThumbstick_Y_axis);
+  raw_axis = m_joystick->GetRawAxis(k_F310_rightThumbstick_Y_axis);
 
   // Invert the axis so we go the expected forward/back direction
   inv_axis = Correct_Y_Axis_Inversion(raw_axis);
@@ -96,12 +89,12 @@ void CmdMoveHansFranzArms::Execute() {
   //   control at low speeds
   corrected_axis_motor_speed =
     NullDesensLimit(inv_axis,
-                    Robot::m_subSysHansFranzArms->GetHansFranzArmsNullZone(),
-                    Robot::m_subSysHansFranzArms->GetHansFranzArmsLimit(),
-                    Robot::m_subSysHansFranzArms->GetHansFranzArmsExponent());
+                    m_subSysHansFranzArms->GetHansFranzArmsNullZone(),
+                    m_subSysHansFranzArms->GetHansFranzArmsLimit(),
+                    m_subSysHansFranzArms->GetHansFranzArmsExponent());
 
-  // Drive arcade style using the corrected joystick inputs
-  Robot::m_subSysHansFranzArms->MoveHansFranzArms(
+  // Move the arms using the corrected joystick input
+  m_subSysHansFranzArms->MoveHansFranzArms(
     corrected_axis_motor_speed
   );
 
@@ -115,20 +108,12 @@ bool CmdMoveHansFranzArms::IsFinished() {
 
 } // end CmdMoveHansFranzArms::IsFinished()
 
-// Called once after isFinished returns true
-void CmdMoveHansFranzArms::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdMoveHansFranzArms::End(bool interrupted) {
 
   // With IsFinished() always returning false, this should never
   //   run. But just in case, this stops the drive train.
-  Robot::m_subSysHansFranzArms->MoveHansFranzArms(k_MotorStopSpeed);
+  m_subSysHansFranzArms->MoveHansFranzArms(k_MotorStopSpeed);
 
 } // end CmdMoveHansFranzArms::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdMoveHansFranzArms::Interrupted() {
-
-  // We should never be interrupted, but just in case
-  Robot::m_subSysHansFranzArms->MoveHansFranzArms(k_MotorStopSpeed);
-
-} // end CmdMoveHansFranzArms::Interrupted()

@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -36,8 +36,8 @@
 
 /************************** Library Header Files ******************************/
 
-// Include the subsystem class header file
-#include <frc/commands/Subsystem.h>
+// Include the NEW(2020) subsystem base class header file
+#include <frc2/command/SubsystemBase.h>
 
 // Include the PWMVictorSPX header file, for the motor controllers
 #include <frc/PWMVictorSPX.h>
@@ -56,9 +56,11 @@
  * @brief   This class declares the arms for the lifting mechanism subsystem.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class SubSysHansFranzArms : public frc::Subsystem {
+class SubSysHansFranzArms : public frc2::SubsystemBase {
 
   public:
+
+    /************************** PUBLIC ENUMERATIONS ***************************/
 
     /** An enumeration of states that Hans/Franz arms can have */ 
     enum HansFranzArmsStates
@@ -92,21 +94,13 @@ class SubSysHansFranzArms : public frc::Subsystem {
       POSITIVE
     };
 
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
+
     /** The default constructor for the SubSysHansFranzArms class */
     SubSysHansFranzArms();
 
     /** The default destructor for the SubSysHansFranzArms class */
     ~SubSysHansFranzArms();
-
-    /**
-     * Initialize the default command for this subsystem.
-     *
-     * This is meant to be the place to call SetDefaultCommand in a subsystem
-     * and will be called on all the subsystems by the CommandBase method 
-     * before the program starts running by using the list of all registered
-     * Subsystems inside the Scheduler.
-    */
-    void InitDefaultCommand() override;
 
     /** The periodic method for PATTurner */
     void Periodic() override;
@@ -177,40 +171,7 @@ class SubSysHansFranzArms : public frc::Subsystem {
     // It's desirable that everything possible under private except
     // for methods that implement subsystem capabilities
 
-    /***************************** Private Members ****************************/
-
-    /** A pointer to Hans and Franz arms' motor(speed) controller */
-    std::shared_ptr<frc::PWMVictorSPX> m_HansFranzArmsController;
-
-    /** A boolean to indicate that Hans and Franz arms are enabled */
-    bool m_HansFranzArmsEnabled;
-
-    /** A string to hold the state of Hans' and Franz's arms for 
-     * the SmartDashboard */
-    std::string m_HansFranzArmsSmartDashboardState;
-
-    /** The state of Hans/Franz arms */
-    HansFranzArmsStates m_HansFranzArmsState;
-
-    /** Boolean to indicate positive (up) speeds are allowed */
-    bool m_PositiveSpeedUpAllowed;
-
-    /** Boolean to indicate negative (down) speeds are allowed */
-    bool m_NegativeSpeedDownAllowed;
-
-    /** The limit switch that is tripped when the arms are fully retracted */
-    frc::DigitalInput* m_HansFranzArms_FullyRetracted_LimitSwitch;
-
-    /** The limit switch that is tripped when the arms are fully extended */
-    frc::DigitalInput* m_HansFranzArms_FullyExtended_LimitSwitch;
-
-    /** The counter used in monitoring the fully retracted limit switch*/
-    frc::Counter* m_HansFranzArms_FullyRetracted_Counter;
-
-    /** The counter used in monitoring the fully extended limit switch*/
-    frc::Counter* m_HansFranzArms_FullyExtended_Counter;
-
-    /***************************** Private Methods ****************************/
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
 
     /** Method to reset the counter for Hans/Franz fully retracted */
     void ResetHansFranzArmsFullyRetractedCounter();
@@ -243,6 +204,39 @@ class SubSysHansFranzArms : public frc::Subsystem {
      * @param speed The speed from the joystick
     */ 
     MotorSpeedDirTypes GetMotorSpeedDir(double speed);
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
+
+    /** The Hans and Franz arms' motor(speed) controller */
+    frc::PWMVictorSPX m_HansFranzArmsController;
+
+    /** A boolean to indicate that Hans and Franz arms are enabled */
+    bool m_HansFranzArmsEnabled;
+
+    /** A string to hold the state of Hans' and Franz's arms for 
+     * the SmartDashboard */
+    std::string m_HansFranzArmsSmartDashboardState;
+
+    /** The state of Hans/Franz arms */
+    HansFranzArmsStates m_HansFranzArmsState;
+
+    /** Boolean to indicate positive (up) speeds are allowed */
+    bool m_PositiveSpeedUpAllowed;
+
+    /** Boolean to indicate negative (down) speeds are allowed */
+    bool m_NegativeSpeedDownAllowed;
+
+    /** The limit switch that is tripped when the arms are fully retracted */
+    frc::DigitalInput* m_HansFranzArms_FullyRetracted_LimitSwitch;
+
+    /** The limit switch that is tripped when the arms are fully extended */
+    frc::DigitalInput* m_HansFranzArms_FullyExtended_LimitSwitch;
+
+    /** The counter used in monitoring the fully retracted limit switch*/
+    frc::Counter* m_HansFranzArms_FullyRetracted_Counter;
+
+    /** The counter used in monitoring the fully extended limit switch*/
+    frc::Counter* m_HansFranzArms_FullyExtended_Counter;
 
 }; // end class SubSysHansFranzArms
 

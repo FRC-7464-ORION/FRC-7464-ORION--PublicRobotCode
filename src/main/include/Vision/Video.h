@@ -61,9 +61,6 @@ class Video
 
     };
 
-    /*********************** Public member variables **************************/
-
-
     /************************ Public Method Prototypes ************************/
 
     /** The constructor for the Video class */

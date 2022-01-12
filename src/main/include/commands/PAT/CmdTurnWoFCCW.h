@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -40,8 +40,14 @@
 
 /************************** Library Header Files ******************************/
 
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
+// Include the header file for the NEW(2020) Command base class
+#include <frc2/command/CommandBase.h>
+
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
+
+// For the joystick
+#include <frc/Joystick.h>
 
 /** ****************************************************************************
  * @class   CmdTurnWoFCCW
@@ -49,12 +55,21 @@
  *            to turn the Wheel of Fortune (WoF) counter-clockwise (CCW).
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdTurnWoFCCW : public frc::Command {
+class CmdTurnWoFCCW 
+  : public frc2::CommandHelper<frc2::CommandBase, CmdTurnWoFCCW> {
  
   public:
 
-    /** The CmdTurnWoFCCW class default constructor. */
-    CmdTurnWoFCCW();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
+
+    /** 
+     * The CmdTurnWoFCCW class constructor.
+     *  
+     * @param subsystem The subsystem used by this command
+     * @param joystick  The joystick used by this command
+     */
+    explicit CmdTurnWoFCCW(SubSysPATTurner* subsystem,
+                           frc::Joystick* joystick);
 
     /** The CmdTurnWoFCCW class destructor. */
     ~CmdTurnWoFCCW();
@@ -89,30 +104,27 @@ class CmdTurnWoFCCW : public frc::Command {
     bool IsFinished() override;
 
     /**
-     * Called when the command ended peacefully.
+     * Called when either the command finishes normally, or when it is
+     * interrupted/canceled.
      *
      * This is where you may want to wrap up loose ends, like shutting off
      * a motor that was being used in the command.
      *
-     * Reimplemented in frc::CommandGroup.
+     * @param interrupted false = not interrupted, true = interrupted
     */
-    void End() override;
-
-    /**
-     * Called when the command ends because somebody called Cancel() or another
-     * command shared the same requirements as this one, and booted it out.
-     *
-     * This is where you may want to wrap up loose ends, like shutting off a
-     * motor that was being used in the command.
-     *
-     * Generally, it is useful to simply call the End() method within this
-     * method, as done here.
-     *
-     * Reimplemented in frc::CommandGroup.
-    */
-    void Interrupted() override;
+    void End(bool interrupted) override;
 
   private:
+
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
+
+    /** A pointer to a PAT Turner subsystem */
+    SubSysPATTurner* m_subSysPATTurner;
+
+    /** A pointer to the joystick used to turn WoF CCW */
+    frc::Joystick* m_joystick;
 
 }; // end class CmdTurnWoFCCW
 

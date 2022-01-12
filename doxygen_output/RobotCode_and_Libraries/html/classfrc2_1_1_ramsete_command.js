@@ -1,0 +1,25 @@
+var classfrc2_1_1_ramsete_command =
+[
+    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a57682fbc0814cc1381454266f4bc81fb", null ],
+    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#acb08f1e405db107c07843ba3331c2185", null ],
+    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a7ee696e55947aa6efb75418c55e90444", null ],
+    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a2419920a30173536ae85fdf65fcd9a69", null ],
+    [ "End", "classfrc2_1_1_ramsete_command.html#aebeca9ae24851f6f40b09a52cfde4dda", null ],
+    [ "Execute", "classfrc2_1_1_ramsete_command.html#a139f7d58ef0a0116b74305be33655886", null ],
+    [ "Initialize", "classfrc2_1_1_ramsete_command.html#aa323e61cb00bdd4c5f6bf094866487d6", null ],
+    [ "IsFinished", "classfrc2_1_1_ramsete_command.html#a7f074f5bcffe4ae499f9e4e7825c71ff", null ],
+    [ "m_controller", "classfrc2_1_1_ramsete_command.html#a3a4cebced82576fe3ac1bcb7bb27b096", null ],
+    [ "m_feedforward", "classfrc2_1_1_ramsete_command.html#ac498c98f43a0096ec171010a39f20100", null ],
+    [ "m_kinematics", "classfrc2_1_1_ramsete_command.html#ab10110bec1c57585f558cfe5cdac9793", null ],
+    [ "m_leftController", "classfrc2_1_1_ramsete_command.html#a7e947b9d72f10fe00e00447e0987dcda", null ],
+    [ "m_outputVel", "classfrc2_1_1_ramsete_command.html#ac94b1db953f0e1c44288399a8fd606c4", null ],
+    [ "m_outputVolts", "classfrc2_1_1_ramsete_command.html#a7a67f47ecee1b6cd7a13899e7d8c5c01", null ],
+    [ "m_pose", "classfrc2_1_1_ramsete_command.html#a6d9e31ebf1247c3d771256486474b9ef", null ],
+    [ "m_prevSpeeds", "classfrc2_1_1_ramsete_command.html#a5d3c8f886a81145fede377a7419bdf04", null ],
+    [ "m_prevTime", "classfrc2_1_1_ramsete_command.html#a5c9ed075ead12e1bfc78a9c8131763f4", null ],
+    [ "m_rightController", "classfrc2_1_1_ramsete_command.html#aa5bd814159967d4a35898ca1605c364b", null ],
+    [ "m_speeds", "classfrc2_1_1_ramsete_command.html#aac46f7b51733946d6ad6a68f04bf4c0d", null ],
+    [ "m_timer", "classfrc2_1_1_ramsete_command.html#a9f1c4223033fa51ec876b058e2d9145b", null ],
+    [ "m_trajectory", "classfrc2_1_1_ramsete_command.html#a4dbf644829efc0095df41b76c6aabfb4", null ],
+    [ "m_usePID", "classfrc2_1_1_ramsete_command.html#abae438a745c7316f5135716bfc5e7d20", null ]
+];

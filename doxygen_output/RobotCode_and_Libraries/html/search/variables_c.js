@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['wait_5ftime_5fexceeded',['wait_time_exceeded',['../class_cmd_wait_seconds.html#a4b5467e09044d454eeb27a38b26ea81d',1,'CmdWaitSeconds']]],
-  ['wait_5ftime_5fseconds',['wait_time_seconds',['../class_cmd_wait_seconds.html#ab09201c37582f3668f04b20aa20f7743',1,'CmdWaitSeconds']]]
+  ['value',['value',['../struct_telemetry_outputter_1_1telemetry__output__type.html#a6729f18d938659082938fba86d713ed8',1,'TelemetryOutputter::telemetry_output_type']]],
+  ['vx',['vx',['../structfrc_1_1_chassis_speeds.html#a01659f3eea6569ee27d4db843d6f5be5',1,'frc::ChassisSpeeds']]],
+  ['vy',['vy',['../structfrc_1_1_chassis_speeds.html#a1b2ecdc4d2884220274eed58c67fd9dc',1,'frc::ChassisSpeeds']]]
 ];

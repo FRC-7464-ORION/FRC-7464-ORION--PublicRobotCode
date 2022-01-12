@@ -25,7 +25,7 @@
 
 /*************************** Local Header Files *******************************/
 
-// Include the header file for the cmdDriveArcadeStyle class
+// Include the header file for the cmdDriveTankStyle class
 #include "commands/DriveTrain/CmdDriveTankStyle.h"
 
 // Include the header file for HID utility functions
@@ -36,23 +36,25 @@
 
 /************************** Library Header Files ******************************/
 
+// Include the I/O stream class, so we can write to the console
+#include <iostream>
+
 /************************ Member function definitions *************************/
 
-// The default constructor for the cmdDriveTankStyle class
-CmdDriveTankStyle::CmdDriveTankStyle() {
+// The constructor for the CmdDriveTankStyle class
+CmdDriveTankStyle::CmdDriveTankStyle(
+  SubSysDriveTrain* subsystem, frc::Joystick* joystick)
+  : m_subSysDriveTrain(subsystem), m_joystick(joystick) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdDriveTankStyle");
 
   // Require the use of the drive train subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysDriveTrain.get());
+  AddRequirements({subsystem});
 
-} // end CmdDriveTankStyle::CmdDriveTankStyle()
+} // end CmdDriveTankStyle::CmdDriveTankStyle(...)
 
-// The destructor for the cmdDriveTankStyle class
+// The destructor for the CmdDriveTankStyle class
 CmdDriveTankStyle::~CmdDriveTankStyle() {
 
 } // end CmdDriveTankStyle::~CmdDriveTankStyle()
@@ -61,15 +63,12 @@ CmdDriveTankStyle::~CmdDriveTankStyle() {
 void CmdDriveTankStyle::Initialize() {
 
   // Set the drive train mode string to tank
-  Robot::m_subSysDriveTrain->SetDriveTrainModeStringToTank();
+  m_subSysDriveTrain->SetDriveTrainModeStringToTank();
 
 } // end CmdDriveTankStyle::Initialize()
 
 // Called repeatedly when this Command is scheduled to run
 void CmdDriveTankStyle::Execute() {
-
-  // Declare a pointer to a joystick
-  frc::Joystick* joystick;
 
   // Declare raw thumbstick outputs
   double raw_left_Y_axis;
@@ -83,14 +82,11 @@ void CmdDriveTankStyle::Execute() {
   double corrected_left_Y_axis_motor_speed;
   double corrected_right_Y_axis_motor_speed;
 
-  // Get the pointer to the OI's joystick
-  joystick = Robot::m_oi->getJoystick();
-
   // Get the raw Y axis from the left joystick
-  raw_left_Y_axis = joystick->GetRawAxis(k_F310_leftThumbstick_Y_axis);
+  raw_left_Y_axis = m_joystick->GetRawAxis(k_F310_leftThumbstick_Y_axis);
 
   // Get the raw Y axis from the right joystick
-  raw_right_Y_axis = joystick->GetRawAxis(k_F310_rightThumbstick_Y_axis);
+  raw_right_Y_axis = m_joystick->GetRawAxis(k_F310_rightThumbstick_Y_axis);
 
   // Invert the left y axis so we go the expected forward/back direction
   inv_left_Y_axis = Correct_Y_Axis_Inversion(raw_left_Y_axis);
@@ -102,18 +98,18 @@ void CmdDriveTankStyle::Execute() {
   //   better control at low speeds
   corrected_left_Y_axis_motor_speed =
     NullDesensLimit(inv_left_Y_axis,
-                    Robot::m_subSysDriveTrain->GetDriveTrainNullZone(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainLimit(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainExponent());
+                    m_subSysDriveTrain->GetDriveTrainNullZone(),
+                    m_subSysDriveTrain->GetDriveTrainLimit(),
+                    m_subSysDriveTrain->GetDriveTrainExponent());
 
   corrected_right_Y_axis_motor_speed =
     NullDesensLimit(inv_right_Y_axis,
-                    Robot::m_subSysDriveTrain->GetDriveTrainNullZone(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainLimit(),
-                    Robot::m_subSysDriveTrain->GetDriveTrainExponent());
+                    m_subSysDriveTrain->GetDriveTrainNullZone(),
+                    m_subSysDriveTrain->GetDriveTrainLimit(),
+                    m_subSysDriveTrain->GetDriveTrainExponent());
 
   // Drive tank style using the corrected joystick inputs
-  Robot::m_subSysDriveTrain->DriveTankStyle(
+  m_subSysDriveTrain->DriveTankStyle(
     corrected_left_Y_axis_motor_speed,
     corrected_right_Y_axis_motor_speed
   );
@@ -128,23 +124,13 @@ bool CmdDriveTankStyle::IsFinished() {
 
 } // end CmdDriveTankStyle::IsFinished()
 
-// Called once after isFinished returns true
-void CmdDriveTankStyle::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdDriveTankStyle::End(bool interrupted) {
 
   // With IsFinished() always returning false, this should never
   //   run. But just in case, this stops the drive train.
-  Robot::m_subSysDriveTrain->DriveTankStyle(k_MotorStopSpeed,
-                                            k_MotorStopSpeed);
+  m_subSysDriveTrain->DriveTankStyle(k_MotorStopSpeed,
+                                     k_MotorStopSpeed);
 
-} // end CmdDriveArcadeStyle::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdDriveTankStyle::Interrupted() {
-
-  // This should only run when we switch between arcade and
-  //   tank drive, so we will stop the motors.
-  Robot::m_subSysDriveTrain->DriveTankStyle(k_MotorStopSpeed,
-                                            k_MotorStopSpeed);
-
-} // end cmdDriveArcadeStyle::Interrupted()
+} // end CmdDriveTankStyle::End()

@@ -40,8 +40,11 @@
 
 /************************** Library Header Files ******************************/
 
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
+// Include the header file for the NEW(2020) Command base class
+#include <frc2/command/CommandBase.h>
+
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
 
 /** ****************************************************************************
  * @class   CmdToggleSmoothingMode
@@ -49,12 +52,19 @@
  *            smoothing mode on the drive train.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdToggleSmoothingMode : public frc::Command {
+class CmdToggleSmoothingMode
+  : public frc2::CommandHelper<frc2::CommandBase, CmdToggleSmoothingMode> {
 
   public:
 
-    /** The CmdToggleSmoothingMode class default constructor. */
-    CmdToggleSmoothingMode();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
+
+    /** 
+     * The CmdToggleSmoothingMode class constructor.
+     * 
+     * @param subsystem            The subsystem used by this command
+     */
+    explicit CmdToggleSmoothingMode(SubSysDriveTrain* subsystem);
 
     /** The CmdToggleSmoothingMode class destructor. */
     ~CmdToggleSmoothingMode();
@@ -89,36 +99,30 @@ class CmdToggleSmoothingMode : public frc::Command {
     bool IsFinished() override;
 
     /**
-     * Called when the command ended peacefully.
+     * Called when either the command finishes normally, or when it is
+     * interrupted/canceled.
      *
      * This is where you may want to wrap up loose ends, like shutting off
      * a motor that was being used in the command.
      *
-     * Reimplemented in frc::CommandGroup.
+     * @param interrupted false = not interrupted, true = interrupted
     */
-    void End() override;
-
-    /**
-     * Called when the command ends because somebody called Cancel() or another
-     * command shared the same requirements as this one, and booted it out.
-     *
-     * This is where you may want to wrap up loose ends, like shutting off a
-     * motor that was being used in the command.
-     *
-     * Generally, it is useful to simply call the End() method within this
-     * method, as done here.
-     *
-     * Reimplemented in frc::CommandGroup.
-    */
-    void Interrupted() override;
+    void End(bool interrupted) override;
 
   private:
+
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
 
     /** A local smoothing mode variable */
     bool m_local_smooth_mode;
 
     /** A local boolean to tell when this command is finished */
     bool m_this_command_is_finished;
+
+    /** A pointer to the drive train subsystem */
+    SubSysDriveTrain* m_subSysDriveTrain;
 
 }; // end class CmdToggleSmoothingMode
 

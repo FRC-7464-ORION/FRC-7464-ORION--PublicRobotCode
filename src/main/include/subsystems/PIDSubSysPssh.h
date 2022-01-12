@@ -35,13 +35,13 @@
 // Include the robot constants header
 #include "RobotConstants.h"
 
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
+// Include the Robot map header 
+#include "RobotMap.h"
 
 /************************** Library Header Files ******************************/
 
-// Include the header file for the PID subsystem class
-#include <frc/commands/PIDSubsystem.h>
+// Include the header file for the NEW(2020) PID subsystem
+#include <frc2/command/PIDSubsystem.h>
 
 // Include the header file for an analog potentiometer
 #include <frc/AnalogPotentiometer.h>
@@ -58,7 +58,7 @@
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
 
-class PIDSubSysPssh : public frc::PIDSubsystem {
+class PIDSubSysPssh : public frc2::PIDSubsystem {
 
   public:
 
@@ -68,30 +68,26 @@ class PIDSubSysPssh : public frc::PIDSubsystem {
     /** The default destructor for the PIDSubSysPssh class */
     ~PIDSubSysPssh();
 
+    /** Method to reset the PID controller */
+    void ResetPIDController();
+
+    /** Method to disable the PID controller */
+    void DisablePIDController();
+
+    /** Method to enable PID controller */
+    void EnablePIDController();
+    
     /**
-     * Return your input value for the PID loop, e.g. a sensor, like a 
-     * potentiometer.
-     *
-     * @return The PID input
-    */
-    double ReturnPIDInput() override;
+     * Use the potentiometer as the PID sensor. This method is automatically
+     * called by the subsystem.
+     */
+    double GetMeasurement() override;
 
     /**
-     * Use output to drive your system, like a motor
-     *
-     * @param output The output of the PID controller
-    */
-    void UsePIDOutput(double output) override;
-
-    /**
-     * Initialize the default command for this subsystem.
-     *
-     * This is meant to be the place to call SetDefaultCommand in a subsystem
-     * and will be called on all the subsystems by the CommandBase method 
-     * before the program starts running by using the list of all registered
-     * Subsystems inside the Scheduler.
-    */
-    void InitDefaultCommand() override;
+     * Use the motor as the PID output. This method is automatically called
+     * by the subsystem.
+     */
+    void UseOutput(double output, double setpoint) override;
 
     /** The periodic method for Pssh */
     void Periodic() override;
@@ -121,11 +117,22 @@ class PIDSubSysPssh : public frc::PIDSubsystem {
 
     /***************************** Private Members ****************************/
 
-    /** A pointer to Pssh's motor(speed) controller */
-    std::shared_ptr<frc::PWMVictorSPX> m_PsshController;
+    /** The motor controller for Pssh, which is a Victor SPX PWM controller */
+    frc::PWMVictorSPX m_PsshMotorController{k_PsshMotorPWMPort};
 
-    /** A pointer to the potentiometer hooked up the axle of Pssh */
-    std::shared_ptr<frc::AnalogPotentiometer> m_PsshPot;
+    // Conversion value of potentiometer varies between the real world and
+    // simulation
+#ifndef SIMULATION /* aka Real world */
+    /** An analog potentiometer hooked up to the axle of Pssh */
+    frc::AnalogPotentiometer m_PsshPot{k_Pssh_Pot_roboRIO_AnalogInChannel,
+                                       k_PsshPotScaleFactor,
+                                       k_PsshPotOffset};
+#else
+    /** A simulated analog potentiometer hooked up to the axle of Pssh */
+    frc::AnalogPotentiometer m_PsshPot{k_Pssh_Pot_roboRIO_AnalogInChannel,
+                                       k_PsshPotScaleFactor,
+                                       k_PsshPotOffset};
+#endif
 
     /** A string containing the state of Pssh */
     std::string m_PsshState;
@@ -133,7 +140,5 @@ class PIDSubSysPssh : public frc::PIDSubsystem {
     /***************************** Private Methods ****************************/
 
 }; // end class PIDSubSysPssh
-
-#endif // #if USE_PID_PSSH
 
 #endif // #ifndef PIDSUBSYSPSSH_H

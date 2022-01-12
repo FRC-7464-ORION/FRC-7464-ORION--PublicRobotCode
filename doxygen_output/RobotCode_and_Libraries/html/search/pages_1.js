@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['frc_20team_207464_20_2d_20o_2er_2ei_2eo_2en_2e_3a_20code_20for_20sirius_20_282020_20season_29',['FRC Team 7464 - O.R.I.O.N.: Code for Sirius (2020 Season)',['../index.html',1,'']]]
+  ['frc_20team_20_237464_2dorion_202020_20season_20code',['FRC Team #7464-ORION 2020 Season Code',['../index.html',1,'']]]
 ];

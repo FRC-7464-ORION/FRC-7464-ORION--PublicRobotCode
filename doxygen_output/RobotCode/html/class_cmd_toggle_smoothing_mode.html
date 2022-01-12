@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: CmdToggleSmoothingMode Class Reference</title>
+<title>NewRobotCode: CmdToggleSmoothingMode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -110,8 +110,8 @@ Inheritance diagram for CmdToggleSmoothingMode:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac93611e342ee73112235c28c699b4870"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#ac93611e342ee73112235c28c699b4870">CmdToggleSmoothingMode</a> ()</td></tr>
-<tr class="separator:ac93611e342ee73112235c28c699b4870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af39b91b5f3c33895da6ea319377e9436"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#af39b91b5f3c33895da6ea319377e9436">CmdToggleSmoothingMode</a> (<a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *subsystem)</td></tr>
+<tr class="separator:af39b91b5f3c33895da6ea319377e9436"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8e038c7210551f67911680f231edcd2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#ad8e038c7210551f67911680f231edcd2">~CmdToggleSmoothingMode</a> ()</td></tr>
 <tr class="separator:ad8e038c7210551f67911680f231edcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18523053c434818e7458d1480b15405f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#a18523053c434818e7458d1480b15405f">Initialize</a> () override</td></tr>
@@ -120,10 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a300e745e65e344e36f4ea642c0d33775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad599b4feb748337fed5273ff279db0c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#ad599b4feb748337fed5273ff279db0c1">IsFinished</a> () override</td></tr>
 <tr class="separator:ad599b4feb748337fed5273ff279db0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa55025aecd200d05056b6f7546fc3bb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#aa55025aecd200d05056b6f7546fc3bb9">End</a> () override</td></tr>
-<tr class="separator:aa55025aecd200d05056b6f7546fc3bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81c3ba1465fa043c7f3cb3b3060160aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#a81c3ba1465fa043c7f3cb3b3060160aa">Interrupted</a> () override</td></tr>
-<tr class="separator:a81c3ba1465fa043c7f3cb3b3060160aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45147a11d77932487caf06d4065c7539"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#a45147a11d77932487caf06d4065c7539">End</a> (bool interrupted) override</td></tr>
+<tr class="separator:a45147a11d77932487caf06d4065c7539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -131,29 +129,46 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac8afe2e7d3244f58f4e3d0886d959d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1555b320b58731754517cf263ee176cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#a1555b320b58731754517cf263ee176cb">m_this_command_is_finished</a></td></tr>
 <tr class="separator:a1555b320b58731754517cf263ee176cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bc77c48de8cdd1c40acc05beb1df792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_toggle_smoothing_mode.html#a3bc77c48de8cdd1c40acc05beb1df792">m_subSysDriveTrain</a></td></tr>
+<tr class="separator:a3bc77c48de8cdd1c40acc05beb1df792"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is a class that defines a command used in toggling the smoothing mode on the drive train. </p>
 <hr/>
 <dl class="section author"><dt>Author</dt><dd>FRC Team #7464 - ORION </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html#l00052">52</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html#l00055">55</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac93611e342ee73112235c28c699b4870"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac93611e342ee73112235c28c699b4870">&#9670;&nbsp;</a></span>CmdToggleSmoothingMode()</h2>
+<a id="af39b91b5f3c33895da6ea319377e9436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af39b91b5f3c33895da6ea319377e9436">&#9670;&nbsp;</a></span>CmdToggleSmoothingMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">CmdToggleSmoothingMode::CmdToggleSmoothingMode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td>
+          <td class="paramname"><em>subsystem</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_toggle_smoothing_mode.html" title="This is a class that defines a command used in toggling the smoothing mode on the drive train.">CmdToggleSmoothingMode</a> class default constructor. </p>
+<p>The <a class="el" href="class_cmd_toggle_smoothing_mode.html" title="This is a class that defines a command used in toggling the smoothing mode on the drive train.">CmdToggleSmoothingMode</a> class constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subsystem</td><td>The subsystem used by this command </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00046">46</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
 
@@ -175,13 +190,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The <a class="el" href="class_cmd_toggle_smoothing_mode.html" title="This is a class that defines a command used in toggling the smoothing mode on the drive train.">CmdToggleSmoothingMode</a> class destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00066">66</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00065">65</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa55025aecd200d05056b6f7546fc3bb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa55025aecd200d05056b6f7546fc3bb9">&#9670;&nbsp;</a></span>End()</h2>
+<a id="a45147a11d77932487caf06d4065c7539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45147a11d77932487caf06d4065c7539">&#9670;&nbsp;</a></span>End()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +207,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void CmdToggleSmoothingMode::End </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>interrupted</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -202,9 +218,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Called when the command ended peacefully.</p>
+<p>Called when either the command finishes normally, or when it is interrupted/canceled.</p>
 <p>This is where you may want to wrap up loose ends, like shutting off a motor that was being used in the command.</p>
-<p>Reimplemented in frc::CommandGroup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupted</td><td>false = not interrupted, true = interrupted </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00110">110</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
 
@@ -234,7 +255,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The execute method is called repeatedly until this Command either finishes or is canceled. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00094">94</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00093">93</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
 
 </div>
 </div>
@@ -262,38 +283,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The initialize method is called the first time this Command is run after being started. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00071">71</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a81c3ba1465fa043c7f3cb3b3060160aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81c3ba1465fa043c7f3cb3b3060160aa">&#9670;&nbsp;</a></span>Interrupted()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CmdToggleSmoothingMode::Interrupted </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Called when the command ends because somebody called Cancel() or another command shared the same requirements as this one, and booted it out.</p>
-<p>This is where you may want to wrap up loose ends, like shutting off a motor that was being used in the command.</p>
-<p>Generally, it is useful to simply call the <a class="el" href="class_cmd_toggle_smoothing_mode.html#aa55025aecd200d05056b6f7546fc3bb9">End()</a> method within this method, as done here.</p>
-<p>Reimplemented in frc::CommandGroup. </p>
-
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00119">119</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00070">70</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,13 +309,13 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns whether this command is finished. If it is, then the command will be removed and <a class="el" href="class_cmd_toggle_smoothing_mode.html#aa55025aecd200d05056b6f7546fc3bb9">End()</a> will be called.</p>
+<p>Returns whether this command is finished. If it is, then the command will be removed and <a class="el" href="class_cmd_toggle_smoothing_mode.html#a45147a11d77932487caf06d4065c7539">End()</a> will be called.</p>
 <p>It may be useful for a team to reference the IsTimedOut() method for time-sensitive commands.</p>
 <p>Returning false will result in the command never ending automatically. It may still be cancelled manually or interrupted by another command.</p>
 <p>Returning true will result in the command executing once and finishing immediately. We recommend using InstantCommand for this.</p>
 <dl class="section return"><dt>Returns</dt><dd>True = Command finished, False = Command not finished </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00102">102</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html#l00101">101</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +341,32 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A local smoothing mode variable </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html#l00118">118</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html#l00119">119</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a>.</p>
+
+</div>
+</div>
+<a id="a3bc77c48de8cdd1c40acc05beb1df792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc77c48de8cdd1c40acc05beb1df792">&#9670;&nbsp;</a></span>m_subSysDriveTrain</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a>* CmdToggleSmoothingMode::m_subSysDriveTrain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A pointer to the drive train subsystem </p>
+
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html#l00125">125</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a>.</p>
 
 </div>
 </div>
@@ -376,13 +391,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A local boolean to tell when this command is finished </p>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html#l00121">121</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html#l00122">122</a> of file <a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/ORION22/RobotCode/src/main/include/commands/DriveTrain/<a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a></li>
-<li>C:/ORION22/RobotCode/src/main/cpp/commands/DriveTrain/<a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/include/commands/DriveTrain/<a class="el" href="_cmd_toggle_smoothing_mode_8h_source.html">CmdToggleSmoothingMode.h</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/cpp/commands/DriveTrain/<a class="el" href="_cmd_toggle_smoothing_mode_8cpp_source.html">CmdToggleSmoothingMode.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

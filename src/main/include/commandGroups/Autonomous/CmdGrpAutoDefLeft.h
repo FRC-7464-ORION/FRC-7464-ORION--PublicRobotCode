@@ -34,27 +34,47 @@
 
 /*************************** Local Header Files *******************************/
 
+// Include the header file for the drive train subsystem
+#include "subsystems/SubSysDriveTrain.h"
+
+// The header for the NavX MXP AHRS
+#include "AHRS.h"
+
 /************************** Library Header Files ******************************/
 
-// Include the header file for the CommandGroup class
-#include <frc/commands/CommandGroup.h>
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
+
+// Include the header file for the NEW(2020) sequential command group class
+#include <frc2/command/SequentialCommandGroup.h>
 
 /** ****************************************************************************
  * @class   CmdGrpAutoDefLeft
  * @brief   This is a class that defines a group of commands that is used to
- *            control the robot autonomously.
+ *            control the robot autonomously, running defense from the left
+ *            position.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdGrpAutoDefLeft : public frc::CommandGroup {
+
+class CmdGrpAutoDefLeft 
+  : public frc2::CommandHelper<frc2::SequentialCommandGroup, 
+                               CmdGrpAutoDefLeft> {
 
   public:
 
-    /** The CmdGrpAutoDefLeft class default constructor. */
-    CmdGrpAutoDefLeft();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
 
-    /** The CmdGrpAutoDefLeft class destructor. */
-    ~CmdGrpAutoDefLeft();
+    /** 
+     * The CmdGrpAutoDefLeft class constructor.
+     *
+     * @param drivetrain    The drivetrain subsystem
+     * @param ahrs          The AHRS
+     */
+    CmdGrpAutoDefLeft(
+      SubSysDriveTrain* drivetrain,
+      AHRS* ahrs);
 
+  // NOTE: FOR SOME REASON CANNOT CREATE A DESTRUCTOR
 
 }; // end class CmdGrpAutoDefLeft
 

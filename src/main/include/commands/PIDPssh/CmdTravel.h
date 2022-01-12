@@ -31,19 +31,19 @@
 
 /*************************** Local Header Files *******************************/
 
-// Include the robot constants header file
-#include "RobotConstants.h"
-
-// If we are using the PID controller for Pssh
-#if USE_PID_PSSH
-
 // Include the header file for Pssh, which this command is for
 #include "subsystems/PIDSubSysPssh.h"
 
+// Include the robot constants header file
+#include "RobotConstants.h"
+
 /************************** Library Header Files ******************************/
 
-// Include the header file for the Command class
-#include <frc/commands/Command.h>
+// Include the header file for the NEW(2020) Command base class
+#include <frc2/command/CommandBase.h>
+
+// Include the header file for the NEW(2020) Command helper class
+#include <frc2/command/CommandHelper.h>
 
 /** ****************************************************************************
  * @class   CmdTravel
@@ -51,12 +51,19 @@
  *          cell collector to the travel position.
  * @author  FRC Team #7464 - ORION
  ******************************************************************************/
-class CmdTravel : public frc::Command {
+class CmdTravel
+  : public frc2::CommandHelper<frc2::CommandBase, CmdTravel> {
 
   public:
 
-    /** The CmdTravel class default constructor. */
-    CmdTravel();
+    /********************** PUBLIC MEMBER FUNCTIONS ***************************/
+
+    /** 
+     * The CmdTravel class constructor.
+     * 
+     * @param subsystem The subsystem used by this command
+     */
+    explicit CmdTravel(PIDSubSysPssh* subsystem);
 
     /** The CmdTravel class destructor. */
     ~CmdTravel();
@@ -91,33 +98,25 @@ class CmdTravel : public frc::Command {
     bool IsFinished() override;
 
     /**
-     * Called when the command ended peacefully.
+     * Called when either the command finishes normally, or when it is
+     * interrupted/canceled.
      *
      * This is where you may want to wrap up loose ends, like shutting off
      * a motor that was being used in the command.
      *
-     * Reimplemented in frc::CommandGroup.
+     * @param interrupted false = not interrupted, true = interrupted
     */
-    void End() override;
+    void End(bool interrupted) override;
 
-    /**
-     * Called when the command ends because somebody called Cancel() or another
-     * command shared the same requirements as this one, and booted it out.
-     *
-     * This is where you may want to wrap up loose ends, like shutting off a
-     * motor that was being used in the command.
-     *
-     * Generally, it is useful to simply call the End() method within this
-     * method, as done here.
-     *
-     * Reimplemented in frc::CommandGroup.
-    */
-    void Interrupted() override;
+private:
 
-  private:
+    /********************* PRIVATE MEMBER FUNCTIONS ***************************/
+
+    /********************* PRIVATE MEMBER VARIABLES ***************************/
+
+    /** A pointer to the PID Pssh subsystem */
+    PIDSubSysPssh* m_PIDsubSysPssh;
 
 }; // end class CmdTravel
-
-#endif // #if USE_PID_PSSH
 
 #endif // #ifndef CMDTRAVEL_H

@@ -33,16 +33,12 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdWaitSeconds class
-CmdWaitSeconds::CmdWaitSeconds() {
+// The constructor for the CmdWaitSeconds class
+CmdWaitSeconds::CmdWaitSeconds(
+  double sec) {
 
-  // Use Requires() here to declare subsystem dependencies
-
-} // end CmdWaitSeconds::CmdWaitSeconds()
-
-CmdWaitSeconds::CmdWaitSeconds(double sec)
-{
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdWaitSeconds");
 
   // Set the wait time to the passed in time
   wait_time_seconds = sec;
@@ -52,9 +48,6 @@ CmdWaitSeconds::CmdWaitSeconds(double sec)
 // The destructor for the CmdAutoDriveStraight class
 CmdWaitSeconds::~CmdWaitSeconds() {
 
-  // Delete the timer
-  delete m_timer;
-
 } // end CmdWaitSeconds::~CmdWaitSeconds()
 
 // Called just before this Command runs the first time
@@ -63,14 +56,11 @@ void CmdWaitSeconds::Initialize() {
   // Indicate we have not exceeded our time
   wait_time_exceeded = false;
 
-  // Create a new timer
-  m_timer = new frc::Timer();
-
   // Reset the timer
-  m_timer->Reset();
+  m_timer.Reset();
 
   // Start the timer
-  m_timer->Start();
+  m_timer.Start();
 
 } // end CmdWaitSeconds::Initialize()
 
@@ -78,7 +68,7 @@ void CmdWaitSeconds::Initialize() {
 void CmdWaitSeconds::Execute() {
 
   // If the timer has exceeded our wait time...
-  if(m_timer->Get() >= wait_time_seconds)
+  if(m_timer.Get() >= wait_time_seconds)
   {
     // We have exceeded our wait time
     wait_time_exceeded = true;
@@ -94,18 +84,11 @@ bool CmdWaitSeconds::IsFinished() {
 
 } // end CmdWaitSeconds::IsFinished()
 
-// Called once after isFinished returns true
-void CmdWaitSeconds::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdWaitSeconds::End(bool interrupted) {
 
   // Stop the timer
-  m_timer->Stop();
+  m_timer.Stop();
 
 } // end CmdWaitSeconds::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdWaitSeconds::Interrupted() {
-
-  // This should never happen, as we use no subsystem
-
-} // end CmdWaitSeconds::Interrupted()

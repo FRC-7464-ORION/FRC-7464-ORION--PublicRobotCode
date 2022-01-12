@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['speed',['speed',['../class_cmd_auto_drive_straight.html#ab4c5d3cbaf5879693ac15a49324da368',1,'CmdAutoDriveStraight::speed()'],['../structfrc_1_1_swerve_module_state.html#a686b128ca4f86f83788ef08024523fa8',1,'frc::SwerveModuleState::speed()']]]
+  ['omega',['omega',['../structfrc_1_1_chassis_speeds.html#a512d3d4511e399adc63651fbf8ee18bf',1,'frc::ChassisSpeeds']]],
+  ['output',['output',['../struct_telemetry_outputter_1_1telemetry__output__type.html#ac85a960d1462e031ede621c90b6e398f',1,'TelemetryOutputter::telemetry_output_type']]]
 ];

@@ -2,16 +2,16 @@
  * @file   CmdGrpEnableHansAndFranz.cpp
  * @brief  This file defines the CmdGrpEnableHansAndFranz class.
  *
- * The CmdGrpEnableHansAndFranz class is used to allow the robot to be controlled 
- * autonomously using a set of commands.
+ * The CmdGrpEnableHansAndFranz class is used to allow the robot to enable  
+ * the lifting mechanism of the robot, which consists of a pulley system
+ * to move the lifting arms, and a pneumatics system (muscles) that lifts the
+ * weight of the robot.
  * 
- * This command group is the default for the autonomous period.
- *
  * COPYRIGHT NOTICES:
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -34,22 +34,27 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdGrpEnableHansAndFranz class
-CmdGrpEnableHansAndFranz::CmdGrpEnableHansAndFranz() {
+// The constructor for the CmdGrpEnableHansAndFranz class
+CmdGrpEnableHansAndFranz::CmdGrpEnableHansAndFranz(
+    SubSysHansFranzArms* arms,
+    CmdMoveHansFranzArms* command,
+    SubSysHansFranzMuscles* muscles
+)
+{
+  // Set the command's name
+  SetName("CmdGrpEnableHansAndFranz");
 
-  // TODO: Should we use pointers to commands, intialize them with new,
-  //       use the pointers in AddSequential, AddParallel, etc., then
-  //       delete the instances using the pointers?
-  //       See https://www.chiefdelphi.com/t/can-the-old-commandgroup-framework-cause-memory-leaks/375847
+  // Add commands to the parallel command group
+  // (See the class this class inherits from in the header for which type of 
+  //  command group)  
+  AddCommands(
 
-  // Enable both Hans and Franz arms and muscles
-  AddParallel(new CmdEnableHansFranzArms());
-  AddParallel(new CmdEnableHansFranzMuscles());
-  
-} // end CmdGrpEnableHansAndFranz::CmdGrpEnableHansAndFranz()
+    // Enable Hans and Franz arms (pulley)
+    CmdEnableHansFranzArms(arms, command),
 
-// The destructor for the CmdGrpEnableHansAndFranz class
-CmdGrpEnableHansAndFranz::~CmdGrpEnableHansAndFranz() {
+    // Enable Hans and Franz muscles (pneumatics)
+    CmdEnableHansFranzMuscles(muscles)
 
+  );
 
-} // end CmdGrpEnableHansAndFranz::~CmdGrpEnableHansAndFranz()
+} // end CmdGrpEnableHansAndFranz::CmdGrpEnableHansAndFranz(...)

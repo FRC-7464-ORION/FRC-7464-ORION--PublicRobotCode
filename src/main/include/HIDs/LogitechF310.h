@@ -34,46 +34,46 @@
 // Axis
 
 /** The left thumbstick X axis channel */
-constexpr int k_F310_leftThumbstick_X_axis = 0;  // '20: Arcade driving
+constexpr int k_F310_leftThumbstick_X_axis = 0;
 /** The left thumbstick Y axis channel */
-constexpr int k_F310_leftThumbstick_Y_axis = 1;  // '20: Arcade driving
+constexpr int k_F310_leftThumbstick_Y_axis = 1;
 
 /** The left trigger Y axis channel */
-constexpr int k_F310_leftTrigger_Y_axis = 2;     // '20: Turn Pat CW
+constexpr int k_F310_leftTrigger_Y_axis = 2;
 /** The right trigger Y axis channel */
-constexpr int k_F310_rightTrigger_Y_axis = 3;    // '20: Turn Pat CCW
+constexpr int k_F310_rightTrigger_Y_axis = 3;
 
 /** The right thumbstick X axis channel */
-constexpr int k_F310_rightThumbstick_X_axis = 4; // AVAILABLE
+constexpr int k_F310_rightThumbstick_X_axis = 4;
 /** The right thumbstick Y axis channel */
-constexpr int k_F310_rightThumbstick_Y_axis = 5; // '20: Hans and Franz arms
+constexpr int k_F310_rightThumbstick_Y_axis = 5;
 
 // Buttons
 
 /** The A button channel */
-constexpr int k_F310_A_Button = 1;               // '20: Turbo
+constexpr int k_F310_A_Button = 1;
 /** The B button channel */
-constexpr int k_F310_B_Button = 2;               // '20: Toggle smoothing
+constexpr int k_F310_B_Button = 2;
 
 /** The X button channel */
-constexpr int k_F310_X_Button = 3;               // '20: Load Power Cells
+constexpr int k_F310_X_Button = 3;
 /** The Y button channel */
-constexpr int k_F310_Y_Button = 4;               // '20: Dump Power Cells
+constexpr int k_F310_Y_Button = 4;
 
 /** The left rear button channel */
-constexpr int k_F310_leftRearButton = 5;         // '20: Turn Pat CW Safety
+constexpr int k_F310_leftRearButton = 5;
 /** The right rear button channel */
-constexpr int k_F310_rightRearButton = 6;        // '20: Turn Pat CCW Safety
+constexpr int k_F310_rightRearButton = 6;
 
 /** The "Back" button channel */
-constexpr int k_F310_BackButton = 7;             // '20: Hans/Franz disable
+constexpr int k_F310_BackButton = 7;
 /** The "Start" button channel */
-constexpr int k_F310_StartButton = 8;            // '20: Toggle drive dir
+constexpr int k_F310_StartButton = 8;
 
 /** The left thumbstick button */
-constexpr int k_F310_leftThumbstickButton = 9;   // AVAILABLE
+constexpr int k_F310_leftThumbstickButton = 9;
 /** The right thumbstick button */
-constexpr int k_F310_rightThumbstickButton = 10; // '20: Hans/Franz arms/muscles enable
+constexpr int k_F310_rightThumbstickButton = 10;
 
 // POV
 
@@ -81,22 +81,22 @@ constexpr int k_F310_rightThumbstickButton = 10; // '20: Hans/Franz arms/muscles
 constexpr int k_F310_POV_ID=0;
 
 /** The value of the center position of the POV */
-constexpr int k_F310_POV_Center = -1;            // NOT A VALID CHOICE FOR BUTTON
+constexpr int k_F310_POV_Center = -1;
 /** The value of the North position of the POV */
-constexpr int k_F310_POV_North = 0;              // '20: Hans/Franz extend (push)
+constexpr int k_F310_POV_North = 0;
 /** The value of the Northeast position of the POV */
-constexpr int k_F310_POV_NorthEast = 45;         // AVAILABLE
+constexpr int k_F310_POV_NorthEast = 45;
 /** The value of the East position of the POV */
-constexpr int k_F310_POV_East = 90;              // AVAILABLE
+constexpr int k_F310_POV_East = 90;
 /** The value of the Southeast position of the POV */
-constexpr int k_F310_POV_SouthEast = 135;        // AVAILABLE
+constexpr int k_F310_POV_SouthEast = 135;
 /** The value of the South position of the POV */
-constexpr int k_F310_POV_South = 180;            // '20: Hans/Franz retract (pull)
+constexpr int k_F310_POV_South = 180;
 /** The value of the Southwest position of the POV */
-constexpr int k_F310_POV_SouthWest = 225;        // AVAILABLE
+constexpr int k_F310_POV_SouthWest = 225;
 /** The value of the West position of the POV */
-constexpr int k_F310_POV_West = 270;             // AVAILABLE
+constexpr int k_F310_POV_West = 270;
 /** The value of the Northwest position of the POV */
-constexpr int k_F310_POV_NorthWest = 315;        // AVAILABLE
+constexpr int k_F310_POV_NorthWest = 315;
 
 #endif // #ifndef LOGITECHF310_H

@@ -6,6 +6,7 @@ var hierarchy =
       [ "frc::ADXL362", "classfrc_1_1_a_d_x_l362.html", null ],
       [ "frc::BuiltInAccelerometer", "classfrc_1_1_built_in_accelerometer.html", null ]
     ] ],
+    [ "TelemetryOutputter::accept_range_type", "struct_telemetry_outputter_1_1accept__range__type.html", null ],
     [ "frc::SPI::Accumulator", "class_s_p_i_1_1_accumulator.html", null ],
     [ "AHRSProtocol::AHRSUpdateBase", "struct_a_h_r_s_protocol_1_1_a_h_r_s_update_base.html", [
       [ "AHRSProtocol::AHRSPosUpdate", "struct_a_h_r_s_protocol_1_1_a_h_r_s_pos_update.html", [
@@ -13,20 +14,13 @@ var hierarchy =
       ] ],
       [ "AHRSProtocol::AHRSUpdate", "struct_a_h_r_s_protocol_1_1_a_h_r_s_update.html", null ]
     ] ],
+    [ "frc::ADXL362::AllAxes", "structfrc_1_1_a_d_x_l362_1_1_all_axes.html", null ],
     [ "frc::ADXL345_I2C::AllAxes", "structfrc_1_1_a_d_x_l345___i2_c_1_1_all_axes.html", null ],
     [ "frc::ADXL345_SPI::AllAxes", "structfrc_1_1_a_d_x_l345___s_p_i_1_1_all_axes.html", null ],
-    [ "frc::ADXL362::AllAxes", "structfrc_1_1_a_d_x_l362_1_1_all_axes.html", null ],
     [ "frc::ArmFeedforward", "classfrc_1_1_arm_feedforward.html", null ],
     [ "AHRSProtocol::BoardID", "struct_a_h_r_s_protocol_1_1_board_i_d.html", null ],
     [ "IIOCompleteNotification::BoardState", "struct_i_i_o_complete_notification_1_1_board_state.html", null ],
     [ "AHRS::BoardYawAxis", "struct_a_h_r_s_1_1_board_yaw_axis.html", null ],
-    [ "frc::ButtonScheduler", "classfrc_1_1_button_scheduler.html", [
-      [ "frc::CancelButtonScheduler", "classfrc_1_1_cancel_button_scheduler.html", null ],
-      [ "frc::HeldButtonScheduler", "classfrc_1_1_held_button_scheduler.html", null ],
-      [ "frc::PressedButtonScheduler", "classfrc_1_1_pressed_button_scheduler.html", null ],
-      [ "frc::ReleasedButtonScheduler", "classfrc_1_1_released_button_scheduler.html", null ],
-      [ "frc::ToggleButtonScheduler", "classfrc_1_1_toggle_button_scheduler.html", null ]
-    ] ],
     [ "frc::SendableRegistry::CallbackData", "structfrc_1_1_sendable_registry_1_1_callback_data.html", null ],
     [ "frc::CameraServer", "classfrc_1_1_camera_server.html", null ],
     [ "frc::CameraServerShared", "classfrc_1_1_camera_server_shared.html", null ],
@@ -35,7 +29,7 @@ var hierarchy =
     [ "frc::ChassisSpeeds", "structfrc_1_1_chassis_speeds.html", null ],
     [ "frc::Color", "classfrc_1_1_color.html", null ],
     [ "frc::Color8Bit", "classfrc_1_1_color8_bit.html", null ],
-    [ "frc::CommandGroupEntry", "classfrc_1_1_command_group_entry.html", null ],
+    [ "frc2::CommandState", "classfrc2_1_1_command_state.html", null ],
     [ "frc::LiveWindow::Impl::Component", "struct_live_window_1_1_impl_1_1_component.html", null ],
     [ "frc::SendableRegistry::Impl::Component", "struct_sendable_registry_1_1_impl_1_1_component.html", null ],
     [ "frc::TrajectoryParameterizer::ConstrainedState", "structfrc_1_1_trajectory_parameterizer_1_1_constrained_state.html", null ],
@@ -59,6 +53,181 @@ var hierarchy =
     [ "frc::Error", "classfrc_1_1_error.html", null ],
     [ "frc::ErrorBase", "classfrc_1_1_error_base.html", [
       [ "AHRS", "class_a_h_r_s.html", null ],
+      [ "frc2::Command", "classfrc2_1_1_command.html", [
+        [ "frc2::CommandBase", "classfrc2_1_1_command_base.html", [
+          [ "frc2::CommandHelper< CommandBase, ConditionalCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::ConditionalCommand", "classfrc2_1_1_conditional_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, FunctionalCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::FunctionalCommand", "classfrc2_1_1_functional_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, InstantCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::InstantCommand", "classfrc2_1_1_instant_command.html", [
+              [ "frc2::CommandHelper< InstantCommand, PrintCommand >", "classfrc2_1_1_command_helper.html", [
+                [ "frc2::PrintCommand", "classfrc2_1_1_print_command.html", null ]
+              ] ]
+            ] ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, MecanumControllerCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, NotifierCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::NotifierCommand", "classfrc2_1_1_notifier_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, PerpetualCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::PerpetualCommand", "classfrc2_1_1_perpetual_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, PIDCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::PIDCommand", "classfrc2_1_1_p_i_d_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, ProfiledPIDCommand< Distance > >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::ProfiledPIDCommand< Distance >", "classfrc2_1_1_profiled_p_i_d_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, ProxyScheduleCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::ProxyScheduleCommand", "classfrc2_1_1_proxy_schedule_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, RamseteCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::RamseteCommand", "classfrc2_1_1_ramsete_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, RunCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::RunCommand", "classfrc2_1_1_run_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, ScheduleCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::ScheduleCommand", "classfrc2_1_1_schedule_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, SelectCommand< Key > >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::SelectCommand< Key >", "classfrc2_1_1_select_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, StartEndCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::StartEndCommand", "classfrc2_1_1_start_end_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, SwerveControllerCommand< NumModules > >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::SwerveControllerCommand< NumModules >", "classfrc2_1_1_swerve_controller_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, TrapezoidProfileCommand< Distance > >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::TrapezoidProfileCommand< Distance >", "classfrc2_1_1_trapezoid_profile_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, WaitCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::WaitCommand", "classfrc2_1_1_wait_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< CommandBase, WaitUntilCommand >", "classfrc2_1_1_command_helper.html", [
+            [ "frc2::WaitUntilCommand", "classfrc2_1_1_wait_until_command.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdAutoDriveStraight >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdAutoDriveStraight", "class_cmd_auto_drive_straight.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdAutoTurnAngle >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdAutoTurnAngle", "class_cmd_auto_turn_angle.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdDisableHansFranzMuscles >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdDisableHansFranzMuscles", "class_cmd_disable_hans_franz_muscles.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdDisableSmoothingMode >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdDisableSmoothingMode", "class_cmd_disable_smoothing_mode.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdDisableTurboMode >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdDisableTurboMode", "class_cmd_disable_turbo_mode.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdDriveArcadeStyle >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdDriveArcadeStyle", "class_cmd_drive_arcade_style.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdDriveTankStyle >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdDriveTankStyle", "class_cmd_drive_tank_style.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdDump >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdDump", "class_cmd_dump.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdEnableHansFranzArms >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdEnableHansFranzArms", "class_cmd_enable_hans_franz_arms.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdEnableHansFranzMuscles >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdEnableHansFranzMuscles", "class_cmd_enable_hans_franz_muscles.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdEnableSmoothingMode >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdEnableSmoothingMode", "class_cmd_enable_smoothing_mode.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdEnableTurboMode >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdEnableTurboMode", "class_cmd_enable_turbo_mode.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdExtendHansFranzMuscles >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdExtendHansFranzMuscles", "class_cmd_extend_hans_franz_muscles.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdLoad >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdLoad", "class_cmd_load.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdMoveHansFranzArms >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdMoveHansFranzArms", "class_cmd_move_hans_franz_arms.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdResetAHRSYaw >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdResetAHRSYaw", "class_cmd_reset_a_h_r_s_yaw.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdRetractHansFranzMuscles >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdRetractHansFranzMuscles", "class_cmd_retract_hans_franz_muscles.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdToggleDriveDirection >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdToggleDriveDirection", "class_cmd_toggle_drive_direction.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdToggleSmoothingMode >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdToggleSmoothingMode", "class_cmd_toggle_smoothing_mode.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdTravel >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdTravel", "class_cmd_travel.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdTurnWoFCCW >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdTurnWoFCCW", "class_cmd_turn_wo_f_c_c_w.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdTurnWoFCW >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdTurnWoFCW", "class_cmd_turn_wo_f_c_w.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdWaitSeconds >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdWaitSeconds", "class_cmd_wait_seconds.html", null ]
+          ] ],
+          [ "frc2::CommandHelper< frc2::CommandBase, CmdZeroAHRSYaw >", "classfrc2_1_1_command_helper.html", [
+            [ "CmdZeroAHRSYaw", "class_cmd_zero_a_h_r_s_yaw.html", null ]
+          ] ],
+          [ "frc2::CommandGroupBase", "classfrc2_1_1_command_group_base.html", [
+            [ "frc2::CommandHelper< CommandGroupBase, ParallelCommandGroup >", "classfrc2_1_1_command_helper.html", [
+              [ "frc2::ParallelCommandGroup", "classfrc2_1_1_parallel_command_group.html", [
+                [ "frc2::CommandHelper< frc2::ParallelCommandGroup, CmdGrpEnableHansAndFranz >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpEnableHansAndFranz", "class_cmd_grp_enable_hans_and_franz.html", null ]
+                ] ]
+              ] ]
+            ] ],
+            [ "frc2::CommandHelper< CommandGroupBase, ParallelDeadlineGroup >", "classfrc2_1_1_command_helper.html", [
+              [ "frc2::ParallelDeadlineGroup", "classfrc2_1_1_parallel_deadline_group.html", null ]
+            ] ],
+            [ "frc2::CommandHelper< CommandGroupBase, ParallelRaceGroup >", "classfrc2_1_1_command_helper.html", [
+              [ "frc2::ParallelRaceGroup", "classfrc2_1_1_parallel_race_group.html", null ]
+            ] ],
+            [ "frc2::CommandHelper< CommandGroupBase, SequentialCommandGroup >", "classfrc2_1_1_command_helper.html", [
+              [ "frc2::SequentialCommandGroup", "classfrc2_1_1_sequential_command_group.html", [
+                [ "frc2::CommandHelper< frc2::SequentialCommandGroup, CmdGrpAutoDefault >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpAutoDefault", "class_cmd_grp_auto_default.html", null ]
+                ] ],
+                [ "frc2::CommandHelper< frc2::SequentialCommandGroup, CmdGrpAutoDefCenter >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpAutoDefCenter", "class_cmd_grp_auto_def_center.html", null ]
+                ] ],
+                [ "frc2::CommandHelper< frc2::SequentialCommandGroup, CmdGrpAutoDefLeft >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpAutoDefLeft", "class_cmd_grp_auto_def_left.html", null ]
+                ] ],
+                [ "frc2::CommandHelper< frc2::SequentialCommandGroup, CmdGrpAutoDefRight >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpAutoDefRight", "class_cmd_grp_auto_def_right.html", null ]
+                ] ],
+                [ "frc2::CommandHelper< frc2::SequentialCommandGroup, CmdGrpAutoOffCenter >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpAutoOffCenter", "class_cmd_grp_auto_off_center.html", null ]
+                ] ],
+                [ "frc2::CommandHelper< frc2::SequentialCommandGroup, CmdGrpAutoOffLeft >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpAutoOffLeft", "class_cmd_grp_auto_off_left.html", null ]
+                ] ],
+                [ "frc2::CommandHelper< frc2::SequentialCommandGroup, CmdGrpAutoOffRight >", "classfrc2_1_1_command_helper.html", [
+                  [ "CmdGrpAutoOffRight", "class_cmd_grp_auto_off_right.html", null ]
+                ] ]
+              ] ]
+            ] ]
+          ] ]
+        ] ]
+      ] ],
+      [ "frc2::CommandScheduler", "classfrc2_1_1_command_scheduler.html", null ],
       [ "frc::AddressableLED", "classfrc_1_1_addressable_l_e_d.html", null ],
       [ "frc::ADXL345_I2C", "classfrc_1_1_a_d_x_l345___i2_c.html", null ],
       [ "frc::ADXL345_SPI", "classfrc_1_1_a_d_x_l345___s_p_i.html", null ],
@@ -71,51 +240,6 @@ var hierarchy =
       [ "frc::AnalogTrigger", "classfrc_1_1_analog_trigger.html", null ],
       [ "frc::BuiltInAccelerometer", "classfrc_1_1_built_in_accelerometer.html", null ],
       [ "frc::CAN", "classfrc_1_1_c_a_n.html", null ],
-      [ "frc::Command", "classfrc_1_1_command.html", [
-        [ "CmdAutoDriveStraight", "class_cmd_auto_drive_straight.html", null ],
-        [ "CmdAutoTurnAngle", "class_cmd_auto_turn_angle.html", null ],
-        [ "CmdDisableHansFranzMuscles", "class_cmd_disable_hans_franz_muscles.html", null ],
-        [ "CmdDisableTurboMode", "class_cmd_disable_turbo_mode.html", null ],
-        [ "CmdDriveArcadeStyle", "class_cmd_drive_arcade_style.html", null ],
-        [ "CmdDriveTankStyle", "class_cmd_drive_tank_style.html", null ],
-        [ "CmdDump", "class_cmd_dump.html", null ],
-        [ "CmdEnableHansFranzArms", "class_cmd_enable_hans_franz_arms.html", null ],
-        [ "CmdEnableHansFranzMuscles", "class_cmd_enable_hans_franz_muscles.html", null ],
-        [ "CmdEnableTurboMode", "class_cmd_enable_turbo_mode.html", null ],
-        [ "CmdExtendHansFranzMuscles", "class_cmd_extend_hans_franz_muscles.html", null ],
-        [ "CmdLoad", "class_cmd_load.html", null ],
-        [ "CmdMoveHansFranzArms", "class_cmd_move_hans_franz_arms.html", null ],
-        [ "CmdResetAHRSYaw", "class_cmd_reset_a_h_r_s_yaw.html", null ],
-        [ "CmdRetractHansFranzMuscles", "class_cmd_retract_hans_franz_muscles.html", null ],
-        [ "CmdToggleDriveDirection", "class_cmd_toggle_drive_direction.html", null ],
-        [ "CmdToggleSmoothingMode", "class_cmd_toggle_smoothing_mode.html", null ],
-        [ "CmdTravel", "class_cmd_travel.html", null ],
-        [ "CmdTurnWoFCCW", "class_cmd_turn_wo_f_c_c_w.html", null ],
-        [ "CmdTurnWoFCW", "class_cmd_turn_wo_f_c_w.html", null ],
-        [ "CmdWaitSeconds", "class_cmd_wait_seconds.html", null ],
-        [ "CmdZeroAHRSYaw", "class_cmd_zero_a_h_r_s_yaw.html", null ],
-        [ "frc::CommandGroup", "classfrc_1_1_command_group.html", [
-          [ "CmdGrpAutoDefault", "class_cmd_grp_auto_default.html", null ],
-          [ "CmdGrpAutoDefCenter", "class_cmd_grp_auto_def_center.html", null ],
-          [ "CmdGrpAutoDefLeft", "class_cmd_grp_auto_def_left.html", null ],
-          [ "CmdGrpAutoDefRight", "class_cmd_grp_auto_def_right.html", null ],
-          [ "CmdGrpAutoOffCenter", "class_cmd_grp_auto_off_center.html", null ],
-          [ "CmdGrpAutoOffLeft", "class_cmd_grp_auto_off_left.html", null ],
-          [ "CmdGrpAutoOffRight", "class_cmd_grp_auto_off_right.html", null ],
-          [ "CmdGrpEnableHansAndFranz", "class_cmd_grp_enable_hans_and_franz.html", null ]
-        ] ],
-        [ "frc::ConditionalCommand", "classfrc_1_1_conditional_command.html", null ],
-        [ "frc::InstantCommand", "classfrc_1_1_instant_command.html", [
-          [ "frc::PrintCommand", "classfrc_1_1_print_command.html", null ],
-          [ "frc::StartCommand", "classfrc_1_1_start_command.html", null ]
-        ] ],
-        [ "frc::PIDCommand", "classfrc_1_1_p_i_d_command.html", null ],
-        [ "frc::TimedCommand", "classfrc_1_1_timed_command.html", [
-          [ "frc::WaitCommand", "classfrc_1_1_wait_command.html", null ]
-        ] ],
-        [ "frc::WaitForChildren", "classfrc_1_1_wait_for_children.html", null ],
-        [ "frc::WaitUntilCommand", "classfrc_1_1_wait_until_command.html", null ]
-      ] ],
       [ "frc::Compressor", "classfrc_1_1_compressor.html", null ],
       [ "frc::Counter", "classfrc_1_1_counter.html", null ],
       [ "frc::DigitalGlitchFilter", "classfrc_1_1_digital_glitch_filter.html", null ],
@@ -171,7 +295,6 @@ var hierarchy =
       [ "frc::PowerDistributionPanel", "classfrc_1_1_power_distribution_panel.html", null ],
       [ "frc::Preferences", "classfrc_1_1_preferences.html", null ],
       [ "frc::Resource", "classfrc_1_1_resource.html", null ],
-      [ "frc::Scheduler", "classfrc_1_1_scheduler.html", null ],
       [ "frc::SerialPort", "classfrc_1_1_serial_port.html", null ],
       [ "frc::ShuffleboardContainer", "classfrc_1_1_shuffleboard_container.html", [
         [ "frc::ShuffleboardLayout", "classfrc_1_1_shuffleboard_layout.html", null ],
@@ -183,15 +306,6 @@ var hierarchy =
         [ "frc::Solenoid", "classfrc_1_1_solenoid.html", null ]
       ] ],
       [ "frc::SPI", "classfrc_1_1_s_p_i.html", null ],
-      [ "frc::Subsystem", "classfrc_1_1_subsystem.html", [
-        [ "frc::PIDSubsystem", "classfrc_1_1_p_i_d_subsystem.html", [
-          [ "PIDSubSysPssh", "class_p_i_d_sub_sys_pssh.html", null ]
-        ] ],
-        [ "SubSysDriveTrain", "class_sub_sys_drive_train.html", null ],
-        [ "SubSysHansFranzArms", "class_sub_sys_hans_franz_arms.html", null ],
-        [ "SubSysHansFranzMuscles", "class_sub_sys_hans_franz_muscles.html", null ],
-        [ "SubSysPATTurner", "class_sub_sys_p_a_t_turner.html", null ]
-      ] ],
       [ "frc::TimedRobot", "classfrc_1_1_timed_robot.html", [
         [ "Robot", "class_robot.html", null ]
       ] ],
@@ -221,11 +335,11 @@ var hierarchy =
       [ "SerialIO", "class_serial_i_o.html", null ],
       [ "SimIO", "class_sim_i_o.html", null ]
     ] ],
+    [ "frc2::CommandScheduler::Impl", "class_command_scheduler_1_1_impl.html", null ],
     [ "frc::CameraServer::Impl", "struct_camera_server_1_1_impl.html", null ],
     [ "frc::LiveWindow::Impl", "struct_live_window_1_1_impl.html", null ],
     [ "frc::detail::ShuffleboardInstance::Impl", "struct_shuffleboard_instance_1_1_impl.html", null ],
     [ "frc::SendableRegistry::Impl", "struct_sendable_registry_1_1_impl.html", null ],
-    [ "frc::Scheduler::Impl", "struct_scheduler_1_1_impl.html", null ],
     [ "IMUProtocol", "class_i_m_u_protocol.html", [
       [ "AHRSProtocol", "class_a_h_r_s_protocol.html", null ]
     ] ],
@@ -250,17 +364,13 @@ var hierarchy =
     [ "frc::TrajectoryConstraint::MinMax", "structfrc_1_1_trajectory_constraint_1_1_min_max.html", null ],
     [ "frc::NullDeleter< T >", "structfrc_1_1_null_deleter.html", null ],
     [ "OffsetTracker", "class_offset_tracker.html", null ],
-    [ "OI", "class_o_i.html", null ],
     [ "frc::PIDInterface", "classfrc_1_1_p_i_d_interface.html", [
       [ "frc::PIDBase", "classfrc_1_1_p_i_d_base.html", [
         [ "frc::PIDController", "classfrc_1_1_p_i_d_controller.html", null ]
       ] ]
     ] ],
     [ "frc::PIDOutput", "classfrc_1_1_p_i_d_output.html", [
-      [ "CmdAutoTurnAngle", "class_cmd_auto_turn_angle.html", null ],
       [ "frc::PIDBase", "classfrc_1_1_p_i_d_base.html", null ],
-      [ "frc::PIDCommand", "classfrc_1_1_p_i_d_command.html", null ],
-      [ "frc::PIDSubsystem", "classfrc_1_1_p_i_d_subsystem.html", null ],
       [ "frc::SpeedController", "classfrc_1_1_speed_controller.html", [
         [ "frc::MockSpeedController", "classfrc_1_1_mock_speed_controller.html", null ],
         [ "frc::NidecBrushless", "classfrc_1_1_nidec_brushless.html", null ],
@@ -277,8 +387,6 @@ var hierarchy =
         [ "frc::LinearDigitalFilter", "classfrc_1_1_linear_digital_filter.html", null ]
       ] ],
       [ "frc::GyroBase", "classfrc_1_1_gyro_base.html", null ],
-      [ "frc::PIDCommand", "classfrc_1_1_p_i_d_command.html", null ],
-      [ "frc::PIDSubsystem", "classfrc_1_1_p_i_d_subsystem.html", null ],
       [ "frc::Potentiometer", "classfrc_1_1_potentiometer.html", [
         [ "frc::AnalogPotentiometer", "classfrc_1_1_analog_potentiometer.html", null ]
       ] ],
@@ -296,8 +404,10 @@ var hierarchy =
         [ "frc::TimedRobot", "classfrc_1_1_timed_robot.html", null ]
       ] ]
     ] ],
+    [ "RobotContainer", "class_robot_container.html", null ],
     [ "frc::RobotController", "classfrc_1_1_robot_controller.html", null ],
     [ "frc::RobotState", "classfrc_1_1_robot_state.html", null ],
+    [ "RobotTick", "class_robot_tick.html", null ],
     [ "frc::Rotation2d", "classfrc_1_1_rotation2d.html", null ],
     [ "runtime_error", null, [
       [ "frc::SplineParameterizer::MalformedSplineException", "structfrc_1_1_spline_parameterizer_1_1_malformed_spline_exception.html", null ]
@@ -306,7 +416,20 @@ var hierarchy =
       [ "frc::Watchdog::Thread", "class_watchdog_1_1_thread.html", null ]
     ] ],
     [ "frc::Sendable", "classfrc_1_1_sendable.html", [
+      [ "frc2::CommandBase", "classfrc2_1_1_command_base.html", null ],
+      [ "frc2::CommandScheduler", "classfrc2_1_1_command_scheduler.html", null ],
       [ "frc2::PIDController", "classfrc2_1_1_p_i_d_controller.html", null ],
+      [ "frc2::SubsystemBase", "classfrc2_1_1_subsystem_base.html", [
+        [ "frc2::PIDSubsystem", "classfrc2_1_1_p_i_d_subsystem.html", [
+          [ "PIDSubSysPssh", "class_p_i_d_sub_sys_pssh.html", null ]
+        ] ],
+        [ "frc2::ProfiledPIDSubsystem< Distance >", "classfrc2_1_1_profiled_p_i_d_subsystem.html", null ],
+        [ "frc2::TrapezoidProfileSubsystem< Distance >", "classfrc2_1_1_trapezoid_profile_subsystem.html", null ],
+        [ "SubSysDriveTrain", "class_sub_sys_drive_train.html", null ],
+        [ "SubSysHansFranzArms", "class_sub_sys_hans_franz_arms.html", null ],
+        [ "SubSysHansFranzMuscles", "class_sub_sys_hans_franz_muscles.html", null ],
+        [ "SubSysPATTurner", "class_sub_sys_p_a_t_turner.html", null ]
+      ] ],
       [ "frc::ADXL345_I2C", "classfrc_1_1_a_d_x_l345___i2_c.html", null ],
       [ "frc::ADXL345_SPI", "classfrc_1_1_a_d_x_l345___s_p_i.html", null ],
       [ "frc::ADXL362", "classfrc_1_1_a_d_x_l362.html", null ],
@@ -318,7 +441,6 @@ var hierarchy =
       [ "frc::AnalogTrigger", "classfrc_1_1_analog_trigger.html", null ],
       [ "frc::AnalogTriggerOutput", "classfrc_1_1_analog_trigger_output.html", null ],
       [ "frc::BuiltInAccelerometer", "classfrc_1_1_built_in_accelerometer.html", null ],
-      [ "frc::Command", "classfrc_1_1_command.html", null ],
       [ "frc::Compressor", "classfrc_1_1_compressor.html", null ],
       [ "frc::Counter", "classfrc_1_1_counter.html", null ],
       [ "frc::DifferentialDrive", "classfrc_1_1_differential_drive.html", null ],
@@ -339,27 +461,17 @@ var hierarchy =
       [ "frc::ProfiledPIDController< Distance >", "classfrc_1_1_profiled_p_i_d_controller.html", null ],
       [ "frc::PWM", "classfrc_1_1_p_w_m.html", null ],
       [ "frc::Relay", "classfrc_1_1_relay.html", null ],
-      [ "frc::Scheduler", "classfrc_1_1_scheduler.html", null ],
       [ "frc::SendableBase", "classfrc_1_1_sendable_base.html", [
         [ "AHRS", "class_a_h_r_s.html", null ]
       ] ],
       [ "frc::SendableCameraWrapper", "classfrc_1_1_sendable_camera_wrapper.html", null ],
       [ "frc::SendableChooserBase", "classfrc_1_1_sendable_chooser_base.html", [
         [ "frc::SendableChooser< T >", "classfrc_1_1_sendable_chooser.html", null ],
-        [ "frc::SendableChooser< frc::Command * >", "classfrc_1_1_sendable_chooser.html", null ]
+        [ "frc::SendableChooser< frc2::Command * >", "classfrc_1_1_sendable_chooser.html", null ]
       ] ],
       [ "frc::SmartDashboard", "classfrc_1_1_smart_dashboard.html", null ],
       [ "frc::Solenoid", "classfrc_1_1_solenoid.html", null ],
       [ "frc::SpeedControllerGroup", "classfrc_1_1_speed_controller_group.html", null ],
-      [ "frc::Subsystem", "classfrc_1_1_subsystem.html", null ],
-      [ "frc::Trigger", "classfrc_1_1_trigger.html", [
-        [ "frc::Button", "classfrc_1_1_button.html", [
-          [ "frc::InternalButton", "classfrc_1_1_internal_button.html", null ],
-          [ "frc::JoystickButton", "classfrc_1_1_joystick_button.html", null ],
-          [ "frc::NetworkButton", "classfrc_1_1_network_button.html", null ],
-          [ "frc::POVButton", "classfrc_1_1_p_o_v_button.html", null ]
-        ] ]
-      ] ],
       [ "frc::Ultrasonic", "classfrc_1_1_ultrasonic.html", null ]
     ] ],
     [ "frc::SendableBuilder", "classfrc_1_1_sendable_builder.html", [
@@ -399,8 +511,11 @@ var hierarchy =
     [ "frc::SendableHelper< BuiltInAccelerometer >", "classfrc_1_1_sendable_helper.html", [
       [ "frc::BuiltInAccelerometer", "classfrc_1_1_built_in_accelerometer.html", null ]
     ] ],
-    [ "frc::SendableHelper< Command >", "classfrc_1_1_sendable_helper.html", [
-      [ "frc::Command", "classfrc_1_1_command.html", null ]
+    [ "frc::SendableHelper< CommandBase >", "classfrc_1_1_sendable_helper.html", [
+      [ "frc2::CommandBase", "classfrc2_1_1_command_base.html", null ]
+    ] ],
+    [ "frc::SendableHelper< CommandScheduler >", "classfrc_1_1_sendable_helper.html", [
+      [ "frc2::CommandScheduler", "classfrc2_1_1_command_scheduler.html", null ]
     ] ],
     [ "frc::SendableHelper< Compressor >", "classfrc_1_1_sendable_helper.html", [
       [ "frc::Compressor", "classfrc_1_1_compressor.html", null ]
@@ -465,9 +580,6 @@ var hierarchy =
     [ "frc::SendableHelper< Relay >", "classfrc_1_1_sendable_helper.html", [
       [ "frc::Relay", "classfrc_1_1_relay.html", null ]
     ] ],
-    [ "frc::SendableHelper< Scheduler >", "classfrc_1_1_sendable_helper.html", [
-      [ "frc::Scheduler", "classfrc_1_1_scheduler.html", null ]
-    ] ],
     [ "frc::SendableHelper< SendableBase >", "classfrc_1_1_sendable_helper.html", [
       [ "frc::SendableBase", "classfrc_1_1_sendable_base.html", null ]
     ] ],
@@ -486,11 +598,8 @@ var hierarchy =
     [ "frc::SendableHelper< SpeedControllerGroup >", "classfrc_1_1_sendable_helper.html", [
       [ "frc::SpeedControllerGroup", "classfrc_1_1_speed_controller_group.html", null ]
     ] ],
-    [ "frc::SendableHelper< Subsystem >", "classfrc_1_1_sendable_helper.html", [
-      [ "frc::Subsystem", "classfrc_1_1_subsystem.html", null ]
-    ] ],
-    [ "frc::SendableHelper< Trigger >", "classfrc_1_1_sendable_helper.html", [
-      [ "frc::Trigger", "classfrc_1_1_trigger.html", null ]
+    [ "frc::SendableHelper< SubsystemBase >", "classfrc_1_1_sendable_helper.html", [
+      [ "frc2::SubsystemBase", "classfrc2_1_1_subsystem_base.html", null ]
     ] ],
     [ "frc::SendableHelper< Ultrasonic >", "classfrc_1_1_sendable_helper.html", [
       [ "frc::Ultrasonic", "classfrc_1_1_ultrasonic.html", null ]
@@ -529,6 +638,7 @@ var hierarchy =
     ] ],
     [ "frc::SimpleMotorFeedforward< Distance >", "classfrc_1_1_simple_motor_feedforward.html", null ],
     [ "frc::SimpleMotorFeedforward< units::meter >", "classfrc_1_1_simple_motor_feedforward.html", null ],
+    [ "frc::SimpleMotorFeedforward< units::meters >", "classfrc_1_1_simple_motor_feedforward.html", null ],
     [ "frc::SlewRateLimiter< Unit >", "classfrc_1_1_slew_rate_limiter.html", null ],
     [ "frc::Spline< Degree >", "classfrc_1_1_spline.html", null ],
     [ "frc::Spline< 3 >", "classfrc_1_1_spline.html", [
@@ -540,14 +650,18 @@ var hierarchy =
     [ "frc::SplineHelper", "classfrc_1_1_spline_helper.html", null ],
     [ "frc::SplineParameterizer", "classfrc_1_1_spline_parameterizer.html", null ],
     [ "frc::SplineParameterizer::StackContents", "structfrc_1_1_spline_parameterizer_1_1_stack_contents.html", null ],
-    [ "frc::Trajectory::State", "structfrc_1_1_trajectory_1_1_state.html", null ],
     [ "frc::TrapezoidProfile< Distance >::State", "classfrc_1_1_trapezoid_profile_1_1_state.html", null ],
+    [ "frc::Trajectory::State", "structfrc_1_1_trajectory_1_1_state.html", null ],
     [ "IMUProtocol::StreamResponse", "struct_i_m_u_protocol_1_1_stream_response.html", null ],
+    [ "frc2::Subsystem", "classfrc2_1_1_subsystem.html", [
+      [ "frc2::SubsystemBase", "classfrc2_1_1_subsystem_base.html", null ]
+    ] ],
     [ "frc::SwerveDriveKinematics< NumModules >", "classfrc_1_1_swerve_drive_kinematics.html", null ],
     [ "frc::SwerveDriveKinematics< 4 >", "classfrc_1_1_swerve_drive_kinematics.html", null ],
     [ "frc::SwerveDriveOdometry< NumModules >", "classfrc_1_1_swerve_drive_odometry.html", null ],
     [ "frc::SwerveDriveOdometry< 4 >", "classfrc_1_1_swerve_drive_odometry.html", null ],
     [ "frc::SwerveModuleState", "structfrc_1_1_swerve_module_state.html", null ],
+    [ "TelemetryOutputter::telemetry_output_type", "struct_telemetry_outputter_1_1telemetry__output__type.html", null ],
     [ "TelemetryOutputter", "class_telemetry_outputter.html", null ],
     [ "Test", null, [
       [ "DriveTest", "class_drive_test.html", null ],
@@ -585,6 +699,12 @@ var hierarchy =
     [ "frc::Transform2d", "classfrc_1_1_transform2d.html", null ],
     [ "frc::Translation2d", "classfrc_1_1_translation2d.html", null ],
     [ "frc::TrapezoidProfile< Distance >", "classfrc_1_1_trapezoid_profile.html", null ],
+    [ "frc2::Trigger", "classfrc2_1_1_trigger.html", [
+      [ "frc2::Button", "classfrc2_1_1_button.html", [
+        [ "frc2::JoystickButton", "classfrc2_1_1_joystick_button.html", null ],
+        [ "frc2::POVButton", "classfrc2_1_1_p_o_v_button.html", null ]
+      ] ]
+    ] ],
     [ "frc::Twist2d", "structfrc_1_1_twist2d.html", null ],
     [ "frc::Vector2d", "structfrc_1_1_vector2d.html", null ],
     [ "Video", "class_video.html", null ],
@@ -594,5 +714,8 @@ var hierarchy =
     ] ],
     [ "frc::Watchdog", "classfrc_1_1_watchdog.html", null ],
     [ "frc::WidgetType", "classfrc_1_1_widget_type.html", null ],
-    [ "IMUProtocol::YPRUpdate", "struct_i_m_u_protocol_1_1_y_p_r_update.html", null ]
+    [ "IMUProtocol::YPRUpdate", "struct_i_m_u_protocol_1_1_y_p_r_update.html", null ],
+    [ "Base", null, [
+      [ "frc2::CommandHelper< Base, CRTP, typename >", "classfrc2_1_1_command_helper.html", null ]
+    ] ]
 ];

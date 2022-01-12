@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode/WPILIBC(v2020.3.2): Class Members - Functions</title>
+<title>NewRobotCode/WPILIBC(v2020.3.2): Class Members - Functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode/WPILIBC(v2020.3.2)
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode/WPILIBC(v2020.3.2)
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -97,6 +97,10 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 <li>InAutonomous()
 : <a class="el" href="classfrc_1_1_driver_station.html#a2fad0163c68694dd8adcfff73c8f7b00">frc::DriverStation</a>
 </li>
+<li>IncrementRobotTick()
+: <a class="el" href="class_robot_container.html#a2bcd5736e723cf2e9c14115aed025d25">RobotContainer</a>
+, <a class="el" href="class_robot_tick.html#a872f707e87a60a1a9b99c04f4501b9f8">RobotTick</a>
+</li>
 <li>InDisabled()
 : <a class="el" href="classfrc_1_1_driver_station.html#a97f4a61b2c76ac8698930348e7a631d2">frc::DriverStation</a>
 </li>
@@ -110,14 +114,6 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 <li>InitAuto()
 : <a class="el" href="classfrc_1_1_s_p_i.html#a203160fc843b78ee5e0c92c60bb6f366">frc::SPI</a>
 </li>
-<li>InitDefaultCommand()
-: <a class="el" href="classfrc_1_1_subsystem.html#a3e459cd7c50c21fad4dfa640b8b5bf65">frc::Subsystem</a>
-, <a class="el" href="class_p_i_d_sub_sys_pssh.html#ae6958c6098a1590e9cfdcaec336d639f">PIDSubSysPssh</a>
-, <a class="el" href="class_sub_sys_drive_train.html#a13400bda2141aad311ff14216b557565">SubSysDriveTrain</a>
-, <a class="el" href="class_sub_sys_hans_franz_arms.html#aae54e46fc279a1ed9f5b6050da3afdab">SubSysHansFranzArms</a>
-, <a class="el" href="class_sub_sys_hans_franz_muscles.html#ab22ec331f8a1eb7406b4a292b96f7cf5">SubSysHansFranzMuscles</a>
-, <a class="el" href="class_sub_sys_p_a_t_turner.html#aaa748972e8459ca3bee9dff9afdb0462">SubSysPATTurner</a>
-</li>
 <li>InitEncoder()
 : <a class="el" href="classfrc_1_1_encoder.html#ae833587dc1adddb58e0c1694769cfe87">frc::Encoder</a>
 </li>
@@ -128,12 +124,14 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 : <a class="el" href="class_cmd_auto_drive_straight.html#a80b9be7d6723df810e2e7f90d59a1c4b">CmdAutoDriveStraight</a>
 , <a class="el" href="class_cmd_auto_turn_angle.html#ab8ea9e8f89b743951d6932187190b71f">CmdAutoTurnAngle</a>
 , <a class="el" href="class_cmd_disable_hans_franz_muscles.html#a1076c26913d6b05ac3c7058857d287f7">CmdDisableHansFranzMuscles</a>
+, <a class="el" href="class_cmd_disable_smoothing_mode.html#ae36ce94922a7b489a344659111e71797">CmdDisableSmoothingMode</a>
 , <a class="el" href="class_cmd_disable_turbo_mode.html#a21496041d8a440a888533d735b9df94d">CmdDisableTurboMode</a>
 , <a class="el" href="class_cmd_drive_arcade_style.html#acd0e6a9f51b26197a030868695482046">CmdDriveArcadeStyle</a>
 , <a class="el" href="class_cmd_drive_tank_style.html#aaa30d73f70483881c1c86dc6374aa2a9">CmdDriveTankStyle</a>
 , <a class="el" href="class_cmd_dump.html#a883c9be36ba5e1c9b5c9727a80440f4f">CmdDump</a>
 , <a class="el" href="class_cmd_enable_hans_franz_arms.html#a1f7622b93f56922246b1622a5aa9f734">CmdEnableHansFranzArms</a>
 , <a class="el" href="class_cmd_enable_hans_franz_muscles.html#aa83304228058878dbc49333fa8a44795">CmdEnableHansFranzMuscles</a>
+, <a class="el" href="class_cmd_enable_smoothing_mode.html#acb878e953dd1ff8c113342a966fb78fe">CmdEnableSmoothingMode</a>
 , <a class="el" href="class_cmd_enable_turbo_mode.html#a5cf50bc664b45f7d4089ea0dd210c0e7">CmdEnableTurboMode</a>
 , <a class="el" href="class_cmd_extend_hans_franz_muscles.html#ad96ebab3b134f20685cc64ddf4d47122">CmdExtendHansFranzMuscles</a>
 , <a class="el" href="class_cmd_load.html#a05e5a8e6f53abbbb1fcfac41d56d5392">CmdLoad</a>
@@ -147,10 +145,27 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 , <a class="el" href="class_cmd_turn_wo_f_c_w.html#ab53c9c4870a205ba08cb5a25a2935d01">CmdTurnWoFCW</a>
 , <a class="el" href="class_cmd_wait_seconds.html#a86e750301a50a9f1c3b760b61bd1deeb">CmdWaitSeconds</a>
 , <a class="el" href="class_cmd_zero_a_h_r_s_yaw.html#a2308fc3c6fd5d13e1029132127443bea">CmdZeroAHRSYaw</a>
-, <a class="el" href="classfrc_1_1_command.html#aec0b87c66e32d1577075173442750dce">frc::Command</a>
-, <a class="el" href="classfrc_1_1_command_group.html#a931fcdff139e228e5aa977eba9c42c6b">frc::CommandGroup</a>
-, <a class="el" href="classfrc_1_1_print_command.html#a17dae2fd458c44f29e7df2a1d6b2c066">frc::PrintCommand</a>
-, <a class="el" href="classfrc_1_1_start_command.html#a7e0382765f67e6c31e1786f43c6d4c4d">frc::StartCommand</a>
+, <a class="el" href="classfrc2_1_1_command.html#aec0b87c66e32d1577075173442750dce">frc2::Command</a>
+, <a class="el" href="classfrc2_1_1_conditional_command.html#ade4d920ebc974c8328147e668ab390e9">frc2::ConditionalCommand</a>
+, <a class="el" href="classfrc2_1_1_functional_command.html#ae44590f5bc520388d2f8ce936b7c4716">frc2::FunctionalCommand</a>
+, <a class="el" href="classfrc2_1_1_instant_command.html#a75bae74ce21ce42d3a95c8474c50a076">frc2::InstantCommand</a>
+, <a class="el" href="classfrc2_1_1_mecanum_controller_command.html#a423698dc71b5f6700a4889eff6672903">frc2::MecanumControllerCommand</a>
+, <a class="el" href="classfrc2_1_1_notifier_command.html#add5149510029776dd9477894f7efeec0">frc2::NotifierCommand</a>
+, <a class="el" href="classfrc2_1_1_parallel_command_group.html#a55bfa92c40236ee097b8576ab85a7994">frc2::ParallelCommandGroup</a>
+, <a class="el" href="classfrc2_1_1_parallel_deadline_group.html#a70c2d028921ee5e22e9008e3b4e79f94">frc2::ParallelDeadlineGroup</a>
+, <a class="el" href="classfrc2_1_1_parallel_race_group.html#a844c7da694c908191f88f6e8a52e8880">frc2::ParallelRaceGroup</a>
+, <a class="el" href="classfrc2_1_1_perpetual_command.html#a73da8fb115b2ba145a1b3a8b154241ec">frc2::PerpetualCommand</a>
+, <a class="el" href="classfrc2_1_1_p_i_d_command.html#a5c7ccf90fb34096d8eabbddb510dd059">frc2::PIDCommand</a>
+, <a class="el" href="classfrc2_1_1_profiled_p_i_d_command.html#a5a974dfd541d83b2d8332df7e995ee20">frc2::ProfiledPIDCommand&lt; Distance &gt;</a>
+, <a class="el" href="classfrc2_1_1_proxy_schedule_command.html#a78a61edd3a144cf8df7754f476fe3c88">frc2::ProxyScheduleCommand</a>
+, <a class="el" href="classfrc2_1_1_ramsete_command.html#aa323e61cb00bdd4c5f6bf094866487d6">frc2::RamseteCommand</a>
+, <a class="el" href="classfrc2_1_1_schedule_command.html#af2698c610c21da4e71fabce95f453200">frc2::ScheduleCommand</a>
+, <a class="el" href="classfrc2_1_1_select_command.html#a58bb9678f54a52e0c5d8e0f3e6e68567">frc2::SelectCommand&lt; Key &gt;</a>
+, <a class="el" href="classfrc2_1_1_sequential_command_group.html#a2ec396992c2ddaaf54dd59576a2da9c5">frc2::SequentialCommandGroup</a>
+, <a class="el" href="classfrc2_1_1_start_end_command.html#abce3dda2cfb9321e9db89d6ea1c8342a">frc2::StartEndCommand</a>
+, <a class="el" href="classfrc2_1_1_swerve_controller_command.html#aa2285b85e43cf4b0bf2b4a5a5431b3a1">frc2::SwerveControllerCommand&lt; NumModules &gt;</a>
+, <a class="el" href="classfrc2_1_1_trapezoid_profile_command.html#a179e30f028f1dfdcbb2020a95583dcd9">frc2::TrapezoidProfileCommand&lt; Distance &gt;</a>
+, <a class="el" href="classfrc2_1_1_wait_command.html#a8292108957c00eb2672c728a012a7723">frc2::WaitCommand</a>
 , <a class="el" href="classfrc_1_1_ultrasonic.html#ac82c315e5df6423a9e1c0cba20d962b3">frc::Ultrasonic</a>
 </li>
 <li>InitializeSwitchedCameraServer()
@@ -167,7 +182,10 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 </li>
 <li>InitSendable()
 : <a class="el" href="class_a_h_r_s.html#a0c6cec966bf05a0a6eac7b23870be18e">AHRS</a>
+, <a class="el" href="classfrc2_1_1_command_base.html#a5470e7712742fcd88758e6d33d48ff8b">frc2::CommandBase</a>
+, <a class="el" href="classfrc2_1_1_command_scheduler.html#aafbbeb2dcde1f5aa9cf1f45de977999f">frc2::CommandScheduler</a>
 , <a class="el" href="classfrc2_1_1_p_i_d_controller.html#a9afc2535ea00669d46d75bc195b92944">frc2::PIDController</a>
+, <a class="el" href="classfrc2_1_1_subsystem_base.html#ae5ab3db7029dde53ca6e1a6c14bedfe5">frc2::SubsystemBase</a>
 , <a class="el" href="classfrc_1_1_a_d_x_l345___i2_c.html#a2bf81f5cc18cd7cd96b32cadba5f6477">frc::ADXL345_I2C</a>
 , <a class="el" href="classfrc_1_1_a_d_x_l345___s_p_i.html#aa65ddf82adf0170da5f31e4e10e818bc">frc::ADXL345_SPI</a>
 , <a class="el" href="classfrc_1_1_a_d_x_l362.html#a74701efacbda005a01a5766f8670fbee">frc::ADXL362</a>
@@ -179,7 +197,6 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 , <a class="el" href="classfrc_1_1_analog_trigger.html#a15901d8b4589ea5c6aeb389dbafd6a06">frc::AnalogTrigger</a>
 , <a class="el" href="classfrc_1_1_analog_trigger_output.html#a8d45ef0e86ec4d28f7e81d80df13ac39">frc::AnalogTriggerOutput</a>
 , <a class="el" href="classfrc_1_1_built_in_accelerometer.html#aa809b9d53a816e48d6b6627cc2afdf84">frc::BuiltInAccelerometer</a>
-, <a class="el" href="classfrc_1_1_command.html#a610b36be5416468ae15c364601e7a888">frc::Command</a>
 , <a class="el" href="classfrc_1_1_compressor.html#a8bcc2290b08c32f05dcd86c28051b1d4">frc::Compressor</a>
 , <a class="el" href="classfrc_1_1_counter.html#a63d90d093fd55b5207772bc3acce7604">frc::Counter</a>
 , <a class="el" href="classfrc_1_1_differential_drive.html#ad999db88493de1680a9126b2bad23e4c">frc::DifferentialDrive</a>
@@ -197,58 +214,28 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 , <a class="el" href="classfrc_1_1_mock_actuator_sendable.html#aca0e37d5c7f44fcccbe3f8af232dd1fb">frc::MockActuatorSendable</a>
 , <a class="el" href="classfrc_1_1_nidec_brushless.html#a4131910e7b5fce33994360755ad584bc">frc::NidecBrushless</a>
 , <a class="el" href="classfrc_1_1_p_i_d_base.html#a98adb93f8ba978d7f999055c04287a76">frc::PIDBase</a>
-, <a class="el" href="classfrc_1_1_p_i_d_command.html#a15b625245149e50d8ba26e3ef5e50d12">frc::PIDCommand</a>
 , <a class="el" href="classfrc_1_1_p_i_d_controller.html#a5d8f20d9ac9dad8e1b14728df5850367">frc::PIDController</a>
 , <a class="el" href="classfrc_1_1_power_distribution_panel.html#ae9cffaa6ed8515f853340e096bbb1534">frc::PowerDistributionPanel</a>
 , <a class="el" href="classfrc_1_1_profiled_p_i_d_controller.html#aabe9dac67b9b611847a5c99e4ca43509">frc::ProfiledPIDController&lt; Distance &gt;</a>
 , <a class="el" href="classfrc_1_1_p_w_m.html#a683081532de256011ed9ed19a857d5d3">frc::PWM</a>
 , <a class="el" href="classfrc_1_1_p_w_m_speed_controller.html#ae88d28143879bfdf8ac6587b0169973d">frc::PWMSpeedController</a>
 , <a class="el" href="classfrc_1_1_relay.html#a916c1c03fb8ce181c3ccdc06e763567f">frc::Relay</a>
-, <a class="el" href="classfrc_1_1_scheduler.html#a514eb06eedd0861fd4599578de2958d0">frc::Scheduler</a>
 , <a class="el" href="classfrc_1_1_sendable.html#a5023f1e8965abafdcd728d9213f4eb28">frc::Sendable</a>
 , <a class="el" href="classfrc_1_1_sendable_camera_wrapper.html#a5a53f162428ac9a069050769cc8ad4cf">frc::SendableCameraWrapper</a>
 , <a class="el" href="classfrc_1_1_sendable_chooser.html#a3a80f828f68820a9c602e6888761bba5">frc::SendableChooser&lt; T &gt;</a>
 , <a class="el" href="classfrc_1_1_servo.html#ad4bc86dfd4a25824af031be56cd556ff">frc::Servo</a>
 , <a class="el" href="classfrc_1_1_solenoid.html#ab4272cfd605a4e6210f568cfb6cdb36c">frc::Solenoid</a>
 , <a class="el" href="classfrc_1_1_speed_controller_group.html#a3c0cdb8d8ccd94773130b92e8aef7c28">frc::SpeedControllerGroup</a>
-, <a class="el" href="classfrc_1_1_subsystem.html#a21931a62f2024e525a81dae0e7ae5bf6">frc::Subsystem</a>
-, <a class="el" href="classfrc_1_1_trigger.html#a0cf0ff068bdc1d688bc679f78c5c0370">frc::Trigger</a>
 , <a class="el" href="classfrc_1_1_ultrasonic.html#a44bdc96fcfc6c20a3462adef08ce7605">frc::Ultrasonic</a>
 </li>
 <li>InOperatorControl()
 : <a class="el" href="classfrc_1_1_driver_station.html#ace9eb86cb26407b6a267f85a1b49ce8a">frc::DriverStation</a>
 </li>
 <li>InstantCommand()
-: <a class="el" href="classfrc_1_1_instant_command.html#a8f0434c32c7a3c4cbbf934ba42a04876">frc::InstantCommand</a>
+: <a class="el" href="classfrc2_1_1_instant_command.html#a252f9c9efdd5abf5f51affdaab7e5f24">frc2::InstantCommand</a>
 </li>
 <li>Interpolate()
 : <a class="el" href="structfrc_1_1_trajectory_1_1_state.html#abbc9b8e746f73a5a1b0a9df99050c1a4">frc::Trajectory::State</a>
-</li>
-<li>Interrupted()
-: <a class="el" href="class_cmd_auto_drive_straight.html#a4ae2f02dde6d32945f101c98b664686b">CmdAutoDriveStraight</a>
-, <a class="el" href="class_cmd_auto_turn_angle.html#a4722882f6a8db1279b39b54c1b260518">CmdAutoTurnAngle</a>
-, <a class="el" href="class_cmd_disable_hans_franz_muscles.html#ad7d8bb096f8fcdb06d758fe475e43d68">CmdDisableHansFranzMuscles</a>
-, <a class="el" href="class_cmd_disable_turbo_mode.html#aa523fefca92a5e5c4286ad971582b964">CmdDisableTurboMode</a>
-, <a class="el" href="class_cmd_drive_arcade_style.html#a019fe1037b304160b4eef26380b5e18c">CmdDriveArcadeStyle</a>
-, <a class="el" href="class_cmd_drive_tank_style.html#adf1b9f872c1e5f781e3481bccc64d011">CmdDriveTankStyle</a>
-, <a class="el" href="class_cmd_dump.html#a2df3b139cb2b040fe3cc548bcfe16f6e">CmdDump</a>
-, <a class="el" href="class_cmd_enable_hans_franz_arms.html#af23e6a3717d968a9b5cfc6f80af70260">CmdEnableHansFranzArms</a>
-, <a class="el" href="class_cmd_enable_hans_franz_muscles.html#ac7b5f3809683a336699b5b3b43e8655a">CmdEnableHansFranzMuscles</a>
-, <a class="el" href="class_cmd_enable_turbo_mode.html#a4556b977b40c71510af1038a5c8269ca">CmdEnableTurboMode</a>
-, <a class="el" href="class_cmd_extend_hans_franz_muscles.html#a88cc64e51d6118b7e8a07ebd0ce7c35b">CmdExtendHansFranzMuscles</a>
-, <a class="el" href="class_cmd_load.html#afff3da63f5e79014296d55b34f19906f">CmdLoad</a>
-, <a class="el" href="class_cmd_move_hans_franz_arms.html#a45ccad5f19336a7eadea7c4812d48835">CmdMoveHansFranzArms</a>
-, <a class="el" href="class_cmd_reset_a_h_r_s_yaw.html#a561c25c923df625128134d0c5f29ef3b">CmdResetAHRSYaw</a>
-, <a class="el" href="class_cmd_retract_hans_franz_muscles.html#a53a41f0027bbd7b79f8cd5106962fb2b">CmdRetractHansFranzMuscles</a>
-, <a class="el" href="class_cmd_toggle_drive_direction.html#a60e7edda9e237b742b2c8d696e5b9427">CmdToggleDriveDirection</a>
-, <a class="el" href="class_cmd_toggle_smoothing_mode.html#a81c3ba1465fa043c7f3cb3b3060160aa">CmdToggleSmoothingMode</a>
-, <a class="el" href="class_cmd_travel.html#a3f2be42c54e23279c7e2f42b4ed4ce9b">CmdTravel</a>
-, <a class="el" href="class_cmd_turn_wo_f_c_c_w.html#a768ecce75eaecbb11e62390f729cb429">CmdTurnWoFCCW</a>
-, <a class="el" href="class_cmd_turn_wo_f_c_w.html#afe45efdc697893dd8c4d0ecb8285e4f9">CmdTurnWoFCW</a>
-, <a class="el" href="class_cmd_wait_seconds.html#a0e4611db296ac21dcdc0a9b156387dcf">CmdWaitSeconds</a>
-, <a class="el" href="class_cmd_zero_a_h_r_s_yaw.html#a03ea1bc7adb21b6c1e948d9899dfc6ba">CmdZeroAHRSYaw</a>
-, <a class="el" href="classfrc_1_1_command.html#aa3d99dd41d16d1e16f55184ec8b4df58">frc::Command</a>
-, <a class="el" href="classfrc_1_1_command_group.html#a56d224d9b9e4f7790f7ca42a2b277e0d">frc::CommandGroup</a>
 </li>
 <li>InTest()
 : <a class="el" href="classfrc_1_1_driver_station.html#acf62b32b2818543b442d44ba43d34d28">frc::DriverStation</a>
@@ -286,12 +273,6 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 <li>IsCalibrating()
 : <a class="el" href="class_a_h_r_s.html#a1c4fd663fb5d6977fb9621bac86ec569">AHRS</a>
 </li>
-<li>IsCanceled()
-: <a class="el" href="classfrc_1_1_command.html#ae06f076cc6b57f896ce88ef67745cde0">frc::Command</a>
-</li>
-<li>IsCompleted()
-: <a class="el" href="classfrc_1_1_command.html#a0abbccd09de8fe399a52d1945e2661f6">frc::Command</a>
-</li>
 <li>IsConnected()
 : <a class="el" href="class_a_h_r_s.html#a66eaa947bf4eeec513b5f0a5b49a267e">AHRS</a>
 , <a class="el" href="classfrc_1_1_duty_cycle_encoder.html#a51ff8df5edb0cc579b0631ed71ef2b18">frc::DutyCycleEncoder</a>
@@ -304,7 +285,9 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 : <a class="el" href="classfrc_1_1_driver_station.html#ab37c39bcfd67821de0974b2bc4758336">frc::DriverStation</a>
 </li>
 <li>IsEnabled()
-: <a class="el" href="classfrc_1_1_driver_station.html#a710339a087a8c014f9b2e3cd05ebf12f">frc::DriverStation</a>
+: <a class="el" href="classfrc2_1_1_p_i_d_subsystem.html#adaee86e4c9e322fac8a867643b46e21d">frc2::PIDSubsystem</a>
+, <a class="el" href="classfrc2_1_1_profiled_p_i_d_subsystem.html#a12ec9a4e10ccd744429364433cc5641e">frc2::ProfiledPIDSubsystem&lt; Distance &gt;</a>
+, <a class="el" href="classfrc_1_1_driver_station.html#a710339a087a8c014f9b2e3cd05ebf12f">frc::DriverStation</a>
 , <a class="el" href="classfrc_1_1_p_i_d_controller.html#aaada881e045376a078c16921e3fef943">frc::PIDController</a>
 , <a class="el" href="classfrc_1_1_robot_base.html#a10019221a84e8c17d42397f739391326">frc::RobotBase</a>
 </li>
@@ -318,12 +301,14 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 : <a class="el" href="class_cmd_auto_drive_straight.html#a772bc39abadb1ce32d55b274157dcc2b">CmdAutoDriveStraight</a>
 , <a class="el" href="class_cmd_auto_turn_angle.html#a0d6b0d60112d3bcfa587008af25a5507">CmdAutoTurnAngle</a>
 , <a class="el" href="class_cmd_disable_hans_franz_muscles.html#a6dbea3e5b02666f4c76ecc2abcbdf14b">CmdDisableHansFranzMuscles</a>
+, <a class="el" href="class_cmd_disable_smoothing_mode.html#af66e10e7e2f473e013ea1da2d2d96052">CmdDisableSmoothingMode</a>
 , <a class="el" href="class_cmd_disable_turbo_mode.html#a0cf1901146e0197193f4006eeaa246da">CmdDisableTurboMode</a>
 , <a class="el" href="class_cmd_drive_arcade_style.html#a5c7d27baf32c0bfb619c2768103806fb">CmdDriveArcadeStyle</a>
 , <a class="el" href="class_cmd_drive_tank_style.html#afc37d3959455d395d4d4d9a4ccda1ad2">CmdDriveTankStyle</a>
 , <a class="el" href="class_cmd_dump.html#a1cf331bbf4bf08e00b54d51f2e4d0eca">CmdDump</a>
 , <a class="el" href="class_cmd_enable_hans_franz_arms.html#ad84896cd5d9fbae7f8224bc55e828541">CmdEnableHansFranzArms</a>
 , <a class="el" href="class_cmd_enable_hans_franz_muscles.html#ac9ad82c25a5ce9e9e38639cfe0d90044">CmdEnableHansFranzMuscles</a>
+, <a class="el" href="class_cmd_enable_smoothing_mode.html#a08b8673fdf7b44feee64ffdd9a2229ed">CmdEnableSmoothingMode</a>
 , <a class="el" href="class_cmd_enable_turbo_mode.html#a1cf53c7c00acfeb457c2defcfa1e5baa">CmdEnableTurboMode</a>
 , <a class="el" href="class_cmd_extend_hans_franz_muscles.html#aaf9f363d36ea10b7f683d0bbc4a88bcb">CmdExtendHansFranzMuscles</a>
 , <a class="el" href="class_cmd_load.html#a702500e3ff58644aa1de30490256193d">CmdLoad</a>
@@ -337,14 +322,24 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 , <a class="el" href="class_cmd_turn_wo_f_c_w.html#ad05726a0c58c14ec204780401801f960">CmdTurnWoFCW</a>
 , <a class="el" href="class_cmd_wait_seconds.html#a41172f48fc7d00e067c0907ed1363ccc">CmdWaitSeconds</a>
 , <a class="el" href="class_cmd_zero_a_h_r_s_yaw.html#ab8d4ab14c2fa05d836fd7339d5e0b49b">CmdZeroAHRSYaw</a>
-, <a class="el" href="classfrc_1_1_command.html#ac1683a5e3ef8870f165db771c85a0dd5">frc::Command</a>
-, <a class="el" href="classfrc_1_1_command_group.html#a708bf0bb9ca1285bdfb9a548f3437811">frc::CommandGroup</a>
-, <a class="el" href="classfrc_1_1_conditional_command.html#a14e80b93f11cb2d883ed5db24dceeef7">frc::ConditionalCommand</a>
-, <a class="el" href="classfrc_1_1_instant_command.html#ab1e47543807f55976c1923ec4478f42a">frc::InstantCommand</a>
-, <a class="el" href="classfrc_1_1_timed_command.html#a411ae6801fd210220d90e14745437999">frc::TimedCommand</a>
+, <a class="el" href="classfrc2_1_1_command.html#af5e8c12152d195a4f3c06789366aac88">frc2::Command</a>
+, <a class="el" href="classfrc2_1_1_conditional_command.html#a14e80b93f11cb2d883ed5db24dceeef7">frc2::ConditionalCommand</a>
+, <a class="el" href="classfrc2_1_1_functional_command.html#ac5f3020586b7a990bcefce2c08d17e71">frc2::FunctionalCommand</a>
+, <a class="el" href="classfrc2_1_1_instant_command.html#a06e1ef8e7d0a5c0c0a807a4d91c9f535">frc2::InstantCommand</a>
+, <a class="el" href="classfrc2_1_1_mecanum_controller_command.html#ae4b237ab1682035d4aceb56ef98ef3db">frc2::MecanumControllerCommand</a>
+, <a class="el" href="classfrc2_1_1_parallel_command_group.html#abe350bb811136fa82684f518e97f1802">frc2::ParallelCommandGroup</a>
+, <a class="el" href="classfrc2_1_1_parallel_deadline_group.html#a1b2f181642a59e923052be47f37e08d7">frc2::ParallelDeadlineGroup</a>
+, <a class="el" href="classfrc2_1_1_parallel_race_group.html#a3ae183e598937488375f27151a72a575">frc2::ParallelRaceGroup</a>
+, <a class="el" href="classfrc2_1_1_proxy_schedule_command.html#ab6f88ac8e79edc2d376ee300962d5663">frc2::ProxyScheduleCommand</a>
+, <a class="el" href="classfrc2_1_1_ramsete_command.html#a7f074f5bcffe4ae499f9e4e7825c71ff">frc2::RamseteCommand</a>
+, <a class="el" href="classfrc2_1_1_schedule_command.html#af00600c95d159a8168d9d86b3ffd6d47">frc2::ScheduleCommand</a>
+, <a class="el" href="classfrc2_1_1_select_command.html#a80428fb7dc2264bfee40faacebeaacc6">frc2::SelectCommand&lt; Key &gt;</a>
+, <a class="el" href="classfrc2_1_1_sequential_command_group.html#af9c4bc8c1c253331547ae25b3f74fae2">frc2::SequentialCommandGroup</a>
+, <a class="el" href="classfrc2_1_1_swerve_controller_command.html#ae14c9a9d2f00405496e029721f204bd0">frc2::SwerveControllerCommand&lt; NumModules &gt;</a>
+, <a class="el" href="classfrc2_1_1_trapezoid_profile_command.html#afdf9e6f4215e6714df68c8921241e923">frc2::TrapezoidProfileCommand&lt; Distance &gt;</a>
+, <a class="el" href="classfrc2_1_1_wait_command.html#aa71091021be3f6076712b93e4501d391">frc2::WaitCommand</a>
+, <a class="el" href="classfrc2_1_1_wait_until_command.html#ae26af3dc5980d699fca4a0c7f5a675b6">frc2::WaitUntilCommand</a>
 , <a class="el" href="classfrc_1_1_trapezoid_profile.html#abd64d636feb6ec1c843d367bfce8f69f">frc::TrapezoidProfile&lt; Distance &gt;</a>
-, <a class="el" href="classfrc_1_1_wait_for_children.html#a9aac8a80a26f41cfa1032b3d08bda332">frc::WaitForChildren</a>
-, <a class="el" href="classfrc_1_1_wait_until_command.html#aa176f72313e401526cd617714fe4594f">frc::WaitUntilCommand</a>
 </li>
 <li>IsFMSAttached()
 : <a class="el" href="classfrc_1_1_driver_station.html#a73b61ea146daf9249dc0d51c86481c79">frc::DriverStation</a>
@@ -352,17 +347,14 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 <li>IsFwdSolenoidBlackListed()
 : <a class="el" href="classfrc_1_1_double_solenoid.html#a5a7b867c71af42b432b7e82fdc5f9b57">frc::DoubleSolenoid</a>
 </li>
+<li>IsGrouped()
+: <a class="el" href="classfrc2_1_1_command.html#a65de1910089cb7903ccfd863a1ffbaa0">frc2::Command</a>
+</li>
 <li>IsHansFranzArmsFullyExtended()
 : <a class="el" href="class_sub_sys_hans_franz_arms.html#a6e3ab76b8ec695b831acde75d36852d5">SubSysHansFranzArms</a>
 </li>
 <li>IsHansFranzArmsFullyRetracted()
 : <a class="el" href="class_sub_sys_hans_franz_arms.html#a691608bce4b771caeac564c464b21e4c">SubSysHansFranzArms</a>
-</li>
-<li>IsInitialized()
-: <a class="el" href="classfrc_1_1_command.html#a7bfb482b4e24a1752452503c063eacb8">frc::Command</a>
-</li>
-<li>IsInterruptible()
-: <a class="el" href="classfrc_1_1_command.html#ab5f84d9d9743fc5ced5aacf2a781b260">frc::Command</a>
 </li>
 <li>IsMagneticDisturbance()
 : <a class="el" href="class_a_h_r_s.html#aa6db6904fd3b2462ea6ae7fb5f06ebbf">AHRS</a>
@@ -382,9 +374,6 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 <li>IsOperatorControl()
 : <a class="el" href="classfrc_1_1_driver_station.html#a122242684b65e56ca74800b432f79575">frc::DriverStation</a>
 , <a class="el" href="classfrc_1_1_robot_base.html#ac132f01e0c8f22382a89c88c17ea89f4">frc::RobotBase</a>
-</li>
-<li>IsParented()
-: <a class="el" href="classfrc_1_1_command.html#aae73af2f4da31172b7c70d38439fa61c">frc::Command</a>
 </li>
 <li>IsPersistent()
 : <a class="el" href="classfrc_1_1_smart_dashboard.html#ae3f2aca72e1b5f234cf92bda5c98a6f0">frc::SmartDashboard</a>
@@ -408,11 +397,12 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 <li>IsRotating()
 : <a class="el" href="class_a_h_r_s.html#a5b357a69547be0ab8ed5754dff504895">AHRS</a>
 </li>
-<li>IsRunning()
-: <a class="el" href="classfrc_1_1_command.html#afbb01f95fc0a7475c8c49e154998b98b">frc::Command</a>
-</li>
 <li>IsSafetyEnabled()
 : <a class="el" href="classfrc_1_1_motor_safety.html#a3a62f13b6ef73ab46d142acc8435b5af">frc::MotorSafety</a>
+</li>
+<li>IsScheduled()
+: <a class="el" href="classfrc2_1_1_command.html#a537de86d40e28838e924a575bcba9f48">frc2::Command</a>
+, <a class="el" href="classfrc2_1_1_command_scheduler.html#a882848c1e54098579449fe7bfb44b4ce">frc2::CommandScheduler</a>
 </li>
 <li>IsSysActive()
 : <a class="el" href="classfrc_1_1_robot_controller.html#a01a075a2ea5f5743912b46b0ce2ddab2">frc::RobotController</a>
@@ -421,11 +411,8 @@ $(document).ready(function(){initNavTree('functions_func_i.html','');});
 : <a class="el" href="classfrc_1_1_driver_station.html#a470670e45958e6fd88c12c2a5c9d5b16">frc::DriverStation</a>
 , <a class="el" href="classfrc_1_1_robot_base.html#a01adf566b306255b3fa0f936fb52023c">frc::RobotBase</a>
 </li>
-<li>IsTimedOut()
-: <a class="el" href="classfrc_1_1_command.html#a4037bbf1ff6268859b5b3d4485379330">frc::Command</a>
-</li>
 <li>IterativeRobotBase()
-: <a class="el" href="classfrc_1_1_iterative_robot_base.html#ae72167db5723648f4a52da4ed1009877">frc::IterativeRobotBase</a>
+: <a class="el" href="classfrc_1_1_iterative_robot_base.html#a90a8635f8fe41dabfccd522c7558d996">frc::IterativeRobotBase</a>
 </li>
 </ul>
 </div><!-- contents -->

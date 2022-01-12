@@ -8,7 +8,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -28,10 +28,10 @@
 #include "subsystems/SubSysDriveTrain.h"
 
 // Include the header file for the drive arcade style command class
-#include "commands/DriveTrain/CmdDriveArcadeStyle.h"
+// #include "commands/DriveTrain/CmdDriveArcadeStyle.h"
 
 // Include the header file for the drive tank style command class
-#include "commands/DriveTrain/CmdDriveTankStyle.h"
+// #include "commands/DriveTrain/CmdDriveTankStyle.h"
 
 // Include out robot map header file
 #include "RobotMap.h"
@@ -42,53 +42,29 @@
 // Include the Logitech F310 header
 #include "HIDs/LogitechF310.h"
 
+/************************** Library Header Files ******************************/
+
+// Include the motor safety header file
+#include <frc/MotorSafety.h>
+
 /************************ Member function definitions *************************/
 
-// The DriveTrain default constructor
-SubSysDriveTrain::SubSysDriveTrain() : Subsystem("SubSysDriveTrain") {
+// The SubSysDriveTrain default constructor, initializing the motor contollers
+// for the drive train, and the differential drive
+// NOTE: The 2nd-4th lines are known as member initializations (or initializers)
+//       list.
+// See https://www.learncpp.com/cpp-tutorial/8-5a-constructor-member-initializer-lists/
+SubSysDriveTrain::SubSysDriveTrain() 
+  : m_leftDriveTrainController{k_LeftDriveTrainMotorsPWMPort},
+    m_rightDriveTrainController{k_RightDriveTrainMotorsPWMPort},
+    m_differentialDrive{m_leftDriveTrainController,
+                        m_rightDriveTrainController} {
 
-  // Create a new motor controller for the left motors and reset
-  m_leftDriveTrainController.reset(
-    new frc::PWMVictorSPX(k_LeftDriveTrainMotorsPWMPort));
-
-#if ORION_DEBUG
-  if(m_leftDriveTrainController == nullptr) {
-    frc::DriverStation::ReportError("m_leftDriveTrainController NOT initialized!\n");
-  }
-  else {
-    frc::DriverStation::ReportWarning("m_leftDriveTrainController initialized!\n");
-  }
-#endif
-
-  // Create a new motor controller for the right motors and reset
-  m_rightDriveTrainController.reset(
-    new frc::PWMVictorSPX(k_RightDriveTrainMotorsPWMPort));
-
-#if ORION_DEBUG
-  if(m_rightDriveTrainController == nullptr) {
-    frc::DriverStation::ReportError("m_rightDriveTrainController NOT initialized!");
-  }
-  else {
-    frc::DriverStation::ReportWarning("m_rightDriveTrainController initialized!");
-  }
-#endif
-
-  // Create a new differential drive, and reset
-  m_differentialDrive.reset(
-    new frc::DifferentialDrive(*m_leftDriveTrainController,
-                               *m_rightDriveTrainController));
-
-#if ORION_DEBUG
-  if(m_differentialDrive == nullptr) {
-    frc::DriverStation::ReportError("m_differentialDrive NOT initialized!");
-  }
-  else {
-    frc::DriverStation::ReportWarning("m_differentialDrive initialized!");
-  }
-#endif
+  // Set the subsystem's name
+  SetName("SubSysDriveTrain");
 
   // Set the motor safety timeout for the drivetrain
-  m_differentialDrive->SetExpiration(k_DriveTrainSafetyTimeout);
+  m_differentialDrive.SetExpiration(k_DriveTrainSafetyTimeout);
 
   // Set turbo mode initially to disabled
   m_TurboModeEnabled = false;
@@ -111,31 +87,15 @@ SubSysDriveTrain::SubSysDriveTrain() : Subsystem("SubSysDriveTrain") {
   // Indicate that the drive direction is initially normal
   m_drive_direction_switched = false;
 
+  // Create an instance of the Video class
+  m_Video = Video();
+
 } // end SubSysDriveTrain::SubSysDriveTrain()
 
 // The SubSysDriveTrain destructor
 SubSysDriveTrain::~SubSysDriveTrain() {
 
-  // Delete the differential drive
-  std::default_delete<frc::DifferentialDrive> m_differentialDrive;
-
-  // Delete the right drive train controller
-  std::default_delete<frc::PWMVictorSPX> m_rightDriveTrainController;
-
-  // Delete the left drive train controller
-  std::default_delete<frc::PWMVictorSPX> m_leftDriveTrainController;
-
 } // end SubSysDriveTrain::~SubSysDriveTrain()
-
-// The initial default command
-void SubSysDriveTrain::InitDefaultCommand() {
-
-  // Set the default command for a subsystem here.
-
-  // Set the arcade style drive command as the default command
-  SetDefaultCommand(new CmdDriveArcadeStyle());
-
-} // end SubSysDriveTrain::InitDefaultCommand()
 
 // The periodic method for the drive train subsystem
 void SubSysDriveTrain::Periodic() {
@@ -143,7 +103,7 @@ void SubSysDriveTrain::Periodic() {
   // Put code here to be run every loop
 
   // Feed the differential drive safety system
-  m_differentialDrive->Feed();
+  m_differentialDrive.Feed();
 
 } // end SubSysDriveTrain::Periodic()
 
@@ -247,7 +207,7 @@ void SubSysDriveTrain::DriveArcadeStyle(double y, double x) {
   //   * Being Turboed (on or off)
   //   * Being Smoothed (on or off)
   //   * not squaring inputs
-  m_differentialDrive->ArcadeDrive(
+  m_differentialDrive.ArcadeDrive(
     y_Smoothed, x_Smoothed, k_DoNOTUseBuiltInSquaring);
 
 } // end SubSysDriveTrain::DriveArcadeStyle()
@@ -350,7 +310,7 @@ void SubSysDriveTrain::DriveTankStyle(double yL, double yR) {
   //   * Being Turboed (on or off)
   //   * Being Smoothed (on or off)
   //   * not squaring inputs
-  m_differentialDrive->TankDrive(
+  m_differentialDrive.TankDrive(
     yL_Smoothed, yR_Smoothed, k_DoNOTUseBuiltInSquaring);
 
 } // end SubSysDriveTrain::DriveTankStyle()
@@ -359,7 +319,7 @@ void SubSysDriveTrain::DriveTankStyle(double yL, double yR) {
 void SubSysDriveTrain::DriveAutonomousStyle(double yL, double yR) {
 
   // Use tank drive given the left and right speeds
-  m_differentialDrive->TankDrive(yL, yR,
+  m_differentialDrive.TankDrive(yL, yR,
                                  k_DoNOTUseBuiltInSquaring);
 
 } // end SubSysDriveTrain::DriveAutonomousStyle(double yL, double yR)
@@ -510,6 +470,9 @@ void SubSysDriveTrain::SetDriveDirectionSwitchingNormal()
   // Indicate that the drive direction is not switched
   m_drive_direction_switched = false;
 
+  // Set the camera to the front
+  m_Video.setCameraDirection(Video::CAMERA_DIRECTION::FRONT);
+
   // TODO: Might want to put something here that makes the
   //       drivetrain stop for 250-500ms.
 
@@ -521,6 +484,9 @@ void SubSysDriveTrain::SetDriveDirectionSwitchingReverse()
 
   // Indicate that the drive direction is switched
   m_drive_direction_switched = true;
+
+  // Set the camera to the back
+  m_Video.setCameraDirection(Video::CAMERA_DIRECTION::BACK);
 
   // TODO: Might want to put something here that makes the
   //       drivetrain stop for 250-500ms.

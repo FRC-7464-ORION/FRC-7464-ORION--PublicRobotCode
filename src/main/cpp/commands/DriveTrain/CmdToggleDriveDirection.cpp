@@ -12,7 +12,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -41,17 +41,16 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdToggleDriveDirection class
-CmdToggleDriveDirection::CmdToggleDriveDirection() {
+// The constructor for the CmdToggleDriveDirection class
+CmdToggleDriveDirection::CmdToggleDriveDirection(
+  SubSysDriveTrain* subsystem)
+  : m_subSysDriveTrain(subsystem){
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdToggleDriveDirection");
 
   // Require the use of the drive train subsystem
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysDriveTrain.get());
+  AddRequirements({subsystem});
 
   // Start with the drive direction normal
   m_drive_direction_reversed = false;
@@ -59,7 +58,7 @@ CmdToggleDriveDirection::CmdToggleDriveDirection() {
   // Indicate we have not started
   m_this_command_is_finished = false;
 
-} // end CmdToggleDriveDirection::CmdToggleDriveDirection()
+} // end CmdToggleDriveDirection::CmdToggleDriveDirection(...)
 
 // The destructor for the CmdToggleDriveDirection class
 CmdToggleDriveDirection::~CmdToggleDriveDirection() {
@@ -80,18 +79,14 @@ void CmdToggleDriveDirection::Initialize() {
   {
 
     // Use normal drive direction
-    Robot::m_subSysDriveTrain->SetDriveDirectionSwitchingNormal();
-    // Set the camera to the front
-    Robot::m_Video->setCameraDirection(Video::CAMERA_DIRECTION::FRONT);
+    m_subSysDriveTrain->SetDriveDirectionSwitchingNormal();
 
   }
   else // we are supposed to use reversed direction
   {
 
     // Use the reversed drive direction
-    Robot::m_subSysDriveTrain->SetDriveDirectionSwitchingReverse();
-    // Set the camera to the back
-    Robot::m_Video->setCameraDirection(Video::CAMERA_DIRECTION::BACK);
+    m_subSysDriveTrain->SetDriveDirectionSwitchingReverse();
 
   } // end if (!m_drive_direction_reversed)
 
@@ -113,19 +108,11 @@ bool CmdToggleDriveDirection::IsFinished() {
 
 } // end CmdToggleDriveDirection::IsFinished()
 
-// Called once after isFinished returns true
-void CmdToggleDriveDirection::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdToggleDriveDirection::End(bool interrupted) {
 
   // Indicate we are finished
   m_this_command_is_finished = true;
 
 } // end CmdToggleDriveDirection::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdToggleDriveDirection::Interrupted() {
-
-  // Call the End() method
-  End();
-
-} // end CmdToggleDriveDirection::Interrupted()

@@ -1,5 +1,4 @@
 var class_cmd_grp_auto_off_center =
 [
-    [ "CmdGrpAutoOffCenter", "class_cmd_grp_auto_off_center.html#ab07553c5b61b44dd4a30d49aa619d6ba", null ],
-    [ "~CmdGrpAutoOffCenter", "class_cmd_grp_auto_off_center.html#a8831eecd3c15ffcb3401ad42585e91a6", null ]
+    [ "CmdGrpAutoOffCenter", "class_cmd_grp_auto_off_center.html#a35b261d6148e80318374e18a6a0404c9", null ]
 ];

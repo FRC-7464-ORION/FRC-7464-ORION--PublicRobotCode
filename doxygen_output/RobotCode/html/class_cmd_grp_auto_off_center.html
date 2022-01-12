@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: CmdGrpAutoOffCenter Class Reference</title>
+<title>NewRobotCode: CmdGrpAutoOffCenter Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_cmd_grp_auto_off_center.html',''
 </div><!--header-->
 <div class="contents">
 
-<p>This is a class that defines a group of commands that is used to control the robot autonomously.  
+<p>This is a class that defines a group of commands that is used to control the robot autonomously, running offense from the center position.  
  <a href="class_cmd_grp_auto_off_center.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_cmd_grp_auto_off_center_8h_source.html">CmdGrpAutoOffCenter.h</a>&gt;</code></p>
@@ -109,20 +109,18 @@ Inheritance diagram for CmdGrpAutoOffCenter:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab07553c5b61b44dd4a30d49aa619d6ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_auto_off_center.html#ab07553c5b61b44dd4a30d49aa619d6ba">CmdGrpAutoOffCenter</a> ()</td></tr>
-<tr class="separator:ab07553c5b61b44dd4a30d49aa619d6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8831eecd3c15ffcb3401ad42585e91a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_auto_off_center.html#a8831eecd3c15ffcb3401ad42585e91a6">~CmdGrpAutoOffCenter</a> ()</td></tr>
-<tr class="separator:a8831eecd3c15ffcb3401ad42585e91a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b261d6148e80318374e18a6a0404c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_auto_off_center.html#a35b261d6148e80318374e18a6a0404c9">CmdGrpAutoOffCenter</a> (<a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *drivetrain, AHRS *ahrs)</td></tr>
+<tr class="separator:a35b261d6148e80318374e18a6a0404c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is a class that defines a group of commands that is used to control the robot autonomously. </p>
+<div class="textblock"><p>This is a class that defines a group of commands that is used to control the robot autonomously, running offense from the center position. </p>
 <hr/>
 <dl class="section author"><dt>Author</dt><dd>FRC Team #7464 - ORION </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_off_center_8h_source.html#l00048">48</a> of file <a class="el" href="_cmd_grp_auto_off_center_8h_source.html">CmdGrpAutoOffCenter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_off_center_8h_source.html#l00059">59</a> of file <a class="el" href="_cmd_grp_auto_off_center_8h_source.html">CmdGrpAutoOffCenter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab07553c5b61b44dd4a30d49aa619d6ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab07553c5b61b44dd4a30d49aa619d6ba">&#9670;&nbsp;</a></span>CmdGrpAutoOffCenter()</h2>
+<a id="a35b261d6148e80318374e18a6a0404c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b261d6148e80318374e18a6a0404c9">&#9670;&nbsp;</a></span>CmdGrpAutoOffCenter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,40 +128,38 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">CmdGrpAutoOffCenter::CmdGrpAutoOffCenter </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td>
+          <td class="paramname"><em>drivetrain</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously.">CmdGrpAutoOffCenter</a> class default constructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html#l00045">45</a> of file <a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html">CmdGrpAutoOffCenter.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a8831eecd3c15ffcb3401ad42585e91a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8831eecd3c15ffcb3401ad42585e91a6">&#9670;&nbsp;</a></span>~CmdGrpAutoOffCenter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">CmdGrpAutoOffCenter::~CmdGrpAutoOffCenter </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">AHRS *&#160;</td>
+          <td class="paramname"><em>ahrs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously.">CmdGrpAutoOffCenter</a> class destructor. </p>
+<p>The <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously,...">CmdGrpAutoOffCenter</a> class constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">drivetrain</td><td>The drivetrain subsystem </td></tr>
+    <tr><td class="paramname">ahrs</td><td>The AHRS </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html#l00068">68</a> of file <a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html">CmdGrpAutoOffCenter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html#l00052">52</a> of file <a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html">CmdGrpAutoOffCenter.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/ORION22/RobotCode/src/main/include/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_off_center_8h_source.html">CmdGrpAutoOffCenter.h</a></li>
-<li>C:/ORION22/RobotCode/src/main/cpp/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html">CmdGrpAutoOffCenter.cpp</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/include/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_off_center_8h_source.html">CmdGrpAutoOffCenter.h</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/cpp/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_off_center_8cpp_source.html">CmdGrpAutoOffCenter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

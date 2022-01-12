@@ -9,7 +9,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -38,17 +38,17 @@
 
 /************************ Member function definitions *************************/
 
-// The default constructor for the CmdEnableHansFranzArms class
-CmdEnableHansFranzArms::CmdEnableHansFranzArms() {
+// The constructor for the CmdEnableHansFranzArms class
+CmdEnableHansFranzArms::CmdEnableHansFranzArms(
+  SubSysHansFranzArms* subsystem, CmdMoveHansFranzArms* cmdMoveHansFranzArms)
+  : m_subSysHansFranzArms(subsystem), 
+    m_cmdMoveHansFranzArms(cmdMoveHansFranzArms) {
 
-  // Use Requires() here to declare subsystem dependencies
+  // Set the command's name
+  SetName("CmdEnableHansFranzArms");
 
-  // Require the use of the Hans/Franz subsystems
-  // NOTE: We have to use the .get() function because Requires() expects
-  //       a pointer to a subsystem, and the pointer below is a 
-  //       shared_ptr.
-  // See https://stackoverflow.com/questions/505143/getting-a-normal-ptr-from-shared-ptr
-  Requires(Robot::m_subSysHansFranzArms.get());
+  // Require the use of the Hans and Franz arm subsystem
+  AddRequirements({subsystem});
 
 } // end CmdEnableHansFranzArms::CmdEnableHansFranzArms()
 
@@ -69,18 +69,20 @@ void CmdEnableHansFranzArms::Initialize() {
 void CmdEnableHansFranzArms::Execute() {
 
   // Enable Hans and Franz Arms
-  Robot::m_subSysHansFranzArms->EnableHansFranzArms();
+  m_subSysHansFranzArms->EnableHansFranzArms();
 
   // If the move Hans and Franz arms command pointer has been intialized...
-  if(Robot::m_cmdMoveHansFranzArms != nullptr) {
-    // Start the move Hans and Franz Arms command
-    Robot::m_cmdMoveHansFranzArms->Start();
-  } // end if(Robot::m_cmdMoveHansFranzArms != nullptr)
+  if(m_cmdMoveHansFranzArms != nullptr) {
+
+    // Schedule the move Hans and Franz Arms command to start
+    m_cmdMoveHansFranzArms->Schedule();
+
+  } // end if(m_cmdMoveHansFranzArms != nullptr)
 
 #if ORION_DEBUG
   else {
     // Output a error
-    frc::DriverStation::ReportError("Robot::m_cmdMoveHansFranzArms not initialized!");
+    frc::DriverStation::ReportError("m_cmdMoveHansFranzArms not initialized!");
   }
 #endif // #if ORION_DEBUG
 
@@ -97,13 +99,8 @@ bool CmdEnableHansFranzArms::IsFinished() {
 
 } // end CmdEnableHansFranzArms::IsFinished()
 
-// Called once after isFinished returns true
-void CmdEnableHansFranzArms::End() {
+// Called once after isFinished returns true, OR command 
+//   is interrupted or canceled
+void CmdEnableHansFranzArms::End(bool interrupted) {
 
 } // end CmdEnableHansFranzArms::End()
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdEnableHansFranzArms::Interrupted() {
-
-} // end CmdEnableHansFranzArms::Interrupted()

@@ -1,9 +1,22 @@
 var searchData=
 [
-  ['telemetryoutputter',['TelemetryOutputter',['../class_telemetry_outputter.html#ad0bcc173b8983365fd6aaa8798334f39',1,'TelemetryOutputter']]],
-  ['teleopinit',['TeleopInit',['../class_robot.html#aa3e246794bfbbb4406fc87f351762038',1,'Robot']]],
-  ['teleopperiodic',['TeleopPeriodic',['../class_robot.html#a324322627c63b3870daf7c7ddc5bea63',1,'Robot']]],
-  ['testperiodic',['TestPeriodic',['../class_robot.html#af0ac44a962e609e9b042285e699d1db8',1,'Robot']]],
-  ['travel',['Travel',['../class_sub_sys_pssh.html#a0e55e0007c6154a8eec2c5e53b80937c',1,'SubSysPssh']]],
-  ['turnwof',['TurnWoF',['../class_sub_sys_p_a_t_turner.html#a0ab453c359e9712f9c411d109dd94997',1,'SubSysPATTurner']]]
+  ['setallowedspeeds',['SetAllowedSpeeds',['../class_sub_sys_hans_franz_arms.html#a3a30c4bee81518090a6dfbe18e90b2ba',1,'SubSysHansFranzArms']]],
+  ['setcameradirection',['setCameraDirection',['../class_video.html#a3e12f9c1191a3109a21e9afa81dd7190',1,'Video']]],
+  ['setdrivedirectionswitchingnormal',['SetDriveDirectionSwitchingNormal',['../class_sub_sys_drive_train.html#abd198de967538325d5eb25b85a8bc870',1,'SubSysDriveTrain']]],
+  ['setdrivedirectionswitchingreverse',['SetDriveDirectionSwitchingReverse',['../class_sub_sys_drive_train.html#a93e47e78fb03c154ee3780434e49d480',1,'SubSysDriveTrain']]],
+  ['setdrivetrainmodestringtoarcade',['SetDriveTrainModeStringToArcade',['../class_sub_sys_drive_train.html#a756c5b7d3181f6dde17dbcbe75d12425',1,'SubSysDriveTrain']]],
+  ['setdrivetrainmodestringtotank',['SetDriveTrainModeStringToTank',['../class_sub_sys_drive_train.html#a87fdd7165ce8e37bc79b1d59194c9899',1,'SubSysDriveTrain']]],
+  ['setpsshstate',['SetPsshState',['../class_p_i_d_sub_sys_pssh.html#a4cb6671c093403c3ee147fae702ed403',1,'PIDSubSysPssh']]],
+  ['setsmoothingmodeoff',['SetSmoothingModeOff',['../class_sub_sys_drive_train.html#a99a6cf38af7310963573ea2bdd2d5d74',1,'SubSysDriveTrain']]],
+  ['setsmoothingmodeon',['SetSmoothingModeOn',['../class_sub_sys_drive_train.html#afd12c72d403a1cefc1e380215df8245d',1,'SubSysDriveTrain']]],
+  ['setturbomodeoff',['SetTurboModeOff',['../class_sub_sys_drive_train.html#a3cc0fd609c1463bb01acf61c43cd6116',1,'SubSysDriveTrain']]],
+  ['setturbomodeon',['SetTurboModeOn',['../class_sub_sys_drive_train.html#abdae661eac63924c6d9985db128cfa14',1,'SubSysDriveTrain']]],
+  ['simulationinit',['SimulationInit',['../class_robot.html#a0ec3407013454a8017474d0beb756ac8',1,'Robot']]],
+  ['simulationperiodic',['SimulationPeriodic',['../class_robot.html#a210b114f375fd78f0abd2c69b0e721a2',1,'Robot']]],
+  ['starttelemetryoutputtimemeasurement',['StartTelemetryOutputTimeMeasurement',['../class_robot_container.html#ac523afabcb488622f68adc0a2c168b71',1,'RobotContainer']]],
+  ['stop',['Stop',['../class_p_i_d_sub_sys_pssh.html#a9fc4c13db7d83041840ef5675c19f93e',1,'PIDSubSysPssh']]],
+  ['subsysdrivetrain',['SubSysDriveTrain',['../class_sub_sys_drive_train.html#a4220222eb5ea05df8128f1941744413a',1,'SubSysDriveTrain']]],
+  ['subsyshansfranzarms',['SubSysHansFranzArms',['../class_sub_sys_hans_franz_arms.html#a0544ad3738a0ec3e4d088007e097a6d4',1,'SubSysHansFranzArms']]],
+  ['subsyshansfranzmuscles',['SubSysHansFranzMuscles',['../class_sub_sys_hans_franz_muscles.html#a001593d97b226f1012008d9326223ffa',1,'SubSysHansFranzMuscles']]],
+  ['subsyspatturner',['SubSysPATTurner',['../class_sub_sys_p_a_t_turner.html#a7477784342aa9fa91906eb319880f018',1,'SubSysPATTurner']]]
 ];

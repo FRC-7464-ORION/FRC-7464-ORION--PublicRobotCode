@@ -3,6 +3,10 @@
  * @brief  This file provides a "one-stop shopping" for constants used in
  *         the robot, other than for wiring (see RobotMap.h).
  *
+ *         It is generally a good idea to place constants into subsystem- or
+ *         command-specific namespaces within this header, which can then be
+ *         used where they are needed.
+ * 
  * COPYRIGHT NOTICES:
  *
  * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
@@ -30,7 +34,7 @@
                   // ***** Software Version Messages *****
 
 /** The version of the software for the robot */
-const std::string k_SW_VersionNumber = "v2020.1.0.03";
+const std::string k_SW_VersionNumber = "v2020.0.0.26";
 /** The version of the WPILibC software used */
 const std::string k_WPILibC_VersionNumber = "v2020.3.2";
 /** The name of the robot */
@@ -72,26 +76,6 @@ const std::string k_CameraServer = "Switched Camera Server";
   #define ORION_DEBUG 0
 
 #endif // #ifndef ORION_DEBUG
-
-// If we have not defined TELEMETRY_DEBUG already
-#ifndef TELEMETRY_DEBUG
-
-  // NOTE: To turn on debug for TELEMETRY code, have the the line
-  //       below read (without the quotes) "#define TELEMETRY_DEBUG 1".
-  //
-  //       To turn off debug for TELEMETRY code, have the the line
-  //       below read (without the quotes) "#define TELEMETRY_DEBUG 0".
-  //
-  //       Generally, for production code, leave debug off.
-  //
-  // NOTE: If the value of the macro below is changed, it will need to
-  //       changed in the Doxyfile doxygen configuration file, in
-  //       the preprocessor section "PREDEFINED".
-
-  /** Define TELEMETRY_DEBUG to 0 (debug off), or 1 (debug on) */
-  #define TELEMETRY_DEBUG 0
-
-#endif // #ifndef TELEMETRY_DEBUG
 
 // If we have not defined PSSH_DEBUG already
 #ifndef PSSH_DEBUG
@@ -135,6 +119,12 @@ const std::string k_CameraServer = "Switched Camera Server";
   #define USE_PID_PSSH 1
 
 #endif // #ifndef USE_PID_PSSH
+
+                  // ******** Telemetry Debugging **********
+
+/** The number of whole seconds to wait before logging telemetry 
+ *  output time */
+constexpr uint64_t k_TelemetryOutputDelaySec = 5ull; 
 
                   // *********** Time Constants ************
 
@@ -401,6 +391,12 @@ constexpr double k_AutoTurn_FeedForward      = 0.00;
  *  to the target before we consider us close enough),
  *  in degrees */
 constexpr double k_AutoTurn_ToleranceDegrees = 2.0;
+
+/** The minimum value expected from the AHRS GetAngle() */
+constexpr double k_AutoTurn_Min_Val_Expected = -180.0;
+
+/** The maximum value expected from the AHRS GetAngle() */
+constexpr double k_AutoTurn_Max_Val_Expected = 180.0;
 
                   // ***** Compressor Variables *****
 /** 

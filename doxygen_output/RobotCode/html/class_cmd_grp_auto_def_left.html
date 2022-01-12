@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: CmdGrpAutoDefLeft Class Reference</title>
+<title>NewRobotCode: CmdGrpAutoDefLeft Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_cmd_grp_auto_def_left.html','');
 </div><!--header-->
 <div class="contents">
 
-<p>This is a class that defines a group of commands that is used to control the robot autonomously.  
+<p>This is a class that defines a group of commands that is used to control the robot autonomously, running defense from the left position.  
  <a href="class_cmd_grp_auto_def_left.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_cmd_grp_auto_def_left_8h_source.html">CmdGrpAutoDefLeft.h</a>&gt;</code></p>
@@ -109,20 +109,18 @@ Inheritance diagram for CmdGrpAutoDefLeft:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5eaaec3d9664a5cc9471f807d3463560"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_auto_def_left.html#a5eaaec3d9664a5cc9471f807d3463560">CmdGrpAutoDefLeft</a> ()</td></tr>
-<tr class="separator:a5eaaec3d9664a5cc9471f807d3463560"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5227d99735aab1cb3551005fdf3b4814"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_auto_def_left.html#a5227d99735aab1cb3551005fdf3b4814">~CmdGrpAutoDefLeft</a> ()</td></tr>
-<tr class="separator:a5227d99735aab1cb3551005fdf3b4814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3045ec7b7454f10637f9c555dc8c46a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_auto_def_left.html#ab3045ec7b7454f10637f9c555dc8c46a">CmdGrpAutoDefLeft</a> (<a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *drivetrain, AHRS *ahrs)</td></tr>
+<tr class="separator:ab3045ec7b7454f10637f9c555dc8c46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is a class that defines a group of commands that is used to control the robot autonomously. </p>
+<div class="textblock"><p>This is a class that defines a group of commands that is used to control the robot autonomously, running defense from the left position. </p>
 <hr/>
 <dl class="section author"><dt>Author</dt><dd>FRC Team #7464 - ORION </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_def_left_8h_source.html#l00048">48</a> of file <a class="el" href="_cmd_grp_auto_def_left_8h_source.html">CmdGrpAutoDefLeft.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_def_left_8h_source.html#l00059">59</a> of file <a class="el" href="_cmd_grp_auto_def_left_8h_source.html">CmdGrpAutoDefLeft.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5eaaec3d9664a5cc9471f807d3463560"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eaaec3d9664a5cc9471f807d3463560">&#9670;&nbsp;</a></span>CmdGrpAutoDefLeft()</h2>
+<a id="ab3045ec7b7454f10637f9c555dc8c46a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3045ec7b7454f10637f9c555dc8c46a">&#9670;&nbsp;</a></span>CmdGrpAutoDefLeft()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,40 +128,38 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">CmdGrpAutoDefLeft::CmdGrpAutoDefLeft </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="class_sub_sys_drive_train.html">SubSysDriveTrain</a> *&#160;</td>
+          <td class="paramname"><em>drivetrain</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_grp_auto_def_left.html" title="This is a class that defines a group of commands that is used to control the robot autonomously.">CmdGrpAutoDefLeft</a> class default constructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html#l00045">45</a> of file <a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html">CmdGrpAutoDefLeft.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a5227d99735aab1cb3551005fdf3b4814"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5227d99735aab1cb3551005fdf3b4814">&#9670;&nbsp;</a></span>~CmdGrpAutoDefLeft()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">CmdGrpAutoDefLeft::~CmdGrpAutoDefLeft </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">AHRS *&#160;</td>
+          <td class="paramname"><em>ahrs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <a class="el" href="class_cmd_grp_auto_def_left.html" title="This is a class that defines a group of commands that is used to control the robot autonomously.">CmdGrpAutoDefLeft</a> class destructor. </p>
+<p>The <a class="el" href="class_cmd_grp_auto_def_left.html" title="This is a class that defines a group of commands that is used to control the robot autonomously,...">CmdGrpAutoDefLeft</a> class constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">drivetrain</td><td>The drivetrain subsystem </td></tr>
+    <tr><td class="paramname">ahrs</td><td>The AHRS </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html#l00068">68</a> of file <a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html">CmdGrpAutoDefLeft.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html#l00052">52</a> of file <a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html">CmdGrpAutoDefLeft.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/ORION22/RobotCode/src/main/include/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_def_left_8h_source.html">CmdGrpAutoDefLeft.h</a></li>
-<li>C:/ORION22/RobotCode/src/main/cpp/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html">CmdGrpAutoDefLeft.cpp</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/include/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_def_left_8h_source.html">CmdGrpAutoDefLeft.h</a></li>
+<li>C:/ORION22/NewRobotCode/src/main/cpp/commandGroups/Autonomous/<a class="el" href="_cmd_grp_auto_def_left_8cpp_source.html">CmdGrpAutoDefLeft.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -14,7 +14,6 @@ var class_sub_sys_drive_train =
     [ "GetSmoothingStatusString", "class_sub_sys_drive_train.html#a8b781f48b5394f48a1ec8f90ec95a136", null ],
     [ "GetTurboModeStatus", "class_sub_sys_drive_train.html#a84351f9e6965655a800568bdab06796b", null ],
     [ "GetTurboModeStatusString", "class_sub_sys_drive_train.html#adbb1e3ca01fcb91839f3ae701621d245", null ],
-    [ "InitDefaultCommand", "class_sub_sys_drive_train.html#a13400bda2141aad311ff14216b557565", null ],
     [ "Periodic", "class_sub_sys_drive_train.html#a84ef2b35f76aa869e6894564247bc6ac", null ],
     [ "SetDriveDirectionSwitchingNormal", "class_sub_sys_drive_train.html#abd198de967538325d5eb25b85a8bc870", null ],
     [ "SetDriveDirectionSwitchingReverse", "class_sub_sys_drive_train.html#a93e47e78fb03c154ee3780434e49d480", null ],
@@ -24,15 +23,16 @@ var class_sub_sys_drive_train =
     [ "SetSmoothingModeOn", "class_sub_sys_drive_train.html#afd12c72d403a1cefc1e380215df8245d", null ],
     [ "SetTurboModeOff", "class_sub_sys_drive_train.html#a3cc0fd609c1463bb01acf61c43cd6116", null ],
     [ "SetTurboModeOn", "class_sub_sys_drive_train.html#abdae661eac63924c6d9985db128cfa14", null ],
-    [ "m_differentialDrive", "class_sub_sys_drive_train.html#adb11d7fe9d0d98beaee7cd0d4566783b", null ],
+    [ "m_differentialDrive", "class_sub_sys_drive_train.html#a6234dc942e28fa34cbda2956be8da394", null ],
     [ "m_drive_direction_switched", "class_sub_sys_drive_train.html#aef52c5603fbdb45ab10c241df0398b6c", null ],
     [ "m_DriveTrain_Smoothing_Enabled", "class_sub_sys_drive_train.html#ac5122b8c8adb564c17321e24e2bfc767", null ],
     [ "m_DriveTrain_Smoothing_Status_String", "class_sub_sys_drive_train.html#a2406da12296de91700a46d66b67d9f99", null ],
     [ "m_DriveTrainModeString", "class_sub_sys_drive_train.html#af047006f232a31017d4602272b5d1bde", null ],
     [ "m_DriveTrainTurboString", "class_sub_sys_drive_train.html#a7da0fb7885b6e58ffe161db49430374f", null ],
-    [ "m_leftDriveTrainController", "class_sub_sys_drive_train.html#ad36ae40544d287fc9f75500ba4fd4b24", null ],
-    [ "m_rightDriveTrainController", "class_sub_sys_drive_train.html#ad66f3c4e1ff7706ab77a9a5c548fd6da", null ],
+    [ "m_leftDriveTrainController", "class_sub_sys_drive_train.html#aedc4f4e7bd47acff80eed6fd766ac0b2", null ],
+    [ "m_rightDriveTrainController", "class_sub_sys_drive_train.html#a1e55937615b5cac648c51f901f19e7b6", null ],
     [ "m_speed1_past_filtered_output", "class_sub_sys_drive_train.html#a3da8f5982eab1cb83566fb4cea554c49", null ],
     [ "m_speed2_past_filtered_output", "class_sub_sys_drive_train.html#aeb2faf6f1c6b3963cee3da8f18ae85ce", null ],
-    [ "m_TurboModeEnabled", "class_sub_sys_drive_train.html#a48b1ccd6493610ef4c8e81f2637ac40c", null ]
+    [ "m_TurboModeEnabled", "class_sub_sys_drive_train.html#a48b1ccd6493610ef4c8e81f2637ac40c", null ],
+    [ "m_Video", "class_sub_sys_drive_train.html#a1cb1cfc2ecb36cf3c45ad53c484d501b", null ]
 ];

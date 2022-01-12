@@ -10,7 +10,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2019 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FIRST BSD license file in the root directory of
  * the project.
@@ -38,7 +38,10 @@
 /************************ Member function definitions *************************/
 
 // SubSysHansFranzMuscles default constructor
-SubSysHansFranzMuscles::SubSysHansFranzMuscles() : Subsystem("SubSysHansFranzMuscles") {
+SubSysHansFranzMuscles::SubSysHansFranzMuscles() {
+
+  // Set the subsystem's name
+  SetName("SubSysHansFranzMuscles");
 
   // Create a new compressor instance
   m_compressor = new frc::Compressor(k_PrimaryPCM_CAN_Bus_DeviceID);
@@ -115,14 +118,6 @@ SubSysHansFranzMuscles::~SubSysHansFranzMuscles() {
   delete m_compressor;
 
 } // end SubSysHansFranzMuscles::~SubSysHansFranzMuscles()
-
-// The initial default command
-void SubSysHansFranzMuscles::InitDefaultCommand() {
-
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
-
-} // end SubSysHansFranzMuscles::InitDefaultCommand()
 
 // The periodic method for the SubSysHansFranzMuscles subsystem
 void SubSysHansFranzMuscles::Periodic() {

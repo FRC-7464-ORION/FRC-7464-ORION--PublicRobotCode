@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RobotCode: C:/ORION22/RobotCode/src/main/include/commandGroups/Autonomous/CmdGrpAutoOffCenter.h File Reference</title>
+<title>NewRobotCode: C:/ORION22/NewRobotCode/src/main/include/commandGroups/Autonomous/CmdGrpAutoOffCenter.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ORION.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RobotCode
-   &#160;<span id="projectnumber">v2020.1.0.03</span>
+   <div id="projectname">NewRobotCode
+   &#160;<span id="projectnumber">v2020.0.0.26</span>
    </div>
-   <div id="projectbrief">FRC 2020 Robot Code for Team #7464 - ORION</div>
+   <div id="projectbrief">FRC 2020 New Robot Code for Team #7464 - ORION</div>
   </td>
  </tr>
  </tbody>
@@ -95,22 +95,25 @@ $(document).ready(function(){initNavTree('_cmd_grp_auto_off_center_8h.html','');
 </div><!--header-->
 <div class="contents">
 
-<p>This file declares the <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously.">CmdGrpAutoOffCenter</a> class.  
+<p>This file declares the <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously,...">CmdGrpAutoOffCenter</a> class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;frc/commands/CommandGroup.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_sub_sys_drive_train_8h_source.html">subsystems/SubSysDriveTrain.h</a>&quot;</code><br />
+<code>#include &quot;AHRS.h&quot;</code><br />
+<code>#include &lt;frc2/command/CommandHelper.h&gt;</code><br />
+<code>#include &lt;frc2/command/SequentialCommandGroup.h&gt;</code><br />
 </div>
 <p><a href="_cmd_grp_auto_off_center_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_grp_auto_off_center.html">CmdGrpAutoOffCenter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a class that defines a group of commands that is used to control the robot autonomously.  <a href="class_cmd_grp_auto_off_center.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a class that defines a group of commands that is used to control the robot autonomously, running offense from the center position.  <a href="class_cmd_grp_auto_off_center.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file declares the <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously.">CmdGrpAutoOffCenter</a> class. </p>
+<div class="textblock"><p>This file declares the <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously,...">CmdGrpAutoOffCenter</a> class. </p>
 <p>===========================================================================</p>
-<p>The <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously.">CmdGrpAutoOffCenter</a> class is used to allow the robot to be controlled autonomously using a set of commands.</p>
+<p>The <a class="el" href="class_cmd_grp_auto_off_center.html" title="This is a class that defines a group of commands that is used to control the robot autonomously,...">CmdGrpAutoOffCenter</a> class is used to allow the robot to be controlled autonomously using a set of commands.</p>
 <p>This command group is for a offensive strategy, starting in the center field position, in the autonomous period.</p>
 <p>COPYRIGHT NOTICES:</p>
 <p>Some portions:</p>
@@ -125,7 +128,7 @@ Classes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_202956eadc55f1484a97578b726f47b1.html">RobotCode</a></li><li class="navelem"><a class="el" href="dir_c8c38d932f484c5008dd84d8e00dc74a.html">src</a></li><li class="navelem"><a class="el" href="dir_89e122a8591f7544b463b1bb59570e4b.html">main</a></li><li class="navelem"><a class="el" href="dir_eb173dd03f1b0640fbd24487c4ba699d.html">include</a></li><li class="navelem"><a class="el" href="dir_06f4f9477580a47faf8b176ac494d0f3.html">commandGroups</a></li><li class="navelem"><a class="el" href="dir_aeb070ddf20aebadd5763cba6be8c5cc.html">Autonomous</a></li><li class="navelem"><a class="el" href="_cmd_grp_auto_off_center_8h.html">CmdGrpAutoOffCenter.h</a></li>
+    <li class="navelem"><a class="el" href="dir_fabbfd9052253108fb9f2edc2cd66ded.html">NewRobotCode</a></li><li class="navelem"><a class="el" href="dir_df7589acdc1a7efc8a01c9d5ecd08591.html">src</a></li><li class="navelem"><a class="el" href="dir_d09c0e2f42769a6c6f17ff9363d22225.html">main</a></li><li class="navelem"><a class="el" href="dir_b41c826c0dda0f955eaf778be188772f.html">include</a></li><li class="navelem"><a class="el" href="dir_d7cad23329443f2764f0acd9c7ae2704.html">commandGroups</a></li><li class="navelem"><a class="el" href="dir_298561ef34ee491d64c486459ed7a41c.html">Autonomous</a></li><li class="navelem"><a class="el" href="_cmd_grp_auto_off_center_8h.html">CmdGrpAutoOffCenter.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
