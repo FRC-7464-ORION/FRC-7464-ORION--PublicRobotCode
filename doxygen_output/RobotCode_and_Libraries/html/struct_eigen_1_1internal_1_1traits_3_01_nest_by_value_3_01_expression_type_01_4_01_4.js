@@ -1,0 +1,4 @@
+var struct_eigen_1_1internal_1_1traits_3_01_nest_by_value_3_01_expression_type_01_4_01_4 =
+[
+    [ "Flags", "struct_eigen_1_1internal_1_1traits_3_01_nest_by_value_3_01_expression_type_01_4_01_4.html#a2b0800b0d5895ac5ecb0b24c519146f6a80caca7f8fa533064f934f4517e7ee03", null ]
+];

@@ -16,7 +16,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -57,14 +57,8 @@
 
 // The header for the drive train
 #include "subsystems/SubSysDriveTrain.h"
-// The header for the Hans/Franz arms subsystem
-#include "subsystems/SubSysHansFranzArms.h"
-// The header for the Hans/Franz Muscles
-#include "subsystems/SubSysHansFranzMuscles.h"
-// The header for the PAT Turner subsystem
-#include "subsystems/SubSysPATTurner.h"
-// The header for the PID Pssh subsystem
-#include "subsystems/PIDSubSysPssh.h"
+// The header for the ball shooter
+#include "subsystems/SubSysBallShooter.h"
 
 // COMMAND AND COMMAND GROUPS
 
@@ -106,39 +100,15 @@
 // The header to reset the AHRS yaw
 #include "commands/DriveTrain/CmdResetAHRSYaw.h"
 
-// PAT
-// The header for the command to turn Wheel of Fortune counter-clockwise
-#include "commands/PAT/CmdTurnWoFCCW.h"
-// The header for the command to turn Wheel of Fortune clockwise
-#include "commands/PAT/CmdTurnWoFCW.h"
-
-// HANS/FRANZ
-// The header for the command group for Hans and Franz
-#include "commandGroups/HansAndFranz/CmdGrpEnableHansAndFranz.h"
-
-// HANS/FRANZ ARMS
-// The header for the command to enable Hans/Franz arms
-#include "commands/HansAndFranzArms/CmdEnableHansFranzArms.h"
-// The header for the command to move Hans/Franz arms
-#include "commands/HansAndFranzArms/CmdMoveHansFranzArms.h"
-
-// HANS/FRANZ MUSCLES
-// The header for disabling Hans and Franz muscles
-#include "commands/HansAndFranzMuscles/CmdDisableHansFranzMuscles.h"
-// The header for enabling Hans and Franz muscles
-#include "commands/HansAndFranzMuscles/CmdEnableHansFranzMuscles.h"
-// The header for extending Hans and Franz muscles
-#include "commands/HansAndFranzMuscles/CmdExtendHansFranzMuscles.h"
-// The header for retracting Hans and Franz muscles
-#include "commands/HansAndFranzMuscles/CmdRetractHansFranzMuscles.h"
-
-// PID PSSH
-// The header to putting Pssh into dump mode
-#include "commands/PIDPssh/CmdDump.h"
-// The header to putting Pssh into load mode
-#include "commands/PIDPssh/CmdLoad.h"
-// The header to putting Pssh into travel mode
-#include "commands/PIDPssh/CmdTravel.h"
+// BALL SHOOTER
+// The header for setting the ball shooter at rest
+#include "commands/BallShooter/CmdBallShooterAtRest.h"
+// The header for intaking balls
+#include "commands/BallShooter/CmdBallShooterIntake.h"
+// The header for shooting low
+#include "commands/BallShooter/CmdBallShooterShootLow.h"
+// The header for shooting high
+#include "commands/BallShooter/CmdBallShooterShootHigh.h"
 
 // TELEMETRY
 
@@ -231,10 +201,6 @@ class RobotContainer {
      *  initialized using a member initializer list */
     frc::Joystick m_PrimaryJoystick{k_Joystick0DeviceNumber};
 
-    /** Instantiating the secondary Logitech F310 joystick,
-     *   initialized using a member initializer list */
-    frc::Joystick m_SecondaryJoystick{k_Joystick1DeviceNumber};
-
     /** A pointer to the chooser for the autonomous routines */
     frc::SendableChooser<frc2::Command*> m_autonomous_chooser;
 
@@ -244,37 +210,48 @@ class RobotContainer {
 
     /** The drive train subsystem */
     SubSysDriveTrain m_subSysDriveTrain;
-
-    /** The Wheel of Fortune (WoF) PAT Turner subsystem */
-    SubSysPATTurner m_subSysPATTurner;
-
-    /** The Hans and Frans Arm subsystem */
-    SubSysHansFranzArms m_subSysHansFranzArms;
-
-    /** The Hans and Frans Muscles subsystem */
-    SubSysHansFranzMuscles m_subSysHansFranzMuscles;
-
-    /** The PID Pssh subsystem */
-    PIDSubSysPssh m_PIDsubSysPssh;
+    /** The ball shooter subsystem */
+    SubSysBallShooter m_subSysBallShooter;
 
     // COMMAND AND COMMAND GROUPS
 
     // AUTONOMOUS COMMANDS
 
     /** The default autonomous command */
-    CmdGrpAutoDefault m_cmdGrpAutoDefault{&m_subSysDriveTrain, &m_AHRS};
+    CmdGrpAutoDefault m_cmdGrpAutoDefault{
+      &m_subSysDriveTrain, 
+      &m_AHRS, 
+      &m_subSysBallShooter};
     /** The center defensive autonomous command */
-    CmdGrpAutoDefCenter m_cmdGrpAutoDefCenter{&m_subSysDriveTrain, &m_AHRS};
+    CmdGrpAutoDefCenter m_cmdGrpAutoDefCenter{
+      &m_subSysDriveTrain, 
+      &m_AHRS, 
+      &m_subSysBallShooter};
     /** The left defensive autonomous command */
-    CmdGrpAutoDefLeft m_cmdGrpAutoDefLeft{&m_subSysDriveTrain, &m_AHRS};
+    CmdGrpAutoDefLeft m_cmdGrpAutoDefLeft{
+      &m_subSysDriveTrain, 
+      &m_AHRS, 
+      &m_subSysBallShooter};
     /** The right defensive autonomous command */
-    CmdGrpAutoDefRight m_cmdGrpAutoDefRight{&m_subSysDriveTrain, &m_AHRS};
+    CmdGrpAutoDefRight m_cmdGrpAutoDefRight{
+      &m_subSysDriveTrain, 
+      &m_AHRS, 
+      &m_subSysBallShooter};
     /** The center offensive autonomous command */
-    CmdGrpAutoOffCenter m_cmdGrpAutoOffCenter{&m_subSysDriveTrain, &m_AHRS};
+    CmdGrpAutoOffCenter m_cmdGrpAutoOffCenter{
+      &m_subSysDriveTrain, 
+      &m_AHRS, 
+      &m_subSysBallShooter};
     /** The left offensive autonomous command */
-    CmdGrpAutoOffLeft m_cmdGrpAutoOffLeft{&m_subSysDriveTrain, &m_AHRS};
+    CmdGrpAutoOffLeft m_cmdGrpAutoOffLeft{
+      &m_subSysDriveTrain, 
+      &m_AHRS, 
+      &m_subSysBallShooter};
     /** The right offensive autonomous command */
-    CmdGrpAutoOffRight m_cmdGrpAutoOffRight{&m_subSysDriveTrain, &m_AHRS};
+    CmdGrpAutoOffRight m_cmdGrpAutoOffRight{
+      &m_subSysDriveTrain, 
+      &m_AHRS, 
+      &m_subSysBallShooter};
 
     // DRIVE TRAIN COMMANDS
 
@@ -301,57 +278,16 @@ class RobotContainer {
     /** Command to reset the AHRS yaw */
     CmdResetAHRSYaw m_cmdResetAHRSYaw{&m_subSysDriveTrain, &m_AHRS};
 
-    // PAT TURNER SUBSYSTEM COMMANDS
+    // BALL SHOOTER COMMANDS
 
-    /** Command to turn WoF counter clockwise */
-    CmdTurnWoFCCW m_cmdTurnWofCCW{&m_subSysPATTurner,&m_SecondaryJoystick};
-    /** Command to turn WoF clockwise */
-    CmdTurnWoFCW m_cmdTurnWofCW{&m_subSysPATTurner,&m_SecondaryJoystick};
-
-    // HANS/FRANZ ARMS SUBSYSTEM COMMANDS
-
-    /** 
-     * Command to move Hans/Franz arms
-     * 
-     * NOTE: Must be instantiated before m_cmdEnableHansFranzArms!
-     */
-    CmdMoveHansFranzArms m_cmdMoveHansFranzArms{&m_subSysHansFranzArms,
-                                                &m_SecondaryJoystick};
-    /** Command to enable Hans/Franz Arms */
-    CmdEnableHansFranzArms m_cmdEnableHansFranzArms{&m_subSysHansFranzArms,
-                                                    &m_cmdMoveHansFranzArms};
-
-    // HANS/FRANZ MUSCLES SUBSYSTEM COMMANDS
-
-    /** Command to disable Hans and Franz muscles */
-    CmdDisableHansFranzMuscles 
-      m_cmdDisableHansFranzMuscles{&m_subSysHansFranzMuscles};
-    /** Command to enable Hans and Franz muscles */
-    CmdEnableHansFranzMuscles 
-      m_cmdEnableHansFranzMuscles{&m_subSysHansFranzMuscles};
-    /** Command to extend Hans and Franz muscles */
-    CmdExtendHansFranzMuscles 
-      m_cmdExtendHansFranzMuscles{&m_subSysHansFranzMuscles};
-    /** Command to retract Hans and Franz muscles */
-    CmdRetractHansFranzMuscles 
-      m_cmdRetractHansFranzMuscles{&m_subSysHansFranzMuscles};
-
-    // HANS/FRANZ ARMS/MUSCLES COMMANDGROUPS
-
-    /** Command Group to enable Hans and Franz Arms and Muscles */
-    CmdGrpEnableHansAndFranz
-      m_cmdGrpEnableHansAndFranz{&m_subSysHansFranzArms,
-                                 &m_cmdMoveHansFranzArms,
-                                 &m_subSysHansFranzMuscles};
-
-    // PID PSSH COMMANDS
-
-    /** Command to put Pssh in dump mode */
-    CmdDump m_cmdDump{&m_PIDsubSysPssh};
-    /** Command to put Pssh in load mode */
-    CmdLoad m_cmdLoad{&m_PIDsubSysPssh};
-    /** Command to put Pssh in travel mode */
-    CmdTravel m_cmdTravel{&m_PIDsubSysPssh};
+    /** Command ball shooter to be at rest */
+    CmdBallShooterAtRest m_cmdBallShooterAtRest{&m_subSysBallShooter};
+    /** Command ball shooter to intake balls */
+    CmdBallShooterIntake m_cmdBallShooterIntake{&m_subSysBallShooter};
+    /** Command ball shooter to shoot low */
+    CmdBallShooterShootLow m_cmdBallShooterShootLow{&m_subSysBallShooter};
+    /** Command ball shooter to shoot high */
+    CmdBallShooterShootHigh m_cmdBallShooterShootHigh{&m_subSysBallShooter};
 
     // TELEMETRY
 
@@ -375,9 +311,7 @@ class RobotContainer {
       &m_RobotPeriodicTick,
       &m_AHRS,
       &m_subSysDriveTrain,
-      &m_PIDsubSysPssh,
-      &m_subSysHansFranzArms,
-      &m_subSysHansFranzMuscles
+      &m_subSysBallShooter
     };
 
 }; // end class RobotContainer

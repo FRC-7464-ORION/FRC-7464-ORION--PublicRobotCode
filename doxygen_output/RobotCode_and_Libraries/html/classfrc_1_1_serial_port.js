@@ -30,7 +30,7 @@ var classfrc_1_1_serial_port =
       [ "kFlushWhenFull", "classfrc_1_1_serial_port.html#ae73a1a29388e9de3a537d8038519ccf8a73f4b70fa3f0cf7c58cf6c4aea2e18c5", null ]
     ] ],
     [ "SerialPort", "classfrc_1_1_serial_port.html#a5c4fd0fd1fadec28c5ec57ab1c5ee92b", null ],
-    [ "SerialPort", "classfrc_1_1_serial_port.html#a561da4e10b13cfdf935c3c9f5ba77b1d", null ],
+    [ "SerialPort", "classfrc_1_1_serial_port.html#ac9cafab0eb9193552f7b124112067308", null ],
     [ "~SerialPort", "classfrc_1_1_serial_port.html#a8e09f366ed9b26b0456b66ae7bd8c702", null ],
     [ "SerialPort", "classfrc_1_1_serial_port.html#a02adbf989d2f912c9969fc3428782736", null ],
     [ "DisableTermination", "classfrc_1_1_serial_port.html#a347f5209ef059b6e53dbf5aaa397e3ac", null ],
@@ -42,10 +42,10 @@ var classfrc_1_1_serial_port =
     [ "Reset", "classfrc_1_1_serial_port.html#ab00d8ab877678575767459e9166f775d", null ],
     [ "SetFlowControl", "classfrc_1_1_serial_port.html#ad1163b360e467c7c49fcd8467f8d30ad", null ],
     [ "SetReadBufferSize", "classfrc_1_1_serial_port.html#aded12e094e40d92c7c1f682c0c9212c5", null ],
-    [ "SetTimeout", "classfrc_1_1_serial_port.html#ae45bffeabfa59dd06c669b04fe10b8cd", null ],
+    [ "SetTimeout", "classfrc_1_1_serial_port.html#a26c678d5db64d96ff8387c88e6c08e71", null ],
     [ "SetWriteBufferMode", "classfrc_1_1_serial_port.html#a1fd9a6370da04fee0bdc978d04a95c78", null ],
     [ "SetWriteBufferSize", "classfrc_1_1_serial_port.html#a9925e988515db89ebf357cc965b09d36", null ],
     [ "Write", "classfrc_1_1_serial_port.html#af75eb9e47808a30d652a156be5c0e044", null ],
-    [ "Write", "classfrc_1_1_serial_port.html#ae956b85dc6206d3b3db58beb5589ec01", null ],
+    [ "Write", "classfrc_1_1_serial_port.html#a8a424262498d3660480685b3d62f2bb9", null ],
     [ "m_portHandle", "classfrc_1_1_serial_port.html#a679c6f4004d357001df51b5205f8c03c", null ]
 ];

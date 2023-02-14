@@ -5,9 +5,11 @@ var classfrc_1_1_i2_c =
       [ "kMXP", "classfrc_1_1_i2_c.html#ae90c40da73cf515c2554ef94064d842bac5d820a851c008128bc77f30e30557cc", null ]
     ] ],
     [ "I2C", "classfrc_1_1_i2_c.html#a790ba9bcd1e0040bc5387a03cde275b2", null ],
-    [ "~I2C", "classfrc_1_1_i2_c.html#ac4be5cb4b37f47fa8dcd4d4963280e2e", null ],
+    [ "~I2C", "classfrc_1_1_i2_c.html#afaad09fa9bdd23623bddbdcd7585a9fe", null ],
     [ "I2C", "classfrc_1_1_i2_c.html#a079d1856c8237fb28eaddcf1e04678ba", null ],
     [ "AddressOnly", "classfrc_1_1_i2_c.html#a8aaad56f53bdbc0817a6d70ce0361fcd", null ],
+    [ "GetDeviceAddress", "classfrc_1_1_i2_c.html#ab914835625e15fb68c7b9c84e04303f7", null ],
+    [ "GetPort", "classfrc_1_1_i2_c.html#a68bb45aa1e139fe5eabf3e0d81003406", null ],
     [ "operator=", "classfrc_1_1_i2_c.html#ad4a886ad370eb4055cf6fd9d08070308", null ],
     [ "Read", "classfrc_1_1_i2_c.html#ad3e9ab2906bfcd34e6548243274a6045", null ],
     [ "ReadOnly", "classfrc_1_1_i2_c.html#aa976b9c72c532c93dc9c3817d77ac398", null ],

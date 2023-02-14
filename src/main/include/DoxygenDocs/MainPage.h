@@ -5,7 +5,7 @@
  *
  * COPYRIGHT NOTICES:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -19,19 +19,19 @@
 #define MAINPAGE_H
 
 /**
- * @mainpage FRC Team #7464-ORION 2020 Season Code
+ * @mainpage FRC Team #7464-ORION 2022 Season Code
  *
  * @section intro_sec Introduction
  *
- * This is the documentation for the software code written for Sirius, the
+ * This is the documentation for the software code written for Janky, the
  * <a href="https://orionfrc.wixsite.com/robotics">Oklahoma Robotic Institute
  * of Norman</a>'s (O.R.I.O.N.'s) entry for competition in the 
  * <a href="https://www.firstinspires.org/">FIRST</a> Robotic
- * Competition (FRC) 2020 season.
+ * Competition (FRC) 2022 season.
  *
  * This documentation was created by adding special 
  * <a href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">
- * comments</a> to our computer code for Sirius, which is written in
+ * comments</a> to our computer code for Janky, which is written in
  * <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a>. A program 
  * called
  * <a href="http://www.doxygen.nl/">Doxygen</a> is used to examine the
@@ -42,7 +42,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the 
  * <a href="../BSD_License_for_FRC_7464_ORION_code.txt">
@@ -51,7 +51,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2017-2018 FIRST. All Rights Reserved.
+ * Copyright (c) 2017-2022 FIRST. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the 
  * <a href="../BSD_License_for_WPILib_code.txt">

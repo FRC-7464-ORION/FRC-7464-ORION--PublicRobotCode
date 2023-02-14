@@ -18,7 +18,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -52,7 +52,7 @@ void TelemetryOutputter::GetAllianceColorStationNumber()
   {
 
     // Get the alliance color from the driver station
-    alliance_color = frc::DriverStation::GetInstance().GetAlliance();
+    alliance_color = frc::DriverStation::GetAlliance();
 
     // Switch on the alliance color
     switch(alliance_color)
@@ -82,7 +82,7 @@ void TelemetryOutputter::GetAllianceColorStationNumber()
     } // end switch(alliance_color)
     
     // Get the station location number
-    station_location = frc::DriverStation::GetInstance().GetLocation();
+    station_location = frc::DriverStation::GetLocation();
 
     // Switch on the station location
     switch(station_location)
@@ -153,7 +153,7 @@ void TelemetryOutputter::GetMatchTypeMatchNumber()
   {
 
     // Get the match type 
-    MatchType = frc::DriverStation::GetInstance().GetMatchType();
+    MatchType = frc::DriverStation::GetMatchType();
 
     // Switch on the match type
     switch(MatchType)
@@ -189,7 +189,7 @@ void TelemetryOutputter::GetMatchTypeMatchNumber()
     } // end switch(MatchType)
 
     // Get the match number from the driver station
-    MatchNumber = frc::DriverStation::GetInstance().GetMatchNumber();
+    MatchNumber = frc::DriverStation::GetMatchNumber();
 
     // Convert the match number to a string
     str_MatchNumber = std::to_string(MatchNumber);
@@ -217,15 +217,15 @@ void TelemetryOutputter::GetMatchMode()
   {
 
     // If we are autonomous
-    if(frc::DriverStation::GetInstance().IsAutonomous())
+    if(frc::DriverStation::IsAutonomous())
       // Set match mode to autonomous
       m_MatchMode = mk_MatchModeAutonomous;
     // Else if we are teleoperating (under operator control)
-    else if(frc::DriverStation::GetInstance().IsOperatorControl())
+    else if(frc::DriverStation::IsTeleop())
       // Set match mode to teleoperated
       m_MatchMode = mk_MatchModeTeleoperated;
     // Else if we are testing 
-    else if(frc::DriverStation::GetInstance().IsTest())
+    else if(frc::DriverStation::IsTest())
       // Set match mode to test
       m_MatchMode = mk_MatchModeTest;
     // Else
@@ -247,7 +247,7 @@ void TelemetryOutputter::GetMatchTime()
     // Get the string indicating the time remaining
     m_PeriodTimeRemaining = 
       ConvertDblSecondsToMinutesSecondsTenths(
-        frc::DriverStation::GetInstance().GetMatchTime());
+        frc::DriverStation::GetMatchTime());
 
   } // end if(mk_telemetry[FMS_PRD_TIME_REM].output)
 
@@ -261,7 +261,7 @@ void TelemetryOutputter::GetFMSStatus()
   {
 
     // If the driver station is attached to the FMS
-    if(frc::DriverStation::GetInstance().IsFMSAttached())
+    if(frc::DriverStation::IsFMSAttached())
       // Set status to attached
       m_FMSStatus = mk_FMSAttached;
     else
@@ -280,7 +280,7 @@ void TelemetryOutputter::GetDSStatus()
   {
 
     // If the robot is attached to the driver station
-    if(frc::DriverStation::GetInstance().IsDSAttached())
+    if(frc::DriverStation::IsDSAttached())
       // Set status to attached
       m_DSStatus = mk_DSAttached;
     else
@@ -300,15 +300,15 @@ void TelemetryOutputter::GetRobotStatus()
   {
 
     // If the robot is enabled
-    if(frc::DriverStation::GetInstance().IsEnabled())
+    if(frc::DriverStation::IsEnabled())
       // Set status to enabled
       m_RobotStatus = mk_RobotStatusEnabled;
     // Else if the robot is disabled
-    else if(frc::DriverStation::GetInstance().IsDisabled())
+    else if(frc::DriverStation::IsDisabled())
       // Set status to disabled 
       m_RobotStatus = mk_RobotStatusDisabled;
     // Else if status is emergency stopped
-    else if(frc::DriverStation::GetInstance().IsEStopped())
+    else if(frc::DriverStation::IsEStopped())
       // Set status to E-Stopped
       m_RobotStatus = mk_RobotStatusEStopped;
     else

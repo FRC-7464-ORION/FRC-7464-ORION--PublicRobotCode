@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../_robot_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'Robot.cpp']]],
-  ['movehansfranzarms',['MoveHansFranzArms',['../class_sub_sys_hans_franz_arms.html#a4a76dd2a0024510395c86f4e053badb5',1,'SubSysHansFranzArms']]]
+  ['nulldesenslimit_1171',['NullDesensLimit',['../_h_i_d___utility___fcns_8cpp.html#a977b0c92a805f37b4ecef5c48d4d3a5b',1,'NullDesensLimit(double joyout, double abs_nullzone, double abs_limit, double exponent):&#160;HID_Utility_Fcns.cpp'],['../_h_i_d___utility___fcns_8h.html#a977b0c92a805f37b4ecef5c48d4d3a5b',1,'NullDesensLimit(double joyout, double abs_nullzone, double abs_limit, double exponent):&#160;HID_Utility_Fcns.cpp']]]
 ];

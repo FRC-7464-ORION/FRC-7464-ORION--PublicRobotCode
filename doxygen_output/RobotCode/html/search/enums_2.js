@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hansfranzarmsstates',['HansFranzArmsStates',['../class_sub_sys_hans_franz_arms.html#a8d8a3c3a4b71f915c4ca676ee40dc560',1,'SubSysHansFranzArms']]]
+  ['drive_5fstraight_5fauto_5fdx_5fmode_1686',['DRIVE_STRAIGHT_AUTO_DX_MODE',['../class_cmd_auto_drive_straight.html#a1790a58237059c05c28319358fba1ce5',1,'CmdAutoDriveStraight']]],
+  ['drive_5fstraight_5fdirection_1687',['DRIVE_STRAIGHT_DIRECTION',['../class_cmd_auto_drive_straight.html#abf8f58d1d8cb23ab12231df79d002877',1,'CmdAutoDriveStraight']]]
 ];

@@ -1,0 +1,27 @@
+var classhalsim_1_1_d_s_comm_packet =
+[
+    [ "DSCommPacket", "classhalsim_1_1_d_s_comm_packet.html#a89e59a205338397630ccc0171526383c", null ],
+    [ "DecodeTCP", "classhalsim_1_1_d_s_comm_packet.html#a4d8d46b86c02115b9034b974fdd3e58c", null ],
+    [ "DecodeUDP", "classhalsim_1_1_d_s_comm_packet.html#a3500785c2d7efbffe520a8b9388a96ff", null ],
+    [ "ReadGameSpecificMessageTag", "classhalsim_1_1_d_s_comm_packet.html#aa85d7a9ca1732bad60f00be4c68a3474", null ],
+    [ "ReadJoystickDescriptionTag", "classhalsim_1_1_d_s_comm_packet.html#a519a58d7eaf8f471eb9c508b3f7bcb3d", null ],
+    [ "ReadJoystickTag", "classhalsim_1_1_d_s_comm_packet.html#a6a21df05efbe9e9e43113600181bd51f", null ],
+    [ "ReadMatchtimeTag", "classhalsim_1_1_d_s_comm_packet.html#a6ac28de1b29ed6055b180b71d1f2bd93", null ],
+    [ "ReadNewMatchInfoTag", "classhalsim_1_1_d_s_comm_packet.html#aeaeee1cef927e22af413543538dd6448", null ],
+    [ "SendJoysticks", "classhalsim_1_1_d_s_comm_packet.html#a0b06c3c4a623ec4dd55e76c1a192ed20", null ],
+    [ "SendUDPToHALSim", "classhalsim_1_1_d_s_comm_packet.html#a53591ea71e9a304079a933caa3c91c95", null ],
+    [ "SetAlliance", "classhalsim_1_1_d_s_comm_packet.html#a39d75dbaa0980d5a6f0919641912918d", null ],
+    [ "SetControl", "classhalsim_1_1_d_s_comm_packet.html#a7ce80ff8c620163d0bf01415635df850", null ],
+    [ "SetupJoystickTag", "classhalsim_1_1_d_s_comm_packet.html#a6df9826cd0203422e5d4b782384d9dc6", null ],
+    [ "SetupSendBuffer", "classhalsim_1_1_d_s_comm_packet.html#abace0a839e1d98c0fc7f1c25069ccbbf", null ],
+    [ "SetupSendHeader", "classhalsim_1_1_d_s_comm_packet.html#adcc0a6721f9cde4c03dafb7a592223f3", null ],
+    [ "::DSCommPacketTest", "classhalsim_1_1_d_s_comm_packet.html#a8096a2368817c13214a260c98a2dbd6a", null ],
+    [ "m_alliance_station", "classhalsim_1_1_d_s_comm_packet.html#a9b1526fdfffc5c080f2278f9b2ddbb02", null ],
+    [ "m_control_sent", "classhalsim_1_1_d_s_comm_packet.html#ae7400023bc043ac9d1162c1ec96bbb31", null ],
+    [ "m_control_word", "classhalsim_1_1_d_s_comm_packet.html#a2d9e502945a30aca51323a9f2728f51e", null ],
+    [ "m_hi", "classhalsim_1_1_d_s_comm_packet.html#a157f1ac4cf70fdf0194fee836d5adfd6", null ],
+    [ "m_joystick_packets", "classhalsim_1_1_d_s_comm_packet.html#af8bb2fa3225949741a7b7e2bdbeba6f8", null ],
+    [ "m_lo", "classhalsim_1_1_d_s_comm_packet.html#aebc4a4ceb77dcd2970f142dbc8787673", null ],
+    [ "m_match_time", "classhalsim_1_1_d_s_comm_packet.html#a567873df1315b0172c41f459f62e5a67", null ],
+    [ "matchInfo", "classhalsim_1_1_d_s_comm_packet.html#a66b8e70aa457467b4630c4151a226b3d", null ]
+];

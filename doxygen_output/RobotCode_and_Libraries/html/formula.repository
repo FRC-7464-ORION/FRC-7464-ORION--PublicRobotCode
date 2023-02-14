@@ -1,0 +1,157 @@
+\_form#0:$ A $
+\_form#1:$ A = P^TLDL^*P $
+\_form#2:$ a_0, a_1, a_2, ..., a_{n-1}$
+\_form#3:$ a_0 $
+\_form#4:$ a_{i+1}-a_{i}$
+\_form#5:$ a_i $
+\_form#6:$ \ell^p $
+\_form#7:$ \ell^\infty $
+\_form#8:$\infty$
+\_form#9:$ v $
+\_form#10:$ w $
+\_form#11:$ p $
+\_form#12:\[ \Vert v - w \Vert \leqslant p\,\min(\Vert v\Vert, \Vert w\Vert). \]
+\_form#13:$ x $
+\_form#14:\[ \Vert v \Vert \leqslant p\,\vert x\vert. \]
+\_form#15:\[ \Vert v \Vert \leqslant p\,\Vert w\Vert. \]
+\_form#16:$ \{r_0,r_1,..r_{m-1}\} $
+\_form#17:$ \{c_0,c_1,..c_{n-1} \}$
+\_form#18:$ B $
+\_form#19:$ B(i,j) = A(r_i,c_j) $
+\_form#20:$ \sigma $
+\_form#21:$ P_\sigma $
+\_form#22:$ (e_1,\ldots,e_p) $
+\_form#23:\[ P_\sigma(e_i) = e_{\sigma(i)}. \]
+\_form#24:$ \sigma, \tau $
+\_form#25:\[ P_{\sigma\circ\tau} = P_\sigma P_\tau. \]
+\_form#26:$(ij)$
+\_form#27:$ this = this + \alpha u v^* + conj(\alpha) v u^* $
+\_form#28:$ this = this + \alpha ( u u^* ) $
+\_form#29:$ this = this + \alpha ( u^* u ) $
+\_form#30:$ A x = b $
+\_form#31:$ s \Vert \frac{*this}{s} \Vert $
+\_form#32:$[T_{n-1} \ldots T_{i} \ldots T_{0}]$
+\_form#33:$ T_{i} $
+\_form#34:$ T_{i} M$
+\_form#35:$ M T_{i}$
+\_form#36:$ Ax = \lambda B x $
+\_form#37:$ ABx = \lambda x $
+\_form#38:$ BAx = \lambda x $
+\_form#39:$ \lambda $
+\_form#40:$ Av = \lambda v $
+\_form#41:$ D $
+\_form#42:$ V $
+\_form#43:$ A V = V D $
+\_form#44:$ A = V D V^{-1} $
+\_form#45:$ k $
+\_form#46:$ O(n^3) $
+\_form#47:$ n $
+\_form#48:$ A = U T U^*$
+\_form#49:$25n^3$
+\_form#50:$10n^3$
+\_form#51:\[ \begin{bmatrix} u & v \\ -v & u \end{bmatrix} \]
+\_form#52:$ u $
+\_form#53:$ u \pm iv $
+\_form#54:$ AV = VD $
+\_form#55:$ \begin{bmatrix} u & v \\ -v & u \end{bmatrix} $
+\_form#56:$ 25n^3 $
+\_form#57:$ 10n^3 $
+\_form#58:$ Av = \lambda Bv $
+\_form#59:$ A V = B V D $
+\_form#60:$ A = B V D V^{-1} $
+\_form#61:$ \alpha $
+\_form#62:$ \beta $
+\_form#63:$ \lambda_i = \alpha_i / \beta_i $
+\_form#64:$ \beta_i $
+\_form#65:$ \mu = \beta_i / \alpha_i$
+\_form#66:$ \mu_i A v_i = B v_i $
+\_form#67:$ \mu_i u_i^T A = u_i^T B $
+\_form#68:$ u_i $
+\_form#69:$ x^* B x = 1 $
+\_form#70:$ B = LL^* $
+\_form#71:$ L^{-1} A (L^*)^{-1} $
+\_form#72:$ L^{*} A L $
+\_form#73:$ L^{-1} A (L^*)^{-1} (L^* x) = \lambda (L^* x) $
+\_form#74:$ Q $
+\_form#75:$ H $
+\_form#76:$ A = Q H Q^T $
+\_form#77:$ Q^{-1} = Q^T $
+\_form#78:$ A = Q H Q^* $
+\_form#79:$ Q^{-1} = Q^* $
+\_form#80:$ 10n^3/3 $
+\_form#81:$ Q = H_{N-1} \ldots H_1 H_0 $
+\_form#82:$ H_i $
+\_form#83:$ H_i = (I - h_i v_i v_i^T) $
+\_form#84:$ h_i $
+\_form#85:$ i $
+\_form#86:$ v_i $
+\_form#87:$ v_i = [ 0, \ldots, 0, 1, M(i+2,i), \ldots, M(N-1,i) ]^T $
+\_form#88:\[ \|A\|_2 = \max_x \frac{\|Ax\|_2}{\|x\|_2} \]
+\_form#89:$ A^*A $
+\_form#90:$ A = Q S Z $
+\_form#91:$ B = Q T Z $
+\_form#92:$ U^{-1} = U^T $
+\_form#93:$ A - z B $
+\_form#94:$ A = U T U^T $
+\_form#95:$ V^{-1} = V^{\dagger} $
+\_form#96:$ V^{-1} = V^T $
+\_form#97:$ 9n^3 $
+\_form#98:$ 4n^3/3 $
+\_form#99:$ A^{1/2} = V D^{1/2} V^{-1} $
+\_form#100:$ V D^{-1/2} V^{-1} $
+\_form#101:$ A = Q T Q^* $
+\_form#102:$ T $
+\_form#103:$ mat = Q T Q^* $
+\_form#104:$ H *this = [ beta 0 ... 0]^T $
+\_form#105:$ H = I - tau v v^*$
+\_form#106:$ v^T = [1 essential^T] $
+\_form#107:$ n \times n $
+\_form#108:$ H = \prod_{i=0}^{n-1} H_i $
+\_form#109:$ H_i = I - h_i v_i v_i^* $
+\_form#110:\[ v_i = [\underbrace{0, \ldots, 0}_{i-1\mbox{ zeros}}, 1, \underbrace{*, \ldots,*}_{n-i\mbox{ arbitrary entries}} ]. \]
+\_form#111:$ n-i $
+\_form#112:$ MH $
+\_form#113:$ M $
+\_form#114:$ HM $
+\_form#115:$ H = H_0 H_1 \ldots H_{n-1} $
+\_form#116:$ H = H_{\mathrm{shift}} H_{\mathrm{shift}+1} \ldots H_{n-1} $
+\_form#117:$ \theta $
+\_form#118:$ J = \left ( \begin{array}{cc} c & \overline s \\ -s & \overline c \end{array} \right ) $
+\_form#119:$ v = J^* v $
+\_form#120:$ B = \left ( \begin{array}{cc} x & y \\ \overline y & z \end{array} \right )$
+\_form#121:$ A = J^* B J $
+\_form#122:$ B = \left ( \begin{array}{cc} \text{this}_{pp} & \text{this}_{pq} \\ (\text{this}_{pq})^* & \text{this}_{qq} \end{array} \right )$
+\_form#123:$ G^* $
+\_form#124:$ V = \left ( \begin{array}{c} p \\ q \end{array} \right )$
+\_form#125:$ G^* V = \left ( \begin{array}{c} r \\ 0 \end{array} \right )$
+\_form#126:$ B = \left ( \begin{array}{cc} \text{*this.row}(p) \\ \text{*this.row}(q) \end{array} \right ) $
+\_form#127:$ B = \left ( \begin{array}{cc} \text{*this.col}(p) & \text{*this.col}(q) \end{array} \right ) $
+\_form#128:$ \left ( \begin{array}{cc} x \\ y \end{array} \right ) = J \left ( \begin{array}{cc} x \\ y \end{array} \right ) $
+\_form#129:$ A = P^{-1} L U Q^{-1} $
+\_form#130:$ P^{-1} L U Q^{-1} $
+\_form#131:$ \vert pivot \vert \leqslant threshold \times \vert maxpivot \vert $
+\_form#132:\[ \mathbf{A} \, \mathbf{P} = \mathbf{Q} \, \mathbf{R} \]
+\_form#133:\[ \mathbf{A} \, \mathbf{P} = \mathbf{Q} \, \begin{bmatrix} \mathbf{T} & \mathbf{0} \\ \mathbf{0} & \mathbf{0} \end{bmatrix} \, \mathbf{Z} \]
+\_form#134:$ \mathbf{Z} * \mathbf{rhs} $
+\_form#135:$ \mathbf{\overline Z} * \mathbf{rhs} $
+\_form#136:$ \mathbf{Z}^* * \mathbf{rhs} $
+\_form#137:\[ \mathbf{P} \, \mathbf{A} \, \mathbf{P}' = \mathbf{Q} \, \mathbf{R} \]
+\_form#138:\[ \mathbf{A} = \mathbf{Q} \, \mathbf{R} \]
+\_form#139:\[ A = U S V^* \]
+\_form#140:$ O(n^2p) $
+\_form#141:$ \vert singular value \vert \leqslant threshold \times \vert max singular value \vert $
+\_form#142:$ 2^{-s} $
+\_form#143:$ (V+U)(V-U)^{-1} $
+\_form#144:$ \exp(A) $
+\_form#145:$ A = 0 $
+\_form#146:$ s $
+\_form#147:$ 2^{-s} x $
+\_form#148:$ \exp(2^{-\mbox{squarings}}M) $
+\_form#149:$ M = 0 $
+\_form#150:\[ \sum_{k=i}^m A_{ik} X_{kj} + \sum_{k=1}^j X_{ik} B_{kj} = C_{ij}. \]
+\_form#151:\[ X_{ij} = \frac{1}{A_{ii} + B_{jj}} \Bigl( C_{ij} - \sum_{k=i+1}^m A_{ik} X_{kj} - \sum_{k=1}^{j-1} X_{ik} B_{kj} \Bigr). \]
+\_form#152:$ i=m,\ldots,1 $
+\_form#153:$ j=1,\ldots,n $
+\_form#154:$ (-1, 1) $
+\_form#155:$ A^p $
+\_form#156:$ \exp(p \log(A)) $

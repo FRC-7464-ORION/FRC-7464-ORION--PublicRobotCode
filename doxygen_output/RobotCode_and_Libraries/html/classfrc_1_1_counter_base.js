@@ -10,9 +10,9 @@ var classfrc_1_1_counter_base =
     [ "CounterBase", "classfrc_1_1_counter_base.html#af246833332d671337fff0394423f05d2", null ],
     [ "Get", "classfrc_1_1_counter_base.html#a58b73f4320589d9592319ccdc8e91b44", null ],
     [ "GetDirection", "classfrc_1_1_counter_base.html#aa4ba0a2e059ba7937490e3e23bde5719", null ],
-    [ "GetPeriod", "classfrc_1_1_counter_base.html#aa937af486ce45e5e267553d00d36bf88", null ],
+    [ "GetPeriod", "classfrc_1_1_counter_base.html#a067ce47868a37e264a875fc2a36576df", null ],
     [ "GetStopped", "classfrc_1_1_counter_base.html#a7028095ba1bc52cb5f1a6f1355c54921", null ],
     [ "operator=", "classfrc_1_1_counter_base.html#a59d0b3b9d9b596890b45c932a8fbf93c", null ],
     [ "Reset", "classfrc_1_1_counter_base.html#a84d1432fa46c419e8056545c7d182de7", null ],
-    [ "SetMaxPeriod", "classfrc_1_1_counter_base.html#af5e60bf11540579ee0900129f076020a", null ]
+    [ "SetMaxPeriod", "classfrc_1_1_counter_base.html#ac49861297aab49bb027022337a266ea6", null ]
 ];

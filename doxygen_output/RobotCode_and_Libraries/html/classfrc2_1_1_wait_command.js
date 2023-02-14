@@ -8,5 +8,5 @@ var classfrc2_1_1_wait_command =
     [ "IsFinished", "classfrc2_1_1_wait_command.html#aa71091021be3f6076712b93e4501d391", null ],
     [ "RunsWhenDisabled", "classfrc2_1_1_wait_command.html#a3a8c6bc685540de0b620ec475d310ffb", null ],
     [ "m_duration", "classfrc2_1_1_wait_command.html#af463e7a50b04faa09b9f94d5d51cf99f", null ],
-    [ "m_timer", "classfrc2_1_1_wait_command.html#a029f8fa0549c77d5bd69a35f3be443a9", null ]
+    [ "m_timer", "classfrc2_1_1_wait_command.html#a94e4402a5ef4797a2882a1108f09a013", null ]
 ];

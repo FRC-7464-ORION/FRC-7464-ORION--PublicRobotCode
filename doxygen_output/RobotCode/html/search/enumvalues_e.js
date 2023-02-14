@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['uint64t',['UINT64T',['../class_telemetry_outputter.html#aa183722ff472bf9ebe15d23825d75e23a3fbf1c2b4ad9cdb811ac77fd47ea01cc',1,'TelemetryOutputter']]],
-  ['unknown',['UNKNOWN',['../class_sub_sys_hans_franz_arms.html#a8d8a3c3a4b71f915c4ca676ee40dc560ab1148a3f266a8b3526e80427ec89bff3',1,'SubSysHansFranzArms']]]
+  ['wpilibc_5fcode_5fsw_5fver_1801',['WPILIBC_CODE_SW_VER',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12a06a735ab33ed0322552a1ed5dd68f6d7',1,'TelemetryOutputter']]]
 ];

@@ -17,7 +17,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -35,7 +35,7 @@
 
 // The constructor for the CmdWaitSeconds class
 CmdWaitSeconds::CmdWaitSeconds(
-  double sec) {
+  units::second_t sec) {
 
   // Set the command's name
   SetName("CmdWaitSeconds");

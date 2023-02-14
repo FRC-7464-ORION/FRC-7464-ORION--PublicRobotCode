@@ -1,0 +1,4 @@
+var struct_eigen_1_1internal_1_1functor__traits_3_01min__coeff__visitor_3_01_scalar_00_01_na_n_propagation_01_4_01_4 =
+[
+    [ "Cost", "struct_eigen_1_1internal_1_1functor__traits_3_01min__coeff__visitor_3_01_scalar_00_01_na_n_propagation_01_4_01_4.html#a48130a0b194f079d705d8962a2adbad0a981c22948d2aacf8afaa0e8be5f26b31", null ]
+];

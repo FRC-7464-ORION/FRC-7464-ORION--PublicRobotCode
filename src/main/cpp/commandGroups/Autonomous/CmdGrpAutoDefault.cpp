@@ -18,7 +18,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -40,6 +40,10 @@
 #include "commands/DriveTrain/CmdDisableSmoothingMode.h"
 #include "commands/DriveTrain/CmdEnableSmoothingMode.h"
 
+// Include the header files for shooting low and high
+#include "commands/BallShooter/CmdBallShooterShootLow.h"
+#include "commands/BallShooter/CmdBallShooterShootHigh.h"
+
 // Include the header file for the CmdWaitSeconds class
 #include "commands/Generic/CmdWaitSeconds.h"
 
@@ -50,7 +54,8 @@
 // The constructor for the CmdAutoDriveStraight class
 CmdGrpAutoDefault::CmdGrpAutoDefault(
     SubSysDriveTrain* drivetrain,
-    AHRS* ahrs) {
+    AHRS* ahrs,
+    SubSysBallShooter* ballshooter) {
 
   // Set the name
   SetName("CmdGrpAutoDefault");
@@ -58,31 +63,9 @@ CmdGrpAutoDefault::CmdGrpAutoDefault(
   // Add commands to be sequentially ran...
   AddCommands(
 
-    // Disable smoothing mode
-    CmdDisableSmoothingMode(drivetrain),
+    // Shoot a ball at the low target
+    CmdBallShooterShootLow(ballshooter)
 
-    // Drive straight forward 5.0 seconds at 10%
-    CmdAutoDriveStraight(
-      drivetrain,
-      0.10,
-      CmdAutoDriveStraight::SECONDS,
-      CmdAutoDriveStraight::FORWARD,
-      5.0),
-
-    // Wait 5.0 seconds
-    CmdWaitSeconds(5.0),
-
-    // Drive straight reverse 5.0 seconds at 10%
-    CmdAutoDriveStraight(
-      drivetrain,
-      0.10,
-      CmdAutoDriveStraight::SECONDS,
-      CmdAutoDriveStraight::REVERSE,
-      5.0),
-
-    // Enable smoothing mode
-    CmdEnableSmoothingMode(drivetrain)
-
-  );
+  ); // end AddCommands()
 
 } // end CmdGrpAutoDefault::CmdGrpAutoDefault(...)

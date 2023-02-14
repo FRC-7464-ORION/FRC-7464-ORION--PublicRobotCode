@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['outputtelemetry',['OutputTelemetry',['../class_telemetry_outputter.html#aaa5800dd29ae13099e26e6b2b8163466',1,'TelemetryOutputter']]],
-  ['outputtelemetrytosmartdashboard',['OutputTelemetryToSmartDashboard',['../class_robot_container.html#ab2ada247085246f9586cd453fac10807',1,'RobotContainer::OutputTelemetryToSmartDashboard()'],['../class_telemetry_outputter.html#a7662a7a2946386e5e61edf8065f55901',1,'TelemetryOutputter::OutputTelemetryToSmartDashboard()']]],
-  ['outputversioninfotoconsole',['outputVersionInfoToConsole',['../class_robot.html#aa57673b5f70b0f121ccba3f89808d6e1',1,'Robot']]]
+  ['periodic_1175',['Periodic',['../class_sub_sys_ball_shooter.html#a8a42d4b7600f4306ac6c90439a5a5f97',1,'SubSysBallShooter::Periodic()'],['../class_sub_sys_drive_train.html#a84ef2b35f76aa869e6894564247bc6ac',1,'SubSysDriveTrain::Periodic()']]],
+  ['projectilemotion_1176',['ProjectileMotion',['../class_projectile_motion.html#ab8635b680427084c5fe17a519bfa883a',1,'ProjectileMotion']]]
 ];

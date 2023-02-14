@@ -5,6 +5,7 @@ var classfrc2_1_1_p_i_d_subsystem =
     [ "Enable", "classfrc2_1_1_p_i_d_subsystem.html#a4a6d988326940c4cfb25c26ace2e5fc5", null ],
     [ "GetController", "classfrc2_1_1_p_i_d_subsystem.html#a32d1e3b86048733bd8bf9975a53d3d0d", null ],
     [ "GetMeasurement", "classfrc2_1_1_p_i_d_subsystem.html#ad9a1881c37b6550da2b43e309047f593", null ],
+    [ "GetSetpoint", "classfrc2_1_1_p_i_d_subsystem.html#a2d50cde21c3837a3a9e5e5f55660eed6", null ],
     [ "IsEnabled", "classfrc2_1_1_p_i_d_subsystem.html#adaee86e4c9e322fac8a867643b46e21d", null ],
     [ "Periodic", "classfrc2_1_1_p_i_d_subsystem.html#ab70b0d5cf2fa0165d3a80b9b68c2b996", null ],
     [ "SetSetpoint", "classfrc2_1_1_p_i_d_subsystem.html#a87323aaa4b95fe9dc544157f04f66867", null ],

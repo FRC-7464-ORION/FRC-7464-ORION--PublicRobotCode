@@ -1,6 +1,7 @@
 var classfrc2_1_1_proxy_schedule_command =
 [
-    [ "ProxyScheduleCommand", "classfrc2_1_1_proxy_schedule_command.html#a88c5bf3fc818b5aeb13fabdcc92be557", null ],
+    [ "ProxyScheduleCommand", "classfrc2_1_1_proxy_schedule_command.html#a423de460f43f21ab593ea557e32183d6", null ],
+    [ "ProxyScheduleCommand", "classfrc2_1_1_proxy_schedule_command.html#a8eab39b079ccc4084f7dca7ed8514923", null ],
     [ "ProxyScheduleCommand", "classfrc2_1_1_proxy_schedule_command.html#a65238e8b49cead638091064abdf95614", null ],
     [ "ProxyScheduleCommand", "classfrc2_1_1_proxy_schedule_command.html#a39a941cfd74b0a38aa88a5f53856360b", null ],
     [ "End", "classfrc2_1_1_proxy_schedule_command.html#a7af4c37f2468b8d7a638494ff643aea8", null ],

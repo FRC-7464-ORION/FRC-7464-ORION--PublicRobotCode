@@ -1,0 +1,6 @@
+var struct_eigen_1_1internal_1_1type__casting__traits_3_01numext_1_1uint8__t_00_01numext_1_1uint8__t_01_4 =
+[
+    [ "VectorizedCast", "struct_eigen_1_1internal_1_1type__casting__traits_3_01numext_1_1uint8__t_00_01numext_1_1uint8__t_01_4.html#aa1e593d8c927eafd60a621543799c79bad56a0ebcb46064f1ee28b8242088e7b4", null ],
+    [ "SrcCoeffRatio", "struct_eigen_1_1internal_1_1type__casting__traits_3_01numext_1_1uint8__t_00_01numext_1_1uint8__t_01_4.html#aa1e593d8c927eafd60a621543799c79bacd5e779e1f55ad00da2eebbfabe7c799", null ],
+    [ "TgtCoeffRatio", "struct_eigen_1_1internal_1_1type__casting__traits_3_01numext_1_1uint8__t_00_01numext_1_1uint8__t_01_4.html#aa1e593d8c927eafd60a621543799c79ba44104b3824621ae11d9e67fb701cd4ec", null ]
+];

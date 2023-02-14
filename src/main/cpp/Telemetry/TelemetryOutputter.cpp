@@ -16,7 +16,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -35,20 +35,17 @@ TelemetryOutputter::TelemetryOutputter(
   RobotTick* robot_tick,
   AHRS* ahrs,
   SubSysDriveTrain* drivetrain,
-  PIDSubSysPssh* pssh,
-  SubSysHansFranzArms* arms,
-  SubSysHansFranzMuscles* muscles )
+  SubSysBallShooter* ballshooter
+)
 
   : m_RobotTick(robot_tick),
     m_AHRS(ahrs),
     m_subSysDriveTrain(drivetrain),
-    m_PIDsubSysPssh(pssh),
-    m_subSysHansFranzArms(arms),
-    m_subSysHansFranzMuscles(muscles)
+    m_subSysBallShooter(ballshooter)
 {
 
   // Declare a new instance of the power distribution panel
-  m_pdp = new frc::PowerDistributionPanel();
+  m_pdp = new frc::PowerDistribution();
 
   // Declare a new instance of the roboRIO's internal accelerometers
   m_roboRIO_accelerometers = new frc::BuiltInAccelerometer();

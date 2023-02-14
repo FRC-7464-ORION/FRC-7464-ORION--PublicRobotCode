@@ -16,7 +16,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -46,14 +46,8 @@
 // Include the drive train subsystem header
 #include "subsystems/SubSysDriveTrain.h"
 
-// Include the Pssh PID subsystem header
-#include "subsystems/PIDSubSysPssh.h"
-
-// Include the Hans/Franz arms subsystem header
-#include "subsystems/SubSysHansFranzArms.h"
-
-// Include the Hans/Franz muscles subsystem header
-#include "subsystems/SubSysHansFranzMuscles.h"
+// Include the ball shooter subsystem header
+#include "subsystems/SubSysBallShooter.h"
 
 /************************** Library Header Files ******************************/
 
@@ -67,7 +61,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 // Include the header file for the Power Distribution Panel
-#include <frc/PowerDistributionPanel.h>
+#include <frc/PowerDistribution.h>
 
 // Include the header file for the roboRIO internal accelerometers
 #include <frc/BuiltInAccelerometer.h>
@@ -95,17 +89,13 @@ class TelemetryOutputter {
      * @param robot_tick    A pointer to a robot tick
      * @param ahrs          A pointer to a NavX MXP AHRS
      * @param drivetrain    A pointer to a drivetrain subsystem
-     * @param pssh          A pointer to a Pssh PID subsystem
-     * @param arms          A pointer to a Hans/Franz arms subsystem
-     * @param muscles       A pointer to a Hans/Franz muscles subsystem
+     * @param ballshooter   A pointer to a ball shooter subsystem
     */
     TelemetryOutputter(
       RobotTick *robot_tick,
       AHRS* ahrs,
       SubSysDriveTrain* drivetrain,
-      PIDSubSysPssh* pssh,
-      SubSysHansFranzArms* arms,
-      SubSysHansFranzMuscles* muscles
+      SubSysBallShooter* ballshooter
     );
 
     /** The TelemetryOutputter class destructor. */
@@ -127,19 +117,13 @@ class TelemetryOutputter {
     /** A pointer to a drive train subsystem */
     SubSysDriveTrain* m_subSysDriveTrain;
 
-    /** A pointer to a Pssh PID subsytem */
-    PIDSubSysPssh* m_PIDsubSysPssh;
-
-    /** A pointer to a Hans/Franz arms subsystem */
-    SubSysHansFranzArms* m_subSysHansFranzArms;
-
-    /** A pointer to a Hans/Franz muscles subsystem */
-    SubSysHansFranzMuscles* m_subSysHansFranzMuscles;
+    /** A pointer to a ball shooter subsystem */
+    SubSysBallShooter* m_subSysBallShooter;
 
     /////////// Member variables for various telemetry deliverers ///////////
 
     /** Declare a pointer to a power distribution panel (PDP) instance */
-    frc::PowerDistributionPanel* m_pdp;
+    frc::PowerDistribution* m_pdp;
 
     /** Declare a pointer to roboRIO's internal accelerometers instance */
     frc::BuiltInAccelerometer* m_roboRIO_accelerometers;
@@ -394,6 +378,12 @@ class TelemetryOutputter {
     /** String to hold the WPILibC code software version */
     std::string m_WPILibC_Code_SW_Version;
 
+    /** String to hold the NavX MXP code software version */
+    std::string m_NavX_MXP_Code_SW_Version;
+
+    /** String to hold the REV Robotics library software version */
+    std::string m_REVLib_SW_Version;
+
     // Attitude and Heading Reference System (AHRS) Information
 
     /** The status of the AHRS connection */
@@ -500,44 +490,28 @@ class TelemetryOutputter {
     /** The current used in the drive train, all motors, in Amps */
     double m_DriveTrainMotorsCurrent;
 
-    // PAT Information
+    // Ball Shooter Information
 
-    /** The current used in the PAT Turner motor, in Amps */
-    double m_PDP_PATTurnerMotorCurrent;
+    /** The intake motor current, in A */
+    double m_IntakeMotorCurrent;
 
-    // Pssh Information
+    /** The left indexer motor current, in A */
+    double m_LeftIndexterMotorCurrent;
 
-    /** The current used in the Pssh motor, in Amps */
-    double m_PDP_PsshMotorCurrent;
+    /** The right indexer motor current, in A */
+    double m_RightIndexerMotorCurrent;
 
-    /** The angle of Pssh, as read from the potentiometer */
-    double m_PsshPotAngle;
+    /** The ball shooter motor current */
+    double m_ShooterMotorCurrent;
 
-    /** The state of Pssh */
-    std::string m_Pssh_State;
+    /** The distance read by the ultrasonic, in meters */
+    double m_Ultrasonic_Distance_m;
 
-    // Hans and Franz Information
+    /** The velocity setpoint of the NEO (ball shooter) motor, in rpm */
+    double m_NEO_MotorVelocitySetpoint_rpm;
 
-    /** The current used in the H/F Arms motor, in Amps */
-    double m_PDP_H_F_ArmsMotorCurrent;
-
-    /** Are the arms enabled */
-    bool m_HansFranzArmsEnabled;
-
-    /** Are the muscles enabled */
-    bool m_HansFranzMusclesEnabled;
-
-    /** The state of the arms */
-    std::string m_HansFranzArmsState;
-
-    /** The state of the muscles */
-    std::string m_HansFranzMusclesState;
-
-    /** Boolean to indicate if arms are fully retracted */
-    bool m_HansFranzArmsRetracted;
-
-    /** Boolean to indicate if arms are fully extended */
-    bool m_HansFranzArmsExtended;
+    /** The actual velocity of the NEO (ball shooter) motor, in rpm */
+    double m_NEO_MotorVelocity_rpm;
 
     ///////////// Member variables for choosing telemetry output /////////////
 
@@ -822,6 +796,10 @@ class TelemetryOutputter {
       ORION_ROBOTCODE_SW_VER,
       /** The software version of the WPILibC code used */
       WPILIBC_CODE_SW_VER,
+      /** The software version of the NavX MXP code used */
+      NAVX_MXP_CODE_SW_VER,
+      /** The software version of the REV Robotics library used */
+      REVLIB_CODE_SW_VER,
 
       // Attitude and Heading Reference System (AHRS) Information IDs
 
@@ -897,36 +875,22 @@ class TelemetryOutputter {
       /** The drive train motors current */
       DRV_TRN_MOTORS_CURRENT,
 
-      // PAT Information IDs
+      // Ball shooter
 
-      /** The PAT motor current */
-      PAT_TURNER_MOTOR_CURRENT,
-
-      // Pssh Information IDs
-
-      /** The Pssh motor current */
-      PSSH_MOTOR_CURRENT,
-      /** The Pssh potentiometer angle */
-      PSSH_POT_ANGLE,
-      /** The Pssh state */
-      PSSH_STATE,
-
-      // Hans and Franz Information IDs
-
-      /** The Hans/Franz Arms motor current */
-      H_F_ARMS_MTR_CURRENT,
-      /** The Hans/Franz Arms enabled status */
-      H_F_ARMS_ENABLED,
-      /** The Hans/Franz Muscles enabled status */
-      H_F_MUSCLES_ENABLED,
-      /** The Hans/Franz Arms state */
-      H_F_ARMS_STATE,
-      /** The Hans/Franz Muscles state */
-      H_F_MUSCLES_STATE,
-      /** The Hans/Franz Arms retracted state */
-      H_F_ARMS_RETRACTED,
-      /** Get the Hans/Franz Arms extended state */
-      H_F_ARMS_EXTENDED,
+      /** The intake motor current*/
+      BS_INTK_MTR_CURRENT,
+      /** The left indexer motor current*/
+      BS_LEFT_INDXR_MTR_CURRNT,
+      /** The right indexer motor current */
+      BS_RIGHT_INDXR_MTR_CURRNT,
+      /** The ball shooter motor current */
+      BS_SHTR_MTR_CURRNT,
+      /** The distance read by the ultrasonic */
+      BS_ULTRASNC_DIST,
+      /** The velocity setpoint of the NEO (ball shooter) motor */
+      BS_SHTR_MTR_VEL_SP,
+      /** The actual velocity of the NEO (ball shooter) motor */
+      BS_SHTR_MTR_ACT_VEL,
 
       /** This shall always be the last telemetry ID */
       LAST_TELEMETRY_ID 
@@ -1029,6 +993,8 @@ class TelemetryOutputter {
 //    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
       {ORION_ROBOTCODE_SW_VER,     "ORION SW Version:",     mk_Output,         1,   0, &TelemetryOutputter::GetORION_RobotCode_SW_Ver,      STRING,  &m_ORION_RobotCode_SW_Version    },
       {WPILIBC_CODE_SW_VER,        "WPILibC SW Version:",   mk_Output,         1,   0, &TelemetryOutputter::GetWPILibC_Code_SW_Ver,         STRING,  &m_WPILibC_Code_SW_Version       },
+      {NAVX_MXP_CODE_SW_VER,       "NavX-MXP SW Version",   mk_Output,         1,   0, &TelemetryOutputter::GetNavXMXP_Code_SW_Ver,         STRING,  &m_NavX_MXP_Code_SW_Version      },
+      {REVLIB_CODE_SW_VER,         "REV Library Version",   mk_Output,         1,   0, &TelemetryOutputter::GetREVLib_Code_SW_Ver,          STRING,  &m_REVLib_SW_Version             },
 
       // Attitude and Heading Reference System (AHRS) Information 
 //    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
@@ -1070,28 +1036,18 @@ class TelemetryOutputter {
       {DRV_TRN_R_MTRS_CURRENT,     "RDT C(A)",              mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnRghtMtrsCurrent,       DOUBLE,  &m_RightDriveTrainMotorsCurrent  },
       {DRV_TRN_MOTORS_CURRENT,     "DT C(A)",               mk_Output,         1,   0, &TelemetryOutputter::GetDrvTrnMtrsCurrent,           DOUBLE,  &m_DriveTrainMotorsCurrent       },
 
-      // PAT Information
+      // Ball Shooter Information
 //    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
-      {PAT_TURNER_MOTOR_CURRENT,   "PAT C(A)",              mk_Output,         1,   0, &TelemetryOutputter::GetPATMtrCurrent,               DOUBLE,  &m_PDP_PATTurnerMotorCurrent     },
+      {BS_INTK_MTR_CURRENT,         "INTAKE C(A)",          mk_Output,         1,   0, &TelemetryOutputter::GetBS_Intk_Mtr_Curr,            DOUBLE,  &m_IntakeMotorCurrent            },
+      {BS_LEFT_INDXR_MTR_CURRNT,    "L_IDX C(A)",           mk_Output,         1,   0, &TelemetryOutputter::GetBS_LftIndxMtrCurr,           DOUBLE,  &m_LeftIndexterMotorCurrent      },
+      {BS_RIGHT_INDXR_MTR_CURRNT,   "R IDX C(A)",           mk_Output,         1,   0, &TelemetryOutputter::GetBS_RghtIndxMtrCurr,          DOUBLE,  &m_RightIndexerMotorCurrent      },
+      {BS_SHTR_MTR_CURRNT,          "SHTR C(A)",            mk_Output,         1,   0, &TelemetryOutputter::GetBS_ShtrMtrCurr,              DOUBLE,  &m_ShooterMotorCurrent           },
+      {BS_ULTRASNC_DIST,            "US DIST (m)",          mk_Output,         1,   0, &TelemetryOutputter::GetBS_UltSon_Dist,              DOUBLE,  &m_Ultrasonic_Distance_m         },
+      {BS_SHTR_MTR_VEL_SP,          "VEL SP (rpm)",         mk_Output,         1,   0, &TelemetryOutputter::GetBS_NEOMtrVelSP,              DOUBLE,  &m_NEO_MotorVelocitySetpoint_rpm },
+      {BS_SHTR_MTR_ACT_VEL,         "VEL (rpm)",            mk_Output,         1,   0, &TelemetryOutputter::GetBS_NEOMtrVel,                DOUBLE,  &m_NEO_MotorVelocity_rpm         },
 
-      // Pssh Information
+      // Last Telemetry
 //    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
-      {PSSH_MOTOR_CURRENT,         "Pssh C(A)",             mk_Output,         1,   0, &TelemetryOutputter::GetPsshMtrCurrent,              DOUBLE,  &m_PDP_PsshMotorCurrent          },
-      {PSSH_POT_ANGLE,             "Pssh Angle (°)",        mk_Output,         1,   0, &TelemetryOutputter::GetPsshPotAngle,                DOUBLE,  &m_PsshPotAngle                  },
-      {PSSH_STATE,                 "Pssh State",            mk_Output,         1,   0, &TelemetryOutputter::GetPsshState,                   STRING,  &m_Pssh_State                    },
-
-
-      // Hans and Franz Information
-//    |            ID             |     SD Key             | OUTPUT OR NOT  |INTV|OFST|                Getter function                     | DTYPE  |       Variable to output        |
-      {H_F_ARMS_MTR_CURRENT,       "H-F Arms C(A)",         mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsMtrCurrent,            DOUBLE,  &m_PDP_H_F_ArmsMotorCurrent      },
-      {H_F_ARMS_ENABLED,           "Arms Enabled",          mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsEnabled,               BOOLEAN, &m_HansFranzArmsEnabled          },
-      {H_F_MUSCLES_ENABLED,        "Muscles Enabled",       mk_Output,         1,   0, &TelemetryOutputter::GetHFMusclesEnabled,            BOOLEAN, &m_HansFranzMusclesEnabled       },
-      {H_F_ARMS_STATE,             "Arms State",            mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsState,                 STRING,  &m_HansFranzArmsState            },
-      {H_F_MUSCLES_STATE,          "Muscles State",         mk_Output,         1,   0, &TelemetryOutputter::GetHFMusclesState,              STRING,  &m_HansFranzMusclesState         },
-      {H_F_ARMS_RETRACTED,         "Arms Fully Retracted",  mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsRtrctd,                BOOLEAN, &m_HansFranzArmsRetracted        },
-      {H_F_ARMS_EXTENDED,          "Arms Fully Extended",   mk_Output,         1,   0, &TelemetryOutputter::GetHFArmsExtnded,               BOOLEAN, &m_HansFranzArmsExtended         },
-
-
       {LAST_TELEMETRY_ID,          "",                      mk_DoNOT_Output,   1,   0, NULL,                                                NOTYPE,  NULL                             }
     
     }; // end const telemetry_output_type mk_telemetry[LAST_TELEMETRY_ID+1]=
@@ -1296,6 +1252,10 @@ class TelemetryOutputter {
     void GetORION_RobotCode_SW_Ver();
     /** Get the software version of the WPILibC code used */
     void GetWPILibC_Code_SW_Ver();
+    /** Get the software version of the NavX MXP code used */
+    void GetNavXMXP_Code_SW_Ver();
+    /** Get the software version of the REV Robotics library used */
+    void GetREVLib_Code_SW_Ver();
 
     // Attitude and Heading Reference System (AHRS) Information
 
@@ -1371,36 +1331,28 @@ class TelemetryOutputter {
     /** Get the drive train motors current */
     void GetDrvTrnMtrsCurrent();
 
-    // PAT Information
+    // Ball Shooter Information
 
-    /** Get the PAT motor current */
-    void GetPATMtrCurrent();
+    /** Get the ball shooter intake motor current */
+    void GetBS_Intk_Mtr_Curr();
 
-    // Pssh Information
+    /** Get the ball shooter left index motor current */
+    void GetBS_LftIndxMtrCurr();
 
-    /** Get the Pssh motor current */
-    void GetPsshMtrCurrent();
-    /** Get the Pssh potentiometer angle */
-    void GetPsshPotAngle();
-    /** Get the Pssh state */
-    void GetPsshState();
+    /** Get the ball shooter right index motor current */
+    void GetBS_RghtIndxMtrCurr();
 
-    // Hans and Franz Information
+    /** Get the ball shooter shooter motor (NEO) current */
+    void GetBS_ShtrMtrCurr();
 
-    /** Get the Hans/Franz Arms motor current */
-    void GetHFArmsMtrCurrent();
-    /** Get the Hans/Franz Arms enabled status */
-    void GetHFArmsEnabled();
-    /** Get the Hans/Franz Muscles enabled status */
-    void GetHFMusclesEnabled();
-    /** Get the Hans/Franz Arms state */
-    void GetHFArmsState();
-    /** Get the Hans/Franz Muscles state */
-    void GetHFMusclesState();
-    /** Get the Hans/Franz Arms retracted state */
-    void GetHFArmsRtrctd();
-    /** Get the Hans/Franz Arms extended state */
-    void GetHFArmsExtnded();
+    /** Get the ball shooter ultrasonic motor distance */
+    void GetBS_UltSon_Dist();
+
+    /** Get the ball shooter shooter motor (NEO) velocity setpoint */
+    void GetBS_NEOMtrVelSP();
+
+    /** Get the ball shooter shooter motor (NEO) velocity */
+    void GetBS_NEOMtrVel();
 
 }; // end class TelemetryOutputter
 

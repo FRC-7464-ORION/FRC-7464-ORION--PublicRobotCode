@@ -16,7 +16,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -31,6 +31,9 @@
 // The header for the robot constants
 #include "RobotConstants.h"
 
+// The header for mathematical/physical constants
+#include "MathPhysicsConstants.h"
+
 // The header containing the smart dashboard keys
 #include "Telemetry/SmartDashboardKeys.h"
 
@@ -44,10 +47,6 @@ RobotContainer::RobotContainer() {
   // Set the default command for the drive train
   m_subSysDriveTrain.SetDefaultCommand(
     CmdDriveArcadeStyle(&m_subSysDriveTrain,&m_PrimaryJoystick));
-
-  // Set the default command for the PID Pssh subsystem
-  m_PIDsubSysPssh.SetDefaultCommand(
-    CmdTravel(&m_PIDsubSysPssh));
 
   // Configure your SmartDashboard/Shuffleboard commands
   ConfigureXBoardCommands();
@@ -126,65 +125,28 @@ void RobotContainer::ConfigureButtonBindings() {
   frc2::JoystickButton(&m_PrimaryJoystick, k_F310_A_Button)
     .WhenReleased(&m_cmdDisableTurboMode);
 
-  // PAT COMMAND BUTTON BINDINGS
+// BALL SHOOTER COMMAND BUTTON BINDINGS
 
-  // When the right rear button of the secondary joystick is pressed,
-  //   run the command CmdTurnWoFCCW using the PAT Turner subsystem
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_rightRearButton)
-    .WhenPressed(&m_cmdTurnWofCCW);
+  // When the X button of the primary joystick is pressed (and held),
+  //   run the command to intake balls
+  frc2::JoystickButton(&m_PrimaryJoystick, k_F310_X_Button)
+   .WhenPressed(&m_cmdBallShooterIntake);
 
-  // When the left rear button of the secondary joystick is pressed,
-  //   run the command CmdTurnWoFCW using the PAT Turner subsystem
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_leftRearButton)
-    .WhenPressed(&m_cmdTurnWofCW);
+  // When the X button of the primary joystick is released,
+  //   run the command to deactivate all shooter motors
+  frc2::JoystickButton(&m_PrimaryJoystick, k_F310_X_Button)
+   .WhenReleased(&m_cmdBallShooterAtRest);
 
-  // HANS/FRANZ SYSTEM COMMAND BUTTON BINDINGS
+  // When the east POV button of the primary joystick is released,
+  //   run the command to shoot a ball to the lower target
+  frc2::POVButton(&m_PrimaryJoystick, k_F310_POV_East, k_F310_POV_ID)
+    .WhenReleased(&m_cmdBallShooterShootLow);
 
-  // When the right thumbstick button of the secondary joystick is pressed,
-  //   run the command CmdGrpEnableHansFranzArms to enable the Hans and
-  //   Franz arms and muscle system
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_rightThumbstickButton)
-      .WhenPressed(&m_cmdGrpEnableHansAndFranz);
-
-  // HANS/FRANZ MUSCLES COMMAND BUTTON BINDINGS
-
-  // When the back button of the secondary joystic is pressed,
-  //   run the command to disable Hans/Franz muscles
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_BackButton)
-    .WhenPressed(&m_cmdDisableHansFranzMuscles);
-
-  // When the North (top) POV button of the secondary joystick is pressed,
-  //   run the command to extend Hans and Franz muscles
-  frc2::POVButton(&m_SecondaryJoystick, k_F310_POV_North, k_F310_POV_ID)
-    .WhenPressed(&m_cmdExtendHansFranzMuscles);
-
-  // When the South (bottom) POV button of the secondary joystick is pressed,
-  //   run the command to retract Hans and Franz muscles
-  frc2::POVButton(&m_SecondaryJoystick, k_F310_POV_South, k_F310_POV_ID)
-    .WhenPressed(&m_cmdRetractHansFranzMuscles);
-
-  // PID PSSH COMMAND BUTTON BINDINGS
-
-  // When the Y button on the secondary joystick is pressed,
-  //   run the command to put Pssh mechanism in dump mode
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_Y_Button)
-    .WhenPressed(&m_cmdDump);
-
-  // When the Y button on the secondary joystick is released,
-  //   run the command to put Pssh mechanism in travel mode
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_Y_Button)
-    .WhenReleased(&m_cmdTravel);
-
-  // When the A button on the secondary joystick is pressed,
-  //   run the command to put Pssh mechanism in load mode
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_A_Button)
-    .WhenPressed(&m_cmdLoad);
-
-  // When the A button on the secondary joystick is released,
-  //   run the command to put Pssh mechanism in travel mode
-  frc2::JoystickButton(&m_SecondaryJoystick, k_F310_A_Button)
-    .WhenReleased(&m_cmdTravel);
-
+  // When the north POV button of the primary joystick is released,
+  //   run the command to shoot a ball to the higher target
+  frc2::POVButton(&m_PrimaryJoystick, k_F310_POV_North, k_F310_POV_ID)
+    .WhenReleased(&m_cmdBallShooterShootHigh);
+  
 } // RobotContainer::ConfigureButtonBindings()
 
 // Get the command to be ran in autonomous mode

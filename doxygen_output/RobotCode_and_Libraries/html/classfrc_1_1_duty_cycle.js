@@ -12,7 +12,7 @@ var classfrc_1_1_duty_cycle =
     [ "GetOutputScaleFactor", "classfrc_1_1_duty_cycle.html#a85510e1ee1d64a5bcf319b530e4973ff", null ],
     [ "GetSourceChannel", "classfrc_1_1_duty_cycle.html#aa0f1ecc6c8c4399fe87bd87ca419ef3e", null ],
     [ "InitDutyCycle", "classfrc_1_1_duty_cycle.html#a0709e8916fd689d5ab22260985d2582b", null ],
-    [ "InitSendable", "classfrc_1_1_duty_cycle.html#ae9ba1156e85ef7494ae314ccfbe9a3e3", null ],
+    [ "InitSendable", "classfrc_1_1_duty_cycle.html#a47e3fb7e8a5935817d8ca029da032ced", null ],
     [ "operator=", "classfrc_1_1_duty_cycle.html#a568188a511e98dc490bb9f1095b9302e", null ],
     [ "AnalogTrigger", "classfrc_1_1_duty_cycle.html#aaae5addbdfb60c5f834f1cd08e59dadd", null ],
     [ "DMA", "classfrc_1_1_duty_cycle.html#a8dd886aeff72fdd847a45f3bee3810b1", null ],

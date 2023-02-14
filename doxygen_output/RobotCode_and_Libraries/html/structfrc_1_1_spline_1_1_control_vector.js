@@ -1,5 +1,5 @@
 var structfrc_1_1_spline_1_1_control_vector =
 [
-    [ "x", "structfrc_1_1_spline_1_1_control_vector.html#ae36d85704be07deea3a57136a3928b66", null ],
-    [ "y", "structfrc_1_1_spline_1_1_control_vector.html#a074418a97bc226aeb1a87bb61301849a", null ]
+    [ "x", "structfrc_1_1_spline_1_1_control_vector.html#a7fa1176e9fa0c34ab45d3baf168d75c6", null ],
+    [ "y", "structfrc_1_1_spline_1_1_control_vector.html#afd356b7244bceb1c2206177a0281500f", null ]
 ];

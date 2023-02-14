@@ -15,7 +15,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -41,6 +41,11 @@
 // Include the CameraServer class for camera streaming
 #include <cameraserver/CameraServer.h>
 
+// Include the Network Tables entry header file
+#include <networktables/NetworkTableEntry.h>
+
+#include <networktables/NetworkTableInstance.h>
+
 /** ****************************************************************************
  * @class   Video
  * @brief   This class defines video for the robot.
@@ -54,9 +59,9 @@ class Video
     enum CAMERA_DIRECTION
     { 
 
-      /** The front camera (with Pssh) */
+      /** The front camera (with the intake) */
       FRONT,
-      /** The back camera (with PAT) */
+      /** The back camera (with the shooter) */
       BACK
 
     };
@@ -82,6 +87,9 @@ class Video
 
     /** The back camera */
     cs::UsbCamera m_backCamera;
+
+    /** The camera selection */
+    nt::NetworkTableEntry m_cameraSelection;
 
     /** The camera server */
     cs::VideoSink m_cameraServer;

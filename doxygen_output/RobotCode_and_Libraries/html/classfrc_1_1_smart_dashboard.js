@@ -1,4 +1,4 @@
 var classfrc_1_1_smart_dashboard =
 [
-    [ "~SmartDashboard", "classfrc_1_1_smart_dashboard.html#aff3f114b5a07d4e35513e3fa6253bf0e", null ]
+    [ "SmartDashboard", "classfrc_1_1_smart_dashboard.html#a19c77aedec277a9e313968f58cec6d16", null ]
 ];

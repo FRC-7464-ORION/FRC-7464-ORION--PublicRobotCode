@@ -1,6 +1,7 @@
 var classfrc2_1_1_schedule_command =
 [
-    [ "ScheduleCommand", "classfrc2_1_1_schedule_command.html#a34d0a93bae95fc4eeac217954be88fc2", null ],
+    [ "ScheduleCommand", "classfrc2_1_1_schedule_command.html#a2b0a59924305ab001064ab69846eb64a", null ],
+    [ "ScheduleCommand", "classfrc2_1_1_schedule_command.html#a3649dded2093c0d8b244606f048f28c7", null ],
     [ "ScheduleCommand", "classfrc2_1_1_schedule_command.html#a4fe323035c17b9f1a38d5048728faf65", null ],
     [ "ScheduleCommand", "classfrc2_1_1_schedule_command.html#ab6519fb733354cd6b1ceadd10a745261", null ],
     [ "Initialize", "classfrc2_1_1_schedule_command.html#af2698c610c21da4e71fabce95f453200", null ],

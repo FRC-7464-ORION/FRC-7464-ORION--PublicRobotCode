@@ -17,7 +17,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -60,3 +60,33 @@ void TelemetryOutputter::GetWPILibC_Code_SW_Ver()
   } // end if(m_Output_WPILibC_Code_SW_Version)
 
 } // end TelemetryOutputter::GetWPILibC_Code_SW_Ver()
+
+// Get the software version of the NavX MXP code used
+void TelemetryOutputter::GetNavXMXP_Code_SW_Ver()
+{
+
+  // If we want to output the string showing the NavX MXP Code SW vers.
+  if(mk_telemetry[NAVX_MXP_CODE_SW_VER].output)
+  {
+ 
+    // Get the NavX MXP Code SW version
+    m_NavX_MXP_Code_SW_Version = k_navx_frc_VersionNumber;
+      
+  } // end if(mk_telemetry[NAVX_MXP_CODE_SW_VER].output)
+
+} // end TelemetryOutputter::GetNavXMXP_Code_SW_Ver()
+
+// Get the software version of the REV robotics library used
+void TelemetryOutputter::GetREVLib_Code_SW_Ver()
+{
+
+  // If we want to output the string showing the REV library SW vers.
+  if(mk_telemetry[REVLIB_CODE_SW_VER].output)
+  {
+ 
+    // Get the REV library SW version
+    m_REVLib_SW_Version = k_REVLib_VersionNumber;
+      
+  } // end if(mk_telemetry[REVLIB_CODE_SW_VER].output)
+
+} // end TelemetryOutputter::GetREVLib_Code_SW_Ver()

@@ -7,6 +7,7 @@ var class_sub_sys_hans_franz_muscles =
     [ "EnableHansFranzMuscles", "class_sub_sys_hans_franz_muscles.html#a155ceeb42178300bbc12bf811faa8f25", null ],
     [ "ExtendHansFranzMuscles", "class_sub_sys_hans_franz_muscles.html#a9959a9f5a767c59bcdc0348166f3d0fc", null ],
     [ "GetHansFranzMusclesState", "class_sub_sys_hans_franz_muscles.html#a92c7fdc81ea6a4910859a9faacb32d17", null ],
+    [ "InitDefaultCommand", "class_sub_sys_hans_franz_muscles.html#ab22ec331f8a1eb7406b4a292b96f7cf5", null ],
     [ "Periodic", "class_sub_sys_hans_franz_muscles.html#a2360df0452c14f9ff58da19c84c0a921", null ],
     [ "RetractHansFranzMuscles", "class_sub_sys_hans_franz_muscles.html#a9e9f308c25c8e8cef182bd6c93bae2d0", null ],
     [ "m_compressor", "class_sub_sys_hans_franz_muscles.html#a523c0ea5346429a547b7a820a3eb6aec", null ],

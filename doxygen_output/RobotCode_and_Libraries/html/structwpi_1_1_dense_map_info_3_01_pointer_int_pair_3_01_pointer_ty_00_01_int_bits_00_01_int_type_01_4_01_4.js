@@ -1,0 +1,4 @@
+var structwpi_1_1_dense_map_info_3_01_pointer_int_pair_3_01_pointer_ty_00_01_int_bits_00_01_int_type_01_4_01_4 =
+[
+    [ "Ty", "structwpi_1_1_dense_map_info_3_01_pointer_int_pair_3_01_pointer_ty_00_01_int_bits_00_01_int_type_01_4_01_4.html#abdfa39293344d439b86e7eef8a651559", null ]
+];

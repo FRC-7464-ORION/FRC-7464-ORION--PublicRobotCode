@@ -11,7 +11,6 @@ var class_cmd_auto_turn_angle =
     [ "m_F_val", "class_cmd_auto_turn_angle.html#a4cdb6194f9ae389c8333d9cc7433a158", null ],
     [ "m_I_val", "class_cmd_auto_turn_angle.html#aff0f53299f56e91d327a179a7a99ba6e", null ],
     [ "m_left_motor_speed", "class_cmd_auto_turn_angle.html#a4d65a4fd69160b186f4d71a88bba1693", null ],
-    [ "m_LiveWindow", "class_cmd_auto_turn_angle.html#a6c698cc8607e7e9b39f13091bd6c1528", null ],
     [ "m_MaxRotateToAngleSpeed", "class_cmd_auto_turn_angle.html#a9e2ac5b04053acc8f44270c2a41f7f07", null ],
     [ "m_navx_SPI_port", "class_cmd_auto_turn_angle.html#ae7f545d20659c4cee3c96bc11935824a", null ],
     [ "m_P_val", "class_cmd_auto_turn_angle.html#a96500e7ec9e753f1c1115b516d753c18", null ],

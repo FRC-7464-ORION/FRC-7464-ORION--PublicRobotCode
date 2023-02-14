@@ -1,0 +1,5 @@
+var struct_eigen_1_1internal_1_1redux__impl_3_01_func_00_01_evaluator_00_01_default_traversal_00_01_complete_unrolling_01_4 =
+[
+    [ "Base", "struct_eigen_1_1internal_1_1redux__impl_3_01_func_00_01_evaluator_00_01_default_traversal_00_01_complete_unrolling_01_4.html#a173888d81a77fd1299ffb6ca90fe75f8", null ],
+    [ "Scalar", "struct_eigen_1_1internal_1_1redux__impl_3_01_func_00_01_evaluator_00_01_default_traversal_00_01_complete_unrolling_01_4.html#a912b14bbcf366d6a7b234e6e05cdfe8b", null ]
+];

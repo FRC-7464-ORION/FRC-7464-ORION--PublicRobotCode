@@ -16,7 +16,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -82,16 +82,13 @@ CmdAutoTurnAngle::CmdAutoTurnAngle(
   m_right_motor_speed = m_RotateToAngleSpeed;
 
   // Set the timeout for this command
-//  SetTimeout(k_DriveTrain_CmdAutoTurnAngle_Timeout);
-
-  // Get an instance of a LiveWindow
-  m_LiveWindow = frc::LiveWindow::GetInstance();
+  // NOTE: Timeout is not set here, but when actually called, using
+  //       WithTimeout
 
   /* Add the PID Controller to the Test-mode dashboard, allowing manual  */
   /* tuning of the Turn Controller's P, I and D coefficients.            */
   /* Typically, only the P value needs to be modified.                   */
-//  m_LiveWindow->AddActuator("DriveTrain", "CmdAutoTurnAngle", m_controller);
-  m_LiveWindow->UpdateValues();
+  frc::LiveWindow::UpdateValues();
 
 } // end CmdAutoTurnAngle::CmdAutoTurnAngle(double, double)
 
@@ -173,7 +170,7 @@ void CmdAutoTurnAngle::End(bool interrupted) {
 
   if(interrupted)
     // Report the problem
-    frc::DriverStation::ReportError("CmdAutoTurnAngle Timed Out!!!");
+//    frc::DriverStation::ReportError("CmdAutoTurnAngle Timed Out!!!");
 
   // Disable the PID controller, through the use of Reset()
   m_turnController->Reset();

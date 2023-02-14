@@ -1,33 +1,33 @@
-NewRobotCode v2020.0.0.26:
+NewRobotCode v2022.0.0.28:
 
-     100 files     107 text files.
-classified 107 filesDuplicate file check 107 files (101 known unique)Unique:      100 files                                               107 unique files.                              
-Counting:  100      37 files ignored.
+      86 text files.
+classified 86 files      86 unique files.                              
+      31 files ignored.
 
-github.com/AlDanial/cloc v 1.80  T=0.50 s (212.0 files/s, 32726.0 lines/s)
+github.com/AlDanial/cloc v 1.85  T=0.20 s (421.0 files/s, 68100.7 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-C++                             55           2050           3273           2813
-C/C++ Header                    51           1506           4922           1799
+C++                             43           1712           2589           2443
+C/C++ Header                    42           1270           4154           1582
 -------------------------------------------------------------------------------
-SUM:                           106           3556           8195           4612
+SUM:                            85           2982           6743           4025
 -------------------------------------------------------------------------------
 
 
-WPILIBC v2020.3.2:
+WPILIBC v2022.3.1:
 
-     100 files     200 files     300 files     360 text files.
-classified 360 filesDuplicate file check 360 files (341 known unique)Unique:      100 files                                          Unique:      200 files                                          Unique:      300 files                                               360 unique files.                              
-Counting:  100Counting:  200Counting:  300      62 files ignored.
+     100 files     200 files     300 files     398 text files.
+classified 398 filesDuplicate file check 398 files (384 known unique)Unique:      100 files                                          Unique:      200 files                                          Unique:      300 files                                               398 unique files.                              
+Counting:  100Counting:  200Counting:  300      44 files ignored.
 
-github.com/AlDanial/cloc v 1.80  T=0.50 s (704.0 files/s, 80494.0 lines/s)
+github.com/AlDanial/cloc v 1.85  T=0.69 s (563.8 files/s, 69308.2 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-C++                            171           3201           1558          12813
-C/C++ Header                   180           3168          12823           6674
-C                                1              1              6              3
+C++                            209           4338           1425          18090
+C/C++ Header                   181           3618          13460           7131
+C                                1              1              3              3
 -------------------------------------------------------------------------------
-SUM:                           352           6370          14387          19490
+SUM:                           391           7957          14888          25224
 -------------------------------------------------------------------------------

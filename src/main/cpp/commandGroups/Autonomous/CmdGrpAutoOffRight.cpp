@@ -19,7 +19,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -51,7 +51,8 @@
 // The constructor for the CmdGrpAutoOffRight class
 CmdGrpAutoOffRight::CmdGrpAutoOffRight(
     SubSysDriveTrain* drivetrain,
-    AHRS* ahrs) {
+    AHRS* ahrs,
+    SubSysBallShooter* ballshooter) {
 
   // Set the name
   SetName("CmdGrpAutoOffRight");
@@ -71,7 +72,7 @@ CmdGrpAutoOffRight::CmdGrpAutoOffRight(
       5.0),
 
     // Wait 5.0 seconds
-    CmdWaitSeconds(5.0),
+    CmdWaitSeconds(5.0_s),
 
     // Drive straight reverse 5.0 seconds at 70%
     CmdAutoDriveStraight(

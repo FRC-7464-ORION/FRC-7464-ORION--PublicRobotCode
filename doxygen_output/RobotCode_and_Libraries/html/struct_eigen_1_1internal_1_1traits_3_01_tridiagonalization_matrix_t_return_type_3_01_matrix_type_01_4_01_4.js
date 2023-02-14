@@ -1,0 +1,5 @@
+var struct_eigen_1_1internal_1_1traits_3_01_tridiagonalization_matrix_t_return_type_3_01_matrix_type_01_4_01_4 =
+[
+    [ "ReturnType", "struct_eigen_1_1internal_1_1traits_3_01_tridiagonalization_matrix_t_return_type_3_01_matrix_type_01_4_01_4.html#ac98c68554cfb85855f7b85299983aec9", null ],
+    [ "Flags", "struct_eigen_1_1internal_1_1traits_3_01_tridiagonalization_matrix_t_return_type_3_01_matrix_type_01_4_01_4.html#a1c07266b30b45a4c1a01453bcb0e9c88a5748e20057e2d100e7e36c94729a2004", null ]
+];

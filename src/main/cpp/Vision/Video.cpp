@@ -15,7 +15,7 @@
  * 
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -49,9 +49,14 @@ Video::Video()
   m_backCamera = 
     InitializeUSBCamera(k_BackCamera, k_BackCameraDeviceNumber);
 
+  // 
+  m_cameraSelection = 
+    nt::NetworkTableInstance::
+      GetDefault().GetTable("")->GetEntry("CameraSelection");
+
   // Initialize the switched camera server for streaming
-  m_cameraServer = 
-    InitializeSwitchedCameraServer(k_CameraServer);
+//  m_cameraServer = 
+//    InitializeSwitchedCameraServer(k_CameraServer);
 
   // Set the front camera connection strategy
   m_frontCamera.SetConnectionStrategy(
@@ -61,8 +66,11 @@ Video::Video()
   m_backCamera.SetConnectionStrategy(
     cs::VideoSource::ConnectionStrategy::kConnectionKeepOpen);
 
+  // Initially use the front camera
+  m_cameraSelection.SetString(m_frontCamera.GetName());
+
   // Set the front camera to be the initial source for the server
-  m_cameraServer.SetSource(m_frontCamera);
+//  m_cameraServer.SetSource(m_frontCamera);
   
 } // end Video::Video()
 
@@ -75,17 +83,20 @@ void Video::setCameraDirection(Video::CAMERA_DIRECTION camera_direction)
 
     // Front
     case Video::CAMERA_DIRECTION::FRONT:
-      m_cameraServer.SetSource(m_frontCamera);
+//      m_cameraServer.SetSource(m_frontCamera);
+      m_cameraSelection.SetString(m_frontCamera.GetName());
       break;
 
     // Back
     case Video::CAMERA_DIRECTION::BACK:
-      m_cameraServer.SetSource(m_backCamera);
+//      m_cameraServer.SetSource(m_backCamera);
+      m_cameraSelection.SetString(m_backCamera.GetName());
       break;
       
     default:
-      m_cameraServer.SetSource(m_frontCamera);
-
+//      m_cameraServer.SetSource(m_frontCamera);
+      m_cameraSelection.SetString(m_frontCamera.GetName());
+      
   } // end switch (camera_direction)
 
 } // end Video::setCameraDirection(...)
@@ -101,8 +112,9 @@ cs::UsbCamera
   // Start Automatic Capture of the specified camera
   // returning a reference to the camera
   return(
-    frc::CameraServer::GetInstance()->StartAutomaticCapture(CameraName,
-                                                            CameraDeviceNum));
+    frc::CameraServer::StartAutomaticCapture(
+      CameraName,
+      CameraDeviceNum));
 
 } // end Video::InitializeUSBCamera(const std::string, const int)
 
@@ -114,6 +126,6 @@ cs::VideoSink
   // Start the Switched camera server, returning a reference
   // of the server (a VideoSink)
   return(
-    frc::CameraServer::GetInstance()->AddSwitchedCamera(ServerName));
+    frc::CameraServer::AddSwitchedCamera(ServerName));
 
 } // end cs::VideoSink Video::InitializeSwitchedCameraServer(...)

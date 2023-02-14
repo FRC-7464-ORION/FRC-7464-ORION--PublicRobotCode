@@ -1,9 +1,9 @@
 var classfrc2_1_1_ramsete_command =
 [
     [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a57682fbc0814cc1381454266f4bc81fb", null ],
-    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#acb08f1e405db107c07843ba3331c2185", null ],
+    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a7bf73cf23060738e3a5439595277120f", null ],
     [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a7ee696e55947aa6efb75418c55e90444", null ],
-    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a2419920a30173536ae85fdf65fcd9a69", null ],
+    [ "RamseteCommand", "classfrc2_1_1_ramsete_command.html#a4c066e0e9c17d84d65461e0347a5f78a", null ],
     [ "End", "classfrc2_1_1_ramsete_command.html#aebeca9ae24851f6f40b09a52cfde4dda", null ],
     [ "Execute", "classfrc2_1_1_ramsete_command.html#a139f7d58ef0a0116b74305be33655886", null ],
     [ "Initialize", "classfrc2_1_1_ramsete_command.html#aa323e61cb00bdd4c5f6bf094866487d6", null ],
@@ -19,7 +19,7 @@ var classfrc2_1_1_ramsete_command =
     [ "m_prevTime", "classfrc2_1_1_ramsete_command.html#a5c9ed075ead12e1bfc78a9c8131763f4", null ],
     [ "m_rightController", "classfrc2_1_1_ramsete_command.html#aa5bd814159967d4a35898ca1605c364b", null ],
     [ "m_speeds", "classfrc2_1_1_ramsete_command.html#aac46f7b51733946d6ad6a68f04bf4c0d", null ],
-    [ "m_timer", "classfrc2_1_1_ramsete_command.html#a9f1c4223033fa51ec876b058e2d9145b", null ],
+    [ "m_timer", "classfrc2_1_1_ramsete_command.html#aaace33b63efec516a8f0fd3f5bd0091c", null ],
     [ "m_trajectory", "classfrc2_1_1_ramsete_command.html#a4dbf644829efc0095df41b76c6aabfb4", null ],
     [ "m_usePID", "classfrc2_1_1_ramsete_command.html#abae438a745c7316f5135716bfc5e7d20", null ]
 ];

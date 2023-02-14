@@ -19,10 +19,6 @@ var classfrc_1_1_generic_h_i_d =
       [ "kHIDFlight", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a8bfc6afc5ad17b95ed129bdd4a257e6f", null ],
       [ "kHID1stPerson", "classfrc_1_1_generic_h_i_d.html#aaa9446493203d96f2406fbcbb4cf0dd6a4d67f828195939cb43ef1e7ba83ad716", null ]
     ] ],
-    [ "JoystickHand", "classfrc_1_1_generic_h_i_d.html#a328438a24329d5577fbbc03f667981d0", [
-      [ "kLeftHand", "classfrc_1_1_generic_h_i_d.html#a328438a24329d5577fbbc03f667981d0a44b02c2577c6f80e5511a759f6cbd92c", null ],
-      [ "kRightHand", "classfrc_1_1_generic_h_i_d.html#a328438a24329d5577fbbc03f667981d0ae1f61fc9c03ebbee47d692b49f24289b", null ]
-    ] ],
     [ "RumbleType", "classfrc_1_1_generic_h_i_d.html#a5517fc779168c17f938be2e875976c66", [
       [ "kLeftRumble", "classfrc_1_1_generic_h_i_d.html#a5517fc779168c17f938be2e875976c66a9ec47ccba29b7f56ee3f37b1cfce7439", null ],
       [ "kRightRumble", "classfrc_1_1_generic_h_i_d.html#a5517fc779168c17f938be2e875976c66ac65d4f8c303600df135e7b2075410069", null ]
@@ -42,13 +38,11 @@ var classfrc_1_1_generic_h_i_d =
     [ "GetRawButtonPressed", "classfrc_1_1_generic_h_i_d.html#a1d91cd430d94b1070eae76e56d514687", null ],
     [ "GetRawButtonReleased", "classfrc_1_1_generic_h_i_d.html#a0bdb6f6c332e505b5dd3ec15e7d6a1f3", null ],
     [ "GetType", "classfrc_1_1_generic_h_i_d.html#a1efdd8242c2b68fc894ddc9be31a8c60", null ],
-    [ "GetX", "classfrc_1_1_generic_h_i_d.html#a3cb034f1110d17c645fe2aa96710b953", null ],
-    [ "GetY", "classfrc_1_1_generic_h_i_d.html#a8d17a27c893edc536d90aa695d75826f", null ],
+    [ "IsConnected", "classfrc_1_1_generic_h_i_d.html#a8637f881c726749e06b1df3766b54c85", null ],
     [ "operator=", "classfrc_1_1_generic_h_i_d.html#afab7c1fcd65064cb2680f02e61ac1e17", null ],
     [ "SetOutput", "classfrc_1_1_generic_h_i_d.html#a156edfc1ad3b299efd7f5e9e938c79a2", null ],
     [ "SetOutputs", "classfrc_1_1_generic_h_i_d.html#afa493541a773a9fe47f878ddb34c716a", null ],
     [ "SetRumble", "classfrc_1_1_generic_h_i_d.html#a3fabfea46269fe1a9f7db838396f5b35", null ],
-    [ "m_ds", "classfrc_1_1_generic_h_i_d.html#a618de8310813e30e606a6dd6cc35c725", null ],
     [ "m_leftRumble", "classfrc_1_1_generic_h_i_d.html#afbb748e82f85f17c304de47609c2416f", null ],
     [ "m_outputs", "classfrc_1_1_generic_h_i_d.html#ac095ec7fb347030375aff90e541696e6", null ],
     [ "m_port", "classfrc_1_1_generic_h_i_d.html#ab5c5d95b2e662f69bf79a90621cb963d", null ],

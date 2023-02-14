@@ -66,7 +66,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -106,14 +106,17 @@ constexpr int k_LeftDriveTrainMotorsPWMPort  = 0;
 */
 constexpr int k_RightDriveTrainMotorsPWMPort = 1;
 
-/** The PWM port for PAT's turner */
-constexpr int k_PATTurnerMotorPWMPort = 2;
+/** The PWM port for the intake motor */
+constexpr int k_IntakeMotorPWMPort = 2;
 
-/** The PWM port for Pssh's motor */
-constexpr int k_PsshMotorPWMPort = 3;
+/** The PWM port for the left indexer motor */
+constexpr int k_LeftIndexerMotorPWMPort = 3;
 
-/** The PWM port for Hans' and Franz's arms motor */
-constexpr int k_HansFranzArmsPWMPort = 4;
+/** The PWM port for the right indexer motor */
+constexpr int k_RightIndexerMotorPWMPort = 4;
+
+/** The PWM port for the shooter motor */
+// constexpr int k_ShooterMotorPWMPort = 5;
 
 // **************************** MXP PORTS **************************************
 
@@ -130,6 +133,9 @@ constexpr int k_PDP_CAN_Bus_DeviceID = 0;
 /** The Primary PCM CAN bus device ID */
 constexpr int k_PrimaryPCM_CAN_Bus_DeviceID = 1;
 
+/** The Spark MAX shooter motor controller CAN bus device ID */
+constexpr int k_SparkMAXShooter_CAN_Bus_DeviceID = 20;
+
 // *************************** PDP CHANNELS ***********************************
 
 /** The PDP channel number of motor #0 of the left drive train */
@@ -138,45 +144,32 @@ constexpr int k_LeftDriveTrainMotor0PDPChannel = 2;
 constexpr int k_LeftDriveTrainMotor1PDPChannel = 3;
 
 /** The PDP channel number of motor #0 of the right drive train */
-constexpr int k_RightDriveTrainMotor0PDPChannel = 13;
+constexpr int k_RightDriveTrainMotor0PDPChannel = 0;
 /** The PDP channel number of motor #1 of the right drive train */
-constexpr int k_RightDriveTrainMotor1PDPChannel = 12;
+constexpr int k_RightDriveTrainMotor1PDPChannel = 1;
 
-/** The PDP channel number of the motor for PAT Turner */
-constexpr int k_PATTurnerMotorPDPChannel = 1;
+/** The PDP channel number of the intake motor */
+constexpr int k_IntakeMotorPDPChannel = 14;
 
-/** The PDP channel number of the motor for Pssh */
-constexpr int k_PsshMotorPDPChannel = 14;
+/** The PDP channel number of the left indexer motor */
+constexpr int k_LeftIndexerMotorPDPChannel = 12;
 
-/** The PDP channel number for the Hans/Franz arms motor */
-constexpr int k_HansFranzArmsMotorPDPChannel = 15;
+/** The PDP channel number of the right indexer motor */
+constexpr int k_RightIndexerMotorPDPChannel = 13;
+
+/** The PDP channel number of the shooter motor */
+constexpr int k_ShooterMotorPDPChannel = 15;
 
 // *********************** PRIMARY PCM CHANNELS *******************************
 
-/** The primary PCM channel for Hans muscle extend */
-constexpr int k_HansExtendMuscleChannel=0;
-
-/** The primary PCM channel for Hans muscle retract */
-constexpr int k_HansRetractMuscleChannel=1;
-
-/** The primary PCM channel for Franz muscle extend */
-constexpr int k_FranzExtendMuscleChannel=2;
-
-/** The primary PCM channel for Franz muscle retract */
-constexpr int k_FranzRetractMuscleChannel=3;
 
 // ******************* roboRIO Analog Input Channels **************************
 
-/** The analog input channel for Pssh's potentiometer */
-constexpr int k_Pssh_Pot_roboRIO_AnalogInChannel = 0;
+/** The ultrasonic sensor analog input channel */
+constexpr int k_UltrasonicAnalogInputChannel = 0;
 
 // ****************** roboRIO Digital Input Channels **************************
 
-/** The DIO channel for the Hans/Franz arms fully retracted limit switch */
-constexpr int k_HansFranzArms_FullyRetracted_LimitSwitch_Channel = 0;
-
-/** The DIO channel for the Hans/Franz arms fully extended limit switch */
-constexpr int k_HansFranzArms_FullyExtended_LimitSwitch_Channel = 1;
 
 // ********************* roboRIO USB DEVICE NUMBERS ***************************
 

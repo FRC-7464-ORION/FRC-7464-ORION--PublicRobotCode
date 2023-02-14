@@ -1,0 +1,14 @@
+var struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4 =
+[
+    [ "_MatrixTypeNested", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#a3c6f5df06bf46df6cbf5250ba5a22453", null ],
+    [ "MatrixTypeNested", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#a06094f652fe7d281b1febd7252bfd1b9", null ],
+    [ "Scalar", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#abc7e2bd9b52486df3c210a519b8b5ab6", null ],
+    [ "StorageKind", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#a897e1e1f1b3bf8a29a9f193eb2b123f2", null ],
+    [ "XprKind", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#a5ddda540570c1b22e5bea509852ef2ce", null ],
+    [ "RowsAtCompileTime", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#abef1964ba8fc61cf623fda2e098b79ecafebf6348d9ab7bab1f54706c6ccd74b4", null ],
+    [ "ColsAtCompileTime", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#abef1964ba8fc61cf623fda2e098b79eca40b57b950e0d2371dc45bcfab51624e2", null ],
+    [ "MaxRowsAtCompileTime", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#abef1964ba8fc61cf623fda2e098b79eca329eaf5abeadd42016630f6ade1a08da", null ],
+    [ "MaxColsAtCompileTime", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#abef1964ba8fc61cf623fda2e098b79eca6d36ff17ee875f7cf3a78aef66838372", null ],
+    [ "IsRowMajor", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#abef1964ba8fc61cf623fda2e098b79ecabd48a49ad662c75e067cba7882532b0a", null ],
+    [ "Flags", "struct_eigen_1_1internal_1_1traits_3_01_replicate_3_01_matrix_type_00_01_row_factor_00_01_col_factor_01_4_01_4.html#abef1964ba8fc61cf623fda2e098b79eca21a40e028726aec14372731b749d5397", null ]
+];

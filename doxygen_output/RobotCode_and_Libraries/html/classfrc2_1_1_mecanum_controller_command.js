@@ -1,16 +1,21 @@
 var classfrc2_1_1_mecanum_controller_command =
 [
+    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#ab5cd87bd6fbd07ac382c4fbde789068a", null ],
     [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#ad5736ac0279777b58e13167fac5307ab", null ],
-    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#a34d102298bf980f64aa3c9b30fbd8377", null ],
+    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#a96ac8aad2193bfe3c69ab9e43c1a342e", null ],
+    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#a0fa493dad1164fc085f91dbfb52bc5b4", null ],
+    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#a24de6e64642790055b29b79b4ce90173", null ],
     [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#ac5fcffb6f5e741582154c7c071e0c50c", null ],
-    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#a95ce19f5b12a0b3e8bc02360a39d74c9", null ],
+    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#a7e9f0da754d0c63d688637e775ad9bc8", null ],
+    [ "MecanumControllerCommand", "classfrc2_1_1_mecanum_controller_command.html#aa91f95caad6f479460a47a195e36a0e8", null ],
     [ "End", "classfrc2_1_1_mecanum_controller_command.html#a57135bf847cb5f9a126accb97c0b5ae7", null ],
     [ "Execute", "classfrc2_1_1_mecanum_controller_command.html#a85fe3d249d788cdd74e047fc5835662b", null ],
     [ "Initialize", "classfrc2_1_1_mecanum_controller_command.html#a423698dc71b5f6700a4889eff6672903", null ],
     [ "IsFinished", "classfrc2_1_1_mecanum_controller_command.html#ae4b237ab1682035d4aceb56ef98ef3db", null ],
+    [ "m_controller", "classfrc2_1_1_mecanum_controller_command.html#ab3ae69f938e4bbdd9f664e755fed8de2", null ],
     [ "m_currentWheelSpeeds", "classfrc2_1_1_mecanum_controller_command.html#a1be56a9ec61e08dabc599a6fb5e6e56c", null ],
+    [ "m_desiredRotation", "classfrc2_1_1_mecanum_controller_command.html#ab913986d5642799b5eab1ef83b589390", null ],
     [ "m_feedforward", "classfrc2_1_1_mecanum_controller_command.html#a5aef9e2bfb1871147696f76653911b93", null ],
-    [ "m_finalPose", "classfrc2_1_1_mecanum_controller_command.html#a671179ae0a50647ffad477066e42dfd1", null ],
     [ "m_frontLeftController", "classfrc2_1_1_mecanum_controller_command.html#a33e6cbe007196010ff697f7b14664c65", null ],
     [ "m_frontRightController", "classfrc2_1_1_mecanum_controller_command.html#aa900bca477908b6c8a835efd4e6e8a8c", null ],
     [ "m_kinematics", "classfrc2_1_1_mecanum_controller_command.html#a6056e90308651b6c28b7a3c913a70506", null ],
@@ -22,10 +27,7 @@ var classfrc2_1_1_mecanum_controller_command =
     [ "m_prevTime", "classfrc2_1_1_mecanum_controller_command.html#a48499add1e0d70178264535e2948f9ee", null ],
     [ "m_rearLeftController", "classfrc2_1_1_mecanum_controller_command.html#aa6a57e00a1414cefe7aa46d6b752fb49", null ],
     [ "m_rearRightController", "classfrc2_1_1_mecanum_controller_command.html#a30e0b8f2dcac3037eafc7367b00bf9ee", null ],
-    [ "m_thetaController", "classfrc2_1_1_mecanum_controller_command.html#a9cc5e9e355392ba6b07e8fb1e88db033", null ],
-    [ "m_timer", "classfrc2_1_1_mecanum_controller_command.html#ad3acd526ab9f8f202b01209621c075f9", null ],
+    [ "m_timer", "classfrc2_1_1_mecanum_controller_command.html#a73d771931be207864bd209bbbaf77516", null ],
     [ "m_trajectory", "classfrc2_1_1_mecanum_controller_command.html#a6e71f072f469d2a910aceb8fe43bdc27", null ],
-    [ "m_usePID", "classfrc2_1_1_mecanum_controller_command.html#a6476768068e6d8c74d8db70244d4513d", null ],
-    [ "m_xController", "classfrc2_1_1_mecanum_controller_command.html#a3d6bbcb3ebd380919cafc9cf952ca777", null ],
-    [ "m_yController", "classfrc2_1_1_mecanum_controller_command.html#a2629c535d30cfdacecb57854a266267c", null ]
+    [ "m_usePID", "classfrc2_1_1_mecanum_controller_command.html#a6476768068e6d8c74d8db70244d4513d", null ]
 ];

@@ -8,5 +8,6 @@ var classfrc2_1_1_perpetual_command =
     [ "End", "classfrc2_1_1_perpetual_command.html#aad2fc8dc24937c5e2b213b30521b4ab9", null ],
     [ "Execute", "classfrc2_1_1_perpetual_command.html#af4c9ca0dd2719d42bdeb90d7797cd388", null ],
     [ "Initialize", "classfrc2_1_1_perpetual_command.html#a73da8fb115b2ba145a1b3a8b154241ec", null ],
+    [ "Perpetually", "classfrc2_1_1_perpetual_command.html#afb2df91d1afaf938f37d4a175ca6d28f", null ],
     [ "m_command", "classfrc2_1_1_perpetual_command.html#a99a7ab68eea9dcd112a3f9937dbc37b7", null ]
 ];

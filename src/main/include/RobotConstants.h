@@ -9,7 +9,7 @@
  * 
  * COPYRIGHT NOTICES:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -29,16 +29,29 @@
 // Include the header file for strings, so we can define strings
 #include <string>
 
+// Include the header file for time units
+#include <units/time.h>
+
+// Include the header file for distance units
+#include <units/length.h>
+
+// Include the header file for angles
+#include <units/angle.h>
+
 /******************************* Constants ************************************/
 
                   // ***** Software Version Messages *****
 
 /** The version of the software for the robot */
-const std::string k_SW_VersionNumber = "v2020.0.0.26";
+const std::string k_SW_VersionNumber = "v2022.0.0.28";
 /** The version of the WPILibC software used */
-const std::string k_WPILibC_VersionNumber = "v2020.3.2";
+const std::string k_WPILibC_VersionNumber = "v2022.3.1";
+/** The version of the NavX MXP software used */
+const std::string k_navx_frc_VersionNumber = "v4.0.442";
+/** The version of the REV Robotics library used */
+const std::string k_REVLib_VersionNumber = "v2022.1.1";
 /** The name of the robot */
-const std::string k_RobotName = "Oscar Myar";
+const std::string k_RobotName = "Janky";
 /** The code version message */
 const std::string k_CodeVersionMessage = " code version is ";
 /** The code version message ending */
@@ -77,49 +90,6 @@ const std::string k_CameraServer = "Switched Camera Server";
 
 #endif // #ifndef ORION_DEBUG
 
-// If we have not defined PSSH_DEBUG already
-#ifndef PSSH_DEBUG
-
-  // NOTE: To turn on debug for PSSH code, have the the line
-  //       below read (without the quotes) "#define PSSH_DEBUG 1".
-  //
-  //       To turn off debug for TELEMETRY code, have the the line
-  //       below read (without the quotes) "#define PSSH_DEBUG 0".
-  //
-  //       Generally, for production code, leave debug off.
-  //
-  // NOTE: If the value of the macro below is changed, it will need to
-  //       changed in the Doxyfile doxygen configuration file, in
-  //       the preprocessor section "PREDEFINED".
-
-  /** Define PSSH_DEBUG to 0 (debug off), or 1 (debug on) */
-  #define PSSH_DEBUG 0
-
-#endif // #ifndef PSSH_DEBUG
-
-// If we have not defined USE_PID_PSSH already
-#ifndef USE_PID_PSSH
-
-  // NOTE: To have our code use the PID controller for Pssh,
-  //       along with a working potentiometer hooked up, have the below read 
-  //       (without the quotes) "#define USE_PID_PSSH 1".
-  //
-  //       To have our code allow the driver to manually control Pssh
-  //       have the below read (without the quotes)
-  //       "#define USE_PID_PSSH 0".
-  //
-  // NOTE: If the value of the macro below is changed, it will need to
-  //       changed in the Doxyfile doxygen configuration file, in
-  //       the preprocessor section "PREDEFINED".
-
-  /** 
-   * Define USE_PID_PSSH to 0 (manual control), 
-   * or 1 (using a PID controller and hooked up potentiometer) 
-  */
-  #define USE_PID_PSSH 1
-
-#endif // #ifndef USE_PID_PSSH
-
                   // ******** Telemetry Debugging **********
 
 /** The number of whole seconds to wait before logging telemetry 
@@ -128,43 +98,35 @@ constexpr uint64_t k_TelemetryOutputDelaySec = 5ull;
 
                   // *********** Time Constants ************
 
-/** The number of microseconds per millisecond */
-constexpr double k_MicrosecondsPerMillisecond = 1000.0;
-
 /** The expected times the RobotPeriodic function should run per second */
 constexpr uint64_t k_ExpectedRobotTicksPerSecond = 50;
 
 /** The approximate time for a single robot tick, in seconds */
-constexpr double k_ApproximateRobotTickTime = 0.02;
+const auto k_ApproximateRobotTickTime = 0.02_s;
 
 
                   // ********** Safety Timeouts ************
 
 /** The drive train safety timout, in seconds */
-constexpr double k_DriveTrainSafetyTimeout = 0.1;
+const auto k_DriveTrainSafetyTimeout = 0.1_s;
 
-/** The PAT turner safety timeout, in seconds */
-constexpr double k_PATTurnerSafetyTimeout = 0.1;
+/** The intake motor safety timeout, in seconds */
+const auto k_IntakeMotorSafetyTimeout = 0.1_s;
 
-/** The Pssh safety timeout, in seconds */
-constexpr double k_PsshSafetyTimeout = 0.1;
+/** The left indexer motor safety timeout, in seconds */
+const auto k_LeftIndexerMotorSafetyTimeout = 0.1_s;
 
-/** The Hans and Franz safety timeout, in seconds */
-constexpr double k_HansFranzSafetyTimeout = 0.1;
+/** The right indexer motor safety timeout, in seconds */
+const auto k_RightIndexerMotorSafetyTimeout = 0.1_s;
+
+/** The shooter motor safety timeout, in seconds */
+const auto k_ShooterMotorSafetyTimeout = 0.1_s;
 
                   // ********* Command Timeouts ************
 
 /** The command timeout for the drive train command
  *  CmdAutoTurnAngle, in seconds */
-constexpr double k_DriveTrain_CmdAutoTurnAngle_Timeout = 5.0;
-
-/** The command timeout for the Pssh command
- * CmdDumpPowerCells, in seconds */
-constexpr double k_Pssh_CmdDumpPowerCells_Timeout = 5.0;
-
-/** The command timeout for the Pssh command
- * CmdCollectPowerCells, in seconds */
-constexpr double k_Pssh_CmdCollectPowerCells_Timeout = 5.0;
+const auto k_DriveTrain_CmdAutoTurnAngle_Timeout = 5.0_s;
 
                   // ***** Command Interruptability ********
 
@@ -210,13 +172,21 @@ const std::string k_DriveTrainSmoothingModeOnString  = " ON ";
 /** A constant string to hold the text for smoothing mode off */
 const std::string k_DriveTrainSmoothingModeOffString = "OFF ";
 
-/** A constant string to hold the text for driving with Pssh
-    up front  */
-const std::string k_DriveTrainPsshFrontString = "Pssh";
+/** A constant string to hold the text for driving with the
+    intake up front  */
+const std::string k_DriveTrainIntakeFrontString = "Intake";
 
-/** A constant string to hold the text for driving with PAT
-    up front  */
-const std::string k_DriveTrainPATFrontString = "PAT";
+/** A constant string to hold the text for driving with the
+    shooter up front  */
+const std::string k_DriveTrainShooterFrontString = "Shooter";
+
+                  // ******** Drivetrain Flags ********
+
+/** Indicate that the right side of the drive train is to be inverted */
+const bool k_DriveTrainRightSideIsInverted = true;
+
+/** Indicate that the right side of the drive train is NOT to be inverted */
+const bool k_DriveTrainRightSideIsNOTInverted = false;
 
                   // ******** Joystick/Motor Curves ********
 
@@ -313,48 +283,14 @@ const std::string k_DriveTrainPATFrontString = "PAT";
 constexpr double k_DriveTrainAbsNullZone = 0.05;
 /** The absolute value of the maximum speed allowed to the drive train,
  *  in non-turbo mode */
-constexpr double k_DriveTrainAbsValMaxSpeedNoTurbo = 0.40;
+constexpr double k_DriveTrainAbsValMaxSpeedNoTurbo = 0.60;
 /** The absolute value of the maximum speed allowed to the drive train,
  *  in turbo mode */
-constexpr double k_DriveTrainAbsValMaxSpeedTurboOn = 0.60;
+constexpr double k_DriveTrainAbsValMaxSpeedTurboOn = 0.80;
 /** The exponent used on the joystick to motor curve */
 constexpr double k_DriveTrainExponent = 2.25;
 /** The decay value d of the IIR DLPF */
 constexpr double k_DriveTrain_IIR_DLPF_d = 0.25;
-
-// The PAT turner joystick/motor curve parameters
-/** The null zone range on the controller for the PAT turner */
-constexpr double k_PATTurnerAbsNullZone = 0.05;
-/** The absolute value of the maximum speed allowed to the PAT turner,
- *  in no-turbo mode */
-constexpr double k_PATTurnerAbsValMaxSpeedNoTurbo = 0.15;
-/** The absolute value of the maximum speed allowed to the PAT turner,
- *  in turbo mode */
-constexpr double k_PATTurnerAbsValMaxSpeedTurbo = 0.30;
-/** The exponent used on the joystick to motor curve */
-constexpr double k_PATTurnerExponent = 2.25;
-/** The cutoff point (absolute value) where we switch speeds */
-constexpr double k_PATTurnerAbsCutoffPoint = 0.5;
-/** The maximum input (absolute value) for PAT */
-constexpr double k_PATTurnerAbsMaxInput = 1.0;
-
-// The Pssh joystick/motor curve parameters
-/** The null zone range on the controller for the Pssh */
-constexpr double k_PsshAbsNullZone = 0.05;
-/** The absolute value of the maximum speed allowed to the Pssh,
- *  in non-turbo mode - LEAVE AT 0.22! RML 2020-03-10 */
-constexpr double k_PsshAbsValMaxSpeedNoTurbo = 0.22;
-/** The exponent used on the joystick to motor curve */
-constexpr double k_PsshExponent = 2.25;
-
-// The Hans/Franz arms joystick/motor curve parameters
-/** The null zone range on the controller for Hans/Franz arms */
-constexpr double k_HansFranzArmsAbsNullZone = 0.05;
-/** The absolute value of the maximum speed allowed for Hans/Franz arms,
- *  in non-turbo mode */
-constexpr double k_HansFranzArmsAbsValMaxSpeedNoTurbo = 0.10;
-/** The exponent used on the joystick to motor curve */
-constexpr double k_HansFranzArmsExponent = 2.25;
 
                   // ****** DIO Constants ******
 
@@ -411,121 +347,102 @@ constexpr bool k_CompressorAutomaticallyControlled=true;
 */
 constexpr bool k_CompressorManuallyControlled=false;
 
-                  // ********** Pssh (PID) ************
+                  // ***** Ball Shooter State Strings *****
 
-/** 
- * The scaling factor for the Pssh potentiometer.
- * The potentiometer we are using is a VEX Robotics potentiometer.
- * Its full range is 250 degrees. So that is the scale factor.
- */
-constexpr double k_PsshPotScaleFactor = 250.0;
+/** A constant string to hold the text for unknown state */
+const std::string k_BallShooterStateUnknownString = "UNKNOWN";
+
+/** A constant string to hold the text for fault state */
+const std::string k_BallShooterStateFaultString = "FAULT";
+
+/** A constant string to hold the text for the at rest state */
+const std::string k_BallShooterStateAtRestString = "AT REST";
+
+/** A constant string to hold the text for the intake state */
+const std::string k_BallShooterStateIntakingString = "INTAKING";
+
+/** A constant string to hold the text for the shooting low state */
+const std::string k_BallShooterStateShootingLowString = "SHOOTING LOW";
+
+/** A constant string to hold the text for the shooting high state */
+const std::string k_BallShooterStateShootingHighString = "SHOOTING HI";
+
+                  // ***** Ball Shooter Motor Speeds *****
+
+/** The speed for the intake motor */
+constexpr double k_BallShooterIntakeMotorSpeed = -0.99;
 
 /**
- * The offset for the Pssh potentiometer. The offset allows
- * a potentiomenter to start at 0 other than the start of the pot turns.
+ *  The magnitude speed for the indexer motors. 
+ *  (left and right must always have the same absolute vale,
+ *  but opposite in sign, i.e. +0.5 and -0.5 )
+*/
+constexpr double k_BallShooterIndexerMotorSpeed = -0.50;
+
+/** The speed for the ball shooter when shooting low.
+ *  (This is just temporary, as we should change the speed later on,
+ *  based on how far from target, shooting high or low, etc.)
+*/
+constexpr double k_BallShooterShooterMotorLowSpeed = 0.50;
+
+/** The speed for the ball shooter when shooting high.
+ *  (This is just temporary, as we should change the speed later on,
+ *  based on how far from target, shooting high or low, etc.)
+*/
+constexpr double k_BallShooterShooterMotorHighSpeed = 0.50;
+
+// RAMP CONSTANTS
+
+/** The angle of the ramp with respect to the floor at the departure point,
+ *  in degrees */
+const double k_RampDepartureAngle = 78.0;
+
+/** The height of the ramp at the departure point, in meters */
+const double k_RampDepartureHeight = 0.55;
+
+// TARGET DISTANCES
+
+/** Height from the floor of the top of the top target, in meters */
+const double k_TopofTopTargetHeightFromFloor = 2.641;
+
+/** 
+ * Horizontal Distance from the center of the top and bottom targets
+ * from the Rapid React wall, in meters
+*/
+const double k_CenterofTopBottomTargetDistanceFromReactWall = 0.925;
+
+/** Height from floor of the bottom of the top target, in meters */
+const double k_BottomofTopTargetHeightFromFloor = 1.661;
+
+/** Height from the floor of the top of the bottom target, in meters */
+const double k_TopofBottomTargetHeight = 1.042;
+
+/** 
+ * The horizontal distance from the front of the ramp to the back of
+ *   the ultrasonic sensor, in meters 
+*/
+const double k_RampPositionRelativeToUltrasonic_x0 = 0.03;
+
+/** 
+ * The vertical distance from the top of the ramp to the floor,
+ *    in meters
+*/
+const double k_RampPositionRelativeToFloor_y0 = 0.57;
+
+/** Nominal 5V Power Supply Voltage */
+const double k_Nominal_5V_Voltage = 5.0;
+
+/** 
+ * Conversion Factor for converting 0-4095 (12 bit) count to centimeters.
+ *  See https://www.maxbotix.com/firstrobotics.
+ */
+const double k_MB10X3_ConversionFactor = 0.125;
+
+/** 
+ * The diameter of the shooter wheels, in meters.
  * 
+ * Note: 2" = 0.0508 m
 */
-constexpr double k_PsshPotOffset = -113.0;
-
-/** The name of the Pssh PID */
-const std::string k_PsshPIDName = "PIDSubSysPssh";
-
-/** The value for the PID proportional "P" term for Pssh */
-constexpr double k_PsshProportionalTerm = 0.005;
-/** The value for the PID integral "I" term for Pssh */
-constexpr double k_PsshIntegralTerm = 0.0;
-/** The value for the PID derivative "D" term for Pssh */
-constexpr double k_PsshDerivativeTerm = 0.0;
-/** The value for the feedforward term */
-constexpr double k_PsshFeedforwardTerm = 0.0;
-/** The period (time) between PID calculations, in seconds */
-constexpr double k_PsshPID_Period = 0.02;
-
-/** The minimum motor output allowed */
-constexpr double k_PsshMinimumOutput = -0.23;
-/** The maximum motor output allowed */
-constexpr double k_PsshMaximumOutput =  0.23;
-
-/**
- * The minimum expected input to the PID controller, which is the
- * potentimeter output.
- */
-constexpr double k_PsshMinimumInput = -5.0;
-/**
- * The maximum expected input to the PID controller, which is the
- * potentimeter output.
- */
-constexpr double k_PsshMaximumInput = 63.0;
-
-/** The set point for travel mode */
-constexpr double k_PsshTravelSetpoint = 0.0;
-/** The set point for load mode */
-constexpr double k_PsshLoadSetpoint = 32.0;
-/** The set point for dump mode */
-constexpr double k_PsshDumpSetpoint = 58.0;
-
-/** 
- * The absolute tolerance of our set points, +/-.
- * This means that the value from the potentimeter has to be within
- * this many values. So if the set point is 90, and the absolute
- * tolerance is 5, anywhere from 95 (90+5) to 85 (90-5) should be 
- * recognized as meeting the set point.
-*/ 
-constexpr double k_PsshAbsoluteTolerance = 1.0;
-
-                  // ********** Pssh Modes **********
-
-/**
- * A constant string to hold the text for Pssh travel mode
-*/
-const std::string k_PsshTravelString  = "TRAVEL";
-
-/**
- * A constant string to hold the text for Pssh load mode
-*/
-const std::string k_PsshLoadString  = "LOAD";
-
-/**
- * A constant string to hold the text for Pssh travel mode
-*/
-const std::string k_PsshDumpString  = "DUMP";
-
-/**
- * A constant string to hold the text for Pssh timed out
- * state.
-*/
-const std::string k_PsshTimedOutString   = "TIMED OUT";
-
-                  // ********** Hans/Franz Modes **********
-
-/** A constant string to indicate muscles retracted */
-const std::string k_HansFranzMusclesStateRetracted = "RETRACTED";
-
-/** A constant string to indicate muscles extended */
-const std::string k_HansFranzMusclesStateExtended = "EXTENDED";
-
-/** A constant string to indicate muscles disabled */
-const std::string k_HansFranzMusclesStateDisabled = "DISABLED";
-
-/** A constant string to indicate arms retracted */
-const std::string k_HansFranzArmsStateRetracted = "RETRACTED";
-
-/** A constant string to indicate arms extended */
-const std::string k_HansFranzArmsStateExtended = "EXTENDED";
-
-/** A constant string to indicate arms retracting */
-const std::string k_HansFranzArmsStateRetracting = "RETRACTING";
-
-/** A constant string to indicate arms extending */
-const std::string k_HansFranzArmsStateExtending = "EXTENDING";
-
-/** A constant string to indicate arms are idle */
-const std::string k_HansFranzArmsStateIdle = "IDLE";
-
-/** A constant string to indicate arms are in an unknown state */
-const std::string k_HansFranzArmsStateUnknown = "UNKNOWN";
-
-/** A constant string to indicate arms are in an fault state */
-const std::string k_HansFranzArmsStateFault = "FAULT";
+const double k_Shooter_Wheel_Diam_m = 0.0508;
 
 #endif // #ifndef ROBOTCONSTANTS_H

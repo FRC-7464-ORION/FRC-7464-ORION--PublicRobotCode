@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['serialdatatype',['SerialDataType',['../class_a_h_r_s.html#a2f22e17e850a595bc50ad687b61711d7',1,'AHRS']]]
+  ['loglevel_17914',['LogLevel',['../classnt_1_1_network_table_instance.html#a88dfe5b82924f347c572cdada2707150',1,'nt::NetworkTableInstance']]]
 ];

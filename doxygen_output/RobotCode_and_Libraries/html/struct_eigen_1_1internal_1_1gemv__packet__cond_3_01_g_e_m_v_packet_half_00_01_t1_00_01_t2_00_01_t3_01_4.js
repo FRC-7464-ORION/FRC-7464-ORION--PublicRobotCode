@@ -1,0 +1,4 @@
+var struct_eigen_1_1internal_1_1gemv__packet__cond_3_01_g_e_m_v_packet_half_00_01_t1_00_01_t2_00_01_t3_01_4 =
+[
+    [ "type", "struct_eigen_1_1internal_1_1gemv__packet__cond_3_01_g_e_m_v_packet_half_00_01_t1_00_01_t2_00_01_t3_01_4.html#acbf8747a0f2a931bf8d6d08cecd8a4e6", null ]
+];

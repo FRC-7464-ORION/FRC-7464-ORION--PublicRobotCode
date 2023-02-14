@@ -1,0 +1,4 @@
+var structwpi_1_1_pointer_union_type_selector_return_3_01_pointer_union_type_selector_3_01_t1_00_01_cc46ca047b721b68409be4a9f45bfaff =
+[
+    [ "Return", "structwpi_1_1_pointer_union_type_selector_return_3_01_pointer_union_type_selector_3_01_t1_00_01_cc46ca047b721b68409be4a9f45bfaff.html#a009e7ad7afcc4cb79013dc0425a29294", null ]
+];

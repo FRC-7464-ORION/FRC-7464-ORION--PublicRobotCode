@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['output',['output',['../struct_telemetry_outputter_1_1telemetry__output__type.html#ac85a960d1462e031ede621c90b6e398f',1,'TelemetryOutputter::telemetry_output_type']]]
+  ['neo_5fmaxrpm_1675',['NEO_MaxRPM',['../class_sub_sys_ball_shooter.html#aad9674e02598c81c9160096e5e8a5b8d',1,'SubSysBallShooter']]]
 ];

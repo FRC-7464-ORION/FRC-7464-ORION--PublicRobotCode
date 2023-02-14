@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['data_5ftype',['data_type',['../struct_telemetry_outputter_1_1telemetry__output__type.html#a0ffa19489d7bd9a48b0243aecc28f728',1,'TelemetryOutputter::telemetry_output_type']]],
-  ['direction',['direction',['../class_cmd_auto_drive_straight.html#a1f6d53a06801df7167fd2aa4624efd1b',1,'CmdAutoDriveStraight']]],
-  ['driven_5fdistance_5fexceeded',['driven_distance_exceeded',['../class_cmd_auto_drive_straight.html#a63e78736d0ca76b719ed416c81756e6c',1,'CmdAutoDriveStraight']]],
-  ['driven_5fdistance_5fin_5fcm',['driven_distance_in_cm',['../class_cmd_auto_drive_straight.html#a6a0ebbd7f8306c675cef7dd0849b3ca4',1,'CmdAutoDriveStraight']]],
-  ['driven_5fdistance_5fin_5fencoder_5fticks',['driven_distance_in_encoder_ticks',['../class_cmd_auto_drive_straight.html#afab5b7e3733effee7c456830844427a5',1,'CmdAutoDriveStraight']]],
-  ['driven_5ftime_5fseconds',['driven_time_seconds',['../class_cmd_auto_drive_straight.html#ab033b54c75379e9838b98f5631b65905',1,'CmdAutoDriveStraight']]],
-  ['dtheta',['dtheta',['../structfrc_1_1_twist2d.html#a935ef5e155342a9392c41470839d4a93',1,'frc::Twist2d']]],
-  ['dx',['dx',['../structfrc_1_1_twist2d.html#a4acc8a01db2e750d002d3f5983a2004c',1,'frc::Twist2d']]],
-  ['dx_5fmode',['dx_mode',['../class_cmd_auto_drive_straight.html#a4a3f97b4cadfbf0d1ee02fad7efcebec',1,'CmdAutoDriveStraight']]],
-  ['dy',['dy',['../structfrc_1_1_twist2d.html#a06ddc654fc87ce93744e4b85325667b0',1,'frc::Twist2d']]]
+  ['binary_16824',['binary',['../classwpi_1_1_web_socket.html#a2e9429c99b4487994d6e4b0d0052b863',1,'wpi::WebSocket']]],
+  ['body_16825',['body',['../classwpi_1_1_http_parser.html#a189323dbef344f96eda2b57980d73fd1',1,'wpi::HttpParser']]],
+  ['boolean_16826',['boolean',['../unionwpi_1_1json_1_1json__value.html#a5866ae5824946d2f47cddacfc14a37b2',1,'wpi::json::json_value']]],
+  ['brownout_5ffault_16827',['brownout_fault',['../struct_p_d_h__status__4__t.html#adc519bbf1ae2b34f5e9b35e7d7eb3f3a',1,'PDH_status_4_t::brownout_fault()'],['../struct_p_h__status__0__t.html#a0ae9462d5cc35280fd252d6f6bcf02e6',1,'PH_status_0_t::brownout_fault()']]],
+  ['byte_16828',['byte',['../classwpi_1_1detail_1_1parse__error.html#a3244701a9266832c17c6e309860c4307',1,'wpi::detail::parse_error']]]
 ];

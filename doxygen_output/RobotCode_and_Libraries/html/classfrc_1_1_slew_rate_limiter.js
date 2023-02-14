@@ -6,7 +6,7 @@ var classfrc_1_1_slew_rate_limiter =
     [ "SlewRateLimiter", "classfrc_1_1_slew_rate_limiter.html#a054f9154117bba2fccfa2d8c086b2114", null ],
     [ "Calculate", "classfrc_1_1_slew_rate_limiter.html#aa45ac37263b44cc58f71184402ab6154", null ],
     [ "Reset", "classfrc_1_1_slew_rate_limiter.html#af6e94a2447bc3271a5d3e7d2719cafe1", null ],
+    [ "m_prevTime", "classfrc_1_1_slew_rate_limiter.html#a1b6bedbefe09ace309221cb7babda348", null ],
     [ "m_prevVal", "classfrc_1_1_slew_rate_limiter.html#aa8f6f246d45e30ddd41c12f75b1a9a42", null ],
-    [ "m_rateLimit", "classfrc_1_1_slew_rate_limiter.html#a530d62f146c505cc8bec7ebc785bd375", null ],
-    [ "m_timer", "classfrc_1_1_slew_rate_limiter.html#a75d94bc04625cb33538c4e5de48a5f6c", null ]
+    [ "m_rateLimit", "classfrc_1_1_slew_rate_limiter.html#a530d62f146c505cc8bec7ebc785bd375", null ]
 ];

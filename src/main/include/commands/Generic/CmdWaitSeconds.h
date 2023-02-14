@@ -17,7 +17,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2020-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -33,6 +33,9 @@
 /*************************** Local Header Files *******************************/
 
 /************************** Library Header Files ******************************/
+
+// Include the header file for time units
+#include <units/time.h>
 
 // Include the header file for the timer class
 #include <frc/Timer.h>
@@ -61,7 +64,7 @@ class CmdWaitSeconds
      * 
      * @param sec       The amount of time in seconds to wait
      */
-    explicit CmdWaitSeconds(double sec);
+    explicit CmdWaitSeconds(units::second_t sec);
 
     /** The CmdWaitSeconds class destructor. */
     ~CmdWaitSeconds();
@@ -113,7 +116,8 @@ class CmdWaitSeconds
     /********************* PRIVATE MEMBER VARIABLES ***************************/
 
     /** The time to wait, in seconds */
-    double wait_time_seconds;
+  //  double wait_time_seconds;
+    units::second_t wait_time_seconds;
 
     /** A timer class */
     frc::Timer m_timer{};

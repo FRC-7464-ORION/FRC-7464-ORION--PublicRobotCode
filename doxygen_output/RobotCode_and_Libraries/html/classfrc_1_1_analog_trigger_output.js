@@ -5,7 +5,7 @@ var classfrc_1_1_analog_trigger_output =
     [ "GetAnalogTriggerTypeForRouting", "classfrc_1_1_analog_trigger_output.html#a06c9013dbfed96855993a95ef9849176", null ],
     [ "GetChannel", "classfrc_1_1_analog_trigger_output.html#a82db69d86df6cc8dfd2b364dbf0dc6fb", null ],
     [ "GetPortHandleForRouting", "classfrc_1_1_analog_trigger_output.html#a0658a6e87b4485fa3de9d875d17d51fb", null ],
-    [ "InitSendable", "classfrc_1_1_analog_trigger_output.html#a8d45ef0e86ec4d28f7e81d80df13ac39", null ],
+    [ "InitSendable", "classfrc_1_1_analog_trigger_output.html#ae0d81972fded5563d0444a34e8903f8b", null ],
     [ "IsAnalogTrigger", "classfrc_1_1_analog_trigger_output.html#a497bc01ec5771c2820125c0f5e4c5bfe", null ],
     [ "AnalogTrigger", "classfrc_1_1_analog_trigger_output.html#aaae5addbdfb60c5f834f1cd08e59dadd", null ],
     [ "m_outputType", "classfrc_1_1_analog_trigger_output.html#a89226f43728d1c9e153b90d6b2064cae", null ],

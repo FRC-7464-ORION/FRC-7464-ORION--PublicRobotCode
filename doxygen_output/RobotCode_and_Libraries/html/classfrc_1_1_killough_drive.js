@@ -1,13 +1,15 @@
 var classfrc_1_1_killough_drive =
 [
+    [ "WheelSpeeds", "structfrc_1_1_killough_drive_1_1_wheel_speeds.html", "structfrc_1_1_killough_drive_1_1_wheel_speeds" ],
     [ "KilloughDrive", "classfrc_1_1_killough_drive.html#a0d65f5f3ae84acda42bd5c791a1df344", null ],
     [ "KilloughDrive", "classfrc_1_1_killough_drive.html#a619ea39c2b2e255e262c7ddd0c6129ce", null ],
     [ "~KilloughDrive", "classfrc_1_1_killough_drive.html#ab2ab5192480ffd8f56353bad5372aeb2", null ],
     [ "KilloughDrive", "classfrc_1_1_killough_drive.html#aeb2826b7c1c6748f9e6250146b51a077", null ],
     [ "DriveCartesian", "classfrc_1_1_killough_drive.html#a47e916a354558a561a01a13f79c2e126", null ],
+    [ "DriveCartesianIK", "classfrc_1_1_killough_drive.html#a58d69458f0d9a2a796c359b9f00bb614", null ],
     [ "DrivePolar", "classfrc_1_1_killough_drive.html#afb1e1b3d94fc92ede177a9b12123c29a", null ],
-    [ "GetDescription", "classfrc_1_1_killough_drive.html#a0bf3ccc5f7858dbb2c436fba06a87d53", null ],
-    [ "InitSendable", "classfrc_1_1_killough_drive.html#a2f8235052c3c462e30996f2b278b2e6e", null ],
+    [ "GetDescription", "classfrc_1_1_killough_drive.html#ac78f6f627bc55674a494d60aeb539174", null ],
+    [ "InitSendable", "classfrc_1_1_killough_drive.html#a18a28e23e6e6d05456ebf6a9bb24c250", null ],
     [ "operator=", "classfrc_1_1_killough_drive.html#ab212ccf32bc974741e5e8054622c7684", null ],
     [ "StopMotor", "classfrc_1_1_killough_drive.html#ac74dd119691cfbced800a4e7b6daa8ed", null ],
     [ "m_backMotor", "classfrc_1_1_killough_drive.html#adf13f8593ca795ec0b6b8a2066642401", null ],

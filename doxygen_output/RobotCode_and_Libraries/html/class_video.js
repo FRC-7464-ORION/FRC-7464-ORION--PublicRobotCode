@@ -9,6 +9,7 @@ var class_video =
     [ "InitializeUSBCamera", "class_video.html#a5a9eade21511edcb78d5befa4e698570", null ],
     [ "setCameraDirection", "class_video.html#a3e12f9c1191a3109a21e9afa81dd7190", null ],
     [ "m_backCamera", "class_video.html#a49fc1b2474d4e46a2b34fdfcf18b133c", null ],
+    [ "m_cameraSelection", "class_video.html#ab38eb5917b07bd79f5e06d3779b7256d", null ],
     [ "m_cameraServer", "class_video.html#a098ea46cecc71c2a19a9653e9d20f921", null ],
     [ "m_frontCamera", "class_video.html#a2c6de869770956c80ac23054077387bf", null ]
 ];

@@ -5,7 +5,7 @@
  *
  * COPYRIGHT NOTICES:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -19,18 +19,19 @@
 #define VERSIONS_H
 
 /**
- * @page version_1 Versions
- *
- * @section version_1_intro_sec Versions used in this build:
- * 
- * <p>
- * NewRobotCode: v2020.1.1
- * </p><p>
- * WPILibC:      v2020.3.2
- * </p><p>
- * NavX MXP:     v2019.2.2
- * </p>
- *
+ @page version_1 Versions
+
+ @section version_1_intro_sec Versions used in this build:
+ 
+ <p>
+ ORION Code:    v2022.0.0.28
+ </p><p>
+ WPILibC Code:  v2022.3.1
+ </p><p>
+ NavX MXP Code: v4.0.442
+ </p><p>
+ REVLib Code:   v2022.1.1
+ </p>
 */
 
 #endif // #ifndef VERSIONS_H

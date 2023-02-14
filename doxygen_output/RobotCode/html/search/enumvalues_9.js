@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['negative',['NEGATIVE',['../class_sub_sys_hans_franz_arms.html#a0ecb3a91b56e67dc717661f23833e5a3aa79908bedbd6832d3797e9a48d2a2a99',1,'SubSysHansFranzArms']]],
-  ['notype',['NOTYPE',['../class_telemetry_outputter.html#aa183722ff472bf9ebe15d23825d75e23a701ab4966c09f2729d3c21c751fbe93d',1,'TelemetryOutputter']]]
+  ['orion_5frobotcode_5fsw_5fver_1761',['ORION_ROBOTCODE_SW_VER',['../class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ad777d1e2eed3ff9ac09a437875f18908',1,'TelemetryOutputter']]]
 ];

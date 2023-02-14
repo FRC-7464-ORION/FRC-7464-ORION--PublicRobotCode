@@ -1,12 +1,11 @@
 var classfrc_1_1_shuffleboard_component_base =
 [
-    [ "ShuffleboardComponentBase", "classfrc_1_1_shuffleboard_component_base.html#aab148a8b51735fcfb6b9a6280ffc9c60", null ],
-    [ "~ShuffleboardComponentBase", "classfrc_1_1_shuffleboard_component_base.html#af23c1bc7ee2c3d43f7493640adb57e3d", null ],
+    [ "ShuffleboardComponentBase", "classfrc_1_1_shuffleboard_component_base.html#a41fb5a7f31d53334ee88f207e5e19ff3", null ],
     [ "BuildMetadata", "classfrc_1_1_shuffleboard_component_base.html#ab76d253b2a420feeef6fa0a8be282c46", null ],
     [ "GetParent", "classfrc_1_1_shuffleboard_component_base.html#af806ee8fffb9df92825a0be32c6e2bc7", null ],
     [ "GetProperties", "classfrc_1_1_shuffleboard_component_base.html#aed39e9c14e8847549a04b04d039334eb", null ],
     [ "GetType", "classfrc_1_1_shuffleboard_component_base.html#a537dd57cb6ae15247b683838bea8345c", null ],
-    [ "SetType", "classfrc_1_1_shuffleboard_component_base.html#afb37c60de7d706713259c72948df7bda", null ],
+    [ "SetType", "classfrc_1_1_shuffleboard_component_base.html#a1807bb12073edd0b5eb1b6cba15efb0c", null ],
     [ "m_column", "classfrc_1_1_shuffleboard_component_base.html#aef982023fe78ed75697f766746779a86", null ],
     [ "m_height", "classfrc_1_1_shuffleboard_component_base.html#a94d81bd926ee1e52c0030d911c0b7c6e", null ],
     [ "m_metadataDirty", "classfrc_1_1_shuffleboard_component_base.html#a7509167674851f0883e9b886a1c5e673", null ],

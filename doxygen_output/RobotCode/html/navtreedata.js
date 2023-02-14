@@ -1,18 +1,17 @@
 /*
-@ @licstart  The following is the entire license notice for the
+@licstart  The following is the entire license notice for the
 JavaScript code in this file.
 
-Copyright (C) 1997-2017 by Dimitri van Heesch
+Copyright (C) 1997-2019 by Dimitri van Heesch
 
 This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
+it under the terms of version 2 of the GNU General Public License as published by
+the Free Software Foundation
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
@@ -24,7 +23,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NewRobotCode", "index.html", [
-    [ "FRC Team #7464-ORION 2020 Season Code", "index.html", [
+    [ "FRC Team #7464-ORION 2022 Season Code", "index.html", [
       [ "Introduction", "index.html#intro_sec", null ],
       [ "Copyright Notices", "index.html#copyright_sec", null ]
     ] ],
@@ -58,11 +57,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_cmd_auto_drive_straight_8cpp.html",
-"_robot_constants_8h.html#a3e4acfd8d7dbfcdb9a0586d6ea60da65",
-"class_cmd_enable_hans_franz_arms.html#ad7e48c7cafc54c39c6f3d6f1d284ec40",
-"class_robot_tick.html#a5a898f818f0d9604d834b8eba0882736",
-"class_telemetry_outputter.html#a7b4b4418f71456f6e9cc70363d814427",
-"dir_298561ef34ee491d64c486459ed7a41c.html"
+"_robot_constants_8h.html#a86d36a0ad6f5b54eab51b29e32f2d889",
+"class_cmd_reset_a_h_r_s_yaw.html#a8cc9b8a947cf231df7059ad543a6fc82",
+"class_telemetry_outputter.html#a1c927cf0b9d387f0e24d208695131021",
+"class_telemetry_outputter.html#abc7f512a81c8bce574ad787767656b12ac74cd357ff396a2c4b51fcb59e38bceb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

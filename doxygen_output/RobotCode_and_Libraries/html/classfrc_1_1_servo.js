@@ -7,7 +7,7 @@ var classfrc_1_1_servo =
     [ "GetMaxAngle", "classfrc_1_1_servo.html#af8d9f93a11e9af01fb8c88df9b9c745c", null ],
     [ "GetMinAngle", "classfrc_1_1_servo.html#a0141ce046f6eeb8466aca4edb75d88c8", null ],
     [ "GetServoAngleRange", "classfrc_1_1_servo.html#a415dc5096d0f2d1eceb80d5561df1e41", null ],
-    [ "InitSendable", "classfrc_1_1_servo.html#ad4bc86dfd4a25824af031be56cd556ff", null ],
+    [ "InitSendable", "classfrc_1_1_servo.html#a07e088a9b4a7eb33d35a4d94c49b54a4", null ],
     [ "operator=", "classfrc_1_1_servo.html#a9ea3ce33aa352a9b8739ea4d94696949", null ],
     [ "Set", "classfrc_1_1_servo.html#a30344aa364f9f8c16391059e71c8b210", null ],
     [ "SetAngle", "classfrc_1_1_servo.html#af14dee8f2d30567768b12485b43111f2", null ],

@@ -1,15 +1,15 @@
-NewRobotCode v2020.0.0.26:
+NewRobotCode v2022.0.0.28:
 
-     100 files     107 text files.
-classified 107 filesDuplicate file check 107 files (101 known unique)Unique:      100 files                                               107 unique files.                              
-Counting:  100      37 files ignored.
+      86 text files.
+classified 86 files      86 unique files.                              
+      31 files ignored.
 
-github.com/AlDanial/cloc v 1.80  T=0.50 s (212.0 files/s, 32726.0 lines/s)
+github.com/AlDanial/cloc v 1.85  T=0.20 s (432.2 files/s, 69912.4 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-C++                             55           2050           3273           2813
-C/C++ Header                    51           1506           4922           1799
+C++                             43           1712           2589           2443
+C/C++ Header                    42           1270           4154           1582
 -------------------------------------------------------------------------------
-SUM:                           106           3556           8195           4612
+SUM:                            85           2982           6743           4025
 -------------------------------------------------------------------------------

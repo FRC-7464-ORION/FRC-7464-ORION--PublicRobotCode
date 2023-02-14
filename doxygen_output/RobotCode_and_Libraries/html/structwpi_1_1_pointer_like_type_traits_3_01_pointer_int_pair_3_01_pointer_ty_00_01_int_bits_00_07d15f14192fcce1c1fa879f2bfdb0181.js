@@ -1,0 +1,4 @@
+var structwpi_1_1_pointer_like_type_traits_3_01_pointer_int_pair_3_01_pointer_ty_00_01_int_bits_00_07d15f14192fcce1c1fa879f2bfdb0181 =
+[
+    [ "NumLowBitsAvailable", "structwpi_1_1_pointer_like_type_traits_3_01_pointer_int_pair_3_01_pointer_ty_00_01_int_bits_00_07d15f14192fcce1c1fa879f2bfdb0181.html#a939e3ccf92f5ff40eec612e996f7fb24a6d81eba404783a1f98adada647bf46f6", null ]
+];

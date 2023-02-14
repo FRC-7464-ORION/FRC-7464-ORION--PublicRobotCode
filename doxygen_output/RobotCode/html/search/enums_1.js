@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['drive_5fstraight_5fauto_5fdx_5fmode',['DRIVE_STRAIGHT_AUTO_DX_MODE',['../class_cmd_auto_drive_straight.html#a1790a58237059c05c28319358fba1ce5',1,'CmdAutoDriveStraight']]],
-  ['drive_5fstraight_5fdirection',['DRIVE_STRAIGHT_DIRECTION',['../class_cmd_auto_drive_straight.html#abf8f58d1d8cb23ab12231df79d002877',1,'CmdAutoDriveStraight']]]
+  ['camera_5fdirection_1685',['CAMERA_DIRECTION',['../class_video.html#a6a4c7d21f7472e0c947ec83bace21e9e',1,'Video']]]
 ];

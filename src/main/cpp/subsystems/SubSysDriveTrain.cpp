@@ -15,7 +15,7 @@
  *
  * Some portions:
  *
- * Copyright (c) 2019-2020 FRC Team #7464 - ORION. All Rights Reserved.
+ * Copyright (c) 2019-2022 FRC Team #7464 - ORION. All Rights Reserved.
  * Open Source Software - may be modified and shared by FRC teams. The code
  * must be accompanied by the FRC Team #7464 - ORION BSD license file in
  * the root directory of the project.
@@ -62,6 +62,9 @@ SubSysDriveTrain::SubSysDriveTrain()
 
   // Set the subsystem's name
   SetName("SubSysDriveTrain");
+
+  // Invert the right side of the drive train
+  m_rightDriveTrainController.SetInverted(k_DriveTrainRightSideIsInverted);
 
   // Set the motor safety timeout for the drivetrain
   m_differentialDrive.SetExpiration(k_DriveTrainSafetyTimeout);
@@ -455,11 +458,11 @@ std::string SubSysDriveTrain::GetDriveDirectionString()
 
   // If the drive direction is not switched
   if(!m_drive_direction_switched)
-    // Pssh is up front
-    return k_DriveTrainPsshFrontString;
+    // The intake is up front
+    return k_DriveTrainIntakeFrontString;
   else
-    // PAT is the front
-    return k_DriveTrainPATFrontString;
+    // The shooter is the front
+    return k_DriveTrainShooterFrontString;
 
 } // end SubSysDriveTrain::GetDriveDirectionString()
 

@@ -1,0 +1,4 @@
+var structwpi_1_1_pointer_like_type_traits_3_01_pointer_union4_3_01_p_t1_00_01_p_t2_00_01_p_t3_00_01_p_t4_01_4_01_4 =
+[
+    [ "NumLowBitsAvailable", "structwpi_1_1_pointer_like_type_traits_3_01_pointer_union4_3_01_p_t1_00_01_p_t2_00_01_p_t3_00_01_p_t4_01_4_01_4.html#ae8ab3ef571cbe26bc7d5e614186dea06a94cfe986421cf5e6dc163e73e025017c", null ]
+];
